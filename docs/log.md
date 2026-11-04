@@ -1,6 +1,7 @@
 # Directory Update Log
 
 ## 2026-11-04
+* **Update**: [Push notifications](push-notifications.md): fix for Nuntius unregistering right after registering (race between "session ready" with the not yet loaded account setting and the setting's load); registrations are now serialized per session and a ready session is never unregistered. Diagnosed on the phone with `dbus-monitor` and KUnifiedPush's `/Management` interface: ntfy and D-Bus activation worked, the distributor held no client.
 * **Update**: [Development environment](dev-environment.md), "Distribution": pushes to `phosh` publish the bundles as the rolling release `rolling` and notify phosh-apps, which lists `nexumia-de/nuntius rolling`; stable and nightly releases stay with #3.
 * **Update**: [Push notifications](push-notifications.md): UnifiedPush D-Bus interface read from the KUnifiedPush package; first implementation in `src/unifiedpush/` (one file per job: `connector`, `distributor`, `pusher`, `endpoints`, and `mod.rs` keeping registrations in sync with the sessions) (registration per session, pusher with the KDE server's Matrix gateway, connector exported in `dbus_register`, 60 s hold on a push message so the catch-up sync shows notifications); Flatpak talks to `org.unifiedpush.Distributor.*`.
 * **Update**: [Push notifications](push-notifications.md): KUnifiedPush is in Alpine edge `community` (26.08.2); its autostart file and default configuration (KDE's ntfy server) read from the package, dependency size estimated from the APKINDEX.

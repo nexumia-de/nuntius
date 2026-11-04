@@ -136,6 +136,18 @@ keeps the registrations in sync with the sessions and their settings.
   first distributor on the bus (`ListNames`, then
   `ListActivatableNames`); the token is the session id. Turning
   notifications off, or logging out, unregisters it.
+- The account switch is loaded from the homeserver only after the
+  session is ready and reads as off until then. So a ready session is
+  only ever registered; unregistering happens only when a setting
+  changes. Registrations of a session run one after the other, the last
+  request winning. (The first version also unregistered on "ready" with
+  the not yet loaded setting; that `Unregister` reached KUnifiedPush
+  37 ms after `Register`, so it held no client, opened no connection to
+  the ntfy server and deleted the topic. Found on the phone with
+  `dbus-monitor`, 2026-11-04.)
+- Known limit: if notifications are turned off for the account on
+  another device while Nuntius is closed, the old registration stays
+  until notifications are turned off and on again here.
 - On `NewEndpoint`, the Matrix gateway is looked up on the endpoint's
   server (`GET /_matrix/push/v1/notify` must answer
   `{"unifiedpush":{"gateway":"matrix"}}`; there is no fallback to a

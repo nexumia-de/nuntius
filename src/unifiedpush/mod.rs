@@ -18,6 +18,8 @@ mod distributor;
 mod endpoints;
 mod pusher;
 
+use std::{cell::RefCell, collections::HashMap};
+
 use gtk::{glib, prelude::*};
 use tracing::{debug, info, warn};
 
@@ -30,6 +32,24 @@ use crate::{
     session_list::SessionList,
     spawn,
 };
+
+thread_local! {
+    /// The registration state of each session, by session ID.
+    static STATES: RefCell<HashMap<String, RegistrationState>> = RefCell::default();
+}
+
+/// The UnifiedPush registration state of a session.
+#[derive(Debug, Default)]
+struct RegistrationState {
+    /// Whether a task is registering or unregistering the session.
+    busy: bool,
+    /// Whether the session should be registered, if this was requested while
+    /// the task was busy.
+    wanted: Option<bool>,
+    /// Whether the session was last registered or unregistered by this
+    /// process.
+    applied: Option<bool>,
+}
 
 /// Watch the sessions of the given list and keep their UnifiedPush
 /// registration in sync with their notification settings.
@@ -52,22 +72,28 @@ pub(crate) fn watch_sessions(session_list: &SessionList) {
 /// Keep the UnifiedPush registration of the given session in sync with its
 /// state and notification settings.
 fn watch_session(session: &Session) {
-    session.connect_ready(update_registration);
+    // Whether notifications are enabled for the account is only known once
+    // the notification settings are loaded from the homeserver, which happens
+    // after the session is ready. Until then it reads as disabled, so a ready
+    // session is only ever registered here, never unregistered; the settings
+    // notifications below handle the rest.
+    session.connect_ready(register_if_enabled);
 
     let settings = session.notifications().settings();
     settings.connect_account_enabled_notify(glib::clone!(
         #[weak]
         session,
-        move |_| update_registration(&session)
+        move |_| on_settings_changed(&session)
     ));
     settings.connect_session_enabled_notify(glib::clone!(
         #[weak]
         session,
-        move |_| update_registration(&session)
+        move |_| on_settings_changed(&session)
     ));
 
     session.connect_logged_out(|session| {
         let token = session.session_id().to_owned();
+        STATES.with_borrow_mut(|states| states.remove(&token));
         spawn!(async move {
             distributor::unregister(&token).await;
             endpoints::remove(&token);
@@ -75,33 +101,81 @@ fn watch_session(session: &Session) {
     });
 
     if session.state() == SessionState::Ready {
-        update_registration(session);
+        register_if_enabled(session);
     }
 }
 
-/// Register or unregister the given session, depending on its state and
-/// notification settings.
-fn update_registration(session: &Session) {
-    if session.state() != SessionState::Ready {
-        return;
+/// Register the given session if notifications are enabled for it.
+fn register_if_enabled(session: &Session) {
+    if session.notifications().enabled() {
+        request_registration(session, true);
     }
+}
 
-    let session = session.clone();
-    spawn!(async move {
-        let token = session.session_id().to_owned();
+/// Handle a change of the notification settings of the given session.
+fn on_settings_changed(session: &Session) {
+    if session.state() == SessionState::Ready {
+        request_registration(session, session.notifications().enabled());
+    }
+}
 
-        if session.notifications().enabled() {
-            // The distributor answers with `NewEndpoint` on the connector.
-            let description = format!("{APP_NAME} ({})", session.user_id());
-            distributor::register(&token, &description).await;
-        } else {
-            if let Some(endpoint) = endpoints::get(&token) {
-                pusher::delete(&session, endpoint).await;
-                endpoints::remove(&token);
-            }
-            distributor::unregister(&token).await;
-        }
+/// Request that the given session is registered or unregistered.
+///
+/// The requests of a session are applied one after the other, and only the
+/// last one requested while a previous one is running is applied, so a
+/// registration and an unregistration never overlap.
+fn request_registration(session: &Session, registered: bool) {
+    let token = session.session_id().to_owned();
+    let start = STATES.with_borrow_mut(|states| {
+        let state = states.entry(token).or_default();
+        state.wanted = Some(registered);
+        !std::mem::replace(&mut state.busy, true)
     });
+
+    if start {
+        let session = session.clone();
+        spawn!(async move {
+            apply_requests(&session).await;
+        });
+    }
+}
+
+/// Apply the requested registration state of the given session until no
+/// request is left.
+async fn apply_requests(session: &Session) {
+    let token = session.session_id().to_owned();
+
+    loop {
+        let next = STATES.with_borrow_mut(|states| {
+            let state = states.entry(token.clone()).or_default();
+            match state.wanted.take() {
+                Some(wanted) if state.applied != Some(wanted) => {
+                    state.applied = Some(wanted);
+                    Some(wanted)
+                }
+                _ => {
+                    state.busy = false;
+                    None
+                }
+            }
+        });
+
+        match next {
+            Some(true) => {
+                // The distributor answers with `NewEndpoint` on the connector.
+                let description = format!("{APP_NAME} ({})", session.user_id());
+                distributor::register(&token, &description).await;
+            }
+            Some(false) => {
+                if let Some(endpoint) = endpoints::get(&token) {
+                    pusher::delete(session, endpoint).await;
+                    endpoints::remove(&token);
+                }
+                distributor::unregister(&token).await;
+            }
+            None => break,
+        }
+    }
 }
 
 /// The session with the given ID, if it is logged in.
