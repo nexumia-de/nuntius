@@ -86,7 +86,7 @@ differ in details.
   name per process (`matrix-sdk` `src/client/builder/mod.rs`).
   Fractal's clients (`src/utils/matrix/mod.rs`) do not set it.
 
-## Design (proposal)
+## Design
 
 Use the **single-process** setup with D-Bus activation of Nuntius
 itself, not a second helper binary:
@@ -96,21 +96,56 @@ itself, not a second helper binary:
   --gapplication-service`), so the session bus can start Nuntius
   without a window when the distributor delivers a message to its bus
   name.
-- In that mode Nuntius restores the sessions, lets `NotificationClient`
-  (single process) fetch and decrypt the event, shows the notification
-  and quits after an idle timeout unless a window was opened.
+- In that mode Nuntius restores the sessions and syncs; Fractal's own
+  notification handler decrypts and shows the new messages, and the
+  app quits after a timeout unless a window was opened.
+  `NotificationClient` (single process) stays an option if the sync
+  turns out too slow.
 - No cross-process lock and no change to how Fractal opens its stores,
   which keeps the diff against upstream small.
 
-Steps:
+## UnifiedPush D-Bus interface
 
-1. Register with the distributor (UnifiedPush D-Bus interface) and set
-   a pusher on the homeserver with the endpoint, `format:
-   event_id_only`.
-2. Implement the connector interface the distributor calls; on a
-   message, resolve and show the notification.
-3. Background mode: no window on D-Bus activation, quit when idle.
-4. Flatpak: `--own-name` is implied for the app id; talk access to the
-   distributor's bus name.
+KUnifiedPush 26.08.2 speaks versions 1 and 2 of the UnifiedPush D-Bus
+interface; read from the introspection data embedded in
+`kunifiedpush-distributor` and `libKUnifiedPush.so` of the Alpine
+package (the specification site is blocked in the cloud environment).
+Nuntius uses version 1:
+
+| Side | Bus name, path | Interface | Methods |
+|---|---|---|---|
+| Distributor | `org.unifiedpush.Distributor.kde`, `/org/unifiedpush/Distributor` | `org.unifiedpush.Distributor1` | `Register(s serviceName, s token, s description) → (s registrationResult, s registrationResultReason)`, `Unregister(s token)` (no reply) |
+| App | the app id, `/org/unifiedpush/Connector` | `org.unifiedpush.Connector1` | `Message(s token, ay message, s messageIdentifier)`, `NewEndpoint(s token, s endpoint)`, `Unregistered(s token)` (all without reply) |
+
+`registrationResult` is `REGISTRATION_SUCCEEDED` or
+`REGISTRATION_FAILED`.
+
+## Implementation (`src/unifiedpush.rs`)
+
+- The connector is exported in `Application::dbus_register`, before the
+  bus name is owned, so it exists when the distributor starts Nuntius
+  by D-Bus activation.
+- Each ready session with notifications enabled (account and session
+  switch of the existing notification settings) is registered with the
+  first distributor on the bus (`ListNames`, then
+  `ListActivatableNames`); the token is the session id. Turning
+  notifications off, or logging out, unregisters it.
+- On `NewEndpoint`, the Matrix gateway is looked up on the endpoint's
+  server (`GET /_matrix/push/v1/notify` must answer
+  `{"unifiedpush":{"gateway":"matrix"}}`; there is no fallback to a
+  third-party gateway) and a pusher is set on the homeserver: pushkey =
+  endpoint, app id = `de.nexumia.Nuntius`, `format: event_id_only`. The
+  endpoint per session is kept in `unifiedpush-endpoints.json` in the
+  data directory, to delete the pusher later.
+- On `Message`, the application is held for 60 s: started by D-Bus
+  activation it has no window, restores the sessions and syncs, and
+  Fractal's notification handler shows the new messages; then it quits
+  unless a window was opened. `NotificationClient` is not needed for
+  this.
+- Flatpak: `--talk-name=org.unifiedpush.Distributor.*`; the app owns
+  its id, and Flatpak exports its D-Bus service file for activation.
+
+To verify on the phone: the distributor starts Nuntius, notifications
+of the catch-up sync appear, 60 s is enough on mobile data.
 
 Each step becomes an issue in this repository.
