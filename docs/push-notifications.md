@@ -49,8 +49,21 @@ closed most of the time, so messages arrive unnoticed.
   and event ids.
 - **Distributor on the phone**: KUnifiedPush, a Linux UnifiedPush
   distributor that can use an ntfy server[^distributors]. Chatty on
-  Phosh is documented with it[^honk]. Whether postmarketOS/Alpine
-  packages it is not checked yet.
+  Phosh is documented with it[^honk]. Alpine edge packages it in
+  `community` as `kunifiedpush` 26.08.2-r0 (aarch64 APKINDEX, checked
+  2026-11-04), so the owner installs it with `sudo apk add
+  kunifiedpush`. The package ships
+  `/etc/xdg/autostart/org.kde.kunifiedpush-distributor.desktop` without
+  `OnlyShowIn`, so Phosh's session starts `kunifiedpush-distributor` at
+  login, and `/etc/xdg/KDE/kunifiedpush-distributor.conf` with
+  `[PushProvider] Type=Ntfy` and `[Ntfy] Url=https://unifiedpush.kde.org/`,
+  the chosen server; no configuration is needed. Its settings page is a
+  Plasma System Settings module (`kcm_push_notifications`), not
+  available in Phosh; another server would be set in
+  `~/.config/KDE/kunifiedpush-distributor.conf`. It pulls in Qt 6 and
+  part of KDE Frameworks 6 (kcmutils, kio, kirigami, …): at most about
+  570 MB for the whole dependency closure, less where Qt 6 is already
+  installed.
 
 ## matrix-rust-sdk's notification client
 

@@ -32,7 +32,11 @@ Reachable: `gitlab.gnome.org` (upstream), `dl.flathub.org`,
 `nightly.gnome.org` (GNOME's nightly Flatpak runtime, which upstream's
 development manifest uses; allowed by the owner on 2026-11-04), and
 `unifiedpush.kde.org` (KDE's ntfy server for push notifications,
-allowed by the owner on 2026-11-04).
+allowed by the owner on 2026-11-04), `pkgs.alpinelinux.org`,
+`dl-cdn.alpinelinux.org` (Alpine package search, indexes and packages)
+and `gitlab.alpinelinux.org` (allowed 2026-11-04, but it answers
+scripted requests with an anti-bot challenge; read APKBUILDs from the
+packages or the index instead).
 
 A full local build was not tried yet: it needs the GNOME 51 SDK and the
 Rust extension (several GB) and cargo network access inside the build
