@@ -28,10 +28,9 @@ on every pull request and push to `phosh`.
 ## Hosts (cloud environment, 2026-11-04)
 
 Reachable: `gitlab.gnome.org` (upstream), `dl.flathub.org`,
-`index.crates.io`, `static.crates.io` (crate files).
-
-Blocked: `nightly.gnome.org` (proxy 403), GNOME's nightly Flatpak
-runtime; not needed with the GNOME 51 runtime.
+`index.crates.io`, `static.crates.io` (crate files), and
+`nightly.gnome.org` (GNOME's nightly Flatpak runtime, which upstream's
+development manifest uses; allowed by the owner on 2026-11-04).
 
 A full local build was not tried yet: it needs the GNOME 51 SDK and the
 Rust extension (several GB) and cargo network access inside the build
