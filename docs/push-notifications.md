@@ -120,7 +120,13 @@ Nuntius uses version 1:
 `registrationResult` is `REGISTRATION_SUCCEEDED` or
 `REGISTRATION_FAILED`.
 
-## Implementation (`src/unifiedpush.rs`)
+## Implementation (`src/unifiedpush/`)
+
+One file per job: `connector.rs` (the D-Bus interface the distributor
+calls), `distributor.rs` (finding the distributor, `Register`,
+`Unregister`), `pusher.rs` (Matrix gateway check, pusher on the
+homeserver), `endpoints.rs` (stored endpoints), and `mod.rs`, which
+keeps the registrations in sync with the sessions and their settings.
 
 - The connector is exported in `Application::dbus_register`, before the
   bus name is owned, so it exists when the distributor starts Nuntius
