@@ -11,6 +11,9 @@ sources:
   - id: distributors
     title: UnifiedPush distributors
     url: https://unifiedpush.org/users/distributors/
+  - id: kup
+    title: kunifiedpush 1.0.0 is out (KDE blog)
+    url: https://blogs.kde.org/2024/10/19/kunifiedpush-1.0.0-is-out/
   - id: continuwuity
     title: Continuwuity, push notifications guide
     url: https://continuwuity.org/guides/push
@@ -35,8 +38,15 @@ closed most of the time, so messages arrive unnoticed.
 ## Pieces on the owner's side
 
 - **Push server and gateway**: ntfy, which has an embedded Matrix push
-  gateway (`/_matrix/push/v1/notify`)[^continuwuity]. Self-hosting is
-  better than `ntfy.sh`, which rate-limits hard[^continuwuity].
+  gateway (`/_matrix/push/v1/notify`)[^continuwuity]. The owner chose
+  KDE's instance `https://unifiedpush.kde.org`, KUnifiedPush's default
+  provider since 1.0[^kup]. Checked on 2026-11-04: `/v1/health` answers
+  `{"healthy":true}`; `GET /_matrix/push/v1/notify` answers
+  `{"unifiedpush":{"gateway":"matrix"}}`, so the Matrix gateway is on;
+  `config.js` shows anonymous use only (no login, no sign-up, no
+  reservations). Fallbacks: `ntfy.sh` (rate-limits hard[^continuwuity])
+  or a self-hosted ntfy. With encrypted rooms the server sees only room
+  and event ids.
 - **Distributor on the phone**: KUnifiedPush, a Linux UnifiedPush
   distributor that can use an ntfy server[^distributors]. Chatty on
   Phosh is documented with it[^honk]. Whether postmarketOS/Alpine
