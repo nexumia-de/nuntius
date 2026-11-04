@@ -1,0 +1,54 @@
+# Daily: mirror Fractal's main from GNOME's GitLab into this fork's main
+# and open a pull request main -> phosh when phosh lacks upstream
+# commits. Merge it with "Create a merge commit" (not squash or rebase),
+# so main stays an ancestor of phosh. A conflict shows up in the pull
+# request and is resolved by hand on a branch from phosh.
+# Adapted from nexumia-de/bionic_translation. Needs "Allow GitHub
+# Actions to create and approve pull requests" in the repository
+# settings.
+name: Sync upstream
+
+on:
+  schedule:
+    - cron: '23 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: ${{ github.repository }}
+      UPSTREAM: https://gitlab.gnome.org/World/fractal.git
+    steps:
+      - name: Mirror upstream main
+        run: |
+          new=$(git ls-remote "$UPSTREAM" refs/heads/main | cut -f1)
+          old=$(gh api "repos/$REPO/commits/main" --jq .sha)
+          echo "upstream $new, fork $old"
+          [ -n "$new" ] || { echo "upstream main not found" >&2; exit 1; }
+          [ "$new" != "$old" ] || exit 0
+          git init -q mirror
+          cd mirror
+          git fetch -q --no-tags "$UPSTREAM" main
+          # Not forced: if main was committed to, this fails instead of
+          # dropping the commits.
+          git push -q "https://x-access-token:$GH_TOKEN@github.com/$REPO.git" FETCH_HEAD:refs/heads/main
+
+      - name: Open pull request main -> phosh
+        run: |
+          behind=$(gh api "repos/$REPO/compare/phosh...main" --jq .ahead_by)
+          echo "phosh lacks $behind upstream commits"
+          [ "$behind" -gt 0 ] || exit 0
+          if gh pr list -R "$REPO" --base phosh --head main --state open --json number --jq '.[].number' | grep -q .; then
+            echo "pull request already open"
+            exit 0
+          fi
+          gh pr create -R "$REPO" --base phosh --head main \
+            --title "Merge upstream main" \
+            --body "Brings new Fractal commits into \`phosh\` (.github/workflows/sync-upstream.yml). Merge with **Create a merge commit**, not squash or rebase."

@@ -93,12 +93,6 @@ path = [
 SPDX-FileCopyrightText = "NONE"
 SPDX-License-Identifier = "CC0-1.0"
 
-[[annotations]]
-path = [
-    "AGENTS.md",
-]
-SPDX-FileCopyrightText = "The GoToSocial authors"
-SPDX-License-Identifier = "AGPL-3.0-or-later"
 
 # Map style
 [[annotations]]
@@ -123,3 +117,14 @@ path = [
 SPDX-FileCopyrightText = "Maki icon set"
 SPDX-License-Identifier = "CC0-1.0"
 
+# Nuntius fork files
+[[annotations]]
+path = [
+    ".github/**",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "build-aux/de.nexumia.Nuntius.json",
+    "docs/**",
+]
+SPDX-FileCopyrightText = "Nuntius Contributors"
+SPDX-License-Identifier = "GPL-3.0-or-later"
