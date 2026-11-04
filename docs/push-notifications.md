@@ -52,18 +52,52 @@ closed most of the time, so messages arrive unnoticed.
   Phosh is documented with it[^honk]. Whether postmarketOS/Alpine
   packages it is not checked yet.
 
-## Plan for Nuntius (not started)
+## matrix-rust-sdk's notification client
 
-1. A setting that registers Nuntius with the distributor over D-Bus
-   (UnifiedPush D-Bus spec) and sets a pusher on the homeserver.
-2. A small process started by D-Bus activation on a push message. It
-   opens the session store, fetches and decrypts the one event and sends
-   a desktop notification; activating it opens the room in Nuntius.
-   `matrix-rust-sdk` has a notification client meant for this
-   (separate process next to the app, as on iOS); its API and the
-   cross-process store lock are to be read in the SDK version Fractal
-   pins before the design is fixed.
-3. Flatpak: D-Bus activation of the helper and access to the
+Fractal pins `matrix-sdk` and `matrix-sdk-ui` 0.19.1 at git commit
+`2d6248ed` (`Cargo.lock`). Read in the crates.io release 0.19.1 of
+`matrix-sdk-ui` (`src/notification_client.rs`); the pinned commit may
+differ in details.
+
+- `NotificationClient::new(client, setup)` with
+  `NotificationProcessSetup::MultipleProcesses` (own process, as iOS'
+  notification extension; writes to the stores are coordinated by a
+  cross-process lock) or `SingleProcess { sync_service }` (inside the
+  app, as on Android; uses the app's running `SyncService`).
+- `get_notification(room_id, event_id)` fetches the event with a short
+  sliding sync (or `/context`), runs an encryption sync when the room
+  key is missing, and returns it decrypted or, after the
+  `decryption_deadline`, undecrypted.
+- A second process needs the cross-process lock in **both** processes:
+  `ClientBuilder::cross_process_store_config` with a different holder
+  name per process (`matrix-sdk` `src/client/builder/mod.rs`).
+  Fractal's clients (`src/utils/matrix/mod.rs`) do not set it.
+
+## Design (proposal)
+
+Use the **single-process** setup with D-Bus activation of Nuntius
+itself, not a second helper binary:
+
+- Fractal already installs a D-Bus service file
+  (`data/org.gnome.Fractal.service.in`: `Exec=fractal
+  --gapplication-service`), so the session bus can start Nuntius
+  without a window when the distributor delivers a message to its bus
+  name.
+- In that mode Nuntius restores the sessions, lets `NotificationClient`
+  (single process) fetch and decrypt the event, shows the notification
+  and quits after an idle timeout unless a window was opened.
+- No cross-process lock and no change to how Fractal opens its stores,
+  which keeps the diff against upstream small.
+
+Steps:
+
+1. Register with the distributor (UnifiedPush D-Bus interface) and set
+   a pusher on the homeserver with the endpoint, `format:
+   event_id_only`.
+2. Implement the connector interface the distributor calls; on a
+   message, resolve and show the notification.
+3. Background mode: no window on D-Bus activation, quit when idle.
+4. Flatpak: `--own-name` is implied for the app id; talk access to the
    distributor's bus name.
 
 Each step becomes an issue in this repository.
