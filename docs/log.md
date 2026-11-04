@@ -1,6 +1,7 @@
 # Directory Update Log
 
 ## 2026-11-04
+* **Update**: [Push notifications](push-notifications.md): UnifiedPush D-Bus interface read from the KUnifiedPush package; first implementation in `src/unifiedpush/` (one file per job: `connector`, `distributor`, `pusher`, `endpoints`, and `mod.rs` keeping registrations in sync with the sessions) (registration per session, pusher with the KDE server's Matrix gateway, connector exported in `dbus_register`, 60 s hold on a push message so the catch-up sync shows notifications); Flatpak talks to `org.unifiedpush.Distributor.*`.
 * **Update**: [Push notifications](push-notifications.md): KUnifiedPush is in Alpine edge `community` (26.08.2); its autostart file and default configuration (KDE's ntfy server) read from the package, dependency size estimated from the APKINDEX.
 * **Update**: [Push notifications](push-notifications.md): `matrix-sdk-ui` 0.19.1's `NotificationClient` read (process setups, `get_notification`, cross-process lock needed in both processes); design proposal: single process, Nuntius started by D-Bus activation through upstream's existing service file.
 * **Update**: [Push notifications](push-notifications.md): the owner chose KDE's ntfy server `unifiedpush.kde.org`; its health endpoint, Matrix gateway and anonymous-only configuration checked. [Development environment](dev-environment.md): the host is reachable.

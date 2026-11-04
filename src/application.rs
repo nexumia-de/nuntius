@@ -80,6 +80,10 @@ mod imp {
                 }
             ));
 
+            // Nuntius: keep the UnifiedPush registrations of the sessions up
+            // to date.
+            crate::unifiedpush::watch_sessions(&self.session_list);
+
             // Restore the sessions.
             spawn!(clone!(
                 #[weak(rename_to = session_list)]
@@ -115,6 +119,21 @@ mod imp {
             debug!("Application::activate");
 
             self.present_main_window();
+        }
+
+        fn dbus_register(
+            &self,
+            connection: &gio::DBusConnection,
+            object_path: &str,
+        ) -> Result<(), glib::Error> {
+            self.parent_dbus_register(connection, object_path)?;
+
+            // Nuntius: receive UnifiedPush messages.
+            if let Err(error) = crate::unifiedpush::export_connector(connection) {
+                warn!("Could not export the UnifiedPush connector: {error}");
+            }
+
+            Ok(())
         }
 
         fn startup(&self) {

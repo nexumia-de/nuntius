@@ -13,7 +13,8 @@
         "--socket=pulseaudio",
         "--share=network",
         "--share=ipc",
-        "--device=dri"
+        "--device=dri",
+        "--talk-name=org.unifiedpush.Distributor.*"
     ],
     "build-options": {
         "append-path": "/usr/lib/sdk/rust-stable/bin",

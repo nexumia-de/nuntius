@@ -39,8 +39,9 @@ Every line changed in an upstream file can conflict in a later merge.
 - New features go into new files where possible.
 
 Changed upstream files so far: `meson.build`, the desktop file and the
-metainfo template, `src/application.rs` (name, About dialog),
-`src/main.rs`, `src/login/local_server.rs`, `README.md` (a Nuntius
+metainfo template, `src/application.rs` (name, About dialog, UnifiedPush
+hooks in `constructed` and `dbus_register`),
+`src/main.rs` (also `mod unifiedpush`), `src/login/local_server.rs`, `README.md` (a Nuntius
 section on top), `REUSE.toml` (upstream's entry for its `AGENTS.md`,
 which it took from GoToSocial under AGPL-3.0-or-later, removed together
 with `LICENSES/AGPL-3.0-or-later.txt`; the fork's files get their own
