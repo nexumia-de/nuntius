@@ -11,7 +11,8 @@ gnome = import('gnome')
 i18n = import('i18n')
 
 base_id = 'org.gnome.Fractal'
-application_id = base_id
+# Nuntius: own app id; source files keep upstream's base_id names.
+application_id = 'de.nexumia.Nuntius'
 
 major_version = '14.3'
 pre_release_version = ''

@@ -1,3 +1,18 @@
+# Nuntius
+
+Nuntius is a Matrix chat app for [Phosh](https://phosh.mobi/) phones and the
+desktop. It is a fork of [Fractal](https://gitlab.gnome.org/World/fractal) by the
+Fractal Team, not affiliated with the Fractal project. The fork's goal is push
+notifications through UnifiedPush while the app is closed. Its own files and
+plans are in [docs/](docs/index.md); please report problems with Nuntius
+[here](https://github.com/nexumia-de/nuntius/issues), not to Fractal.
+
+Support development: [Liberapay](https://liberapay.com/suitably).
+
+The rest of this file is Fractal's README.
+
+---
+
 [![Our chat room](https://img.shields.io/matrix/fractal-gtk:matrix.org?color=blue&label=%23fractal%3Agnome.org&logo=matrix)](https://matrix.to/#/#fractal:gnome.org)
 [![Our Gitlab project](https://img.shields.io/badge/gitlab.gnome.org%2F-World%2FFractal-green?logo=gitlab)](https://gitlab.gnome.org/World/fractal/)
 [![Our documentation](https://img.shields.io/badge/%F0%9F%95%AE-Docs-B7410E?logo=rust)](https://world.pages.gitlab.gnome.org/fractal/)

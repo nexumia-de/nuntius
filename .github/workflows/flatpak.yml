@@ -1,0 +1,86 @@
+# Builds the Nuntius Flatpak for x86_64 and aarch64 from
+# build-aux/de.nexumia.Nuntius.json and keeps the bundles as artifacts.
+# Steps and pinned actions follow phosh-toolkit's reusable flatpak.yml,
+# which this fork cannot use yet: cargo fetches crates during the build
+# (build-args --share=network, as upstream's manifest does), so
+# Flathub's linter and the licence checks would fail.
+name: Flatpak
+
+on:
+  push:
+    branches: [phosh]
+  pull_request:
+    branches: [phosh]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: flatpak-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build (${{ matrix.arch }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: x86_64
+            runner: ubuntu-24.04
+          - arch: aarch64
+            runner: ubuntu-24.04-arm
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 150
+    env:
+      MANIFEST: build-aux/de.nexumia.Nuntius.json
+      APP_ID: de.nexumia.Nuntius
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install Flatpak tooling
+        run: |
+          apt=(sudo env DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Lock::Timeout=120)
+          "${apt[@]}" update -q
+          "${apt[@]}" install -y -q --no-install-recommends \
+            flatpak flatpak-builder librsvg2-common elfutils
+          # Ubuntu 24.04 restricts unprivileged user namespaces, which
+          # bubblewrap needs for the build sandbox.
+          sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+          flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+      - name: Cache flatpak-builder state
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .flatpak-builder
+          key: flatpak-builder-${{ matrix.arch }}-${{ hashFiles('build-aux/de.nexumia.Nuntius.json', 'Cargo.lock') }}
+          restore-keys: |
+            flatpak-builder-${{ matrix.arch }}-
+
+      - name: Build
+        run: |
+          flatpak-builder --user --install-deps-from=flathub --disable-rofiles-fuse \
+            --ccache --force-clean --arch=${{ matrix.arch }} \
+            --repo=repo build-dir "$MANIFEST"
+
+      - name: Check installed metadata
+        run: |
+          desktop=build-dir/files/share/applications/$APP_ID.desktop
+          metainfo=build-dir/files/share/metainfo/$APP_ID.metainfo.xml
+          test -f "$desktop" && test -f "$metainfo"
+          grep -Eiq '^X-Purism-FormFactor=.*mobile;' "$desktop"
+          grep -q '^Name=Nuntius$' "$desktop"
+          test -f "build-dir/files/share/glib-2.0/schemas/$APP_ID.gschema.xml"
+
+      - name: Bundle
+        run: |
+          flatpak build-bundle --arch=${{ matrix.arch }} \
+            --runtime-repo=https://dl.flathub.org/repo/flathub.flatpakrepo \
+            repo "$APP_ID-${{ matrix.arch }}.flatpak" "$APP_ID"
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ${{ env.APP_ID }}-${{ matrix.arch }}
+          path: ${{ env.APP_ID }}-${{ matrix.arch }}.flatpak
+          retention-days: 14

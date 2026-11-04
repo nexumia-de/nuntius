@@ -20,9 +20,9 @@ use crate::{
 /// The key for the current session setting.
 pub(crate) const SETTINGS_KEY_CURRENT_SESSION: &str = "current-session";
 /// The name of the application.
-pub(crate) const APP_NAME: &str = "Fractal";
+pub(crate) const APP_NAME: &str = "Nuntius";
 /// The URL of the homepage of the application.
-pub(crate) const APP_HOMEPAGE_URL: &str = "https://gitlab.gnome.org/World/fractal/";
+pub(crate) const APP_HOMEPAGE_URL: &str = "https://github.com/nexumia-de/nuntius";
 
 mod imp {
     use std::cell::Cell;
@@ -241,11 +241,14 @@ mod imp {
             let dialog = adw::AboutDialog::builder()
                 .application_name(APP_NAME)
                 .application_icon(config::APP_ID)
-                .developer_name(gettext("The Fractal Team"))
+                .developer_name("suitably")
+                .comments(
+                    "Based on Fractal by the Fractal Team. Nuntius is an independent fork \
+                     and not affiliated with the Fractal project.",
+                )
                 .license_type(gtk::License::Gpl30)
                 .website(APP_HOMEPAGE_URL)
-                .issue_url("https://gitlab.gnome.org/World/fractal/-/issues")
-                .support_url("https://matrix.to/#/#fractal:gnome.org")
+                .issue_url("https://github.com/nexumia-de/nuntius/issues")
                 .version(config::VERSION)
                 .copyright(gettext("© The Fractal Team"))
                 .developers([
@@ -266,6 +269,8 @@ mod imp {
 
             // This can't be added via the builder
             dialog.add_credit_section(Some(&gettext("Name by")), &["Regina Bíró"]);
+            dialog.add_link("Support Development", "https://liberapay.com/suitably");
+            dialog.add_link("Fractal", "https://gitlab.gnome.org/World/fractal");
 
             // If the user wants our support room, try to open it ourselves.
             dialog.connect_activate_link(clone!(
