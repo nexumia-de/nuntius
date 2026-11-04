@@ -30,7 +30,9 @@ on every pull request and push to `phosh`.
 Reachable: `gitlab.gnome.org` (upstream), `dl.flathub.org`,
 `index.crates.io`, `static.crates.io` (crate files), and
 `nightly.gnome.org` (GNOME's nightly Flatpak runtime, which upstream's
-development manifest uses; allowed by the owner on 2026-11-04).
+development manifest uses; allowed by the owner on 2026-11-04), and
+`unifiedpush.kde.org` (KDE's ntfy server for push notifications,
+allowed by the owner on 2026-11-04).
 
 A full local build was not tried yet: it needs the GNOME 51 SDK and the
 Rust extension (several GB) and cargo network access inside the build
