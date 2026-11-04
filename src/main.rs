@@ -62,7 +62,7 @@ fn main() {
     bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR).expect("Invalid argument passed to bindtextdomain");
     textdomain(GETTEXT_PACKAGE).expect("Invalid string passed to textdomain");
 
-    gtk::glib::set_application_name("Fractal");
+    gtk::glib::set_application_name(APP_NAME);
 
     gtk::init().expect("Could not start GTK4");
     gst::init().expect("Could not initialize gst");
