@@ -25,6 +25,17 @@ during the build (`build-args: --share=network`), as upstream does.
 CI (`.github/workflows/flatpak.yml`) builds x86_64 and aarch64 bundles
 on every pull request and push to `phosh`.
 
+## Distribution
+
+Every push to `phosh` replaces the bundles of the GitHub release
+`rolling` (tag moved to the pushed commit) and, with the secret
+`PUBLISH_TOKEN`, notifies `nexumia-de/phosh-apps`. phosh-apps lists
+Nuntius as `nexumia-de/nuntius rolling` in `apps.txt` and publishes it
+as `de.nexumia.Nuntius` in the nexumia Flatpak repository; the release
+must exist before that line is added, or phosh-apps' publish run fails.
+Stable tag releases and a nightly `.Devel` app come with phosh-toolkit's
+reusable workflow, which needs vendored crates first (#3).
+
 ## Hosts (cloud environment, 2026-11-04)
 
 Reachable: `gitlab.gnome.org` (upstream), `dl.flathub.org`,
