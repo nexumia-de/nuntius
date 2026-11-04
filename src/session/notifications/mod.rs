@@ -38,6 +38,9 @@ use crate::{
 // This is taken from GNOME Shell's behavior:
 // <https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/c7778e536b094fae4d0694af6103cf4ad75050d3/js/ui/messageList.js#L24>
 const MAX_BODY_LINES: usize = 6;
+/// The maximum time to wait for the notifications settings to load before
+/// showing a push notification.
+const SETTINGS_LOAD_TIMEOUT: Duration = Duration::from_secs(30);
 /// The maximum number of characters that we want to display for the body of a
 /// notification. We assume that the system shows at most 100 characters per
 /// line, so this is `MAX_BODY_LINES * 100`.
@@ -157,12 +160,39 @@ impl Notifications {
         matrix_notification: Notification,
         matrix_room: MatrixRoom,
     ) {
+        let settings = self.settings();
+
+        // The account setting is only loaded after the first sync, but this can be
+        // called during the first sync, so wait for it.
+        if settings.session_enabled() && !settings.is_loaded() {
+            let notifier = OneshotNotifier::<()>::new("Notifications::show_push");
+            let receiver = notifier.listen();
+
+            let handler_id = settings.connect_is_loaded_notify(move |_| {
+                notifier.notify();
+            });
+
+            if glib::future_with_timeout(SETTINGS_LOAD_TIMEOUT, receiver.into_future())
+                .await
+                .is_err()
+            {
+                debug!("Timed out waiting for the notifications settings to load");
+            }
+            settings.disconnect(handler_id);
+        }
+
         // Do not show notifications if they are disabled.
         if !self.enabled() {
+            debug!(
+                account_enabled = settings.account_enabled(),
+                session_enabled = settings.session_enabled(),
+                "Not showing notification: notifications are disabled"
+            );
             return;
         }
 
         let Some(session) = self.session() else {
+            debug!("Not showing notification: the session is gone");
             return;
         };
 
@@ -180,6 +210,7 @@ impl Notifications {
                     .selected_room()
                     .is_some_and(|r| r.room_id() == room_id)
         }) {
+            debug!("Not showing notification: the room is open in the active window");
             return;
         }
 

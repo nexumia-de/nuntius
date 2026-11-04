@@ -14,7 +14,7 @@ use ruma::{
 };
 use tokio::task::AbortHandle;
 use tokio_stream::wrappers::BroadcastStream;
-use tracing::error;
+use tracing::{debug, error};
 
 use crate::{
     session::{Room, Session, SessionState},
@@ -110,6 +110,11 @@ mod imp {
         /// Whether notifications are enabled for this Matrix account.
         #[property(get)]
         account_enabled: Cell<bool>,
+        /// Whether the account settings were loaded from the homeserver.
+        ///
+        /// Until then, `account-enabled` is `false`.
+        #[property(get)]
+        is_loaded: Cell<bool>,
         /// Whether notifications are enabled for this session.
         #[property(get, set = Self::set_session_enabled, explicit_notify)]
         session_enabled: Cell<bool>,
@@ -276,6 +281,12 @@ mod imp {
                 }
             };
             self.set_account_enabled(account_enabled);
+
+            if !self.is_loaded.get() {
+                debug!(account_enabled, "Account notifications setting loaded");
+                self.is_loaded.set(true);
+                self.obj().notify_is_loaded();
+            }
 
             if default_rooms_notifications_is_all(api.clone(), false).await {
                 self.set_global_setting(NotificationsGlobalSetting::All);

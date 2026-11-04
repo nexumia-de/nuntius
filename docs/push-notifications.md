@@ -3,7 +3,7 @@ type: Concept
 title: Push notifications
 description: The fork's goal: Matrix notifications through UnifiedPush and ntfy while Nuntius is closed. Plan and open questions; nothing is implemented yet.
 tags: [notifications, unifiedpush, ntfy, matrix]
-generated: { by: claude-code/2.1.317, at: 2026-11-04T18:00:00Z }
+generated: { by: claude-code/2.1.317, at: 2026-11-04T22:00:00Z }
 sources:
   - id: honk
     title: Unified Push (Guido Günther's notes, Chatty with KUnifiedPush)
@@ -160,6 +160,25 @@ keeps the registrations in sync with the sessions and their settings.
   Fractal's notification handler shows the new messages; then it quits
   unless a window was opened. `NotificationClient` is not needed for
   this.
+- Notifications of the catch-up sync (`src/session/mod.rs`,
+  `src/session/notifications/`). matrix-sdk calls the notification
+  handlers inside `sync_once`, before the response reaches Fractal's
+  sync stream, and Fractal registered its handler only when it handled
+  the first response; the new message is in exactly that first sync of
+  a restored session, so no notification appeared (seen on the phone,
+  2026-11-04: "Run notification handlers" ran 20 ms before "Received
+  sync response"). Now `prepare()` awaits the registration before the
+  first sync when the store has a sync token; without one (a new
+  login) the first sync is a full initial sync with old messages, so
+  the handler is still registered after it, as upstream does. The
+  handler only spawns onto the GLib main context, so the SDK never
+  waits for it. `show_push` also waits (at most 30 s) until the
+  account switch was loaded from the homeserver
+  (`NotificationsSettings:is-loaded`), which happens only after the
+  first sync, instead of dropping the notification because the switch
+  still reads as off. Both drop paths log at `debug`. Upstream had no
+  fix (searched issues and merge requests on 2026-11-04); upstream
+  moved the registration after the first sync in MR 1315 (2023).
 - Flatpak: `--talk-name=org.unifiedpush.Distributor.*`; the app owns
   its id, and Flatpak exports its D-Bus service file for activation.
 

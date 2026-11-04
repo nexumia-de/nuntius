@@ -4,7 +4,8 @@ use futures_util::{StreamExt, lock::Mutex};
 use gettextrs::gettext;
 use gtk::{gio, glib, glib::clone, prelude::*, subclass::prelude::*};
 use matrix_sdk::{
-    Client, SessionChange, config::SyncSettings, media::MediaRetentionPolicy, sync::SyncResponse,
+    Client, SessionChange, config::SyncSettings, media::MediaRetentionPolicy,
+    store::StateStoreDataKey, sync::SyncResponse,
 };
 use ruma::{
     api::client::{
@@ -127,6 +128,8 @@ mod imp {
         ///
         /// Capped at `MISSED_SYNC_DELAYS.len() - 1`.
         missed_sync_count: Cell<usize>,
+        /// Whether the notification handler was registered with the client.
+        notification_handler_registered: Cell<bool>,
     }
 
     #[glib::object_subclass]
@@ -402,6 +405,17 @@ mod imp {
                     .await;
             });
 
+            // A restored session resumes from its sync token, so the first sync only
+            // contains new events, like the one that woke us up through UnifiedPush.
+            // Listen to notifications before it starts, or they would be missed.
+            //
+            // Without a sync token, the first sync is a full initial sync with the
+            // recent history of every room, which should not trigger notifications,
+            // so we wait for it to finish.
+            if self.has_sync_token().await {
+                self.init_notifications().await;
+            }
+
             self.set_state(SessionState::InitialSync);
             self.sync();
 
@@ -520,7 +534,16 @@ mod imp {
 
                     if self.state.get() < SessionState::Ready {
                         self.set_state(SessionState::Ready);
-                        self.init_notifications();
+
+                        if !self.notification_handler_registered.get() {
+                            spawn!(clone!(
+                                #[weak(rename_to = imp)]
+                                self,
+                                async move {
+                                    imp.init_notifications().await;
+                                }
+                            ));
+                        }
                     }
 
                     self.set_offline(false);
@@ -661,8 +684,37 @@ mod imp {
             }
         }
 
+        /// Whether the store has a sync token, i.e. the next sync is not an
+        /// initial sync.
+        async fn has_sync_token(&self) -> bool {
+            let client = self.client().clone();
+            let handle = spawn_tokio!(async move {
+                client
+                    .state_store()
+                    .get_kv_data(StateStoreDataKey::SyncToken)
+                    .await
+            });
+
+            match handle.await.expect("task was not aborted") {
+                Ok(token) => token.is_some(),
+                Err(error) => {
+                    error!(
+                        session = self.obj().session_id(),
+                        "Could not load sync token: {error}"
+                    );
+                    false
+                }
+            }
+        }
+
         /// Start listening to notifications.
-        fn init_notifications(&self) {
+        ///
+        /// Does nothing if the notification handler was already registered.
+        async fn init_notifications(&self) {
+            if self.notification_handler_registered.replace(true) {
+                return;
+            }
+
             let obj_weak = glib::SendWeakRef::from(self.obj().downgrade());
             let client = self.client().clone();
 
@@ -682,7 +734,14 @@ mod imp {
                         }
                     })
                     .await;
-            });
+            })
+            .await
+            .expect("task was not aborted");
+
+            debug!(
+                session = self.obj().session_id(),
+                "Notification handler registered"
+            );
         }
 
         /// Update the stored session tokens.
