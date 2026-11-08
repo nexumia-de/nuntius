@@ -1,5 +1,8 @@
 # Directory Update Log
 
+## 2026-11-08
+* **Update**: `AGENTS.md` imports `agents/core.md` and `agents/gtk-app.md` from phosh-toolkit instead of its whole `AGENTS.md`; repeated shared rules removed (toolkit decision "lean agent rules", to use fewer tokens per session).
+
 ## 2026-11-04
 * **Update**: [Push notifications](push-notifications.md): fix for no notification after a UnifiedPush wake-up: the notification handler is registered before the first sync of a restored session, and `show_push` waits for the account notification setting instead of dropping the event while it loads.
 * **Update**: [Push notifications](push-notifications.md): fix for Nuntius unregistering right after registering (race between "session ready" with the not yet loaded account setting and the setting's load); registrations are now serialized per session and a ready session is never unregistered. Diagnosed on the phone with `dbus-monitor` and KUnifiedPush's `/Management` interface: ntfy and D-Bus activation worked, the distributor held no client.
