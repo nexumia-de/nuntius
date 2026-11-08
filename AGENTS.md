@@ -1,12 +1,12 @@
-@../phosh-toolkit/AGENTS.md
+@../phosh-toolkit/agents/core.md
+@../phosh-toolkit/agents/gtk-app.md
 
 # Nuntius
 
 Matrix chat app for Phosh phones and the desktop: a fork of
 [Fractal](https://gitlab.gnome.org/World/fractal) (GPL-3.0-or-later)
 whose first goal is push notifications through UnifiedPush and ntfy
-while the app is closed. The shared rules in ../phosh-toolkit/AGENTS.md
-apply as well, with the exceptions below. Knowledge of this fork:
+while the app is closed. Exceptions to the shared rules are below. Knowledge of this fork:
 [docs/index.md](docs/index.md).
 
 This file replaces upstream's `AGENTS.md` on `phosh`; upstream's rules
