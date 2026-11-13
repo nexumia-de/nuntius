@@ -6,6 +6,10 @@ targets = [
 
 [advisories]
 yanked = "deny"
+ignore = [
+    { id = "RUSTSEC-2026-0459", reason = "libsqlite3-sys is an indirect dependency and we do not use the bundled feature" },
+]
+
 
 [bans]
 multiple-versions = "allow"
