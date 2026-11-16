@@ -19,22 +19,25 @@ flatpak-builder --user --install-deps-from=flathub --force-clean build-dir build
 
 `build-aux/de.nexumia.Nuntius.json` is upstream's development manifest
 on the stable GNOME 51 runtime from Flathub (upstream uses GNOME's
-nightly runtime), without the development profile. Cargo fetches crates
-during the build (`build-args: --share=network`), as upstream does.
+nightly runtime), without the development profile. The cargo crates are
+vendored, so the build needs no network
+([Flatpak build and releases](flatpak.md)).
 
-CI (`.github/workflows/flatpak.yml`) builds x86_64 and aarch64 bundles
-on every pull request and push to `phosh`.
+CI (`.github/workflows/flatpak.yml`, phosh-toolkit's reusable workflow)
+builds x86_64 and aarch64 bundles on every pull request, push to `phosh`
+and tag `v<version>`.
 
 ## Distribution
 
-Every push to `phosh` replaces the bundles of the GitHub release
+Channels and the first stable release: [Flatpak build and
+releases](flatpak.md). Until then, every push to `phosh` replaces the bundles of the GitHub release
 `rolling` (tag moved to the pushed commit) and, with the secret
 `PUBLISH_TOKEN`, notifies `nexumia-de/phosh-apps`. phosh-apps lists
 Nuntius as `nexumia-de/nuntius rolling` in `apps.txt` and publishes it
 as `de.nexumia.Nuntius` in the nexumia Flatpak repository; the release
 must exist before that line is added, or phosh-apps' publish run fails.
-Stable tag releases and a nightly `.Devel` app come with phosh-toolkit's
-reusable workflow, which needs vendored crates first (#3).
+Stable tag releases and the nightly `.Devel` app come from
+phosh-toolkit's reusable workflow (#3).
 
 ## Hosts (cloud environment, 2026-11-04)
 
@@ -49,6 +52,7 @@ and `gitlab.alpinelinux.org` (allowed 2026-11-04, but it answers
 scripted requests with an anti-bot challenge; read APKBUILDs from the
 packages or the index instead).
 
-A full local build was not tried yet: it needs the GNOME 51 SDK and the
-Rust extension (several GB) and cargo network access inside the build
-sandbox through the proxy.
+`github.com` and `pypi.org` are reachable too (2026-11-16, needed by
+`build-aux/update-cargo-sources.sh`). The GNOME 51 SDK uses the
+freedesktop 26.08 base, so its Rust extension is
+`org.freedesktop.Sdk.Extension.rust-stable//26.08`.

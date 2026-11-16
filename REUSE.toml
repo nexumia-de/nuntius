@@ -123,7 +123,11 @@ path = [
     ".github/**",
     "AGENTS.md",
     "CLAUDE.md",
+    "build-aux/cargo-sources-requirements.txt",
     "build-aux/de.nexumia.Nuntius.json",
+    "build-aux/grass-cargo-sources.json",
+    "build-aux/nuntius-cargo-sources.json",
+    "build-aux/update-cargo-sources.sh",
     "docs/**",
 ]
 SPDX-FileCopyrightText = "Nuntius Contributors"

@@ -24,7 +24,9 @@ The fork started at upstream commit `9fbc7283` (2026-11-04, version
 `.github/workflows/sync-upstream.yml` runs daily at 02:23 UTC: it pushes
 upstream's `main` to the fork's `main` (not forced) and opens a pull
 request `main` -> `phosh`. Merge it with a merge commit. Conflicts are
-resolved on a branch from `phosh`.
+resolved on a branch from `phosh`. When upstream changed `Cargo.lock`,
+the vendored cargo sources must be regenerated on such a branch as well
+([Flatpak build and releases](flatpak.md#keeping-the-crates-in-step)).
 
 ## Small diff
 
@@ -41,7 +43,8 @@ Every line changed in an upstream file can conflict in a later merge.
 Changed upstream files so far: `meson.build`, the desktop file and the
 metainfo template, `src/application.rs` (name, About dialog, UnifiedPush
 hooks in `constructed` and `dbus_register`),
-`src/main.rs` (also `mod unifiedpush`), `src/login/local_server.rs`, `README.md` (a Nuntius
+`src/main.rs` (also `mod unifiedpush`), `meson.options` (option
+`build_label` at the end, for phosh-toolkit's nightly build), `src/login/local_server.rs`, `README.md` (a Nuntius
 section on top), `REUSE.toml` (upstream's entry for its `AGENTS.md`,
 which it took from GoToSocial under AGPL-3.0-or-later, removed together
 with `LICENSES/AGPL-3.0-or-later.txt`; the fork's files get their own

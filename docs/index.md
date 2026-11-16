@@ -16,6 +16,8 @@ apps is in `../phosh-toolkit/docs/index.md`.
 * [Fork workflow](fork-workflow.md) - Branches, the daily upstream sync, the small-diff rule and why nothing goes upstream.
 * [Push notifications](push-notifications.md) - The goal of the fork: notifications through UnifiedPush and ntfy while the app is closed.
 * [Development environment](dev-environment.md) - How to build (Flatpak only), blocked hosts.
+* [Flatpak build and releases](flatpak.md) - Offline build with vendored crates, keeping them in step with upstream, stable/nightly/rolling channels and the first stable release.
+* [Bundled dependencies](dependencies.md) - Modules, vendored crates and generator tools with versions and licences.
 
 ## Decision records
 
