@@ -20,13 +20,7 @@
         "append-path": "/usr/lib/sdk/rust-stable/bin",
         "env": {
             "RUSTFLAGS": "-C link-arg=-fuse-ld=mold --cfg=ruma_identifiers_storage=\"ThinArc\""
-        },
-        "build-args": [
-            "--share=network"
-        ],
-        "test-args": [
-            "--share=network"
-        ]
+        }
     },
     "modules": [
         {
@@ -38,19 +32,26 @@
                 }
             },
             "build-commands": [
-                "cargo build --release --locked",
-                "mkdir -p /app/bin",
-                "install -D ./target/release/grass /app/bin/"
+                "cargo build --release --offline --locked",
+                "install -D ./target/release/grass /app/bin/grass",
+                "install -Dm644 -t /app/share/licenses/de.nexumia.Nuntius/grass LICENSE"
             ],
-            "cleanup": ["*"],
+            "cleanup": [
+                "/bin/grass"
+            ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://github.com/connorskees/grass",
                     "tag": "0.13.4",
                     "commit": "e0bb9e2eabfc3a58e42b03089cd7b22c68d09d0b",
-                    "disable-submodules": true
-                }
+                    "disable-submodules": true,
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^([\\d.]+)$"
+                    }
+                },
+                "grass-cargo-sources.json"
             ]
         },
         {
@@ -64,8 +65,15 @@
                     "type": "git",
                     "url": "https://github.com/protobuf-c/protobuf-c.git",
                     "tag": "v1.5.2",
-                    "commit": "4719fdd7760624388c2c5b9d6759eb6a47490626"
+                    "commit": "4719fdd7760624388c2c5b9d6759eb6a47490626",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^v([\\d.]+)$"
+                    }
                 }
+            ],
+            "post-install": [
+                "install -Dm644 -t /app/share/licenses/de.nexumia.Nuntius/protobuf-c LICENSE"
             ]
         },
         {
@@ -82,8 +90,15 @@
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/libshumate.git",
                     "tag": "1.7.0",
-                    "commit": "e345c805a0dfc46cdbff46cac287b0b60a386f36"
+                    "commit": "e345c805a0dfc46cdbff46cac287b0b60a386f36",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^([\\d.]+)$"
+                    }
                 }
+            ],
+            "post-install": [
+                "install -Dm644 -t /app/share/licenses/de.nexumia.Nuntius/libshumate COPYING"
             ]
         },
         {
@@ -93,6 +108,13 @@
                 {
                     "type": "dir",
                     "path": "../"
+                },
+                "nuntius-cargo-sources.json",
+                {
+                    "type": "shell",
+                    "commands": [
+                        "cat cargo/config >> .cargo/config.toml"
+                    ]
                 }
             ]
         }
