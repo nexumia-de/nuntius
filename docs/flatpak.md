@@ -60,8 +60,8 @@ that branch as the merge pull request instead
 nexumia-de/phosh-apps`)[^toolkit-flatpak] with
 `build-timeout-minutes: 120`: the builds took 25–32 minutes per
 architecture with a warm cache under the old workflow (2026-11-08), more
-than the toolkit's default 30. That input comes with
-nexumia-de/phosh-toolkit#51, which must be merged first.
+than the toolkit's default 30. That input came with
+nexumia-de/phosh-toolkit#51 (merged 2026-11-17).
 
 | Channel | App | Fed by |
 |---|---|---|
@@ -77,12 +77,11 @@ No `release.toml` and no `changelog.d/` yet: phosh-toolkit's release
 workflow writes the version into `meson.build` and `<release>` entries
 into the metainfo, both upstream files, so it would collide with every
 upstream release merge. Which versions the fork uses is open (issue
-linked from the pull request of #3).
+#16).
 
 # First stable release
 
-1. Merge nexumia-de/phosh-toolkit#51, then this repository's pull request
-   for #3; wait for the `phosh` run to be green (it also publishes the
+1. Merge this repository's pull request for #3; wait for the `phosh` run to be green (it also publishes the
    nightly app and `rolling`).
 2. Tag the merge commit with the version of the newest metainfo
    `<release>` (`data/org.gnome.Fractal.metainfo.xml.in.in`, 14.3 on
