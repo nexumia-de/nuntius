@@ -29,6 +29,10 @@ Fractal's Flathub manifest does[^flathub-fractal]:
 - Each third-party module installs its licence text into
   `/app/share/licenses/de.nexumia.Nuntius/<module>/`; grass' `cleanup`
   removes only its binary. List: [dependencies](dependencies.md).
+  `post-install` of a meson module runs in meson's build directory, so
+  libshumate's licence is `../COPYING` (a plain `COPYING` failed the
+  build, locally and in CI run 44031343579, 2026-11-17); autotools
+  (protobuf-c) builds in the source tree.
 - Every git source has `x-checker-data` (phosh-toolkit's update check).
   After the checker bumps grass, regenerate the cargo sources.
 
