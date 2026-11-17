@@ -18,3 +18,12 @@ option(
   description: 'Whether the sandbox of glycin should be disabled.' +
                'This is only useful during development.'
 )
+# Nuntius: label of nightly builds, passed by phosh-toolkit's Flatpak
+# workflow (docs/flatpak.md); the development profile already shows
+# the commit in the version.
+option(
+  'build_label',
+  type: 'string',
+  value: '',
+  description: 'Label of a nightly build (branch and commit); unused.'
+)

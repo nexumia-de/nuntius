@@ -1,5 +1,12 @@
 # Directory Update Log
 
+## 2026-11-17
+* **Fix**: [Flatpak build and releases](flatpak.md): libshumate's licence path is `../COPYING` (meson `post-install` runs in the build directory).
+
+## 2026-11-16
+* **Creation**: [Flatpak build and releases](flatpak.md) and [bundled dependencies](dependencies.md) (#3): crates vendored with flatpak-cargo-generator (`build-aux/*-cargo-sources.json`, `build-aux/update-cargo-sources.sh`, CI check *Cargo sources*); manifest without build network, licence texts for grass, protobuf-c and libshumate, `x-checker-data` on every source; CI on phosh-toolkit's reusable workflow with stable tags, nightly `de.nexumia.Nuntius.Devel` and `build-timeout-minutes: 120` (nexumia-de/phosh-toolkit#51); `rolling` kept until the first stable tag; `meson.options` gets `build_label`.
+* **Update**: [Development environment](dev-environment.md): offline build; `github.com` and `pypi.org` reachable; GNOME 51 needs the Rust extension branch 26.08.
+
 ## 2026-11-08
 * **Update**: `AGENTS.md` imports `agents/core.md` and `agents/gtk-app.md` from phosh-toolkit instead of its whole `AGENTS.md`; repeated shared rules removed (toolkit decision "lean agent rules", to use fewer tokens per session).
 
