@@ -103,4 +103,10 @@ upstream release merge. Which versions the fork uses is open (issue
 
 Done: vendored sources (cover all 565 packages of `Cargo.lock` with
 matching checksums; grass' file is identical to Flathub's), manifest,
-CI, REUSE (`reuse lint` 6.2.0 passes), docs. Local build: see the log.
+CI, REUSE (`reuse lint` 6.2.0 passes), docs. Local offline build
+(2026-11-17, GNOME 51 SDK, rust-stable 26.08, 4 cores, 15 GB): grass,
+protobuf-c, libshumate and every crate of the app (both git
+repositories included) built without network; the final `fractal` crate
+was killed by the container's memory limit (rustc at 13.6 GB with thin
+LTO, `codegen-units = 1` and full debug info). GitHub's runners build it
+(16 GB).
