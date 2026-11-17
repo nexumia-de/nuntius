@@ -98,7 +98,7 @@
                 }
             ],
             "post-install": [
-                "install -Dm644 -t /app/share/licenses/de.nexumia.Nuntius/libshumate COPYING"
+                "install -Dm644 -t /app/share/licenses/de.nexumia.Nuntius/libshumate ../COPYING"
             ]
         },
         {
