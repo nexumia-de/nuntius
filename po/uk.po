@@ -3,22 +3,22 @@
 # This file is distributed under the same license as the fractal package.
 #
 # Artem Polishchuk <ego.cordatus@gmail.com>, 2019.
-# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2021, 2022, 2023, 2024, 2025, 2026.
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025, 2026 Yuri Chornoivan <yurchor@ukr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: fractal master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/fractal/issues\n"
-"POT-Creation-Date: 2026-05-27 15:22+0000\n"
-"PO-Revision-Date: 2026-05-31 19:18+0300\n"
+"POT-Creation-Date: 2026-11-13 11:20+0000\n"
+"PO-Revision-Date: 2026-11-14 21:47+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
-"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n%10>="
+"2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: data/org.gnome.Fractal.desktop.in.in:2
 #: data/org.gnome.Fractal.metainfo.xml.in.in:7
@@ -137,6 +137,10 @@ msgid "Log into multiple accounts at once (with Single-Sign On support)"
 msgstr ""
 "Працюйте у декількох облікових записах одночасно (із підтримкою єдиного "
 "входу в усі одразу)"
+
+#: data/org.gnome.Fractal.metainfo.xml.in.in:31 src/application.rs:244
+msgid "The Fractal Team"
+msgstr "Команда «Fractal»"
 
 #: data/org.gnome.Fractal.metainfo.xml.in.in:39
 msgid "Fractal’s main window"
@@ -690,7 +694,7 @@ msgstr "Ви дійсно хочете вилучити ваш аватар?"
 #: src/components/dialogs/message_dialogs.rs:513
 #: src/identity_verification_view/confirm_qr_code_page.blp:55
 #: src/session_view/room_details/edit_details_subpage.rs:267
-#: src/session_view/room_details/general_page.rs:1001
+#: src/session_view/room_details/general_page.rs:1021
 #: src/session_view/room_details/upgrade_dialog/mod.blp:134
 #: src/session_view/room_history/event_actions/group.rs:584
 #: src/session_view/room_history/event_actions/group.rs:648
@@ -1002,10 +1006,6 @@ msgstr "Перемкнути обліковий запис"
 msgid "_Add Account"
 msgstr "Д_одати обліковий запис"
 
-#: src/application.rs:244
-msgid "The Fractal Team"
-msgstr "Команда «Fractal»"
-
 #: src/application.rs:250
 msgid "© The Fractal Team"
 msgstr "© Команда «Fractal»"
@@ -1047,7 +1047,7 @@ msgstr "Попередження"
 
 #: src/components/action_button.blp:119 src/error_page.blp:9
 #: src/session_view/create_direct_chat_dialog/mod.blp:93
-#: src/session_view/explore/mod.blp:113 src/session_view/explore/mod.blp:117
+#: src/session_view/explore/mod.blp:108 src/session_view/explore/mod.blp:112
 #: src/session_view/room_details/invite_subpage/mod.blp:109
 #: src/session_view/room_details/invite_subpage/mod.blp:113
 #: src/session_view/room_details/members_page/members_list_view/mod.blp:68
@@ -1421,11 +1421,11 @@ msgstr "_Скасувати"
 msgid "C_onfirm"
 msgstr "_Підтвердити"
 
-#: src/components/dialogs/auth/mod.rs:313
+#: src/components/dialogs/auth/mod.rs:314
 msgid "The password is invalid."
 msgstr "Пароль є некоректним."
 
-#: src/components/dialogs/auth/mod.rs:315 src/login/in_browser_page.rs:130
+#: src/components/dialogs/auth/mod.rs:316 src/login/mod.rs:625
 msgid "An unexpected error occurred."
 msgstr "Сталася неочікувана помилка."
 
@@ -1514,7 +1514,7 @@ msgstr ""
 #. Translators: As in, 'Ban room member'.
 #: src/components/dialogs/message_dialogs.rs:139
 #: src/components/user_page.blp:142
-#: src/session_view/room_details/permissions/permissions_subpage.blp:234
+#: src/session_view/room_details/permissions/permissions_subpage.blp:240
 msgid "Ban"
 msgstr "Заблокувати"
 
@@ -1600,7 +1600,7 @@ msgstr ""
 #. Translators: As in, 'Kick room member'.
 #: src/components/dialogs/message_dialogs.rs:207
 #: src/components/user_page.rs:393
-#: src/session_view/room_details/permissions/permissions_subpage.blp:222
+#: src/session_view/room_details/permissions/permissions_subpage.blp:228
 msgid "Kick"
 msgstr "Викинути"
 
@@ -1789,7 +1789,7 @@ msgstr "Зберегти"
 msgid "Join a Room"
 msgstr "Увійти до кімнати"
 
-#: src/components/dialogs/room_preview.blp:19 src/login/greeter.blp:17
+#: src/components/dialogs/room_preview.blp:19 src/login/greeter.blp:16
 #: src/login/greeter.blp:20 src/session_view/media_viewer.blp:76
 #: src/session_view/media_viewer.blp:79
 #: src/session_view/room_details/edit_details_subpage.blp:15
@@ -1805,13 +1805,13 @@ msgstr "Введіть адресу або посилання, щоб викон
 
 #. Translators: This is a verb, as in 'Look up Room'.
 #: src/components/dialogs/room_preview.blp:90
-#: src/components/dialogs/room_preview.rs:242
+#: src/components/dialogs/room_preview.rs:257
 msgid "Look Up"
 msgstr "Шукати"
 
 #. Translators: This is a verb, as in 'View Room'.
-#: src/components/dialogs/room_preview.rs:239
-#: src/components/dialogs/room_preview.rs:347
+#: src/components/dialogs/room_preview.rs:254
+#: src/components/dialogs/room_preview.rs:362
 #: src/session_view/explore/public_room_row.rs:182
 #: src/session_view/room_history/message_toolbar/mod.rs:382
 #: src/session_view/room_history/mod.blp:82
@@ -1819,7 +1819,7 @@ msgstr "Шукати"
 msgid "View"
 msgstr "Перегляд"
 
-#: src/components/dialogs/room_preview.rs:302
+#: src/components/dialogs/room_preview.rs:317
 msgid ""
 "The room details cannot be previewed. It can be because the room is not "
 "known by the homeserver or because its details are private. You can still "
@@ -1831,7 +1831,7 @@ msgstr ""
 
 #. Translators: Do NOT translate the content between '{' and '}',
 #. this is a variable name.
-#: src/components/dialogs/room_preview.rs:325
+#: src/components/dialogs/room_preview.rs:340
 #: src/session_view/explore/public_room_row.rs:161
 #, rust-format
 msgid "1 member"
@@ -1841,12 +1841,12 @@ msgstr[1] "{n} учасники"
 msgstr[2] "{n} учасників"
 msgstr[3] "1 учасник"
 
-#: src/components/dialogs/room_preview.rs:349
+#: src/components/dialogs/room_preview.rs:364
 #: src/session_view/explore/public_room_row.rs:187
 msgid "Request an Invite"
 msgstr "Надіслати запит щодо запрошення"
 
-#: src/components/dialogs/room_preview.rs:351
+#: src/components/dialogs/room_preview.rs:366
 #: src/session_view/explore/public_room_row.rs:195
 #: src/session_view/room_history/message_toolbar/mod.rs:384
 msgid "Join"
@@ -1911,7 +1911,6 @@ msgstr "Сповістити усю кімнату"
 
 #. Translators: As in 'Custom role'.
 #: src/components/power_level_selection/popover.blp:127
-#| msgid "Custom"
 msgctxt "role"
 msgid "Custom"
 msgstr "Нетипова"
@@ -1952,7 +1951,7 @@ msgstr "Рівень повноважень"
 #: src/components/user_page.blp:128 src/session_view/invite.blp:14
 #: src/session_view/invite.blp:39
 #: src/session_view/room_details/members_page/members_list_view/mod.blp:145
-#: src/session_view/room_details/permissions/permissions_subpage.blp:210
+#: src/session_view/room_details/permissions/permissions_subpage.blp:216
 msgid "Invite"
 msgstr "Запросити"
 
@@ -2617,52 +2616,43 @@ msgstr "Уві_йти"
 msgid "_Create Account"
 msgstr "С_творити обліковий запис"
 
-#: src/login/homeserver_page.blp:103 src/login/method_page.blp:129
+#: src/login/homeserver_page.blp:105 src/login/method_page.blp:132
 msgid "Next"
 msgstr "Далі"
 
 #. Translators: As in 'Advanced Settings'.
-#: src/login/homeserver_page.blp:118
+#: src/login/homeserver_page.blp:121
 msgid "Advanced…"
 msgstr "Додатково…"
 
-#: src/login/homeserver_page.rs:102
+#: src/login/homeserver_page.rs:123
 msgid "Domain Name"
 msgstr "Назва домену"
 
-#: src/login/homeserver_page.rs:104
+#: src/login/homeserver_page.rs:125
 msgid "The domain of your Matrix homeserver, for example gnome.org"
 msgstr "Домен вашого домашнього сервера Matrix, наприклад gnome.org"
 
-#: src/login/homeserver_page.rs:107 src/login/method_page.blp:69
+#: src/login/homeserver_page.rs:128 src/login/method_page.blp:69
 msgid "Homeserver URL"
 msgstr "Адреса домашнього сервера"
 
 #. Translators: Do NOT translate the content between '{' and '}', this is a
 #. variable name.
-#: src/login/homeserver_page.rs:111
+#: src/login/homeserver_page.rs:132
 #, rust-format
 msgid "The URL of your Matrix homeserver, for example {address}"
 msgstr "Адреса вашого домашнього сервера Matrix, наприклад {address}"
-
-#: src/login/homeserver_page.rs:254 src/login/mod.rs:324 src/login/mod.rs:348
-#: src/login/mod.rs:397
-msgid "Could not set up login"
-msgstr "Не вдалося налаштувати вхід до системи"
 
 #: src/login/in_browser_page.blp:55
 msgid "Click on the button below and follow the steps in the browser"
 msgstr "Натисніть розташовану нижче кнопку і виконайте настанови з браузера"
 
-#: src/login/in_browser_page.rs:103
-msgid "Could not open URL"
-msgstr "Не вдалося відкрити адресу"
-
-#: src/login/local_server.rs:35
+#: src/login/local_server.rs:33
 msgid "Authorization Completed"
 msgstr "Уповноваження завершено"
 
-#: src/login/local_server.rs:40
+#: src/login/local_server.rs:38
 msgid ""
 "The authorization step is complete. You can close this page and go back to "
 "Fractal."
@@ -2674,42 +2664,51 @@ msgstr ""
 msgid "Log In"
 msgstr "Увійти"
 
-#: src/login/method_page.blp:94
+#: src/login/method_page.blp:95
 msgid "Matrix Username"
 msgstr "Ім'я користувача Matrix"
 
-#: src/login/method_page.blp:109
+#: src/login/method_page.blp:111
 msgid "Password"
 msgstr "Пароль"
 
-#: src/login/method_page.blp:122
+#: src/login/method_page.blp:125
 msgid "Login via SSO"
 msgstr "Вхід за допомогою SSO"
 
 #. Translators: Do NOT translate the content between '{' and '}', this is a
 #. variable name.
-#: src/login/method_page.rs:90
+#: src/login/method_page.rs:96
 #, rust-format
 msgid "Log in to {domain_name}"
 msgstr "Увійти до {domain_name}"
 
-#: src/login/method_page.rs:97
+#: src/login/method_page.rs:103
 msgid "Log in"
 msgstr "Увійти"
 
-#: src/login/mod.blp:22 src/login/mod.blp:54
+#: src/login/mod.blp:16 src/login/mod.blp:48
 msgid "Login Complete"
 msgstr "Вхід завершено"
 
-#: src/login/mod.blp:75
+#: src/login/mod.blp:69
 msgid "This session is ready to send and receive secure messages"
 msgstr "Цей сеанс готовий до надсилання і отримання захищених повідомлень"
 
-#: src/login/mod.blp:84
+#: src/login/mod.blp:78
 msgid "Start Chatting"
 msgstr "Почати спілкування"
 
-#: src/login/mod.rs:467
+#: src/login/mod.rs:384 src/login/mod.rs:541 src/login/mod.rs:552
+#: src/login/mod.rs:640 src/login/mod.rs:665
+msgid "Could not set up login"
+msgstr "Не вдалося налаштувати вхід до системи"
+
+#: src/login/mod.rs:593 src/login/mod.rs:602
+msgid "Could not open URL"
+msgstr "Не вдалося відкрити адресу"
+
+#: src/login/mod.rs:734
 msgid "Could not store session"
 msgstr "Не вдалося зберегти сеанс"
 
@@ -2723,33 +2722,33 @@ msgstr "Отримуємо дані облікового запису…"
 
 #. Translators: Do NOT translate the content between '{' and '}', this is a
 #. variable name.
-#: src/secret/linux.rs:175
+#: src/secret/linux.rs:249
 #, rust-format
 msgid "Fractal: Matrix credentials for {user_id}"
 msgstr "Fractal: реєстраційні дані Matrix для {user_id}"
 
-#: src/secret/linux.rs:529
+#: src/secret/linux.rs:515
 msgid "The secret storage file is corrupted."
 msgstr "Файл сховища реєстраційних даних пошкоджено."
 
-#: src/secret/linux.rs:532
+#: src/secret/linux.rs:518
 msgid "Could not access the secret storage file location."
 msgstr ""
 "Не вдалося отримати доступ до місця зберігання файл сховища реєстраційних "
 "даних."
 
-#: src/secret/linux.rs:535
+#: src/secret/linux.rs:521
 msgid "An unexpected error occurred when accessing the secret storage file."
 msgstr ""
 "Під час спроби доступу до файла сховища реєстраційних даних сталася "
 "неочікувана помилка"
 
-#: src/secret/linux.rs:538
+#: src/secret/linux.rs:524
 msgid "The secret storage file has been changed by another process."
 msgstr ""
 "До файла сховища реєстраційних даних внесено зміни стороннім процесом."
 
-#: src/secret/linux.rs:541
+#: src/secret/linux.rs:527
 msgid ""
 "The request to the Flatpak Secret Portal was cancelled. Make sure to accept "
 "any prompt asking to access it."
@@ -2757,7 +2756,7 @@ msgstr ""
 "Запит до порталу реєстраційних даних Flatpak було скасовано. Переконайтеся, "
 "що прийнято усі запити, що вимагають доступу до нього."
 
-#: src/secret/linux.rs:544
+#: src/secret/linux.rs:530
 msgid ""
 "The Flatpak Secret Portal is not available. Make sure xdg-desktop-portal is "
 "installed, and it is at least at version 1.5.0."
@@ -2765,7 +2764,7 @@ msgstr ""
 "Немає доступу до порталу реєстраційних даних Flatpak. Переконайтеся, що "
 "встановлено пакунок xdg-desktop-portal версії, яка є не меншою за 1.5.0."
 
-#: src/secret/linux.rs:547
+#: src/secret/linux.rs:533
 msgid ""
 "An unexpected error occurred when interacting with the D-Bus Secret Portal "
 "backend."
@@ -2773,37 +2772,37 @@ msgstr ""
 "Під час роботи із модулем порталу реєстраційних даних за допомогою D-Bus "
 "сталася неочікувана помилка"
 
-#: src/secret/linux.rs:550
+#: src/secret/linux.rs:536
 msgid ""
 "The Flatpak Secret Portal provided a key that is too weak to be secure."
 msgstr ""
 "Портал реєстраційних даних Flatpak надав ключ, який є надто простим, щоб "
 "бути безпечним."
 
-#: src/secret/linux.rs:552 src/secret/linux.rs:569
+#: src/secret/linux.rs:538 src/secret/linux.rs:555
 msgid "The collection or item is locked."
 msgstr "Збірку або запис замкнено."
 
-#: src/secret/linux.rs:564
+#: src/secret/linux.rs:550
 msgid "The item was deleted."
 msgstr "Запис було вилучено."
 
-#: src/secret/linux.rs:567 src/secret/linux.rs:582
+#: src/secret/linux.rs:553 src/secret/linux.rs:568
 msgid ""
 "An unexpected error occurred when interacting with the D-Bus Secret Service."
 msgstr ""
 "Під час роботи із службою реєстраційних даних за допомогою D-Bus сталася "
 "неочікувана помилка"
 
-#: src/secret/linux.rs:571
+#: src/secret/linux.rs:557
 msgid "The D-Bus Secret Service session does not exist."
 msgstr "Сеансу D-Bus «Секретної служби» не існує."
 
-#: src/secret/linux.rs:573
+#: src/secret/linux.rs:559
 msgid "The collection or item does not exist."
 msgstr "Збірки або запису не існує."
 
-#: src/secret/linux.rs:576
+#: src/secret/linux.rs:562
 msgid ""
 "The request to the D-Bus Secret Service was cancelled. Make sure to accept "
 "any prompt asking to access it."
@@ -2812,7 +2811,7 @@ msgstr ""
 "скасовано. Переконайтеся, що прийнято усі запити, що вимагають доступу до "
 "неї."
 
-#: src/secret/linux.rs:579
+#: src/secret/linux.rs:565
 msgid ""
 "Could not access the default collection. Make sure a keyring was created and "
 "set as default."
@@ -2820,7 +2819,7 @@ msgstr ""
 "Не вдалося отримати доступу до типової збірки. Переконайтеся, що в'язку "
 "ключів було створено і зроблено типовою."
 
-#: src/session/mod.rs:837
+#: src/session/mod.rs:831
 msgid "Could not log the session out"
 msgstr "Не вдалося вийти з сеансу"
 
@@ -2934,7 +2933,7 @@ msgid "Any registered user"
 msgstr "Будь-який зареєстрований користувач"
 
 #: src/session/room/join_rule.rs:288
-#: src/session_view/room_details/general_page.rs:946
+#: src/session_view/room_details/general_page.rs:966
 msgid "Unsupported rule"
 msgstr "Непідтримуване правило"
 
@@ -2963,7 +2962,6 @@ msgstr "Типовий"
 
 #. Translators: As in, 'Custom power level', meaning permissions.
 #: src/session/room/permissions.rs:66
-#| msgid "Custom"
 msgctxt "power level"
 msgid "Custom"
 msgstr "Нетиповий"
@@ -3195,7 +3193,7 @@ msgid "No users matching the search pattern were found"
 msgstr "Не знайдено жодного користувача, який відповідає критерію пошуку"
 
 #: src/session_view/create_direct_chat_dialog/mod.blp:94
-#: src/session_view/explore/mod.blp:118
+#: src/session_view/explore/mod.blp:113
 #: src/session_view/room_details/invite_subpage/mod.blp:114
 msgid "An error occurred while searching for matches"
 msgstr "Під час пошуку відповідників сталася помилка"
@@ -3242,7 +3240,7 @@ msgstr "Не можна вимикати пізніше"
 
 #: src/session_view/create_room_dialog.blp:128
 #: src/session_view/room_details/addresses_subpage/mod.rs:431
-#: src/session_view/room_details/general_page.rs:689
+#: src/session_view/room_details/general_page.rs:709
 msgid "Main Address"
 msgstr "Основна адреса"
 
@@ -3290,15 +3288,16 @@ msgstr "Шукати кімнату у відкритому каталозі п�
 msgid "Switch servers"
 msgstr "Перемкнути сервери"
 
-#: src/session_view/explore/mod.blp:70 src/session_view/sidebar/mod.blp:188
+#: src/session_view/explore/mod.blp:70 src/session_view/explore/mod.blp:74
+#: src/session_view/sidebar/mod.blp:188
 msgid "No Rooms"
 msgstr "Немає кімнат"
 
-#: src/session_view/explore/mod.blp:76 src/session_view/sidebar/mod.blp:189
+#: src/session_view/explore/mod.blp:75 src/session_view/sidebar/mod.blp:189
 msgid "No rooms matching the search were found"
 msgstr "Не знайдено жодної кімнати, яка відповідає критерію пошуку"
 
-#: src/session_view/explore/mod.blp:86
+#: src/session_view/explore/mod.blp:81
 msgid "List of Public Rooms"
 msgstr "Список відкритих кімнат"
 
@@ -3672,7 +3671,7 @@ msgid "Matrix room ID copied to clipboard"
 msgstr "Ідентифікатор кімнати Matrix скопійовано до буфера обміну"
 
 #: src/session_view/room_details/general_page.blp:240
-#: src/session_view/room_details/permissions/permissions_subpage.blp:159
+#: src/session_view/room_details/permissions/permissions_subpage.blp:165
 msgid "Enable Encryption"
 msgstr "Вмикати шифрування"
 
@@ -3695,79 +3694,79 @@ msgstr "Оновити…"
 msgid "Federation"
 msgstr "Федерація"
 
-#: src/session_view/room_details/general_page.rs:466
-#: src/session_view/room_details/general_page.rs:517
+#: src/session_view/room_details/general_page.rs:486
+#: src/session_view/room_details/general_page.rs:537
 #: src/session_view/room_details/invite_subpage/list.rs:260
 msgid "Member"
 msgstr "Учасник"
 
-#: src/session_view/room_details/general_page.rs:468
-#: src/session_view/room_details/general_page.rs:519
+#: src/session_view/room_details/general_page.rs:488
+#: src/session_view/room_details/general_page.rs:539
 msgid "Members"
 msgstr "Учасники"
 
-#: src/session_view/room_details/general_page.rs:644
+#: src/session_view/room_details/general_page.rs:664
 msgid "Could not change notifications setting"
 msgstr "Не вдалося змінити параметр сповіщень"
 
-#: src/session_view/room_details/general_page.rs:684
-#: src/session_view/room_details/general_page.rs:723
+#: src/session_view/room_details/general_page.rs:704
+#: src/session_view/room_details/general_page.rs:743
 msgid "Copy address"
 msgstr "Копіювати адресу"
 
-#: src/session_view/room_details/general_page.rs:685
-#: src/session_view/room_details/general_page.rs:724
+#: src/session_view/room_details/general_page.rs:705
+#: src/session_view/room_details/general_page.rs:744
 msgid "Address copied to clipboard"
 msgstr "Адресу скопійовано до буфера даних"
 
-#: src/session_view/room_details/general_page.rs:766
+#: src/session_view/room_details/general_page.rs:786
 msgid "Room link copied to clipboard"
 msgstr "Посилання на кімнату скопійовано до буфера обміну"
 
-#: src/session_view/room_details/general_page.rs:825
+#: src/session_view/room_details/general_page.rs:845
 msgid "Could not change guest access"
 msgstr "Не вдалося змінити доступ для гостів"
 
 #. Translators: Do NOT translate the content between '{' and '}',
 #. this is a variable name.
-#: src/session_view/room_details/general_page.rs:842
+#: src/session_view/room_details/general_page.rs:862
 #, rust-format
 msgid "Publish in the {homeserver} directory"
 msgstr "Оприлюднити у каталозі {homeserver}"
 
-#: src/session_view/room_details/general_page.rs:917
+#: src/session_view/room_details/general_page.rs:937
 msgid "Could not publish room in directory"
 msgstr "Не вдалося оприлюднити кімнату у каталозі"
 
-#: src/session_view/room_details/general_page.rs:919
+#: src/session_view/room_details/general_page.rs:939
 msgid "Could not unpublish room from directory"
 msgstr "Не вдалося скасувати оприлюднення кімнати у каталозі"
 
-#: src/session_view/room_details/general_page.rs:937
+#: src/session_view/room_details/general_page.rs:957
 #: src/session_view/room_details/history_visibility_subpage.blp:53
 msgid "Anyone, even if they are not in the room"
 msgstr "Будь-хто, навіть якщо їх немає у кімнаті"
 
-#: src/session_view/room_details/general_page.rs:940
+#: src/session_view/room_details/general_page.rs:960
 #: src/session_view/room_details/history_visibility_subpage.blp:59
 msgid "Members only, since this option was selected"
 msgstr "Лише учасники, з моменту позначення цього пункту"
 
-#: src/session_view/room_details/general_page.rs:942
+#: src/session_view/room_details/general_page.rs:962
 #: src/session_view/room_details/history_visibility_subpage.blp:65
 msgid "Members only, since they were invited"
 msgstr "Лише учасники, з моменту запрошення"
 
-#: src/session_view/room_details/general_page.rs:944
+#: src/session_view/room_details/general_page.rs:964
 #: src/session_view/room_details/history_visibility_subpage.blp:71
 msgid "Members only, since they joined the room"
 msgstr "Лише учасники, з моменту долучення до кімнати"
 
-#: src/session_view/room_details/general_page.rs:996
+#: src/session_view/room_details/general_page.rs:1016
 msgid "Enable Encryption?"
 msgstr "Увімкнути шифрування?"
 
-#: src/session_view/room_details/general_page.rs:997
+#: src/session_view/room_details/general_page.rs:1017
 msgid ""
 "Enabling encryption will prevent new members to read the history before they "
 "arrived. This cannot be disabled later."
@@ -3775,30 +3774,30 @@ msgstr ""
 "Вмикання шифрування заважатиме новим учасникам читати журнал до того, як "
 "вони з'явилися у кімнаті. Цю можливість не можна буде вимкнути пізніше."
 
-#: src/session_view/room_details/general_page.rs:1002
+#: src/session_view/room_details/general_page.rs:1022
 #: src/session_view/sidebar/mod.rs:353 src/session_view/sidebar/mod.rs:359
 msgid "Enable"
 msgstr "Увімкнути"
 
-#: src/session_view/room_details/general_page.rs:1013
+#: src/session_view/room_details/general_page.rs:1033
 msgid "Could not enable encryption"
 msgstr "Не вдалося увімкнути шифрування"
 
 #. Translators: As in, 'Room federated'.
-#: src/session_view/room_details/general_page.rs:1073
+#: src/session_view/room_details/general_page.rs:1093
 msgid "Federated"
 msgstr "Інтегрований"
 
 #. Translators: As in, 'Room not federated'.
-#: src/session_view/room_details/general_page.rs:1076
+#: src/session_view/room_details/general_page.rs:1096
 msgid "Not federated"
 msgstr "Не федеровано"
 
-#: src/session_view/room_details/general_page.rs:1110
+#: src/session_view/room_details/general_page.rs:1130
 msgid "Room upgraded successfully"
 msgstr "Кімнату успішно оновлено"
 
-#: src/session_view/room_details/general_page.rs:1114
+#: src/session_view/room_details/general_page.rs:1134
 msgid "Could not upgrade room"
 msgstr "Не вдалося оновити кімнату"
 
@@ -4092,7 +4091,7 @@ msgstr "Не знайдено жодного учасника кімнати, я
 
 #. Translators: value used to assign room member roles.
 #: src/session_view/room_details/permissions/members_subpage.blp:6
-#: src/session_view/room_details/permissions/permissions_subpage.blp:282
+#: src/session_view/room_details/permissions/permissions_subpage.blp:288
 msgid "Members With Assigned Power Levels"
 msgstr "Учасники із призначеними рівнями повноважень"
 
@@ -4112,13 +4111,17 @@ msgstr ""
 "пошуку"
 
 #: src/session_view/room_details/permissions/permissions_subpage.blp:44
-msgid "Room Actions"
-msgstr "Дії у кімнаті"
+#| msgid "Member Actions"
+msgid "Message Actions"
+msgstr "Дії з повідомленнями"
 
 #. Translators: value used to assign room member roles.
 #: src/session_view/room_details/permissions/permissions_subpage.blp:46
-msgid "Power level required to perform different actions in the room"
-msgstr "Рівень повноважень, який потрібен для виконання різних дій у кімнаті"
+#| msgid "Power level required to perform different actions in the room"
+msgid "Power level required to perform message-related actions"
+msgstr ""
+"Рівень повноважень, який потрібен для виконання різних дій, які пов'язані із "
+"повідомленнями"
 
 #: src/session_view/room_details/permissions/permissions_subpage.blp:49
 msgid "Send Messages"
@@ -4136,66 +4139,81 @@ msgstr "Вилучати повідомлення інших учасників"
 msgid "Notify Entire Room"
 msgstr "Сповістити усю кімнату"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:93
-msgid "Change Room Settings"
-msgstr "Змінювати параметри кімнати"
+#: src/session_view/room_details/permissions/permissions_subpage.blp:94
+#| msgid "Room Actions"
+msgid "Room Settings Actions"
+msgstr "Дії з параметрами кімнати"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:104
-msgid "Change Room Name"
-msgstr "Змінювати назву кімнати"
+#. Translators: value used to assign room member roles.
+#: src/session_view/room_details/permissions/permissions_subpage.blp:96
+#| msgid "Power level required to perform different actions in the room"
+msgid "Power level required to change room settings"
+msgstr "Рівень повноважень, який потрібен для зміни параметрів кімнати"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:115
-msgid "Change Room Description"
-msgstr "Зміна опису кімнати"
+#: src/session_view/room_details/permissions/permissions_subpage.blp:99
+#| msgid "Change Room Settings"
+msgid "Change Settings"
+msgstr "Зміна параметрів"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:126
-msgid "Change Room Avatar"
-msgstr "Змінювати аватар кімнати"
+#: src/session_view/room_details/permissions/permissions_subpage.blp:110
+#| msgid "Change Room Name"
+msgid "Change Name"
+msgstr "Зміна назви"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:137
+#: src/session_view/room_details/permissions/permissions_subpage.blp:121
+#| msgid "Change Room Description"
+msgid "Change Description"
+msgstr "Зміна опису"
+
+#: src/session_view/room_details/permissions/permissions_subpage.blp:132
+#| msgid "Change Room Avatar"
+msgid "Change Avatar"
+msgstr "Зміна аватару"
+
+#: src/session_view/room_details/permissions/permissions_subpage.blp:143
 msgid "Change Addresses"
 msgstr "Змінювати адреси"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:148
+#: src/session_view/room_details/permissions/permissions_subpage.blp:154
 msgid "Change Who Can Read History"
 msgstr "Змінювати тих, хто може читати журнал"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:170
+#: src/session_view/room_details/permissions/permissions_subpage.blp:176
 msgid "Change Permissions"
 msgstr "Змінити права доступу"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:181
+#: src/session_view/room_details/permissions/permissions_subpage.blp:187
 msgid "Change Server Access Control List"
 msgstr "Змінити списки керування доступом сервера"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:192
+#: src/session_view/room_details/permissions/permissions_subpage.blp:198
 msgid "Upgrade Room"
 msgstr "Оновити кімнату"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:204
+#: src/session_view/room_details/permissions/permissions_subpage.blp:210
 msgid "Member Actions"
 msgstr "Дії щодо учасників"
 
 #. Translators: value used to assign room member roles.
-#: src/session_view/room_details/permissions/permissions_subpage.blp:206
+#: src/session_view/room_details/permissions/permissions_subpage.blp:212
 msgid "Power level required to perform different actions on room members"
 msgstr ""
 "Рівень повноважень, який потрібен для виконання різних дій щодо учасників "
 "кімнати"
 
 #. Translators: value used to assign room member roles.
-#: src/session_view/room_details/permissions/permissions_subpage.blp:247
+#: src/session_view/room_details/permissions/permissions_subpage.blp:253
 msgid "Members Power Levels"
 msgstr "Рівні повноважень учасників"
 
 #. Translators: value used to assign room member roles.
-#: src/session_view/room_details/permissions/permissions_subpage.blp:249
+#: src/session_view/room_details/permissions/permissions_subpage.blp:255
 msgid "Power levels defined for all members of the room"
 msgstr "Рівні повноважень, які визначено для усіх учасників кімнати"
 
 #. Translators: value used to assign room member roles.
-#: src/session_view/room_details/permissions/permissions_subpage.blp:253
-#: src/session_view/room_details/permissions/permissions_subpage.blp:267
+#: src/session_view/room_details/permissions/permissions_subpage.blp:259
+#: src/session_view/room_details/permissions/permissions_subpage.blp:273
 msgid "Default Power Level"
 msgstr "Типовий рівень повноважень"
 
@@ -4575,7 +4593,7 @@ msgstr "Файл: {filename}"
 msgid "User Location"
 msgstr "Місце перебування користувача"
 
-#: src/session_view/room_history/message_row/location.rs:91
+#: src/session_view/room_history/message_row/location.rs:125
 msgid "Location is invalid and cannot be displayed"
 msgstr "Місце є некоректним, його не може бути показано"
 

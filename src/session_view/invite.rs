@@ -4,7 +4,7 @@ use gtk::{glib, glib::clone};
 
 use crate::{
     components::{
-        Avatar, AvatarImageSafetySetting, LabelWithWidgets, LoadingButton, Pill,
+        Avatar, AvatarImageSafetySetting, LabelWithWidgets, LoadingButton, Pill, UserProfileDialog,
         confirm_leave_room_dialog,
     },
     gettext_f,
@@ -35,6 +35,8 @@ mod imp {
         room_topic: TemplateChild<gtk::Label>,
         #[template_child]
         inviter: TemplateChild<LabelWithWidgets>,
+        #[template_child]
+        inviter_profile_button: TemplateChild<gtk::Button>,
         #[template_child]
         accept_button: TemplateChild<LoadingButton>,
         #[template_child]
@@ -198,6 +200,9 @@ mod imp {
                 }
             }
 
+            self.inviter_profile_button
+                .set_visible(room.as_ref().is_some_and(|room| room.inviter().is_some()));
+
             // Keep a strong reference to the members list.
             self.room_members
                 .replace(room.as_ref().map(Room::get_or_create_members));
@@ -213,6 +218,18 @@ mod imp {
 
             self.decline_button.set_is_loading(false);
             self.decline_button.set_sensitive(true);
+        }
+
+        /// View the profile of the inviter.
+        #[template_callback]
+        fn view_inviter_profile(&self) {
+            let Some(inviter) = self.room.borrow().as_ref().and_then(Room::inviter) else {
+                return;
+            };
+
+            let dialog = UserProfileDialog::new();
+            dialog.set_room_member(inviter);
+            dialog.present(Some(&*self.obj()));
         }
 
         /// Accept the invite.

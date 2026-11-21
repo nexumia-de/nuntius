@@ -84,13 +84,25 @@ template $ContentInvite: Adw.Bin {
             ]
           }
 
-          $LabelWithWidgets inviter {
-            halign: center;
-            justify: center;
+          Gtk.Box {
+            orientation: vertical;
+            spacing: 12;
 
-            styles [
-              "body",
-            ]
+            $LabelWithWidgets inviter {
+              halign: center;
+              justify: center;
+
+              styles [
+                "body",
+              ]
+            }
+
+            Gtk.Button inviter_profile_button {
+              halign: center;
+              visible: false;
+              label: _("Show Profile");
+              clicked => $view_inviter_profile() swapped;
+            }
           }
 
           Gtk.Box {

@@ -22,6 +22,9 @@ line-length = 100
 code-blocks = false
 tables = false
 
+[list-item-spacing]
+style = "tight"
+
 [no-inline-html]
 allowed-elements = ["a", "div", "img", "kbd"]
 

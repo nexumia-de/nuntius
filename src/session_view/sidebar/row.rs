@@ -504,10 +504,7 @@ mod imp {
 
             if matches!(
                 category,
-                RoomCategory::Favorite
-                    | RoomCategory::Normal
-                    | RoomCategory::LowPriority
-                    | RoomCategory::Left
+                RoomCategory::Favorite | RoomCategory::Normal | RoomCategory::LowPriority
             ) {
                 if room.is_direct() {
                     action_group.add_action_entries([gio::ActionEntry::builder(
