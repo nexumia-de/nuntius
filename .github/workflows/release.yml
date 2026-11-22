@@ -1,0 +1,41 @@
+# Changelog fragments, release pull requests and release tags with
+# phosh-toolkit's reusable workflow (docs/flatpak.md, "Releases").
+# Nuntius has its own version line in data/de.nexumia.Nuntius.releases.xml
+# (docs/decisions/version-scheme.md).
+#
+# - Pull requests: "Changelog" asks for a changelog.d/ fragment or the
+#   label no-changelog.
+# - Mondays, or by hand: "Release pull request" collects the fragments
+#   into the release list and opens "Release v<version>".
+# - Push to phosh: "Tag release" tags a merged release; the Flatpak
+#   workflow builds and publishes the tag.
+#
+# Needs the secret RELEASE_TOKEN (Contents and Pull requests read/write).
+name: Release
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+  push:
+    branches: [phosh]
+  schedule:
+    - cron: '47 13 * * 1'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version to release (default from the fragments)
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    permissions:
+      contents: write
+      pull-requests: write
+    uses: nexumia-de/phosh-toolkit/.github/workflows/release.yml@main
+    with:
+      version: ${{ inputs.version }}
+    secrets:
+      RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}

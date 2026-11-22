@@ -52,5 +52,5 @@ approval[^trademark], so "Matrix Chat" was not possible.
   are separate.
 - The fork carries its changes forever and merges upstream daily; the
   diff against upstream is kept small.
-- The icon is still Fractal's (CC-BY-SA-4.0); an own icon is a
-  follow-up.
+- The icon was Fractal's (CC-BY-SA-4.0) until Nuntius got
+  [its own](app-icon.md) (2026-11-22).

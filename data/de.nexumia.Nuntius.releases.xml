@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  The releases of Nuntius (docs/decisions/version-scheme.md). At build
+  time build-aux/nuntius-releases.py puts them into the metainfo in place
+  of Fractal's releases and gives meson the version. phosh-toolkit's
+  release workflow writes this file from changelog.d/; do not edit
+  <release> elements by hand.
+-->
+<component>
+  <releases>
+    <release version="0.1.0" date="2026-11-04">
+      <description>
+        <p>First build of Nuntius, a fork of Fractal.</p>
+      </description>
+    </release>
+  </releases>
+</component>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="edge" x1="10" x2="118" y1="0" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#613583"/>
+      <stop offset="0.12" stop-color="#9141ac"/>
+      <stop offset="0.24" stop-color="#613583"/>
+      <stop offset="0.88" stop-color="#613583"/>
+      <stop offset="0.96" stop-color="#813d9c"/>
+      <stop offset="1" stop-color="#613583"/>
+    </linearGradient>
+    <pattern id="stripes" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="16" height="16" fill="#f5c211"/>
+      <rect width="8" height="16" fill="#241f31"/>
+    </pattern>
+    <linearGradient id="face" x1="0" x2="0" y1="16" y2="112" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#dc8add"/>
+      <stop offset="1" stop-color="#9141ac"/>
+    </linearGradient>
+    <linearGradient id="wing" x1="0" x2="0" y1="30" y2="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f1e4f5"/>
+    </linearGradient>
+  </defs>
+  <!-- Speech bubble: the lower edge with the stripes of development builds, then the face. -->
+  <path id="bubble-edge" fill="url(#edge)" d="M34 24h60c13.255 0 24 10.745 24 24v36c0 13.255-10.745 24-24 24H62L40.83 124.93C37.6 127.52 32 125.2 32 121v-13.08C19.7 106.9 10 96.6 10 84V48c0-13.255 10.745-24 24-24z"/>
+  <path fill="url(#stripes)" d="M34 24h60c13.255 0 24 10.745 24 24v36c0 13.255-10.745 24-24 24H62L40.83 124.93C37.6 127.52 32 125.2 32 121v-13.08C19.7 106.9 10 96.6 10 84V48c0-13.255 10.745-24 24-24z"/>
+  <path fill="url(#face)" d="M34 16h60c13.255 0 24 10.745 24 24v36c0 13.255-10.745 24-24 24H62L40.83 116.93C37.6 119.52 32 117.2 32 113V99.92C19.7 98.9 10 88.6 10 76V40c0-13.255 10.745-24 24-24z"/>
+  <!-- The messenger's wing. -->
+  <path fill="#613583" fill-opacity="0.35" d="M32 78C32 52 56 32 96 30 86 36 77 41 70 48c8-1 15 0 22 2-10 3-19 7-26 12 7 1 13 3 18 6C68 82 46 86 32 78z" transform="translate(0 3)"/>
+  <path fill="url(#wing)" d="M32 78C32 52 56 32 96 30 86 36 77 41 70 48c8-1 15 0 22 2-10 3-19 7-26 12 7 1 13 3 18 6C68 82 46 86 32 78z"/>
+</svg>

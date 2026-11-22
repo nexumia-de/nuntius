@@ -1,5 +1,11 @@
 # Directory Update Log
 
+## 2026-11-22
+* **Creation**: [App icon](decisions/app-icon.md) (#5): own icon `data/icons/de.nexumia.Nuntius*.svg` (app, nightly, symbolic), installed through `icon_base_id` in `data/icons/meson.build`.
+* **Creation**: [Version scheme](decisions/version-scheme.md) (#16): own version line from 0.1.0 in `data/de.nexumia.Nuntius.releases.xml`, merged into the metainfo by `build-aux/nuntius-releases.py`; `release.toml`, `changelog.d/` and `.github/workflows/release.yml` (phosh-toolkit's release workflow); the upstream sync pull request gets the label `no-changelog`. [Flatpak build and releases](flatpak.md), [fork workflow](fork-workflow.md) and [owner checks](owner-checks.md) updated.
+* **Creation**: [Owner checks](owner-checks.md) (#2): the checks of push notifications that need the phone, and whether KDE's push server may be used.
+* **Update**: [Push notifications](push-notifications.md): unit tests for the gateway URL, the gateway answer, the language tag and the choice of the distributor; endpoints that are not `http(s)` are refused.
+
 ## 2026-11-17
 * **Fix**: [Flatpak build and releases](flatpak.md): libshumate's licence path is `../COPYING` (meson `post-install` runs in the build directory).
 

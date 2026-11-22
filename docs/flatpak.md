@@ -11,6 +11,9 @@ sources:
   - id: toolkit-flatpak
     resource: ../../phosh-toolkit/docs/flatpak-workflow.md
     title: phosh-toolkit, Flatpak build and install workflow
+  - id: toolkit-releases
+    resource: ../../phosh-toolkit/docs/releases.md
+    title: phosh-toolkit, releases, changelog and screenshots
 ---
 
 # Manifest
@@ -69,7 +72,7 @@ nexumia-de/phosh-toolkit#51 (merged 2026-11-17).
 
 | Channel | App | Fed by |
 |---|---|---|
-| Stable | `de.nexumia.Nuntius` | tag `v<version>`; the newest metainfo `<release>` must have that version |
+| Stable | `de.nexumia.Nuntius` | tag `v<version>`; the first `<release>` of the installed metainfo must have that version |
 | Nightly | `de.nexumia.Nuntius.Devel` (meson `-Dprofile=development`, debug cargo build) | every push to `phosh` |
 | Rolling (until the first stable release) | `de.nexumia.Nuntius` | every push to `phosh`, release `rolling` |
 
@@ -77,27 +80,42 @@ The toolkit's nightly build passes `-Dbuild_label=…`; meson rejects
 unknown options, so `meson.options` defines `build_label` (unused,
 Fractal's development profile already shows the commit).
 
-No `release.toml` and no `changelog.d/` yet: phosh-toolkit's release
-workflow writes the version into `meson.build` and `<release>` entries
-into the metainfo, both upstream files, so it would collide with every
-upstream release merge. Which versions the fork uses is open (issue
-#16).
+# Releases
+
+Nuntius has its own version line
+([decision](decisions/version-scheme.md)) and releases with
+phosh-toolkit's workflow[^toolkit-releases]:
+
+- `data/de.nexumia.Nuntius.releases.xml` holds the fork's `<release>`
+  elements (`release.toml`: `metainfo`). Nobody edits them by hand.
+- `build-aux/nuntius-releases.py version` gives meson the version
+  (`meson.build`, after upstream's version lines), `merge` replaces the
+  content of `<releases>` in the configured metainfo
+  (`data/meson.build`). Tests: `python3 -m unittest discover -s
+  build-aux/tests`, CI job *Build scripts*.
+- A pull request users notice adds
+  `changelog.d/<slug>.<feature|improvement|fix>.md`; others get the
+  label `no-changelog` (check *Changelog* of
+  `.github/workflows/release.yml`). The upstream sync pull request gets
+  the label by itself.
+- Mondays 13:47 UTC, or *Actions → Release → Run workflow*: the pull
+  request "Release v<version>" collects the fragments. Merging it tags
+  `v<version>`; the tag run publishes the stable app. Both need the
+  secret `RELEASE_TOKEN` ([owner checks](owner-checks.md)).
+- No screenshots are declared: a shot needs recorded data, which a
+  Matrix client does not have without a login.
 
 # First stable release
 
-1. Merge this repository's pull request for #3; wait for the `phosh` run to be green (it also publishes the
-   nightly app and `rolling`).
-2. Tag the merge commit with the version of the newest metainfo
-   `<release>` (`data/org.gnome.Fractal.metainfo.xml.in.in`, 14.3 on
-   2026-11-16) or a fork version added there:
-   `git tag v14.3 <commit> && git push origin v14.3`.
-3. The tag run attaches the bundles, source bundles and the Flathub
-   manifest to the release `v14.3`.
-4. In phosh-apps' `apps.txt` replace `nexumia-de/nuntius rolling` with
+1. Add the secret `RELEASE_TOKEN` and run *Release* by hand; it opens
+   "Release v0.2.0" from the fragments in `changelog.d/`.
+2. Merge it when its checks are green. *Tag release* creates `v0.2.0`,
+   the tag run attaches the bundles, source bundles and the Flathub
+   manifest to the release.
+3. In phosh-apps' `apps.txt` replace `nexumia-de/nuntius rolling` with
    `nexumia-de/nuntius`.
-5. Remove the jobs `rolling` and `notify` from `flatpak.yml` and delete
-   the release and tag `rolling` (and the asset-less `v0.1.0`), so
-   GitHub's "latest release" is always the newest tag.
+4. Remove the jobs `rolling` and `notify` from `flatpak.yml` and delete
+   the release and tag `rolling`.
 
 # Status (2026-11-16)
 

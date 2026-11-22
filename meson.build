@@ -23,6 +23,18 @@ if pre_release_version != ''
 endif
 full_version = version
 
+# Nuntius: own version line from the fork's release list; upstream's
+# version above stays as it is (docs/decisions/version-scheme.md).
+nuntius_releases = find_program('build-aux/nuntius-releases.py')
+nuntius_releases_file = files('data/de.nexumia.Nuntius.releases.xml')
+version = run_command(
+    nuntius_releases,
+    'version',
+    nuntius_releases_file,
+    check: true,
+).stdout().strip()
+full_version = version
+
 dependency('glib-2.0', version: '>= 2.82')  # update when changing gtk version
 dependency('gio-2.0', version: '>= 2.82')  # always same version as glib
 dependency('gtk4', version: '>= 4.20.2')

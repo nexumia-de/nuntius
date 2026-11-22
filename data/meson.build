@@ -46,10 +46,18 @@ appdata_conf.set('app-id', application_id)
 appdata_conf.set('gettext-package', gettext_package)
 appdata_conf.set('development-release', development_release)
 appdata_file = i18n.merge_file(
+    # Nuntius: the fork's releases replace upstream's.
     input: configure_file(
-        input: '@0@.metainfo.xml.in.in'.format(base_id),
-        output: '@BASENAME@',
-        configuration: appdata_conf,
+        input: [
+            configure_file(
+                input: '@0@.metainfo.xml.in.in'.format(base_id),
+                output: '@BASENAME@.upstream',
+                configuration: appdata_conf,
+            ),
+            nuntius_releases_file,
+        ],
+        output: '@0@.metainfo.xml.in'.format(base_id),
+        command: [nuntius_releases, 'merge', '@INPUT0@', '@INPUT1@', '@OUTPUT@'],
     ),
     output: '@0@.metainfo.xml'.format(application_id),
     po_dir: podir,

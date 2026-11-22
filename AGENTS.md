@@ -39,6 +39,9 @@ for contributions are in `CONTRIBUTING.md` and recorded in
   `de.nexumia.Nuntius`. Never present the app as Fractal or as official
   Matrix software; "Matrix" appears only to say what it works with
   ([decision](docs/decisions/fork-and-name.md)).
+- Versions are Nuntius' own, not Fractal's: releases live in
+  `data/de.nexumia.Nuntius.releases.xml`, written by the release workflow
+  from `changelog.d/` ([decision](docs/decisions/version-scheme.md)).
 - The toolkit's Python packages, UI rules for new screens and accent
   rules apply to code written here; upstream's existing UI stays as it
   is unless a change is needed on the phone.

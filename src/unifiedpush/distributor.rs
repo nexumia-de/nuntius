@@ -119,16 +119,60 @@ async fn find(connection: &gio::DBusConnection) -> Option<String> {
             }
         };
 
-        let mut distributors = names
-            .into_iter()
-            .filter(|name| name.starts_with(DISTRIBUTOR_NAME_PREFIX))
-            .collect::<Vec<_>>();
-        distributors.sort();
-
-        if let Some(distributor) = distributors.into_iter().next() {
+        if let Some(distributor) = first_distributor(names) {
             return Some(distributor);
         }
     }
 
     None
+}
+
+/// The first UnifiedPush distributor, in alphabetical order, among the given
+/// bus names.
+fn first_distributor(names: impl IntoIterator<Item = String>) -> Option<String> {
+    names
+        .into_iter()
+        .filter(|name| name.starts_with(DISTRIBUTOR_NAME_PREFIX))
+        .min()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn names(names: &[&str]) -> Vec<String> {
+        names.iter().map(ToString::to_string).collect()
+    }
+
+    #[test]
+    fn first_distributor_among_bus_names() {
+        // KUnifiedPush's bus name is from its D-Bus introspection data
+        // (`docs/push-notifications.md`); the other names are examples.
+        assert_eq!(
+            first_distributor(names(&[
+                ":1.42",
+                "org.freedesktop.Notifications",
+                "org.unifiedpush.Distributor.kde",
+                "de.nexumia.Nuntius",
+            ]))
+            .as_deref(),
+            Some("org.unifiedpush.Distributor.kde")
+        );
+        assert_eq!(
+            first_distributor(names(&[
+                "org.unifiedpush.Distributor.kde",
+                "org.unifiedpush.Distributor.gotify",
+            ]))
+            .as_deref(),
+            Some("org.unifiedpush.Distributor.gotify")
+        );
+        assert_eq!(
+            first_distributor(names(&[
+                "org.freedesktop.DBus",
+                "org.unifiedpush.Connector"
+            ])),
+            None
+        );
+        assert_eq!(first_distributor(names(&[])), None);
+    }
 }
