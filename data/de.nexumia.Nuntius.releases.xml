@@ -8,6 +8,14 @@
 -->
 <component>
   <releases>
+    <release version="0.2.0" date="2026-11-22">
+      <description>
+        <ul>
+          <li>Notifications arrive while Nuntius is closed, through a UnifiedPush distributor such as KUnifiedPush.</li>
+          <li>Nuntius has its own app icon: a speech bubble with a messenger's wing.</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.1.0" date="2026-11-04">
       <description>
         <p>First build of Nuntius, a fork of Fractal.</p>
