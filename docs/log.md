@@ -1,6 +1,7 @@
 # Directory Update Log
 
 ## 2026-11-22
+* **Update**: [Flatpak build and releases](flatpak.md): the release workflow uses the existing secret `PUBLISH_TOKEN` as its release token, as the owner decided; no separate `RELEASE_TOKEN`.
 * **Creation**: [App icon](decisions/app-icon.md) (#5): own icon `data/icons/de.nexumia.Nuntius*.svg` (app, nightly, symbolic), installed through `icon_base_id` in `data/icons/meson.build`.
 * **Creation**: [Version scheme](decisions/version-scheme.md) (#16): own version line from 0.1.0 in `data/de.nexumia.Nuntius.releases.xml`, merged into the metainfo by `build-aux/nuntius-releases.py`; `release.toml`, `changelog.d/` and `.github/workflows/release.yml` (phosh-toolkit's release workflow); the upstream sync pull request gets the label `no-changelog`. [Flatpak build and releases](flatpak.md), [fork workflow](fork-workflow.md) and [owner checks](owner-checks.md) updated.
 * **Creation**: [Owner checks](owner-checks.md) (#2): the checks of push notifications that need the phone, and whether KDE's push server may be used.
