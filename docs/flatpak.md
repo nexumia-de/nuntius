@@ -100,14 +100,14 @@ phosh-toolkit's workflow[^toolkit-releases]:
   the label by itself.
 - Mondays 13:47 UTC, or *Actions → Release → Run workflow*: the pull
   request "Release v<version>" collects the fragments. Merging it tags
-  `v<version>`; the tag run publishes the stable app. Both need the
-  secret `RELEASE_TOKEN` ([owner checks](owner-checks.md)).
+  `v<version>`; the tag run publishes the stable app. Both run with the
+  secret `PUBLISH_TOKEN`, which also serves as the release token.
 - No screenshots are declared: a shot needs recorded data, which a
   Matrix client does not have without a login.
 
 # First stable release
 
-1. Add the secret `RELEASE_TOKEN` and run *Release* by hand; it opens
+1. Run *Release* by hand (it uses the secret `PUBLISH_TOKEN`); it opens
    "Release v0.2.0" from the fragments in `changelog.d/`.
 2. Merge it when its checks are green. *Tag release* creates `v0.2.0`,
    the tag run attaches the bundles, source bundles and the Flathub

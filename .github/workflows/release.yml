@@ -10,7 +10,7 @@
 # - Push to phosh: "Tag release" tags a merged release; the Flatpak
 #   workflow builds and publishes the tag.
 #
-# Needs the secret RELEASE_TOKEN (Contents and Pull requests read/write).
+# Uses the secret PUBLISH_TOKEN as its release token (Contents and Pull requests read/write).
 name: Release
 
 on:
@@ -38,4 +38,4 @@ jobs:
     with:
       version: ${{ inputs.version }}
     secrets:
-      RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+      RELEASE_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
