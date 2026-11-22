@@ -164,7 +164,9 @@ mod tests {
 
         // Answers of servers without a Matrix gateway, made up for this test.
         assert!(!is_matrix_gateway(br#"{"unifiedpush":{"version":1}}"#));
-        assert!(!is_matrix_gateway(br#"{"unifiedpush":{"gateway":"other"}}"#));
+        assert!(!is_matrix_gateway(
+            br#"{"unifiedpush":{"gateway":"other"}}"#
+        ));
         assert!(!is_matrix_gateway(b"{}"));
         assert!(!is_matrix_gateway(b"<!DOCTYPE html><html></html>"));
         assert!(!is_matrix_gateway(b""));
