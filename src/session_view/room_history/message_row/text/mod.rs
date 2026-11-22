@@ -206,10 +206,9 @@ mod imp {
 
             let child = obj.child_or_else::<gtk::Label>(new_message_label);
 
+            child.set_css_classes(&["document"]);
             if EMOJI_REGEX.is_match(&text) {
                 child.add_css_class("emoji-message");
-            } else {
-                child.remove_css_class("emoji-message");
             }
 
             let ellipsize = self.format.get() == ContentFormat::Ellipsized;
@@ -265,7 +264,7 @@ mod imp {
             let obj = self.obj();
             let child = obj.child_or_default::<LabelWithWidgets>();
 
-            child.add_css_class("document");
+            child.set_css_classes(&["document"]);
             child.set_ellipsize(ellipsize);
             child.set_use_markup(true);
             child.set_label_and_widgets(result, pills);

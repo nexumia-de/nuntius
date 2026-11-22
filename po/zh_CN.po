@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fractal master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/fractal/issues\n"
-"POT-Creation-Date: 2026-08-12 11:04+0000\n"
-"PO-Revision-Date: 2026-08-15 17:56+0800\n"
+"POT-Creation-Date: 2026-11-13 11:20+0000\n"
+"PO-Revision-Date: 2026-11-15 08:41+0800\n"
 "Last-Translator: lumingzh <lumingzh@qq.com>\n"
 "Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Gtranslator 50.0\n"
+"X-Generator: Gtranslator 51.0\n"
 "X-DL-Lang: zh_CN\n"
 "X-DL-Module: fractal\n"
 "X-DL-Branch: main\n"
@@ -287,7 +287,7 @@ msgstr "账户恢复"
 msgid ""
 "Allows to fully recover your account with a recovery key or passphrase, if "
 "you ever lose access to all your sessions"
-msgstr "允许您使用恢复密钥或口令完整的恢复账户，就算你失去对所有会话的访问"
+msgstr "如果您失去对所有会话的访问，允许使用恢复密钥或口令完整的恢复账户"
 
 #: src/account_settings/encryption_page/mod.rs:151
 msgid "No Crypto Identity"
@@ -797,7 +797,7 @@ msgstr "无已忽略用户"
 
 #: src/account_settings/safety_page/ignored_users_subpage/mod.blp:65
 msgid "You can add users to this list from their room member profile"
-msgstr "您可以将用户从其房间成员配置文件中添加到此列表"
+msgstr "您可以将用户从其聊天室成员配置文件中添加到此列表"
 
 #: src/account_settings/safety_page/mod.blp:6
 msgid "Safety"
@@ -823,7 +823,7 @@ msgstr "发送已阅回执"
 msgid ""
 "Allow other members of the rooms you participate in to track which messages "
 "you have seen"
-msgstr "允许房间的其他成员了解您看过什么信息"
+msgstr "允许聊天室的其他成员了解您看过什么消息"
 
 #: src/account_settings/safety_page/mod.blp:31
 msgid "Send Typing Notifications"
@@ -833,7 +833,7 @@ msgstr "发送打字通知"
 msgid ""
 "Allow other members of the rooms you participate in to see when you are "
 "typing a message"
-msgstr "允许房间的其他成员可以看到你正在输入信息"
+msgstr "允许聊天室的其他成员可以看到您正在输入消息"
 
 #: src/account_settings/safety_page/mod.blp:37
 msgid "Media Previews"
@@ -1200,8 +1200,8 @@ msgid ""
 "Account recovery allows you to recover your crypto identity and to read your "
 "encrypted messages even if you lose access to all your sessions."
 msgstr ""
-"即使无法访问所有您的会话，账户恢复使您能恢复您的加密身份并且读取您之前所有的"
-"加密信息。"
+"即使无法访问您的所有会话，账户恢复使您能恢复加密身份并且读取之前所有的加密消"
+"息。"
 
 #: src/components/crypto/recovery_setup_view.blp:276
 msgid ""
@@ -1341,11 +1341,11 @@ msgstr "取消(_C)"
 msgid "C_onfirm"
 msgstr "确认(_O)"
 
-#: src/components/dialogs/auth/mod.rs:313
+#: src/components/dialogs/auth/mod.rs:314
 msgid "The password is invalid."
 msgstr "密码无效。"
 
-#: src/components/dialogs/auth/mod.rs:315 src/login/in_browser_page.rs:130
+#: src/components/dialogs/auth/mod.rs:316 src/login/mod.rs:625
 msgid "An unexpected error occurred."
 msgstr "发生了意外错误。"
 
@@ -1423,7 +1423,7 @@ msgstr "您确定想要封禁 {user_id} 吗？他们在被解封之前将无法�
 #. Translators: As in, 'Ban room member'.
 #: src/components/dialogs/message_dialogs.rs:139
 #: src/components/user_page.blp:142
-#: src/session_view/room_details/permissions/permissions_subpage.blp:234
+#: src/session_view/room_details/permissions/permissions_subpage.blp:240
 msgid "Ban"
 msgstr "封禁"
 
@@ -1503,7 +1503,7 @@ msgstr "您确定想要踢出 {user_id} 吗？他们在收到邀请前将无法�
 #. Translators: As in, 'Kick room member'.
 #: src/components/dialogs/message_dialogs.rs:207
 #: src/components/user_page.rs:393
-#: src/session_view/room_details/permissions/permissions_subpage.blp:222
+#: src/session_view/room_details/permissions/permissions_subpage.blp:228
 msgid "Kick"
 msgstr "踢出"
 
@@ -1662,7 +1662,7 @@ msgstr "保存"
 msgid "Join a Room"
 msgstr "加入聊天室"
 
-#: src/components/dialogs/room_preview.blp:19 src/login/greeter.blp:17
+#: src/components/dialogs/room_preview.blp:19 src/login/greeter.blp:16
 #: src/login/greeter.blp:20 src/session_view/media_viewer.blp:76
 #: src/session_view/media_viewer.blp:79
 #: src/session_view/room_details/edit_details_subpage.blp:15
@@ -1776,7 +1776,7 @@ msgstr "没有互联网连接"
 
 #: src/components/pill/at_room.rs:32
 msgid "Notify the whole room"
-msgstr "通知整个房间"
+msgstr "通知整个聊天室"
 
 #. Translators: As in 'Custom role'.
 #: src/components/power_level_selection/popover.blp:127
@@ -1819,7 +1819,7 @@ msgstr "权力等级"
 #: src/components/user_page.blp:128 src/session_view/invite.blp:14
 #: src/session_view/invite.blp:39
 #: src/session_view/room_details/members_page/members_list_view/mod.blp:145
-#: src/session_view/room_details/permissions/permissions_subpage.blp:210
+#: src/session_view/room_details/permissions/permissions_subpage.blp:216
 msgid "Invite"
 msgstr "邀请"
 
@@ -2444,52 +2444,43 @@ msgstr "登录(_L)"
 msgid "_Create Account"
 msgstr "创建账户(_C)"
 
-#: src/login/homeserver_page.blp:103 src/login/method_page.blp:129
+#: src/login/homeserver_page.blp:105 src/login/method_page.blp:132
 msgid "Next"
 msgstr "下一步"
 
 #. Translators: As in 'Advanced Settings'.
-#: src/login/homeserver_page.blp:118
+#: src/login/homeserver_page.blp:121
 msgid "Advanced…"
 msgstr "高级…"
 
-#: src/login/homeserver_page.rs:102
+#: src/login/homeserver_page.rs:123
 msgid "Domain Name"
 msgstr "域名"
 
-#: src/login/homeserver_page.rs:104
+#: src/login/homeserver_page.rs:125
 msgid "The domain of your Matrix homeserver, for example gnome.org"
 msgstr "您的 Matrix 主服务器域名，比如 gnome.org"
 
-#: src/login/homeserver_page.rs:107 src/login/method_page.blp:69
+#: src/login/homeserver_page.rs:128 src/login/method_page.blp:69
 msgid "Homeserver URL"
 msgstr "主服务器网址"
 
 #. Translators: Do NOT translate the content between '{' and '}', this is a
 #. variable name.
-#: src/login/homeserver_page.rs:111
+#: src/login/homeserver_page.rs:132
 #, rust-format
 msgid "The URL of your Matrix homeserver, for example {address}"
 msgstr "您的 Matrix 主服务器网址，比如 {address}"
-
-#: src/login/homeserver_page.rs:254 src/login/mod.rs:324 src/login/mod.rs:348
-#: src/login/mod.rs:397
-msgid "Could not set up login"
-msgstr "无法部署登录"
 
 #: src/login/in_browser_page.blp:55
 msgid "Click on the button below and follow the steps in the browser"
 msgstr "请点击下面的按钮并遵循浏览器中的步骤"
 
-#: src/login/in_browser_page.rs:103
-msgid "Could not open URL"
-msgstr "无法打开 URL"
-
-#: src/login/local_server.rs:35
+#: src/login/local_server.rs:33
 msgid "Authorization Completed"
 msgstr "授权已完成"
 
-#: src/login/local_server.rs:40
+#: src/login/local_server.rs:38
 msgid ""
 "The authorization step is complete. You can close this page and go back to "
 "Fractal."
@@ -2499,42 +2490,51 @@ msgstr "授权步骤已完成。您可以关闭此页面并返回 Fractal 了。
 msgid "Log In"
 msgstr "登录"
 
-#: src/login/method_page.blp:94
+#: src/login/method_page.blp:95
 msgid "Matrix Username"
 msgstr "Matrix 用户名"
 
-#: src/login/method_page.blp:109
+#: src/login/method_page.blp:111
 msgid "Password"
 msgstr "密码"
 
-#: src/login/method_page.blp:122
+#: src/login/method_page.blp:125
 msgid "Login via SSO"
 msgstr "通过 SSO 登录"
 
 #. Translators: Do NOT translate the content between '{' and '}', this is a
 #. variable name.
-#: src/login/method_page.rs:90
+#: src/login/method_page.rs:96
 #, rust-format
 msgid "Log in to {domain_name}"
 msgstr "登录至 {domain_name}"
 
-#: src/login/method_page.rs:97
+#: src/login/method_page.rs:103
 msgid "Log in"
 msgstr "登录"
 
-#: src/login/mod.blp:22 src/login/mod.blp:54
+#: src/login/mod.blp:16 src/login/mod.blp:48
 msgid "Login Complete"
 msgstr "登录完成"
 
-#: src/login/mod.blp:75
+#: src/login/mod.blp:69
 msgid "This session is ready to send and receive secure messages"
 msgstr "该会话已准备好发送和接收安全消息"
 
-#: src/login/mod.blp:84
+#: src/login/mod.blp:78
 msgid "Start Chatting"
 msgstr "开始聊天"
 
-#: src/login/mod.rs:467
+#: src/login/mod.rs:384 src/login/mod.rs:541 src/login/mod.rs:552
+#: src/login/mod.rs:640 src/login/mod.rs:665
+msgid "Could not set up login"
+msgstr "无法部署登录"
+
+#: src/login/mod.rs:593 src/login/mod.rs:602
+msgid "Could not open URL"
+msgstr "无法打开 URL"
+
+#: src/login/mod.rs:734
 msgid "Could not store session"
 msgstr "无法存储会话"
 
@@ -2548,34 +2548,34 @@ msgstr "正在获取账户数据…"
 
 #. Translators: Do NOT translate the content between '{' and '}', this is a
 #. variable name.
-#: src/secret/linux.rs:175
+#: src/secret/linux.rs:249
 #, rust-format
 msgid "Fractal: Matrix credentials for {user_id}"
 msgstr "Fractal：用于 {user_id} 的 Matrix 证书"
 
-#: src/secret/linux.rs:529
+#: src/secret/linux.rs:515
 msgid "The secret storage file is corrupted."
 msgstr "该保密存储文件已损坏。"
 
-#: src/secret/linux.rs:532
+#: src/secret/linux.rs:518
 msgid "Could not access the secret storage file location."
 msgstr "无法访问保密存储文件位置。"
 
-#: src/secret/linux.rs:535
+#: src/secret/linux.rs:521
 msgid "An unexpected error occurred when accessing the secret storage file."
 msgstr "访问保密存储文件时发生意外错误。"
 
-#: src/secret/linux.rs:538
+#: src/secret/linux.rs:524
 msgid "The secret storage file has been changed by another process."
 msgstr "保密存储文件已被其他进程修改。"
 
-#: src/secret/linux.rs:541
+#: src/secret/linux.rs:527
 msgid ""
 "The request to the Flatpak Secret Portal was cancelled. Make sure to accept "
 "any prompt asking to access it."
 msgstr "对 Flatpak 保密门户的请求已取消。请确保接受任何即时询问来访问它。"
 
-#: src/secret/linux.rs:544
+#: src/secret/linux.rs:530
 msgid ""
 "The Flatpak Secret Portal is not available. Make sure xdg-desktop-portal is "
 "installed, and it is at least at version 1.5.0."
@@ -2583,50 +2583,50 @@ msgstr ""
 "Flatpak 保密门户不可用。请确保 xdg-desktop-portal 已安装，且其版本至少为 "
 "1.5.0。"
 
-#: src/secret/linux.rs:547
+#: src/secret/linux.rs:533
 msgid ""
 "An unexpected error occurred when interacting with the D-Bus Secret Portal "
 "backend."
 msgstr "与 D-Bus 保密服务门户后端交互时发生意外错误。"
 
-#: src/secret/linux.rs:550
+#: src/secret/linux.rs:536
 msgid "The Flatpak Secret Portal provided a key that is too weak to be secure."
 msgstr "Flatpak 保密门户提供了一个太弱而不安全的密钥。"
 
-#: src/secret/linux.rs:552 src/secret/linux.rs:569
+#: src/secret/linux.rs:538 src/secret/linux.rs:555
 msgid "The collection or item is locked."
 msgstr "该集合或项目已锁定。"
 
-#: src/secret/linux.rs:564
+#: src/secret/linux.rs:550
 msgid "The item was deleted."
 msgstr "该项目已删除。"
 
-#: src/secret/linux.rs:567 src/secret/linux.rs:582
+#: src/secret/linux.rs:553 src/secret/linux.rs:568
 msgid ""
 "An unexpected error occurred when interacting with the D-Bus Secret Service."
 msgstr "与 D-Bus 保密服务交互时发生意外错误。"
 
-#: src/secret/linux.rs:571
+#: src/secret/linux.rs:557
 msgid "The D-Bus Secret Service session does not exist."
 msgstr "D-Bus 保密服务会话不存在。"
 
-#: src/secret/linux.rs:573
+#: src/secret/linux.rs:559
 msgid "The collection or item does not exist."
 msgstr "该集合或项目不存在。"
 
-#: src/secret/linux.rs:576
+#: src/secret/linux.rs:562
 msgid ""
 "The request to the D-Bus Secret Service was cancelled. Make sure to accept "
 "any prompt asking to access it."
 msgstr "对 D-Bus 保密服务的请求已取消。请确保接受任何即时询问来访问它。"
 
-#: src/secret/linux.rs:579
+#: src/secret/linux.rs:565
 msgid ""
 "Could not access the default collection. Make sure a keyring was created and "
 "set as default."
 msgstr "无法访问默认集合。请确保已创建一个密钥串并设为默认。"
 
-#: src/session/mod.rs:837
+#: src/session/mod.rs:831
 msgid "Could not log the session out"
 msgstr "无法登出该会话"
 
@@ -3470,7 +3470,7 @@ msgid "Matrix room ID copied to clipboard"
 msgstr "Matrix 聊天室标识已复制到剪贴板"
 
 #: src/session_view/room_details/general_page.blp:240
-#: src/session_view/room_details/permissions/permissions_subpage.blp:159
+#: src/session_view/room_details/permissions/permissions_subpage.blp:165
 msgid "Enable Encryption"
 msgstr "启用加密"
 
@@ -3884,7 +3884,7 @@ msgstr "未发现匹配搜索的聊天室成员"
 
 #. Translators: value used to assign room member roles.
 #: src/session_view/room_details/permissions/members_subpage.blp:6
-#: src/session_view/room_details/permissions/permissions_subpage.blp:282
+#: src/session_view/room_details/permissions/permissions_subpage.blp:288
 msgid "Members With Assigned Power Levels"
 msgstr "已分配权力等级的成员"
 
@@ -3902,13 +3902,13 @@ msgid ""
 msgstr "没有匹配搜索的已分配权力级别的聊天室成员"
 
 #: src/session_view/room_details/permissions/permissions_subpage.blp:44
-msgid "Room Actions"
-msgstr "聊天室动作"
+msgid "Message Actions"
+msgstr "消息操作"
 
 #. Translators: value used to assign room member roles.
 #: src/session_view/room_details/permissions/permissions_subpage.blp:46
-msgid "Power level required to perform different actions in the room"
-msgstr "执行不同的动作需要不同的权限等级"
+msgid "Power level required to perform message-related actions"
+msgstr "执行消息相关操作需要的权力等级"
 
 #: src/session_view/room_details/permissions/permissions_subpage.blp:49
 msgid "Send Messages"
@@ -3920,70 +3920,79 @@ msgstr "移除自己的消息"
 
 #: src/session_view/room_details/permissions/permissions_subpage.blp:71
 msgid "Remove Messages of Other Members"
-msgstr "移除来自别的成员的信息"
+msgstr "移除其他成员的消息"
 
 #: src/session_view/room_details/permissions/permissions_subpage.blp:82
 msgid "Notify Entire Room"
-msgstr "通知整个房间"
+msgstr "通知整个聊天室"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:93
-msgid "Change Room Settings"
-msgstr "更改聊天室设置"
+#: src/session_view/room_details/permissions/permissions_subpage.blp:94
+msgid "Room Settings Actions"
+msgstr "聊天室设置操作"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:104
-msgid "Change Room Name"
-msgstr "更改聊天室名字"
+#. Translators: value used to assign room member roles.
+#: src/session_view/room_details/permissions/permissions_subpage.blp:96
+msgid "Power level required to change room settings"
+msgstr "更改聊天室设置需要的权力等级"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:115
-msgid "Change Room Description"
-msgstr "更改聊天室说明"
+#: src/session_view/room_details/permissions/permissions_subpage.blp:99
+msgid "Change Settings"
+msgstr "更改设置"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:126
-msgid "Change Room Avatar"
-msgstr "更改聊天室头像"
+#: src/session_view/room_details/permissions/permissions_subpage.blp:110
+msgid "Change Name"
+msgstr "更改名字"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:137
+#: src/session_view/room_details/permissions/permissions_subpage.blp:121
+msgid "Change Description"
+msgstr "更改说明"
+
+#: src/session_view/room_details/permissions/permissions_subpage.blp:132
+msgid "Change Avatar"
+msgstr "更改头像"
+
+#: src/session_view/room_details/permissions/permissions_subpage.blp:143
 msgid "Change Addresses"
 msgstr "更改地址"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:148
+#: src/session_view/room_details/permissions/permissions_subpage.blp:154
 msgid "Change Who Can Read History"
 msgstr "更改历史查阅权限"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:170
+#: src/session_view/room_details/permissions/permissions_subpage.blp:176
 msgid "Change Permissions"
 msgstr "更改权限"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:181
+#: src/session_view/room_details/permissions/permissions_subpage.blp:187
 msgid "Change Server Access Control List"
 msgstr "更改服务器访问控制列表"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:192
+#: src/session_view/room_details/permissions/permissions_subpage.blp:198
 msgid "Upgrade Room"
 msgstr "升级聊天室"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:204
+#: src/session_view/room_details/permissions/permissions_subpage.blp:210
 msgid "Member Actions"
-msgstr "成员活动"
+msgstr "成员操作"
 
 #. Translators: value used to assign room member roles.
-#: src/session_view/room_details/permissions/permissions_subpage.blp:206
+#: src/session_view/room_details/permissions/permissions_subpage.blp:212
 msgid "Power level required to perform different actions on room members"
-msgstr "对房间成员执行不同的动作需要不同的权限等级"
+msgstr "对聊天室成员执行不同的操作需要的权力等级"
 
 #. Translators: value used to assign room member roles.
-#: src/session_view/room_details/permissions/permissions_subpage.blp:247
+#: src/session_view/room_details/permissions/permissions_subpage.blp:253
 msgid "Members Power Levels"
 msgstr "成员权力等级"
 
 #. Translators: value used to assign room member roles.
-#: src/session_view/room_details/permissions/permissions_subpage.blp:249
+#: src/session_view/room_details/permissions/permissions_subpage.blp:255
 msgid "Power levels defined for all members of the room"
-msgstr "为所有房间成员定义权限等级"
+msgstr "为所有聊天室成员定义权力等级"
 
 #. Translators: value used to assign room member roles.
-#: src/session_view/room_details/permissions/permissions_subpage.blp:253
-#: src/session_view/room_details/permissions/permissions_subpage.blp:267
+#: src/session_view/room_details/permissions/permissions_subpage.blp:259
+#: src/session_view/room_details/permissions/permissions_subpage.blp:273
 msgid "Default Power Level"
 msgstr "默认权力等级"
 
@@ -4354,7 +4363,7 @@ msgstr "文件：{filename}"
 msgid "User Location"
 msgstr "用户位置"
 
-#: src/session_view/room_history/message_row/location.rs:91
+#: src/session_view/room_history/message_row/location.rs:125
 msgid "Location is invalid and cannot be displayed"
 msgstr "位置无效且无法显示"
 

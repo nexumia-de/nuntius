@@ -197,6 +197,20 @@ mod imp {
             self.room.upgrade().map(|r| r.own_member())
         }
 
+        pub(super) fn init_is_encrypted(&self) {
+            let Some(room) = self.room.upgrade() else {
+                return;
+            };
+
+            room.connect_is_encrypted_notify(clone!(
+                #[weak(rename_to = imp)]
+                self,
+                move |_| {
+                    imp.update_can_send_message();
+                }
+            ));
+        }
+
         /// Initialize the power levels from the store.
         pub(super) async fn init_power_levels(&self) {
             let Some(room) = self.room.upgrade() else {
@@ -414,9 +428,18 @@ mod imp {
 
         /// Update whether our own member can send a message in the room.
         fn update_can_send_message(&self) {
-            let can_send_message = self.is_allowed_to(PowerLevelAction::SendMessage(
-                MessageLikeEventType::RoomMessage,
-            ));
+            let Some(room) = self.room.upgrade() else {
+                return;
+            };
+            let can_send_message = if room.is_encrypted() {
+                self.is_allowed_to(PowerLevelAction::SendMessage(
+                    MessageLikeEventType::RoomEncrypted,
+                ))
+            } else {
+                self.is_allowed_to(PowerLevelAction::SendMessage(
+                    MessageLikeEventType::RoomMessage,
+                ))
+            };
 
             if self.can_send_message.get() == can_send_message {
                 return;
@@ -497,6 +520,7 @@ impl Permissions {
         imp.room.set(Some(room));
         imp.init_own_member(&room.own_member());
         imp.init_power_levels().await;
+        imp.init_is_encrypted();
     }
 
     /// The source of the power levels information.

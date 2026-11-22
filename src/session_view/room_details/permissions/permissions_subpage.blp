@@ -40,10 +40,10 @@ template $RoomDetailsPermissionsSubpage: Adw.NavigationPage {
         }
 
         content: Adw.PreferencesPage {
-          Adw.PreferencesGroup room_actions_group {
-            title: _("Room Actions");
+          Adw.PreferencesGroup message_actions_group {
+            title: _("Message Actions");
             // Translators: value used to assign room member roles.
-            description: _("Power level required to perform different actions in the room");
+            description: _("Power level required to perform message-related actions");
 
             $PowerLevelSelectionRow messages_row {
               title: _("Send Messages");
@@ -88,9 +88,15 @@ template $RoomDetailsPermissionsSubpage: Adw.NavigationPage {
                 "property",
               ]
             }
+          }
+
+          Adw.PreferencesGroup room_actions_group {
+            title: _("Room Settings Actions");
+            // Translators: value used to assign room member roles.
+            description: _("Power level required to change room settings");
 
             $PowerLevelSelectionRow state_row {
-              title: _("Change Room Settings");
+              title: _("Change Settings");
               use-subtitle: true;
               permissions: bind template.permissions;
               selected-power-level-changed => $state_default_changed() swapped;
@@ -101,7 +107,7 @@ template $RoomDetailsPermissionsSubpage: Adw.NavigationPage {
             }
 
             $PowerLevelSelectionRow name_row {
-              title: _("Change Room Name");
+              title: _("Change Name");
               use-subtitle: true;
               permissions: bind template.permissions;
               selected-power-level-changed => $value_changed() swapped;
@@ -112,7 +118,7 @@ template $RoomDetailsPermissionsSubpage: Adw.NavigationPage {
             }
 
             $PowerLevelSelectionRow topic_row {
-              title: _("Change Room Description");
+              title: _("Change Description");
               use-subtitle: true;
               permissions: bind template.permissions;
               selected-power-level-changed => $value_changed() swapped;
@@ -123,7 +129,7 @@ template $RoomDetailsPermissionsSubpage: Adw.NavigationPage {
             }
 
             $PowerLevelSelectionRow avatar_row {
-              title: _("Change Room Avatar");
+              title: _("Change Avatar");
               use-subtitle: true;
               permissions: bind template.permissions;
               selected-power-level-changed => $value_changed() swapped;
