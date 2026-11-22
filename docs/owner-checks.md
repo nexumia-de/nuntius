@@ -40,3 +40,18 @@ If a check fails, the log helps:
 ```sh
 flatpak run --env=RUST_LOG=fractal=debug,warn de.nexumia.Nuntius
 ```
+
+## Releases
+
+From #16; how releases work: [Flatpak build and releases](flatpak.md#releases).
+
+- [ ] Add the repository secret `RELEASE_TOKEN`: a fine-grained token
+      with **Contents** and **Pull requests** read/write on
+      `nexumia-de/nuntius`. Without it the release pull request and the
+      tag start no builds.
+- [ ] After merging the pull request that added this file: *Actions →
+      Release → Run workflow*, review and merge "Release v0.2.0", then
+      follow steps 3 and 4 of
+      [the first stable release](flatpak.md#first-stable-release).
+- [ ] If `phosh` has a ruleset with required checks, add *Changelog*
+      and *Build scripts*.

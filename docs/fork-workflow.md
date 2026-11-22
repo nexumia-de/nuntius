@@ -27,6 +27,10 @@ request `main` -> `phosh`. Merge it with a merge commit. Conflicts are
 resolved on a branch from `phosh`. When upstream changed `Cargo.lock`,
 the vendored cargo sources must be regenerated on such a branch as well
 ([Flatpak build and releases](flatpak.md#keeping-the-crates-in-step)).
+The pull request carries the label `no-changelog`: upstream's commits
+have no changelog fragment. After a merge that brought in an upstream
+release, the next fork pull request adds a fragment naming it
+([version scheme](decisions/version-scheme.md)).
 
 ## Small diff
 
@@ -40,7 +44,9 @@ Every line changed in an upstream file can conflict in a later merge.
 - Upstream's `AGENTS.md` is replaced by the fork's.
 - New features go into new files where possible.
 
-Changed upstream files so far: `meson.build`, the desktop file and the
+Changed upstream files so far: `meson.build` (app id; the fork's version
+from its release list), `data/meson.build` (the fork's releases replace
+upstream's in the metainfo), the desktop file and the
 metainfo template, `src/application.rs` (name, About dialog, UnifiedPush
 hooks in `constructed` and `dbus_register`),
 `src/main.rs` (also `mod unifiedpush`), `meson.options` (option

@@ -1,0 +1,5 @@
+# Release automation with phosh-toolkit (docs/flatpak.md, "Releases"):
+# changelog fragments in changelog.d/, the fork's own release list instead
+# of upstream's metainfo. meson reads the version from that list, so there
+# are no version-files.
+metainfo = "data/de.nexumia.Nuntius.releases.xml"

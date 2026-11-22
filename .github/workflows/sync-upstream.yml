@@ -16,6 +16,8 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  # To create the label no-changelog.
+  issues: write
 
 jobs:
   sync:
@@ -49,6 +51,10 @@ jobs:
             echo "pull request already open"
             exit 0
           fi
+          # Upstream's commits carry no changelog fragment (docs/flatpak.md).
+          gh label create no-changelog -R "$REPO" --force --color ededed \
+            --description "No changelog fragment needed"
           gh pr create -R "$REPO" --base phosh --head main \
+            --label no-changelog \
             --title "Merge upstream main" \
             --body "Brings new Fractal commits into \`phosh\` (.github/workflows/sync-upstream.yml). Merge with **Create a merge commit**, not squash or rebase."
