@@ -36,7 +36,7 @@ release, the next fork pull request adds a fragment naming it
 
 Every line changed in an upstream file can conflict in a later merge.
 
-- Upstream's file names stay (`data/org.gnome.Fractal.*`, icons,
+- Upstream's file names stay (`data/org.gnome.Fractal.*`,
   `build-aux/org.gnome.Fractal.Devel.json`); meson keeps `base_id` for
   them and only `application_id` is `de.nexumia.Nuntius`.
 - The project and gettext package stay `fractal`, so translations keep
@@ -46,7 +46,7 @@ Every line changed in an upstream file can conflict in a later merge.
 
 Changed upstream files so far: `meson.build` (app id; the fork's version
 from its release list), `data/meson.build` (the fork's releases replace
-upstream's in the metainfo), the desktop file and the
+upstream's in the metainfo), `data/icons/meson.build` (the fork's icons), the desktop file and the
 metainfo template, `src/application.rs` (name, About dialog, UnifiedPush
 hooks in `constructed` and `dbus_register`),
 `src/main.rs` (also `mod unifiedpush`), `meson.options` (option

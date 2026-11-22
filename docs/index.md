@@ -24,6 +24,7 @@ apps is in `../phosh-toolkit/docs/index.md`.
 
 * [Fork and name](decisions/fork-and-name.md) - Why a fork of Fractal instead of a new client, and why it is called Nuntius with the app id de.nexumia.Nuntius.
 * [Version scheme](decisions/version-scheme.md) - Why Nuntius counts its own versions in a release list of its own and uses the toolkit's release workflow.
+* [App icon](decisions/app-icon.md) - Why the icon is a purple speech bubble with a wing, and which variants exist.
 
 ## Log
 

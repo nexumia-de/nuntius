@@ -137,3 +137,11 @@ path = [
 ]
 SPDX-FileCopyrightText = "Nuntius Contributors"
 SPDX-License-Identifier = "GPL-3.0-or-later"
+
+# Nuntius' own icons (docs/decisions/app-icon.md)
+[[annotations]]
+path = [
+    "data/icons/de.nexumia.Nuntius*.svg",
+]
+SPDX-FileCopyrightText = "Nuntius Contributors"
+SPDX-License-Identifier = "CC0-1.0"

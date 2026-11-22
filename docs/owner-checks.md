@@ -55,3 +55,11 @@ From #16; how releases work: [Flatpak build and releases](flatpak.md#releases).
       [the first stable release](flatpak.md#first-stable-release).
 - [ ] If `phosh` has a ruleset with required checks, add *Changelog*
       and *Build scripts*.
+
+## App icon
+
+From #5; [decision](decisions/app-icon.md).
+
+- [ ] The icon looks right on the phone's app grid, in the app switcher
+      and in a notification. To change it, replace the three files
+      `data/icons/de.nexumia.Nuntius*.svg`.
