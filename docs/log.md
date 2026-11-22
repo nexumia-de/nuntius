@@ -1,5 +1,9 @@
 # Directory Update Log
 
+## 2026-11-22
+* **Creation**: [Owner checks](owner-checks.md) (#2): the checks of push notifications that need the phone, and whether KDE's push server may be used.
+* **Update**: [Push notifications](push-notifications.md): unit tests for the gateway URL, the gateway answer, the language tag and the choice of the distributor; endpoints that are not `http(s)` are refused.
+
 ## 2026-11-17
 * **Fix**: [Flatpak build and releases](flatpak.md): libshumate's licence path is `../COPYING` (meson `post-install` runs in the build directory).
 

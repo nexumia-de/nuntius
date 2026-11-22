@@ -17,6 +17,7 @@ apps is in `../phosh-toolkit/docs/index.md`.
 * [Push notifications](push-notifications.md) - The goal of the fork: notifications through UnifiedPush and ntfy while the app is closed.
 * [Development environment](dev-environment.md) - How to build (Flatpak only), blocked hosts.
 * [Flatpak build and releases](flatpak.md) - Offline build with vendored crates, keeping them in step with upstream, stable/nightly/rolling channels and the first stable release.
+* [Owner checks](owner-checks.md) - What only the owner can do or confirm: checks on the phone, secrets, the first stable release.
 * [Bundled dependencies](dependencies.md) - Modules, vendored crates and generator tools with versions and licences.
 
 ## Decision records

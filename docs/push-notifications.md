@@ -1,7 +1,7 @@
 ---
 type: Concept
 title: Push notifications
-description: The fork's goal: Matrix notifications through UnifiedPush and ntfy while Nuntius is closed. Plan and open questions; nothing is implemented yet.
+description: "The fork's goal: Matrix notifications through UnifiedPush and ntfy while Nuntius is closed. Design, implementation in src/unifiedpush/ and what is left to check on the phone."
 tags: [notifications, unifiedpush, ntfy, matrix]
 generated: { by: claude-code/2.1.317, at: 2026-11-04T22:00:00Z }
 sources:
@@ -182,7 +182,15 @@ keeps the registrations in sync with the sessions and their settings.
 - Flatpak: `--talk-name=org.unifiedpush.Distributor.*`; the app owns
   its id, and Flatpak exports its D-Bus service file for activation.
 
-To verify on the phone: the distributor starts Nuntius, notifications
-of the catch-up sync appear, 60 s is enough on mobile data.
+## Tests
 
-Each step becomes an issue in this repository.
+The parts that need neither a D-Bus session nor a homeserver are plain
+functions with unit tests (`cargo test unifiedpush`, part of meson's
+`cargo-test`): the gateway URL of an endpoint (only `http` and `https`
+endpoints are accepted), the gateway answer (with the answer recorded
+from `unifiedpush.kde.org` on 2026-11-04), the language tag of the
+pusher, and the choice of the distributor among the bus names.
+
+What needs the phone is in [owner checks](owner-checks.md): the
+distributor starts Nuntius, notifications of the catch-up sync appear,
+60 s is enough on mobile data.
