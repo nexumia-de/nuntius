@@ -2,6 +2,7 @@
 
 ## 2026-11-22
 * **Fix**: [Flatpak build and releases](flatpak.md): `build-aux/nuntius-cargo-sources.json` regenerated; the upstream merge #13 changed `Cargo.lock` (e.g. `mime` 0.3.18) without it, so the offline Flatpak build failed.
+* **Creation**: [Report a problem](feedback.md): **Report a Problem…** in the main menu (`src/feedback/`, along phosh-toolkit's feedback guideline), the About dialog's issue link opens the filled-in bug form, issue forms `bug.yml` and `feature.yml`; [fork workflow](fork-workflow.md) lists the touched upstream files.
 * **Update**: [Flatpak build and releases](flatpak.md): the release workflow uses the existing secret `PUBLISH_TOKEN` as its release token, as the owner decided; no separate `RELEASE_TOKEN`.
 * **Creation**: [App icon](decisions/app-icon.md) (#5): own icon `data/icons/de.nexumia.Nuntius*.svg` (app, nightly, symbolic), installed through `icon_base_id` in `data/icons/meson.build`.
 * **Creation**: [Version scheme](decisions/version-scheme.md) (#16): own version line from 0.1.0 in `data/de.nexumia.Nuntius.releases.xml`, merged into the metainfo by `build-aux/nuntius-releases.py`; `release.toml`, `changelog.d/` and `.github/workflows/release.yml` (phosh-toolkit's release workflow); the upstream sync pull request gets the label `no-changelog`. [Flatpak build and releases](flatpak.md), [fork workflow](fork-workflow.md) and [owner checks](owner-checks.md) updated.

@@ -193,6 +193,12 @@ mod imp {
                         obj.quit();
                     })
                     .build(),
+                // Report a problem as a GitHub issue.
+                gio::ActionEntry::builder("report-problem")
+                    .activate(|obj: &super::Application, _, _| {
+                        crate::feedback::present(obj.imp().present_main_window().upcast_ref());
+                    })
+                    .build(),
                 // About
                 gio::ActionEntry::builder("about")
                     .activate(|obj: &super::Application, _, _| {
@@ -267,7 +273,7 @@ mod imp {
                 )
                 .license_type(gtk::License::Gpl30)
                 .website(APP_HOMEPAGE_URL)
-                .issue_url("https://github.com/nexumia-de/nuntius/issues")
+                .issue_url(crate::feedback::issue_url())
                 .version(config::VERSION)
                 .copyright(gettext("© The Fractal Team"))
                 .developers([

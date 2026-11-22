@@ -1,0 +1,44 @@
+name: Bug report
+description: Something in Nuntius does not work as expected.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open Nuntius
+        2. …
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: From About Nuntius, e.g. "0.1.0".
+    validations:
+      required: true
+  - type: dropdown
+    id: device
+    attributes:
+      label: Device
+      options:
+        - Phone (Phosh)
+        - Desktop
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log output
+      description: >-
+        Output of `RUST_LOG=fractal=debug flatpak run de.nexumia.Nuntius`, if
+        available. Remove room names, messages and user IDs you do not want to
+        share.
+      render: text

@@ -48,8 +48,9 @@ Changed upstream files so far: `meson.build` (app id; the fork's version
 from its release list), `data/meson.build` (the fork's releases replace
 upstream's in the metainfo), `data/icons/meson.build` (the fork's icons), the desktop file and the
 metainfo template, `src/application.rs` (name, About dialog, UnifiedPush
-hooks in `constructed` and `dbus_register`),
-`src/main.rs` (also `mod unifiedpush`), `meson.options` (option
+hooks in `constructed` and `dbus_register`, action `report-problem`),
+`src/main.rs` (also `mod unifiedpush` and `mod feedback`),
+`src/session_view/sidebar/mod.blp` (menu item "Report a Problem…"), `meson.options` (option
 `build_label` at the end, for phosh-toolkit's nightly build), `src/login/local_server.rs`, `README.md` (a Nuntius
 section on top), `REUSE.toml` (upstream's entry for its `AGENTS.md`,
 which it took from GoToSocial under AGPL-3.0-or-later, removed together
