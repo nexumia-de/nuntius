@@ -8,6 +8,13 @@
 -->
 <component>
   <releases>
+    <release version="0.3.0" date="2026-11-24">
+      <description>
+        <ul>
+          <li>Report a problem or an idea from the main menu: Nuntius sends it to GitHub with your own token or opens the filled-in issue form.</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.2.0" date="2026-11-22">
       <description>
         <ul>
