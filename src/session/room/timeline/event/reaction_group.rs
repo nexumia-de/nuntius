@@ -113,7 +113,8 @@ mod imp {
                             },
                         )
                 }
-                // There were no reactions before, now there are, so it is definitely not the same.
+                // There were no reactions before, now there are, so it is
+                // definitely not the same.
                 None => false,
             };
             if same_reactions {

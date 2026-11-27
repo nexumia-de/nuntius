@@ -78,8 +78,8 @@ mod imp {
 
             let exact_samples_needed = width as f32 / BAR_FULL_WIDTH;
 
-            // If the number of samples has a fractional part, compute a padding to center
-            // the waveform horizontally in the paintable.
+            // If the number of samples has a fractional part, compute a padding
+            // to center the waveform horizontally in the paintable.
             let waveform_start_padding = (exact_samples_needed.fract() * BAR_FULL_WIDTH).trunc();
             // We are sure that the number of samples is positive.
             #[allow(clippy::cast_sign_loss)]
@@ -151,7 +151,8 @@ mod imp {
             self.transition_progress.set(progress);
 
             if (progress - 1.0).abs() < 0.000_001 {
-                // This is the end of the transition, we can drop the previous waveform.
+                // This is the end of the transition, we can drop the previous
+                // waveform.
                 self.previous_waveform.take();
             }
 

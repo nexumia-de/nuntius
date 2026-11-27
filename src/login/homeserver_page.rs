@@ -127,8 +127,8 @@ mod imp {
             } else {
                 self.homeserver_entry.set_title(&gettext("Homeserver URL"));
                 self.homeserver_help.set_markup(&gettext_f(
-                    // Translators: Do NOT translate the content between '{' and '}', this is a
-                    // variable name.
+                    // Translators: Do NOT translate the content between '{' and
+                    // '}', this is a variable name.
                     "The URL of your Matrix homeserver, for example {address}",
                     &[(
                         "address",
@@ -248,8 +248,8 @@ mod tests {
 
     #[gtk::test]
     fn construct() {
-        // Check that the GObject is constructed successfully, i.e. the template file is
-        // valid.
+        // Check that the GObject is constructed successfully, i.e. the template
+        // file is valid.
         load_gresources();
         LoginHomeserverPage::new();
     }

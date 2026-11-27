@@ -210,8 +210,9 @@ pub(crate) async fn client_with_stored_session(
     let encryption_settings = EncryptionSettings {
         auto_enable_cross_signing: true,
         backup_download_strategy: BackupDownloadStrategy::AfterDecryptionFailure,
-        // This only enables room keys backup and not recovery, which would leave us in an awkward
-        // state, because we want both to be enabled at the same time.
+        // This only enables room keys backup and not recovery, which would
+        // leave us in an awkward state, because we want both to be enabled at
+        // the same time.
         auto_enable_backups: false,
     };
 
@@ -391,8 +392,8 @@ impl MatrixIdUri {
 
                 let pill =
                     if let Some(uri_room) = session.room_list().get_by_identifier(&room_uri.id) {
-                        // We do not need to watch safety settings for local rooms, they will be
-                        // watched automatically.
+                        // We do not need to watch safety settings for local
+                        // rooms, they will be watched automatically.
                         Pill::new(&uri_room, AvatarImageSafetySetting::None, None)
                     } else {
                         Pill::new(
@@ -405,8 +406,8 @@ impl MatrixIdUri {
                 Some(pill)
             }
             Self::User(user_id) => {
-                // We should have a strong reference to the list wherever we show a user pill,
-                // so we can use `get_or_create_members()`.
+                // We should have a strong reference to the list wherever we
+                // show a user pill, so we can use `get_or_create_members()`.
                 let user = room.get_or_create_members().get_or_create(user_id);
 
                 // We do not need to watch safety settings for users.
@@ -447,7 +448,8 @@ impl TryFrom<&MatrixUri> for MatrixIdUri {
     type Error = MatrixIdUriParseError;
 
     fn try_from(uri: &MatrixUri) -> Result<Self, Self::Error> {
-        // We ignore the action, because we always offer to join a room or DM a user.
+        // We ignore the action, because we always offer to join a room or DM a
+        // user.
         Self::try_from_parts(uri.id().clone(), uri.via())
             .map_err(|()| MatrixIdUriParseError::UnsupportedId(uri.id().clone()))
     }
@@ -501,7 +503,8 @@ impl TryFrom<&AnchorUri> for MatrixIdUri {
         match value {
             AnchorUri::Matrix(uri) => MatrixIdUri::try_from(uri),
             AnchorUri::MatrixTo(uri) => MatrixIdUri::try_from(uri),
-            // The same error that should be returned by `parse()` when parsing a non-Matrix URI.
+            // The same error that should be returned by `parse()` when parsing
+            // a non-Matrix URI.
             _ => Err(IdParseError::InvalidMatrixUri(MatrixUriError::WrongScheme).into()),
         }
     }

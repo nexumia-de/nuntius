@@ -203,7 +203,8 @@ mod imp {
                 return glib::Propagation::Proceed;
             }
 
-            // If the popover is not visible, we only handle tab to open the popover.
+            // If the popover is not visible, we only handle tab to open the
+            // popover.
             if !self.obj().is_visible() {
                 if matches!(key, gdk::Key::Tab | gdk::Key::KP_Tab) {
                     self.update_completion(true);
@@ -311,11 +312,11 @@ mod imp {
             trigger: bool,
         ) -> Option<(gtk::TextIter, gtk::TextIter, SearchTerm)> {
             // Vocabular used in this method:
-            // - `word`: sequence of characters that form a valid ID or display name. This
-            //   includes characters that are usually not considered to be in words because
-            //   of the grammar of Matrix IDs.
-            // - `trigger`: character used to trigger the popover, usually the first
-            //   character of the corresponding ID.
+            // - `word`: sequence of characters that form a valid ID or display
+            //   name. This includes characters that are usually not considered
+            //   to be in words because of the grammar of Matrix IDs.
+            // - `trigger`: character used to trigger the popover, usually the
+            //   first character of the corresponding ID.
 
             let (word_start, word_end) = self.cursor_word_boundaries(trigger)?;
 
@@ -445,12 +446,14 @@ mod imp {
                 }
             }
 
-            // It the cursor is not at the word, there is no need for completion.
+            // It the cursor is not at the word, there is no need for
+            // completion.
             if cursor != word_end && !cursor.in_range(&word_start, &word_end) {
                 return None;
             }
 
-            // If we are in markdown that would be escaped, there is no need for completion.
+            // If we are in markdown that would be escaped, there is no need for
+            // completion.
             if self.in_escaped_markdown(&word_start, &word_end) {
                 return None;
             }
@@ -473,15 +476,16 @@ mod imp {
             let buffer = self.view().buffer();
             let (buf_start, buf_end) = buffer.bounds();
 
-            // If the word is at the start or the end of the buffer, it cannot be escaped.
+            // If the word is at the start or the end of the buffer, it cannot
+            // be escaped.
             if *word_start == buf_start || *word_end == buf_end {
                 return false;
             }
 
             let text = buffer.slice(&buf_start, &buf_end, true);
 
-            // Find the word string slice indexes, because GtkTextIter only gives us
-            // the char offset but the parser gives us indexes.
+            // Find the word string slice indexes, because GtkTextIter only
+            // gives us the char offset but the parser gives us indexes.
             let word_start_offset = usize::try_from(word_start.offset()).unwrap_or_default();
             let word_end_offset = usize::try_from(word_end.offset()).unwrap_or_default();
             let mut word_start_index = 0;
@@ -512,8 +516,8 @@ mod imp {
                         );
                     }
                     Event::End(_) => {
-                        // A link or a code block only contains text so an end tag
-                        // always means the end of an escaped part.
+                        // A link or a code block only contains text so an end
+                        // tag always means the end of an escaped part.
                         in_escaped_tag = false;
                     }
                     Event::Code(_) if range.contains(&word_start_index) => {
@@ -649,8 +653,8 @@ mod imp {
 
             buffer.delete(&mut start, &mut end);
 
-            // We do not need to watch safety settings for mentions, rooms will be watched
-            // automatically.
+            // We do not need to watch safety settings for mentions, rooms will
+            // be watched automatically.
             let pill = Pill::new(&source, AvatarImageSafetySetting::None, None);
             self.message_toolbar()
                 .current_composer_state()

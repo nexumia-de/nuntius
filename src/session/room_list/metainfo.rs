@@ -59,8 +59,8 @@ impl RoomListMetainfo {
             }
         };
 
-        // We need to acquire the lock now to make sure we have the full map before any
-        // change happens and the map tries to be persisted.
+        // We need to acquire the lock now to make sure we have the full map
+        // before any change happens and the map tries to be persisted.
         let mut rooms_metainfo_guard = self.rooms_metainfo.lock().await;
 
         // Restore rooms and listen to changes.

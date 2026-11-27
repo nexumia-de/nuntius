@@ -67,7 +67,8 @@ impl fmt::Display for MemberRole {
             Self::Moderator => write!(f, "{}", gettext("Moderator")),
             Self::Administrator => write!(f, "{}", gettext("Admin")),
             Self::Creator => write!(f, "{}", gettext("Creator")),
-            // Translators: As in 'Muted room member', a member that cannot send messages.
+            // Translators: As in 'Muted room member', a member that cannot send
+            // messages.
             Self::Muted => write!(f, "{}", gettext("Muted")),
         }
     }
@@ -219,8 +220,9 @@ mod imp {
 
             let matrix_room = room.matrix_room();
 
-            // We will probably not be able to load the power levels if we were never in the
-            // room, so skip this. We should get the power levels when we join the room.
+            // We will probably not be able to load the power levels if we were
+            // never in the room, so skip this. We should get the power levels
+            // when we join the room.
             if !matches!(matrix_room.state(), RoomState::Invited | RoomState::Knocked) {
                 self.update_power_levels().await;
             }
@@ -554,8 +556,8 @@ impl Permissions {
             MemberRole::Default
         } else if power_level < self.default_power_level() && power_level <= self.mute_power_level()
         {
-            // Only set role as muted for members below default, to avoid visual noise in
-            // rooms where muted is the default.
+            // Only set role as muted for members below default, to avoid visual
+            // noise in rooms where muted is the default.
             MemberRole::Muted
         } else {
             MemberRole::Custom
@@ -585,8 +587,8 @@ impl Permissions {
         let power_levels = imp.power_levels.borrow();
 
         if own_user_id == user_id {
-            // The only action we can do for our own user is change the power level, if it's
-            // not a creator.
+            // The only action we can do for our own user is change the power
+            // level, if it's not a creator.
             return action == PowerLevelUserAction::ChangePowerLevel
                 && power_levels.user_can_change_user_power_level(own_user_id, own_user_id);
         }

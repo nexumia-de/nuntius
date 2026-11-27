@@ -78,7 +78,8 @@ mod imp {
                 // Create a list model to have an item for the section itself.
                 let section_model = SingleItemListModel::new(Some(section));
 
-                // Filter the children depending on whether the section is expanded or not.
+                // Filter the children depending on whether the section is
+                // expanded or not.
                 self.is_expanded_filter.set_filter_func(clone!(
                     #[weak(rename_to = imp)]
                     self,

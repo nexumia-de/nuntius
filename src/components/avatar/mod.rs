@@ -382,7 +382,8 @@ mod imp {
                 (image.small_paintable(), image.small_paintable_ref())
             } else {
                 (
-                    // Fallback to small paintable while the big paintable is loading.
+                    // Fallback to small paintable while the big paintable is
+                    // loading.
                     image.big_paintable().or_else(|| image.small_paintable()),
                     image.big_paintable_ref(),
                 )

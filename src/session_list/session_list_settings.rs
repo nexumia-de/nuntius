@@ -60,7 +60,8 @@ impl SessionListSettings {
         let sessions = stored_sessions
             .into_iter()
             .map(|(mut session_id, stored_session)| {
-                // Session IDs have been truncated in version 6 of StoredSession.
+                // Session IDs have been truncated in version 6 of
+                // StoredSession.
                 if session_id.len() > SESSION_ID_LENGTH {
                     session_id.truncate(SESSION_ID_LENGTH);
                     needs_update = true;

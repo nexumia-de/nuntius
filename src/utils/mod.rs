@@ -727,8 +727,8 @@ pub(crate) fn resample_slice(slice: &[f32], new_len: usize) -> Cow<'_, [f32]> {
             .iter()
             .all(|value| (*value - slice[0]).abs() < 0.000_001)
     {
-        // There is a single value so we do not need to interpolate, return a `Vec`
-        // containing that value.
+        // There is a single value so we do not need to interpolate, return a
+        // `Vec` containing that value.
         let value = slice.first().copied().unwrap_or_default();
         return Cow::Owned(std::iter::repeat_n(value, new_len).collect());
     }
@@ -865,11 +865,12 @@ where
 /// All listeners are dropped when the broadcaster is dropped.
 #[derive(Debug)]
 pub(crate) struct Broadcaster<T: Clone>(
-    // The main purpose of this API is to abstract the inner type to be able to change it depending
-    // on the evolution of our dependency tree without requiring to change lots of code.
+    // The main purpose of this API is to abstract the inner type to be able to
+    // change it depending on the evolution of our dependency tree without
+    // requiring to change lots of code.
     //
-    // eyeball is already in our dependency tree with the matrix-sdk crates. Another viable option
-    // would be async-broadcast, used by zbus.
+    // eyeball is already in our dependency tree with the matrix-sdk crates.
+    // Another viable option would be async-broadcast, used by zbus.
     //
     // We need to use an `Option<T>` because an observable always needs a value.
     eyeball::SharedObservable<Option<T>>,

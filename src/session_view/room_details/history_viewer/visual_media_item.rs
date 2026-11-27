@@ -183,8 +183,8 @@ mod imp {
                 return;
             };
 
-            // Do not replace the thumbnail by the placeholder, in case the thumbnail is
-            // loaded before.
+            // Do not replace the thumbnail by the placeholder, in case the
+            // thumbnail is loaded before.
             if self.preview.get() != MediaPreview::Thumbnail {
                 self.picture.set_paintable(Some(&placeholder_texture));
                 self.preview.set(MediaPreview::Placeholder);

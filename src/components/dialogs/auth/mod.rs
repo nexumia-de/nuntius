@@ -186,13 +186,15 @@ mod imp {
                     .await
                 }
                 CrossSigningResetAuthType::OAuth(info) => {
-                    // This is a special stage, which requires opening a URL in the browser.
+                    // This is a special stage, which requires opening a URL in
+                    // the browser.
                     let page = AuthDialogInBrowserPage::new(info.approval_url.to_string());
                     let default_widget = page.default_widget().clone();
 
                     self.show_page(page.upcast(), &default_widget, parent);
 
-                    // The `CrossSigningResetHandle` will poll the endpoint until it succeeds.
+                    // The `CrossSigningResetHandle` will poll the endpoint
+                    // until it succeeds.
                     let handle = spawn_tokio!(async move {
                         cross_signing_reset_handle.auth(info.as_auth_data()).await
                     });
@@ -216,7 +218,8 @@ mod imp {
             self.abort_handle.replace(Some(handle.abort_handle()));
 
             let Ok(result) = handle.await else {
-                // The future was aborted, which means that the user closed the dialog.
+                // The future was aborted, which means that the user closed the
+                // dialog.
                 return Err(AuthError::UserCancelled);
             };
 
@@ -297,7 +300,8 @@ mod imp {
             }
 
             if receiver.await.is_none() {
-                // The sender was dropped, which means that the user closed the dialog.
+                // The sender was dropped, which means that the user closed the
+                // dialog.
                 return Err(AuthError::UserCancelled);
             }
 
@@ -336,7 +340,8 @@ mod imp {
 
             let prev_page = self.current_page.replace(Some(page));
 
-            // Remove the previous page from the stack when the transition is over.
+            // Remove the previous page from the stack when the transition is
+            // over.
             if let Some(page) = prev_page {
                 let cell = Rc::new(RefCell::new(None));
 
@@ -558,8 +563,8 @@ impl AuthState {
     /// Returns `None` if the next stage could not be determined.
     fn next(uiaa_info: &UiaaInfo) -> Option<Self> {
         // Find the possible next stages.
-        // These are the next stage in flows that have the same stages as the ones we
-        // have completed.
+        // These are the next stage in flows that have the same stages as the
+        // ones we have completed.
         let stages = uiaa_info
             .flows
             .iter()
@@ -574,7 +579,8 @@ impl AuthState {
                 next_stage = Some(stage);
                 break;
             } else if next_stage.is_none() {
-                // We will default to the first stage if we do not find one that we support.
+                // We will default to the first stage if we do not find one that
+                // we support.
                 next_stage = Some(stage);
             }
         }

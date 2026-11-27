@@ -201,8 +201,8 @@ impl Notifications {
         let session_id = session.session_id();
         let room_id = matrix_room.room_id();
 
-        // Do not show notifications for the current room in the current session if the
-        // window is active.
+        // Do not show notifications for the current room in the current session
+        // if the window is active.
         if window.is_some_and(|w| {
             w.is_active()
                 && w.current_session_id().as_deref() == Some(session_id)
@@ -224,8 +224,8 @@ impl Notifications {
         };
 
         if !room.is_room_info_initialized() {
-            // Wait for the room to finish initializing, otherwise we will not have the
-            // display name or the avatar.
+            // Wait for the room to finish initializing, otherwise we will not
+            // have the display name or the avatar.
             let notifier = OneshotNotifier::<()>::new("Notifications::show_push");
             let receiver = notifier.listen();
 
@@ -364,8 +364,8 @@ impl Notifications {
 
         let title = gettext("Verification Request");
         let body = gettext_f(
-            // Translators: Do NOT translate the content between '{' and '}', this is a
-            // variable name.
+            // Translators: Do NOT translate the content between '{' and '}',
+            // this is a variable name.
             "{user} sent a verification request",
             &[("user", &user.display_name())],
         );
@@ -426,8 +426,8 @@ impl Notifications {
 
         let title = gettext("Login Request From Another Session");
         let body = gettext_f(
-            // Translators: Do NOT translate the content between '{' and '}', this is a
-            // variable name.
+            // Translators: Do NOT translate the content between '{' and '}',
+            // this is a variable name.
             "Verify your new session “{name}”",
             &[("name", display_name)],
         );
@@ -605,8 +605,8 @@ pub(crate) fn own_invite_notification_body(
     };
 
     if *membership == MembershipState::Invite && state_key == own_user_id {
-        // Translators: Do NOT translate the content between '{' and '}', this is a
-        // variable name.
+        // Translators: Do NOT translate the content between '{' and '}', this
+        // is a variable name.
         Some(gettext_f("{user} invited you", &[("user", sender_name)]))
     } else {
         None
@@ -638,16 +638,16 @@ pub(crate) fn incoming_call_notification_body(
                     gettext("Incoming video call. Use another client to answer.")
                 }
                 (Some(CallIntent::Video), false) => {
-                    // Translators: Do NOT translate the content between '{' and '}', this
-                    // is a variable name.
+                    // Translators: Do NOT translate the content between '{' and
+                    // '}', this is a variable name.
                     gettext_f(
                         "Incoming video call from {user}. Use another client to answer.",
                         &[("user", sender_name)],
                     )
                 }
                 (_, true) => gettext("Incoming call. Use another client to answer."),
-                // Translators: Do NOT translate the content between '{' and '}', this
-                // is a variable name.
+                // Translators: Do NOT translate the content between '{' and
+                // '}', this is a variable name.
                 (_, false) => gettext_f(
                     "Incoming call from {user}. Use another client to answer.",
                     &[("user", sender_name)],

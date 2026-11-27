@@ -311,9 +311,10 @@ mod imp {
 
             match handle.await.unwrap() {
                 Ok(()) => {
-                    // Even if recovery was successful, the recovery data may not have been
-                    // complete. Because the SDK uses multiple threads, we are only
-                    // sure of the SDK's recovery state at this point, not the Session's.
+                    // Even if recovery was successful, the recovery data may
+                    // not have been complete. Because the SDK uses multiple
+                    // threads, we are only sure of the SDK's recovery state at
+                    // this point, not the Session's.
                     if encryption.recovery().state() == SdkRecoveryState::Incomplete {
                         self.navigation
                             .push_by_tag(CryptoRecoverySetupPage::Incomplete.tag());
@@ -399,12 +400,13 @@ mod imp {
             let obj = self.obj();
             let encryption = session.client().encryption();
 
-            // There is no method to reset the room keys backup, so we need to disable
-            // recovery and re-enable it.
-            // If backups are not enabled locally, we cannot disable recovery, the API will
-            // return an error. If a backup exists on the homeserver but backups are not
-            // enabled locally, we need to delete the backup manually.
-            // In any case, `Recovery::enable` will reset the secret storage.
+            // There is no method to reset the room keys backup, so we need to
+            // disable recovery and re-enable it.
+            // If backups are not enabled locally, we cannot disable recovery,
+            // the API will return an error. If a backup exists on the
+            // homeserver but backups are not enabled locally, we need to delete
+            // the backup manually. In any case, `Recovery::enable` will reset
+            // the secret storage.
             let backups = encryption.backups();
             let (backups_are_enabled, backup_exists_on_server) = spawn_tokio!(async move {
             let backups_are_enabled = backups.are_enabled().await;

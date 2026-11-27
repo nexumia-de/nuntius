@@ -220,7 +220,8 @@ mod imp {
                 Ok(stream) => stream,
                 Err(error) => {
                     error!("Could not get user identities stream: {error}");
-                    // All method calls here have the same error, so we can return early.
+                    // All method calls here have the same error, so we can
+                    // return early.
                     return;
                 }
             };
@@ -257,7 +258,8 @@ mod imp {
                 Ok(stream) => stream,
                 Err(error) => {
                     error!("Could not get devices stream: {error}");
-                    // All method calls here have the same error, so we can return early.
+                    // All method calls here have the same error, so we can
+                    // return early.
                     return;
                 }
             };
@@ -339,8 +341,8 @@ mod imp {
                     .any(|d| d.device_id() != own_device && d.is_cross_signed_by_owner()),
                 Err(error) => {
                     error!("Could not get user devices: {error}");
-                    // If there are actually no other devices, the user can still
-                    // reset the crypto identity.
+                    // If there are actually no other devices, the user can
+                    // still reset the crypto identity.
                     true
                 }
             };
@@ -446,8 +448,8 @@ mod imp {
                                 warn!(
                                     "Could not request whether recovery backup exists on homeserver: {error}"
                                 );
-                                // If the request failed, we have to try to delete the backup to
-                                // avoid unsolvable errors.
+                                // If the request failed, we have to try to
+                                // delete the backup to avoid unsolvable errors.
                                 true
                             }
                         };

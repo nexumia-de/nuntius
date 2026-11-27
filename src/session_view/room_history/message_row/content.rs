@@ -190,8 +190,8 @@ impl MessageContent {
                     );
                 }
                 TimelineDetails::Ready(replied_to_event) => {
-                    // We should have a strong reference to the list in the RoomHistory so we
-                    // can use `get_or_create_members()`.
+                    // We should have a strong reference to the list in the
+                    // RoomHistory so we can use `get_or_create_members()`.
                     let replied_to_sender = event
                         .room()
                         .get_or_create_members()

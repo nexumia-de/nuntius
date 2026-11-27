@@ -192,8 +192,8 @@ mod imp {
             let default = permissions.default_power_level();
 
             if mute >= default {
-                // There is no point in having the muted row since all users are muted by
-                // default.
+                // There is no point in having the muted row since all users are
+                // muted by default.
                 self.muted_row.set_visible(false);
                 return;
             }

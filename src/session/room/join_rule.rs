@@ -270,15 +270,15 @@ mod imp {
 
                     if can_knock {
                         gettext_f(
-                            // Translators: Do NOT translate the content between '{' and '}',
-                            // this is a variable name.
+                            // Translators: Do NOT translate the content between
+                            // '{' and '}', this is a variable name.
                             "Members of {room}, and users can request an invite",
                             &[("room", &format!("<b>{room_name}</b>"))],
                         )
                     } else {
                         gettext_f(
-                            // Translators: Do NOT translate the content between '{' and '}',
-                            // this is a variable name.
+                            // Translators: Do NOT translate the content between
+                            // '{' and '}', this is a variable name.
                             "Members of {room}",
                             &[("room", &format!("<b>{room_name}</b>"))],
                         )

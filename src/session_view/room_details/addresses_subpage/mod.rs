@@ -253,7 +253,8 @@ mod imp {
 
             let public_addresses = self.public_addresses();
 
-            // Remove aliases that are not in the list anymore and update the main alias.
+            // Remove aliases that are not in the list anymore and update the
+            // main alias.
             let mut i = 0;
             while i < public_addresses.n_items() {
                 let Some(item) = public_addresses.item(i).and_downcast::<PublicAddress>() else {
@@ -323,8 +324,8 @@ mod imp {
             let server_name = own_member.user_id().server_name();
 
             self.local_addresses_group.set_title(&gettext_f(
-                // Translators: Do NOT translate the content between '{' and '}',
-                // this is a variable name.
+                // Translators: Do NOT translate the content between '{' and
+                // '}', this is a variable name.
                 "Local Addresses on {homeserver}",
                 &[("homeserver", server_name.as_str())],
             ));
@@ -389,8 +390,8 @@ mod imp {
             row.set_title(alias.as_str());
             row.set_remove_button_tooltip_text(Some(gettext("Remove address")));
             row.set_remove_button_accessible_label(Some(gettext_f(
-                // Translators: Do NOT translate the content between '{' and '}',
-                // this is a variable name.
+                // Translators: Do NOT translate the content between '{' and
+                // '}', this is a variable name.
                 "Remove “{address}”",
                 &[("address", alias.as_str())],
             )));
@@ -456,8 +457,8 @@ mod imp {
                 button.set_valign(gtk::Align::Center);
 
                 let accessible_label = gettext_f(
-                    // Translators: Do NOT translate the content between '{' and '}',
-                    // this is a variable name.
+                    // Translators: Do NOT translate the content between '{' and
+                    // '}', this is a variable name.
                     "Set “{address}” as main address",
                     &[("address", &row.title())],
                 );
@@ -638,8 +639,8 @@ mod imp {
             row.set_title(&alias);
             row.set_remove_button_tooltip_text(Some(gettext("Unregister local address")));
             row.set_remove_button_accessible_label(Some(gettext_f(
-                // Translators: Do NOT translate the content between '{' and '}',
-                // this is a variable name.
+                // Translators: Do NOT translate the content between '{' and
+                // '}', this is a variable name.
                 "Unregister “{address}”",
                 &[("address", &alias)],
             )));
@@ -707,8 +708,8 @@ mod imp {
 
             let accessible_label = self.new_local_address().map(|address| {
                 gettext_f(
-                    // Translators: Do NOT translate the content between '{' and '}',
-                    // this is a variable name.
+                    // Translators: Do NOT translate the content between '{' and
+                    // '}', this is a variable name.
                     "Register “{address}”",
                     &[("address", &address)],
                 )

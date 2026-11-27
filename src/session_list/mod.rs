@@ -187,9 +187,9 @@ mod imp {
                 }
             });
 
-            // Get the directories present in the data path to only restore sessions with
-            // data on the system. This is necessary for users sharing their secrets between
-            // devices.
+            // Get the directories present in the data path to only restore
+            // sessions with data on the system. This is necessary for users
+            // sharing their secrets between devices.
             let mut directories = match self.data_directories(sessions.len()).await {
                 Ok(directories) => directories,
                 Err(error) => {

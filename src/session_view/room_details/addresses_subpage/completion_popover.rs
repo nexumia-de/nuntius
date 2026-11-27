@@ -199,8 +199,8 @@ mod imp {
                 return;
             }
 
-            // Always hide the popover if it has a single item that is exactly the text of
-            // the entry.
+            // Always hide the popover if it has a single item that is exactly
+            // the text of the entry.
             if n_items == 1
                 && let Some(item) = self
                     .filtered_list

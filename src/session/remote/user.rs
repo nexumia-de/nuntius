@@ -105,8 +105,8 @@ impl RemoteUser {
             return;
         }
 
-        // Set the request time right away, to prevent several requests at the same
-        // time.
+        // Set the request time right away, to prevent several requests at the
+        // same time.
         imp.update_last_request_time();
 
         spawn!(clone!(

@@ -126,7 +126,8 @@ mod imp {
 
         /// The room containing the events of this group.
         fn room(&self) -> Option<Room> {
-            // Get the room of the first event, since they are all in the same room.
+            // Get the room of the first event, since they are all in the same
+            // room.
             self.group
                 .obj()
                 .and_then(|group| group.item(0))
@@ -218,9 +219,9 @@ mod imp {
                 .unwrap_or_default();
 
             let label = ngettext_f(
-                // Translators: This is a change in the room, not a change between
-                // rooms. Do NOT translate the content between '{' and '}', this
-                // is a variable name.
+                // Translators: This is a change in the room, not a change
+                // between rooms. Do NOT translate the content between '{' and
+                // '}', this is a variable name.
                 "1 room change",
                 "{n} room changes",
                 n,

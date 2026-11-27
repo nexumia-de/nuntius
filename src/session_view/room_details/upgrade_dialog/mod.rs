@@ -196,8 +196,8 @@ mod imp {
                 return;
             }
 
-            // We don't use the count in the strings so we use separate gettext calls for
-            // singular and plural rather than using ngettext.
+            // We don't use the count in the strings so we use separate gettext
+            // calls for singular and plural rather than using ngettext.
             let text = if info.own_user_is_creator {
                 if info.other_creators_count == 1 {
                     gettext(
@@ -323,8 +323,8 @@ impl UpgradeInfo {
         let default_is_stable = capability.is_stable_version(&capability.default);
         let maximum_stable_version = capability.maximum_stable_version();
 
-        // The minimum stable version is the highest stable version between the current
-        // version and the default version.
+        // The minimum stable version is the highest stable version between the
+        // current version and the default version.
         let minimum_stable_version = match (current_is_stable, default_is_stable) {
             (true, false) => Some(current_room_version),
             (false, true) => Some(&capability.default),
@@ -370,8 +370,8 @@ impl UpgradeInfo {
                 .push(current_room_version.clone());
         }
 
-        // Add the default version if it is different from the current version and it is
-        // unstable.
+        // Add the default version if it is different from the current version
+        // and it is unstable.
         if *current_room_version != capability.default && !default_is_stable {
             self.unstable_room_versions.push(capability.default.clone());
         }
@@ -497,8 +497,8 @@ impl<'a> CharSequence<'a> {
     ///
     /// Returns `None` if the string is empty.
     fn new(string: &'a str) -> Option<Self> {
-        // The first character decides the kind of sequence. If there are no characters,
-        // the string is empty so we return early.
+        // The first character decides the kind of sequence. If there are no
+        // characters, the string is empty so we return early.
         let is_digit_seq = string.chars().next()?.is_ascii_digit();
 
         // Find the end of the sequence.
@@ -526,13 +526,15 @@ impl<'a> CharSequence<'a> {
     /// Compare this sequence with another one.
     fn cmp(self, other: Self) -> Ordering {
         match (self, other) {
-            // If one is a sequence of digits and not the other, we can just compare the strings, it
-            // will be ordered lexicographically by the first character. And if they are both
-            // non-digit sequences, just compare the strings.
+            // If one is a sequence of digits and not the other, we can just
+            // compare the strings, it will be ordered lexicographically by the
+            // first character. And if they are both non-digit sequences, just
+            // compare the strings.
             (Self::Digits(lhs) | Self::Other(lhs), Self::Other(rhs))
             | (Self::Other(lhs), Self::Digits(rhs)) => lhs.cmp(rhs),
-            // Compare the actual numeric values of digit sequences. To do that we just remove the
-            // leading zeroes and compare the length, then the strings.
+            // Compare the actual numeric values of digit sequences. To do that
+            // we just remove the leading zeroes and compare the length, then
+            // the strings.
             (Self::Digits(lhs), Self::Digits(rhs)) => {
                 let lhs = lhs.trim_start_matches('0');
                 let rhs = rhs.trim_start_matches('0');

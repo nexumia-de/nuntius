@@ -141,8 +141,8 @@ impl CancelledPage {
                 } else {
                     let name = verification.user().display_name();
                     gettext_f(
-                        // Translators: Do NOT translate the content between '{' and '}', this is a
-                        // variable name.
+                        // Translators: Do NOT translate the content between '{'
+                        // and '}', this is a variable name.
                         "The verification was cancelled by {user}.",
                         &[("user", &format!("<b>{name}</b>"))],
                     )
@@ -170,8 +170,8 @@ impl CancelledPage {
         };
         imp.title.set_text(&title);
 
-        // If the verification was started by one of our other devices, let it offer to
-        // try again.
+        // If the verification was started by one of our other devices, let it
+        // offer to try again.
         let offer_to_retry = !verification.is_self_verification() || verification.started_by_us();
         imp.try_again_btn.set_visible(offer_to_retry);
     }

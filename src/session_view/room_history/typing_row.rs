@@ -117,8 +117,8 @@ mod imp {
         fn update_label(&self, list: &TypingList) {
             let n = list.n_items();
             if n == 0 {
-                // Do not update anything, the `is-empty` property should trigger a revealer
-                // animation.
+                // Do not update anything, the `is-empty` property should
+                // trigger a revealer animation.
                 return;
             }
 
@@ -130,15 +130,15 @@ mod imp {
                     .disambiguated_name();
 
                 gettext_f(
-                    // Translators: Do NOT translate the content between '{' and '}', these are
-                    // variable names.
+                    // Translators: Do NOT translate the content between '{' and
+                    // '}', these are variable names.
                     "{user} is typing…",
                     &[("user", &format!("<b>{user}</b>"))],
                 )
             } else {
                 ngettext_f(
-                    // Translators: Do NOT translate the content between '{' and '}', these are
-                    // variable names.
+                    // Translators: Do NOT translate the content between '{' and
+                    // '}', these are variable names.
                     "{n} member is typing…",
                     "{n} members are typing…",
                     n,

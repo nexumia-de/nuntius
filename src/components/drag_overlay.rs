@@ -55,8 +55,8 @@ mod imp {
             self.revealer.set_child(Some(&self.status));
 
             self.revealer.connect_child_revealed_notify(|revealer| {
-                // Hide the revealer when we don't want to show the child and the animation is
-                // finished.
+                // Hide the revealer when we don't want to show the child and
+                // the animation is finished.
                 if !revealer.reveals_child() && !revealer.is_child_revealed() {
                     revealer.set_visible(false);
                 }

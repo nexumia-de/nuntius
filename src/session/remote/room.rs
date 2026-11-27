@@ -308,8 +308,8 @@ mod imp {
 
             self.set_loading_state(LoadingState::Loading);
 
-            // Try to load data from the summary endpoint first, and if it is not supported
-            // try the space hierarchy endpoint.
+            // Try to load data from the summary endpoint first, and if it is
+            // not supported try the space hierarchy endpoint.
             if !self.load_data_from_summary(&session).await {
                 self.load_data_from_space_hierarchy(&session).await;
             }
@@ -329,7 +329,8 @@ mod imp {
             let handle = spawn_tokio!(async move { client.send(request).await });
 
             let Some(result) = self.request_abort_handle.await_task(handle).await else {
-                // The task was aborted, which means that the object was dropped.
+                // The task was aborted, which means that the object was
+                // dropped.
                 return true;
             };
 
@@ -373,7 +374,8 @@ mod imp {
                         spawn_tokio!(async move { client_clone.resolve_room_alias(&alias).await });
 
                     let Some(result) = self.request_abort_handle.await_task(handle).await else {
-                        // The task was aborted, which means that the object was dropped.
+                        // The task was aborted, which means that the object was
+                        // dropped.
                         return;
                     };
 
@@ -395,7 +397,8 @@ mod imp {
             let handle = spawn_tokio!(async move { client.send(request).await });
 
             let Some(result) = self.request_abort_handle.await_task(handle).await else {
-                // The task was aborted, which means that the object was dropped.
+                // The task was aborted, which means that the object was
+                // dropped.
                 return;
             };
 
@@ -486,8 +489,8 @@ impl RemoteRoom {
             return;
         }
 
-        // Set the request time right away, to prevent several requests at the same
-        // time.
+        // Set the request time right away, to prevent several requests at the
+        // same time.
         imp.update_last_request_time();
 
         spawn!(clone!(

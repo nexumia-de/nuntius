@@ -185,8 +185,8 @@ mod imp {
                 gio::ActionEntry::builder("quit")
                     .activate(|obj: &super::Application, _, _| {
                         if let Some(window) = obj.active_window() {
-                            // This is needed to trigger the close request and save the window
-                            // state.
+                            // This is needed to trigger the close request and
+                            // save the window state.
                             window.close();
                         }
 
@@ -205,8 +205,8 @@ mod imp {
                         obj.imp().show_about_dialog();
                     })
                     .build(),
-                // Show a room. This is the action triggered when clicking a notification about a
-                // message.
+                // Show a room. This is the action triggered when clicking a
+                // notification about a message.
                 gio::ActionEntry::builder(SessionIntent::SHOW_MATRIX_ID_ACTION_NAME)
                     .parameter_type(Some(&SessionIntent::static_variant_type()))
                     .activate(|obj: &super::Application, _, variant| {
@@ -228,8 +228,8 @@ mod imp {
                         obj.imp().process_session_intent(session_id, intent);
                     })
                     .build(),
-                // Show an identity verification. This is the action triggered when clicking a
-                // notification about a new verification.
+                // Show an identity verification. This is the action triggered
+                // when clicking a notification about a new verification.
                 gio::ActionEntry::builder(SessionIntent::SHOW_IDENTITY_VERIFICATION_ACTION_NAME)
                     .parameter_type(Some(&SessionIntent::static_variant_type()))
                     .activate(|obj: &super::Application, _, variant| {

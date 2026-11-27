@@ -264,7 +264,8 @@ impl VerificationList {
                         .get_verification_request(&ev.sender, &ev.event_id)
                         .await
                     else {
-                        // This might be normal if the request has already timed out.
+                        // This might be normal if the request has already timed
+                        // out.
                         debug!(
                             "To-device verification request `({}, {})` not found in the SDK",
                             ev.sender, ev.event_id

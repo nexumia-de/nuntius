@@ -119,12 +119,12 @@ mod imp {
 
             let label = match source_room_category {
                 Some(RoomCategory::Invited) => match target_section_name {
-                    // Translators: This is an action to join a room and put it in the "Favorites"
-                    // section.
+                    // Translators: This is an action to join a room and put it
+                    // in the "Favorites" section.
                     SidebarSectionName::Favorite => gettext("Join Room as Favorite"),
                     SidebarSectionName::Normal => gettext("Join Room"),
-                    // Translators: This is an action to join a room and put it in the "Low
-                    // Priority" section.
+                    // Translators: This is an action to join a room and put it
+                    // in the "Low Priority" section.
                     SidebarSectionName::LowPriority => gettext("Join Room as Low Priority"),
                     SidebarSectionName::Left => gettext("Reject Invite"),
                     _ => target_section_name.to_string(),
@@ -148,12 +148,12 @@ mod imp {
                     _ => target_section_name.to_string(),
                 },
                 Some(RoomCategory::Left) => match target_section_name {
-                    // Translators: This is an action to rejoin a room and put it in the "Favorites"
-                    // section.
+                    // Translators: This is an action to rejoin a room and put
+                    // it in the "Favorites" section.
                     SidebarSectionName::Favorite => gettext("Rejoin Room as Favorite"),
                     SidebarSectionName::Normal => gettext("Rejoin Room"),
-                    // Translators: This is an action to rejoin a room and put it in the "Low
-                    // Priority" section.
+                    // Translators: This is an action to rejoin a room and put
+                    // it in the "Low Priority" section.
                     SidebarSectionName::LowPriority => gettext("Rejoin Room as Low Priority"),
                     _ => target_section_name.to_string(),
                 },

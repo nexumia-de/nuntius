@@ -237,7 +237,8 @@ impl ImageInfoLoader {
 
         let mut info = frame.info();
 
-        // Generate the same thumbnail dimensions as we will need in the timeline.
+        // Generate the same thumbnail dimensions as we will need in the
+        // timeline.
         let scale_factor = widget.scale_factor();
         let max_thumbnail_dimensions =
             FrameDimensions::thumbnail_max_dimensions(widget.scale_factor());
@@ -702,9 +703,9 @@ impl ImageSource<'_> {
             return false;
         }
 
-        // Even if we request animated thumbnails, not a lot of media repositories
-        // support scaling animated images. So we just download the original to be able
-        // to play it.
+        // Even if we request animated thumbnails, not a lot of media
+        // repositories support scaling animated images. So we just download the
+        // original to be able to play it.
         if prefer_animated && self.is_animated() {
             return false;
         }
@@ -977,8 +978,9 @@ pub(crate) trait GlycinFrameExt {
 
 impl GlycinFrameExt for glycin::Frame {
     fn has_delay(&self) -> bool {
-        // glycin always computes a suitable delay if the image is animated but its
-        // delay is set to 0, so 0 should mean that the image is not animated.
+        // glycin always computes a suitable delay if the image is animated but
+        // its delay is set to 0, so 0 should mean that the image is not
+        // animated.
         self.delay() > 0
     }
 

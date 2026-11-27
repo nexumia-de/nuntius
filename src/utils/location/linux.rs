@@ -101,9 +101,9 @@ impl LinuxLocation {
         spawn_tokio!(async move {
             let ProxyAndSession { proxy, session } = &inner;
 
-            // We want to be listening for new locations whenever the session is up
-            // otherwise we might lose the first response and will have to wait for a future
-            // update by geoclue.
+            // We want to be listening for new locations whenever the session is
+            // up otherwise we might lose the first response and will have to
+            // wait for a future update by geoclue.
             let mut stream = proxy.receive_location_updated().await?;
             let (_, first_location) = future::try_join(
                 proxy

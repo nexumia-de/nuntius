@@ -49,9 +49,9 @@ impl SecretFile {
         secret: &T,
     ) -> Result<(), SecretFileError> {
         let cipher = Self::get_or_create_cipher(path, passphrase).await?;
-        // `StoreCipher::encrypt_value()` uses JSON to serialize the data, which shows
-        // in the content of the file. To have a more opaque format, we use
-        // `rmp_serde::to_vec()` which will not show the fields of
+        // `StoreCipher::encrypt_value()` uses JSON to serialize the data, which
+        // shows in the content of the file. To have a more opaque format, we
+        // use `rmp_serde::to_vec()` which will not show the fields of
         // `EncryptedValue`.
         let encrypted_secret = cipher.encrypt_value_data(rmp_serde::to_vec_named(secret)?)?;
         let encrypted_cipher = cipher.export(passphrase)?;

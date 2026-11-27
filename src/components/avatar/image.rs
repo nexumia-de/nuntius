@@ -292,8 +292,8 @@ mod imp {
             let paintable = self.load(AvatarPaintableSize::Small, priority).await;
 
             if self.small_paintable_ref().count() == 0 {
-                // The last reference was dropped while we were loading the paintable, do not
-                // cache it.
+                // The last reference was dropped while we were loading the
+                // paintable, do not cache it.
                 return;
             }
 
@@ -347,8 +347,8 @@ mod imp {
                 .await;
 
             if self.big_paintable_ref().count() == 0 {
-                // The last reference was dropped while we were loading the paintable, do not
-                // cache it.
+                // The last reference was dropped while we were loading the
+                // paintable, do not cache it.
                 return;
             }
 
@@ -402,8 +402,8 @@ mod imp {
                     source: (&uri).into(),
                     info: info.as_ref().map(Into::into),
                 },
-                // Avatars are not encrypted so we should always generate the thumbnail from the
-                // original.
+                // Avatars are not encrypted so we should always generate the
+                // thumbnail from the original.
                 alt: None,
             };
             let settings = ThumbnailSettings {

@@ -49,8 +49,8 @@ mod imp {
         fn constructed(&self) {
             self.parent_constructed();
 
-            // Only show the role badge when we explicitly want to show the badge, and it is
-            // not the default role.
+            // Only show the role badge when we explicitly want to show the
+            // badge, and it is not the default role.
             let show_role_expr = self.obj().property_expression("show-role");
             let is_default_role_expr = self.role_badge.property_expression("is-default_role");
             expression::and(show_role_expr, expression::not(is_default_role_expr)).bind(

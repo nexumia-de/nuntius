@@ -130,8 +130,8 @@ impl ConfirmQrCodePage {
         } else {
             let name = verification.user().display_name();
             imp.question.set_markup(&gettext_f(
-                // Translators: Do NOT translate the content between '{' and '}', this is a
-                // variable name.
+                // Translators: Do NOT translate the content between '{' and
+                // '}', this is a variable name.
                 "Does {user} see a confirmation on their session?",
                 &[("user", &format!("<b>{name}</b>"))],
             ));

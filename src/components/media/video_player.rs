@@ -154,7 +154,8 @@ mod imp {
                         change.state(),
                         gst_play::PlayState::Playing | gst_play::PlayState::Paused
                     ) {
-                        // Files that fail to play go from `Buffering` to `Stopped`.
+                        // Files that fail to play go from `Buffering` to
+                        // `Stopped`.
                         self.set_state(LoadingState::Ready);
                     }
                 }
@@ -186,7 +187,8 @@ mod imp {
 
         /// Update the timestamp for the current state.
         fn update_timestamp(&self) {
-            // We show the duration if we know it and if we are not in compact mode.
+            // We show the duration if we know it and if we are not in compact
+            // mode.
             let visible_duration = self.duration.get().filter(|_| !self.compact.get());
             let is_visible = visible_duration.is_some();
 

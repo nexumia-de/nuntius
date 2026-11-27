@@ -119,8 +119,8 @@ impl QrCodeScannedPage {
             imp.message.set_label(&gettext("You scanned the QR code successfully. You may need to confirm the verification from the other session."));
         } else {
             let name = verification.user().display_name();
-            // Translators: Do NOT translate the content between '{' and '}', this is a
-            // variable name.
+            // Translators: Do NOT translate the content between '{' and '}',
+            // this is a variable name.
             imp.message.set_markup(&gettext_f("You scanned the QR code successfully. {user} may need to confirm the verification.", &[("user", &format!("<b>{name}</b>"))]));
         }
     }

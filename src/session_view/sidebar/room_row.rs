@@ -252,8 +252,9 @@ mod imp {
 
             if is_call {
                 self.room_icon.set_icon_name(Some("video-symbolic"));
-                // Translators: A "call room" is a room where an audio or video call
-                // is always active, that users can join and leave at any time.
+                // Translators: A "call room" is a room where an audio or video
+                // call is always active, that users can join and leave at any
+                // time.
                 self.room_icon.set_tooltip_text(Some(&gettext("Call room")));
                 self.room_icon.set_visible(true);
             } else if is_direct {
@@ -282,18 +283,19 @@ mod imp {
 
             let name = if room.is_call() {
                 gettext_f(
-                    // Translators: Do NOT translate the content between '{' and '}', this is a
-                    // variable name. Presented to screen readers for "call rooms".
-                    // A "call room" is a room where an audio or video call is always active,
-                    // that users can join and leave at any time.
+                    // Translators: Do NOT translate the content between '{' and
+                    // '}', this is a variable name. Presented to screen readers
+                    // for "call rooms". A "call room" is a room where an audio
+                    // or video call is always active, that users can join and
+                    // leave at any time.
                     "{name} (call room)",
                     &[("name", &room.display_name())],
                 )
             } else if room.is_direct() {
                 gettext_f(
-                    // Translators: Do NOT translate the content between '{' and '}', this is a
-                    // variable name. Presented to screen readers when a room is a direct chat with
-                    // another user.
+                    // Translators: Do NOT translate the content between '{' and
+                    // '}', this is a variable name. Presented to screen readers
+                    // when a room is a direct chat with another user.
                     "Direct chat with {name}",
                     &[("name", &room.display_name())],
                 )
@@ -303,9 +305,9 @@ mod imp {
 
             if room.notification_count() > 0 {
                 let count = ngettext_f(
-                    // Translators: Do NOT translate the content between '{' and '}', this is a
-                    // variable name. Presented to screen readers when a room has notifications
-                    // for unread messages.
+                    // Translators: Do NOT translate the content between '{' and
+                    // '}', this is a variable name. Presented to screen readers
+                    // when a room has notifications for unread messages.
                     "1 notification",
                     "{count} notifications",
                     room.notification_count() as u32,

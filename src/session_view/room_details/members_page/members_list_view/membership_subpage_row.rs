@@ -110,26 +110,30 @@ mod imp {
             let item = self.item.borrow().clone()?;
             let count = item.model().n_items();
 
-            // We don't use the count in the strings so we use separate pgettext calls for
-            // singular and plural rather than using npgettext.
+            // We don't use the count in the strings so we use separate pgettext
+            // calls for singular and plural rather than using npgettext.
             let label = match item.kind() {
                 MembershipListKind::Join => return None,
                 // Translators: As in 'Invited Room Member(s)'.
                 MembershipListKind::Invite => {
                     if count == 1 {
-                        // Translators: This is singular, as in 'Invited Room Member'.
+                        // Translators: This is singular, as in 'Invited Room
+                        // Member'.
                         pgettext("member", "Invited")
                     } else {
-                        // Translators: This is plural, as in 'Invited Room Members'.
+                        // Translators: This is plural, as in 'Invited Room
+                        // Members'.
                         pgettext("members", "Invited")
                     }
                 }
                 MembershipListKind::Ban => {
                     if count == 1 {
-                        // Translators: This is singular, as in 'Banned Room Member'.
+                        // Translators: This is singular, as in 'Banned Room
+                        // Member'.
                         pgettext("member", "Banned")
                     } else {
-                        // Translators: This is plural, as in 'Banned Room Members'.
+                        // Translators: This is plural, as in 'Banned Room
+                        // Members'.
                         pgettext("members", "Banned")
                     }
                 }

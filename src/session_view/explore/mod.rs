@@ -214,8 +214,8 @@ mod imp {
             self.header_bar.remove(&*self.search_clamp);
             self.header_bar.remove(&*self.servers_button);
 
-            // In narrow mode, the servers button is in the header bar, and the search entry
-            // is in the second top bar.
+            // In narrow mode, the servers button is in the header bar, and the
+            // search entry is in the second top bar.
             self.header_bar
                 .set_title_widget(Some(&*self.servers_button));
             self.second_top_bar.set_child(Some(&*self.search_clamp));

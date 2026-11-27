@@ -122,8 +122,8 @@ mod imp {
                     gettext("Outgoing video call.")
                 } else {
                     gettext_f(
-                        // Translators: Do NOT translate the content between '{' and '}', this
-                        // is a variable name.
+                        // Translators: Do NOT translate the content between '{'
+                        // and '}', this is a variable name.
                         "Incoming video call from {user}. Use another client to answer.",
                         &[("user", &sender.disambiguated_name())],
                     )
@@ -136,8 +136,8 @@ mod imp {
                     gettext("Outgoing call.")
                 } else {
                     gettext_f(
-                        // Translators: Do NOT translate the content between '{' and '}', this
-                        // is a variable name.
+                        // Translators: Do NOT translate the content between '{'
+                        // and '}', this is a variable name.
                         "Incoming call from {user}. Use another client to answer.",
                         &[("user", &sender.disambiguated_name())],
                     )

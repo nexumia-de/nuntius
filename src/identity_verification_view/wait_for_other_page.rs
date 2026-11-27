@@ -129,14 +129,14 @@ impl WaitForOtherPage {
         } else {
             let name = verification.user().display_name();
             imp.title.set_markup(&gettext_f(
-                // Translators: Do NOT translate the content between '{' and '}', this is a
-                // variable name.
+                // Translators: Do NOT translate the content between '{' and
+                // '}', this is a variable name.
                 "Waiting for {user}",
                 &[("user", &name)],
             ));
             imp.instructions.set_markup(&gettext_f(
-                // Translators: Do NOT translate the content between '{' and '}', this is a
-                // variable name.
+                // Translators: Do NOT translate the content between '{' and
+                // '}', this is a variable name.
                 "Ask {user} to accept the verification request.",
                 &[("user", &format!("<b>{name}</b>"))],
             ));

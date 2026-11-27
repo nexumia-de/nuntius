@@ -94,7 +94,8 @@ impl AvatarData {
                 }
                 // No paintable, we will try to generate the fallback.
                 Ok(None) => {}
-                // Could not get the paintable, we will try to generate the fallback.
+                // Could not get the paintable, we will try to generate the
+                // fallback.
                 Err(error) => {
                     warn!("Could not generate icon for notification: {error}");
                 }

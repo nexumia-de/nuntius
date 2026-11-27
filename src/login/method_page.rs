@@ -91,8 +91,8 @@ mod imp {
         pub(super) fn update(&self, data: LoginMethodPageData<'_>) {
             let title = if let Some(domain_name) = data.domain_name {
                 gettext_f(
-                    // Translators: Do NOT translate the content between '{' and '}', this is a
-                    // variable name.
+                    // Translators: Do NOT translate the content between '{' and
+                    // '}', this is a variable name.
                     "Log in to {domain_name}",
                     &[(
                         "domain_name",
@@ -245,8 +245,8 @@ mod tests {
 
     #[gtk::test]
     fn construct() {
-        // Check that the GObject is constructed successfully, i.e. the template file is
-        // valid.
+        // Check that the GObject is constructed successfully, i.e. the template
+        // file is valid.
         load_gresources();
         LoginMethodPage::new();
     }

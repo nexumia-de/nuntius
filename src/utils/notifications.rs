@@ -191,8 +191,8 @@ fn djb_hash(string: &str) -> u32 {
     let mut hash = 5381_u32;
 
     for byte in string.as_bytes() {
-        // The algorithm is `hash * 33 + byte`, it is usually faster on processors to
-        // shift the value: `hash << 5 == hash * 32`.
+        // The algorithm is `hash * 33 + byte`, it is usually faster on
+        // processors to shift the value: `hash << 5 == hash * 32`.
         hash = (hash << 5)
             .wrapping_add(hash)
             .wrapping_add(u32::from(*byte));

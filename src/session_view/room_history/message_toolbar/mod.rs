@@ -359,9 +359,9 @@ mod imp {
                 return;
             };
 
-            // A "real" successor must have the current room as a predecessor. We still want
-            // to show the "View" button if it is only the room that matches the successor
-            // ID.
+            // A "real" successor must have the current room as a predecessor.
+            // We still want to show the "View" button if it is only the room
+            // that matches the successor ID.
             let has_successor_room =
                 room.successor().is_some() || self.successor_room_list_info.local_room().is_some();
             let has_successor_id = room.successor_id().is_some();
@@ -408,8 +408,8 @@ mod imp {
                 }
 
                 if !iter.forward_cursor_position() {
-                    // We are at the end and we did not encounter a non-whitespace character, the
-                    // buffer is empty.
+                    // We are at the end and we did not encounter a
+                    // non-whitespace character, the buffer is empty.
                     return true;
                 }
             }
@@ -521,7 +521,8 @@ mod imp {
         /// Update the displayed related event for the given replied-to event.
         fn update_for_reply(&self, message_event: &MessageEventSource) {
             let Some(msgtype) = message_event.msgtype() else {
-                // The event was probably redacted, we cannot reply to it anymore.
+                // The event was probably redacted, we cannot reply to it
+                // anymore.
                 self.clear_related_event();
                 return;
             };
@@ -535,13 +536,14 @@ mod imp {
                 .get_or_create(message_event.sender());
 
             let label = gettext_f(
-                // Translators: Do NOT translate the content between '{' and '}',
-                // this is a variable name. In this string, 'Reply' is a noun.
+                // Translators: Do NOT translate the content between '{' and
+                // '}', this is a variable name. In this string, 'Reply' is a
+                // noun.
                 "Reply to {user}",
                 &[("user", LabelWithWidgets::PLACEHOLDER)],
             );
-            // We do not need to watch safety settings for mentions, rooms will be watched
-            // automatically.
+            // We do not need to watch safety settings for mentions, rooms will
+            // be watched automatically.
             let pill = sender.to_pill(AvatarImageSafetySetting::None, None);
 
             self.related_event_header
@@ -676,8 +678,8 @@ mod imp {
                 return glib::Propagation::Stop;
             }
 
-            // Edit the last message on key up, if the composer is empty and the completion
-            // popover is not open.
+            // Edit the last message on key up, if the composer is empty and the
+            // completion popover is not open.
             if matches!(key, gdk::Key::Up | gdk::Key::KP_Up)
                 && !self.completion.is_visible()
                 && self.is_buffer_empty()
@@ -797,7 +799,8 @@ mod imp {
                 return;
             }
 
-            // Listen whether the user cancels before the location API is initialized.
+            // Listen whether the user cancels before the location API is
+            // initialized.
             if let Err(error) = location.init().await {
                 self.location_error_toast(error);
                 return;
@@ -809,7 +812,8 @@ mod imp {
             let response_fut = dialog.response_future(&*obj);
             pin_mut!(response_fut);
 
-            // Listen whether the user cancels before the location stream is ready.
+            // Listen whether the user cancels before the location stream is
+            // ready.
             let location_stream_fut = location.updates_stream();
             pin_mut!(location_stream_fut);
             let (mut location_stream, response_fut) =
@@ -823,7 +827,8 @@ mod imp {
                         }
                     },
                     future::Either::Right(_) => {
-                        // The only possible response at this stage should be cancel.
+                        // The only possible response at this stage should be
+                        // cancel.
                         return;
                     }
                 };
@@ -843,7 +848,8 @@ mod imp {
                         response_fut_wrapper.replace(response_fut);
                     }
                     future::Either::Right((response, _)) => {
-                        // The linux location stream requires a tokio executor when dropped.
+                        // The linux location stream requires a tokio executor
+                        // when dropped.
                         let _ = TokioDrop::new(location_stream);
 
                         if response == gtk::ResponseType::Ok {
@@ -863,8 +869,8 @@ mod imp {
             let timestamp =
                 glib::DateTime::now_local().expect("Should be able to get the local timestamp");
             let location_body = gettext_f(
-                // Translators: Do NOT translate the content between '{' and '}', this is a
-                // variable name.
+                // Translators: Do NOT translate the content between '{' and
+                // '}', this is a variable name.
                 "User Location {geo_uri} at {iso8601_datetime}",
                 &[
                     ("geo_uri", &geo_uri_string),
@@ -1178,8 +1184,8 @@ mod imp {
             self.message_entry.buffer().delete_selection(true, true);
         }
 
-        // Copy the selection in the message entry to the clipboard while replacing
-        // mentions.
+        // Copy the selection in the message entry to the clipboard while
+        // replacing mentions.
         fn copy_buffer_selection_to_clipboard(&self) {
             let buffer = self.message_entry.buffer();
             let Some((start, end)) = buffer.selection_bounds() else {
@@ -1235,8 +1241,8 @@ mod imp {
 
                 window.session_view().select_room(successor);
             } else if let Some(successor_id) = room.successor_id().cloned() {
-                // Route the successor room ID via the server of the sender of the tombstone
-                // event, which is likely to know the room.
+                // Route the successor room ID via the server of the sender of
+                // the tombstone event, which is likely to know the room.
                 let matrix_room = room.matrix_room().clone();
                 let tombstone_event = spawn_tokio!(async move {
                     matrix_room

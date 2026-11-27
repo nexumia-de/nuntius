@@ -154,7 +154,8 @@ mod imp {
             match &change {
                 ChangesBatch::Remove(_) => batch.push(change),
                 ChangesBatch::Add(add) => {
-                    // Merge the change with the previous one if they are contiguous.
+                    // Merge the change with the previous one if they are
+                    // contiguous.
                     if let Some(prev_change) =
                         batch.last_mut().and_then(|previous| match previous {
                             ChangesBatch::Remove(_) => None,
@@ -340,8 +341,8 @@ impl GroupingListGroup {
     pub(super) fn process_batch(&self) {
         let batch = self.imp().batch.take();
 
-        // Do not process removals right away, to batch a removal with the corresponding
-        // addition, if any.
+        // Do not process removals right away, to batch a removal with the
+        // corresponding addition, if any.
         let mut previous_remove = None;
 
         for changes in batch {

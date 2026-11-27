@@ -126,8 +126,8 @@ impl CompletedPage {
         } else {
             let name = verification.user().display_name();
             imp.title.set_markup(&gettext("Verification Complete"));
-            // Translators: Do NOT translate the content between '{' and '}', this is a
-            // variable name.
+            // Translators: Do NOT translate the content between '{' and '}',
+            // this is a variable name.
             imp.message.set_markup(&gettext_f("{user} is verified and you can now be sure that your communication will be private.", &[("user", &format!("<b>{name}</b>"))]));
         }
     }

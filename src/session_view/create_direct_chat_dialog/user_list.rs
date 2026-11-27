@@ -130,13 +130,13 @@ mod imp {
             }
 
             let Ok(result) = handle.await else {
-                // The future was aborted, which means that there is a new search term, we have
-                // nothing to do.
+                // The future was aborted, which means that there is a new
+                // search term, we have nothing to do.
                 return;
             };
 
-            // Check that the search term is the current one, in case the future was not
-            // aborted in time.
+            // Check that the search term is the current one, in case the future
+            // was not aborted in time.
             if self
                 .search_term
                 .borrow()
@@ -159,8 +159,8 @@ mod imp {
 
             let mut list = Vec::with_capacity(response.results.len());
 
-            // If the search term looks like a UserId and is not already in the response,
-            // insert it.
+            // If the search term looks like a UserId and is not already in the
+            // response, insert it.
             if let Ok(user_id) = UserId::parse(&search_term)
                 && !response.results.iter().any(|item| item.user_id == user_id)
             {

@@ -167,7 +167,8 @@ mod imp {
                         }
                     ));
 
-                    // Check if the new room is the successor to a tombstoned room.
+                    // Check if the new room is the successor to a tombstoned
+                    // room.
                     if let Some(predecessor_id) = room.predecessor_id()
                         && self.tombstoned_rooms.borrow().contains(predecessor_id)
                         && let Some(room) = self.get(predecessor_id)
@@ -324,8 +325,8 @@ mod imp {
                     error!("Joining room {identifier} failed: {error}");
 
                     let error = gettext_f(
-                        // Translators: Do NOT translate the content between '{' and '}', this is a
-                        // variable name.
+                        // Translators: Do NOT translate the content between '{'
+                        // and '}', this is a variable name.
                         "Could not join room {room_name}",
                         &[("room_name", identifier.as_str())],
                     );
@@ -356,8 +357,8 @@ mod imp {
                     error!("Invite request for room {identifier} failed: {error}");
 
                     let error = gettext_f(
-                        // Translators: Do NOT translate the content between '{' and '}', this is a
-                        // variable name.
+                        // Translators: Do NOT translate the content between '{'
+                        // and '}', this is a variable name.
                         "Could not request an invite to room {room_name}",
                         &[("room_name", identifier.as_str())],
                     );
@@ -420,8 +421,8 @@ impl RoomList {
             .borrow()
             .iter()
             .filter(|(_, room)| {
-                // We don't want a room that is not joined, it might not be the proper room for
-                // the given alias anymore.
+                // We don't want a room that is not joined, it might not be the
+                // proper room for the given alias anymore.
                 if !room.is_joined() {
                     return false;
                 }
@@ -437,8 +438,8 @@ impl RoomList {
             return matches.into_values().next();
         }
 
-        // The alias is shared between upgraded rooms. We want the latest room, so
-        // filter out those that are predecessors.
+        // The alias is shared between upgraded rooms. We want the latest room,
+        // so filter out those that are predecessors.
         let predecessors = matches
             .values()
             .filter_map(|room| room.predecessor_id().cloned())
@@ -451,7 +452,8 @@ impl RoomList {
             return matches.into_values().next();
         }
 
-        // Ideally this should not happen, return the one with the latest activity.
+        // Ideally this should not happen, return the one with the latest
+        // activity.
         matches
             .into_values()
             .fold(None::<Room>, |latest_room, room| {

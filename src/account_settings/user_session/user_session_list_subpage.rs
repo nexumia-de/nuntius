@@ -69,7 +69,8 @@ mod imp {
                 user_sessions.other_sessions().disconnect(handler);
             }
 
-            // AdwPreferencesPage doesn't handle children other than AdwPreferencesGroup.
+            // AdwPreferencesPage doesn't handle children other than
+            // AdwPreferencesGroup.
             self.stack.unparent();
         }
     }

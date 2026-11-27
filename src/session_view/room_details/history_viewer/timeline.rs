@@ -177,7 +177,8 @@ mod imp {
             let is_encrypted = room.is_encrypted();
 
             let handle = spawn_tokio!(async move {
-                // If the room is encrypted, the messages content cannot be filtered with URLs
+                // If the room is encrypted, the messages content cannot be
+                // filtered with URLs
                 let filter = if is_encrypted {
                     let filter_types = vec![
                         MessageLikeEventType::RoomEncrypted.to_string(),

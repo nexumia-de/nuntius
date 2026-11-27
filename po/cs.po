@@ -6,23 +6,25 @@
 # Daniel Rusek <mail@asciiwolf.com>, 2023, 2024.
 # Vojtěch Perník <translations@pervoj.cz>, 2023-2024.
 # Jiri Eischmann <jiri@eischmann.cz>, 2025.
+# Patrik Sivek <patriksivek@gnome.org>, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: fractal\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/fractal/issues\n"
-"POT-Creation-Date: 2026-06-19 09:16+0000\n"
-"PO-Revision-Date: 2026-06-20 13:56+0200\n"
-"Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
-"Language-Team: Czech <gnome-cs-list@gnome.org>\n"
+"POT-Creation-Date: 2026-11-16 13:17+0000\n"
+"PO-Revision-Date: 2026-11-23 14:43+0100\n"
+"Last-Translator: Patrik Sivek <patriksivek@gnome.org>\n"
+"Language-Team: Czech\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Gtranslator 51.0\n"
 
-#: data/org.gnome.Fractal.desktop.in.in:2 data/org.gnome.Fractal.metainfo.xml.in.in:7
+#: data/org.gnome.Fractal.desktop.in.in:2
+#: data/org.gnome.Fractal.metainfo.xml.in.in:7
 #: src/login/session_setup_view.blp:22 src/window.blp:9
 msgid "Fractal"
 msgstr "Fractal"
@@ -82,14 +84,14 @@ msgstr "Konverzujte na Matrixu"
 
 #: data/org.gnome.Fractal.metainfo.xml.in.in:10
 msgid ""
-"Fractal is a Matrix messaging app for GNOME written in Rust. Its interface is "
-"optimized for collaboration in large groups, such as free software projects, and "
-"will fit all screens, big or small."
+"Fractal is a Matrix messaging app for GNOME written in Rust. Its interface "
+"is optimized for collaboration in large groups, such as free software "
+"projects, and will fit all screens, big or small."
 msgstr ""
-"Fractal je aplikace pro komunikaci ve skupinách Matrix pro pracovní prostředí "
-"GNOME. Je napsaná v jazyce Rust a její uživatelské rozhraní je optimalizované pro "
-"spolupráci ve velkých skupinách, jako jsou různé otevřené softwarové projekty, a "
-"hodí se na všechny obrazovky, velké i malé."
+"Fractal je aplikace pro komunikaci ve skupinách Matrix pro pracovní "
+"prostředí GNOME. Je napsaná v jazyce Rust a její uživatelské rozhraní je "
+"optimalizované pro spolupráci ve velkých skupinách, jako jsou různé otevřené "
+"softwarové projekty, a hodí se na všechny obrazovky, velké i malé."
 
 #: data/org.gnome.Fractal.metainfo.xml.in.in:14
 msgid "Highlights:"
@@ -97,11 +99,11 @@ msgstr "Hlavní přednosti:"
 
 #: data/org.gnome.Fractal.metainfo.xml.in.in:16
 msgid ""
-"Find rooms to discuss your favorite topics, or talk privately to people, securely "
-"thanks to end-to-end encryption"
+"Find rooms to discuss your favorite topics, or talk privately to people, "
+"securely thanks to end-to-end encryption"
 msgstr ""
-"Najděte místnosti, kde můžete diskutovat o svých oblíbených tématech nebo mluvit "
-"soukromě s lidmi, bezpečně díky end-to-end šifrování"
+"Najděte místnosti, kde můžete diskutovat o svých oblíbených tématech nebo "
+"mluvit soukromě s lidmi, bezpečně díky end-to-end šifrování"
 
 #: data/org.gnome.Fractal.metainfo.xml.in.in:17
 msgid "Send rich formatted messages, files, or your current location"
@@ -109,11 +111,11 @@ msgstr "Odesílejte formátované zprávy, soubory nebo svou aktuální polohu"
 
 #: data/org.gnome.Fractal.metainfo.xml.in.in:18
 msgid ""
-"Reply to specific messages, react with emoji, mention users or rooms, edit or "
-"remove messages"
+"Reply to specific messages, react with emoji, mention users or rooms, edit "
+"or remove messages"
 msgstr ""
-"Odpovídejte na konkrétní zprávy, reagujte pomocí emotikonů, zmiňujte uživatele "
-"nebo místnosti, upravujte nebo odebírejte zprávy"
+"Odpovídejte na konkrétní zprávy, reagujte pomocí emotikonů, zmiňujte "
+"uživatele nebo místnosti, upravujte nebo odebírejte zprávy"
 
 #: data/org.gnome.Fractal.metainfo.xml.in.in:19
 msgid "View images, and play audio and video directly in the conversation"
@@ -126,6 +128,10 @@ msgstr "Podívejte se, kdo četl zprávy a kdo píše"
 #: data/org.gnome.Fractal.metainfo.xml.in.in:21
 msgid "Log into multiple accounts at once (with Single-Sign On support)"
 msgstr "Přihlaste se k více účtům najednou (s podporou jednotného přihlášení)"
+
+#: data/org.gnome.Fractal.metainfo.xml.in.in:31 src/application.rs:244
+msgid "The Fractal Team"
+msgstr "Tým Fractal"
 
 #: data/org.gnome.Fractal.metainfo.xml.in.in:39
 msgid "Fractal’s main window"
@@ -174,21 +180,21 @@ msgstr "Exportovat šifrovací klíče místnosti"
 #. Translators: 'Room encryption keys' are encryption keys for all rooms.
 #: src/account_settings/encryption_page/import_export_keys_subpage.rs:153
 msgid ""
-"Exporting your room encryption keys allows you to make a backup to be able to "
-"decrypt your messages in end-to-end encrypted rooms on another device or with "
-"another Matrix client."
+"Exporting your room encryption keys allows you to make a backup to be able "
+"to decrypt your messages in end-to-end encrypted rooms on another device or "
+"with another Matrix client."
 msgstr ""
-"Exportování šifrovacích klíčů místnosti vám umožní vytvořit zálohu, abyste mohli "
-"dešifrovat své zprávy v místnostech s koncovým šifrováním na jiném zařízení nebo "
-"pomocí jiného klienta Matrixu."
+"Exportování šifrovacích klíčů místnosti vám umožní vytvořit zálohu, abyste "
+"mohli dešifrovat své zprávy v místnostech s koncovým šifrováním na jiném "
+"zařízení nebo pomocí jiného klienta Matrixu."
 
 #: src/account_settings/encryption_page/import_export_keys_subpage.rs:156
 msgid ""
-"The backup must be stored in a safe place and must be protected with a strong "
-"passphrase that will be used to encrypt the data."
+"The backup must be stored in a safe place and must be protected with a "
+"strong passphrase that will be used to encrypt the data."
 msgstr ""
-"Záloha musí být uložena na bezpečném místě a musí být chráněna silnou přístupovou "
-"frází, která bude použita k šifrování dat."
+"Záloha musí být uložena na bezpečném místě a musí být chráněna silnou "
+"přístupovou frází, která bude použita k šifrování dat."
 
 #: src/account_settings/encryption_page/import_export_keys_subpage.rs:159
 msgid "Export Keys"
@@ -203,8 +209,8 @@ msgstr "Importovat šifrovací klíče místnosti"
 #. Translators: 'Room encryption keys' are encryption keys for all rooms.
 #: src/account_settings/encryption_page/import_export_keys_subpage.rs:165
 msgid ""
-"Importing your room encryption keys allows you to decrypt your messages in end-to-"
-"end encrypted rooms with a previous backup from a Matrix client."
+"Importing your room encryption keys allows you to decrypt your messages in "
+"end-to-end encrypted rooms with a previous backup from a Matrix client."
 msgstr ""
 "Importování šifrovacích klíčů místnosti vám umožní dešifrovat vaše zprávy v "
 "místnostech s koncovým šifrováním pomocí předchozí zálohy z klienta Matrixu."
@@ -277,10 +283,11 @@ msgstr "Šifrovací identita"
 
 #: src/account_settings/encryption_page/mod.blp:11
 msgid ""
-"Allows you to verify other Matrix accounts and automatically trust their verified "
-"sessions"
+"Allows you to verify other Matrix accounts and automatically trust their "
+"verified sessions"
 msgstr ""
-"Umožňuje ověřit další účty Matrix a automaticky důvěřovat jejich ověřeným sezením"
+"Umožňuje ověřit další účty Matrix a automaticky důvěřovat jejich ověřeným "
+"sezením"
 
 #: src/account_settings/encryption_page/mod.blp:75
 msgid "Account Recovery"
@@ -288,11 +295,11 @@ msgstr "Obnovení účtu"
 
 #: src/account_settings/encryption_page/mod.blp:77
 msgid ""
-"Allows to fully recover your account with a recovery key or passphrase, if you "
-"ever lose access to all your sessions"
+"Allows to fully recover your account with a recovery key or passphrase, if "
+"you ever lose access to all your sessions"
 msgstr ""
-"Umožňuje plně obnovit váš účet pomocí klíče pro obnovení nebo přístupové fráze, "
-"pokud někdy ztratíte přístup ke všem svým sezením"
+"Umožňuje plně obnovit váš účet pomocí klíče pro obnovení nebo přístupové "
+"fráze, pokud někdy ztratíte přístup ke všem svým sezením"
 
 #: src/account_settings/encryption_page/mod.rs:151
 msgid "No Crypto Identity"
@@ -352,7 +359,8 @@ msgid "Account Recovery Disabled"
 msgstr "Obnovení účtu zakázáno"
 
 #: src/account_settings/encryption_page/mod.rs:226
-msgid "Enable recovery to be able to restore your account without another device"
+msgid ""
+"Enable recovery to be able to restore your account without another device"
 msgstr "Povolte obnovení, abyste mohli obnovit svůj účet bez dalšího zařízení"
 
 #: src/account_settings/encryption_page/mod.rs:232
@@ -467,11 +475,11 @@ msgstr ""
 #. Translators: Deactivation is a permanent action that occurs on the server.
 #: src/account_settings/general_page/deactivate_account_subpage.blp:59
 msgid ""
-"To confirm that you really want to deactivate this account, type in your Matrix "
-"user ID:"
+"To confirm that you really want to deactivate this account, type in your "
+"Matrix user ID:"
 msgstr ""
-"Abyste potvrdili, že jej opravdu chcete deaktivovat, zadejte své uživatelské ID "
-"Matrixu:"
+"Abyste potvrdili, že jej opravdu chcete deaktivovat, zadejte své uživatelské "
+"ID Matrixu:"
 
 #: src/account_settings/general_page/deactivate_account_subpage.rs:156
 msgid "Account successfully deactivated"
@@ -505,11 +513,11 @@ msgstr "Odhlášení se nezdařilo"
 
 #: src/account_settings/general_page/log_out_subpage.blp:121
 msgid ""
-"Logging out of this session failed. You can try again, or, if this is a permanent "
-"error, you can remove the session."
+"Logging out of this session failed. You can try again, or, if this is a "
+"permanent error, you can remove the session."
 msgstr ""
-"Odhlášení z tohoto sezení se nezdařilo. Můžete to zkusit znovu, nebo pokud se "
-"jedná o trvalou chybu, můžete sezení odstranit."
+"Odhlášení z tohoto sezení se nezdařilo. Můžete to zkusit znovu, nebo pokud "
+"se jedná o trvalou chybu, můžete sezení odstranit."
 
 #: src/account_settings/general_page/log_out_subpage.blp:136
 #: src/account_settings/user_session/user_session_list_subpage.blp:83
@@ -525,10 +533,11 @@ msgstr "Zkusit znovu"
 #: src/account_settings/general_page/log_out_subpage.blp:147
 msgid ""
 "Removing the session deletes the associated data from the system, but your "
-"homeserver and other sessions will not be aware that this session was logged out."
+"homeserver and other sessions will not be aware that this session was logged "
+"out."
 msgstr ""
-"Odstraněním sezení odstraníte přidružená data ze systému, ale váš domovský server "
-"a další sezení nebudou vědět, že toto sezení bylo odhlášeno."
+"Odstraněním sezení odstraníte přidružená data ze systému, ale váš domovský "
+"server a další sezení nebudou vědět, že toto sezení bylo odhlášeno."
 
 #: src/account_settings/general_page/log_out_subpage.blp:162
 msgid "Remove Session"
@@ -536,22 +545,23 @@ msgstr "Smazat sezení"
 
 #: src/account_settings/general_page/log_out_subpage.rs:83
 msgid ""
-"The crypto identity and account recovery are not set up properly. If this is your "
-"last connected session and you have no recent local backup of your encryption "
-"keys, you will not be able to restore your account."
+"The crypto identity and account recovery are not set up properly. If this is "
+"your last connected session and you have no recent local backup of your "
+"encryption keys, you will not be able to restore your account."
 msgstr ""
-"Šifrovací identita a obnovení účtu nejsou správně nastaveny. Pokud je toto vaše "
-"poslední připojené sezení a nemáte žádnou nedávnou místní zálohu vašich "
+"Šifrovací identita a obnovení účtu nejsou správně nastaveny. Pokud je toto "
+"vaše poslední připojené sezení a nemáte žádnou nedávnou místní zálohu vašich "
 "šifrovacích klíčů, nebudete moci obnovit svůj účet."
 
 #: src/account_settings/general_page/log_out_subpage.rs:91
 msgid ""
-"This is your last connected session. Make sure that you can still access your "
-"recovery key or passphrase, or to backup your encryption keys before logging out."
+"This is your last connected session. Make sure that you can still access "
+"your recovery key or passphrase, or to backup your encryption keys before "
+"logging out."
 msgstr ""
-"Toto je vaše poslední připojené sezení. Před odhlášením se ujistěte, že máte stále "
-"přístup ke svému klíči pro obnovení či přístupové frázi nebo zálohujte své "
-"šifrovací klíče."
+"Toto je vaše poslední připojené sezení. Před odhlášením se ujistěte, že máte "
+"stále přístup ke svému klíči pro obnovení či přístupové frázi nebo zálohujte "
+"své šifrovací klíče."
 
 #: src/account_settings/general_page/mod.blp:6
 msgid "General"
@@ -595,8 +605,8 @@ msgstr "Správa účtu"
 msgid "Advanced Information"
 msgstr "Upřesňující informace"
 
-#: src/account_settings/general_page/mod.blp:104 src/login/homeserver_page.blp:6
-#: src/login/homeserver_page.blp:44
+#: src/account_settings/general_page/mod.blp:104
+#: src/login/homeserver_page.blp:6 src/login/homeserver_page.blp:44
 msgid "Homeserver"
 msgstr "Domovský server"
 
@@ -668,7 +678,7 @@ msgstr "Opravdu chcete odebrat váš avatar?"
 #: src/components/dialogs/message_dialogs.rs:513
 #: src/identity_verification_view/confirm_qr_code_page.blp:55
 #: src/session_view/room_details/edit_details_subpage.rs:267
-#: src/session_view/room_details/general_page.rs:1001
+#: src/session_view/room_details/general_page.rs:1021
 #: src/session_view/room_details/upgrade_dialog/mod.blp:134
 #: src/session_view/room_history/event_actions/group.rs:584
 #: src/session_view/room_history/event_actions/group.rs:648
@@ -720,9 +730,11 @@ msgstr "Globální"
 
 #: src/account_settings/notifications_page.blp:25
 msgid ""
-"Which messages trigger notifications in rooms that do not have more specific rules"
+"Which messages trigger notifications in rooms that do not have more specific "
+"rules"
 msgstr ""
-"Které zprávy spouštějí oznámení v místnostech, které nemají konkrétnější pravidla"
+"Které zprávy spouštějí oznámení v místnostech, které nemají konkrétnější "
+"pravidla"
 
 #: src/account_settings/notifications_page.blp:28
 msgid "All messages in all rooms"
@@ -731,7 +743,8 @@ msgstr "Všechny zprávy ve všech místnostech"
 #: src/account_settings/notifications_page.blp:34
 msgid "All messages in direct chats, and mentions and keywords in all rooms"
 msgstr ""
-"Všechny zprávy v přímých konverzacích a zmínky a klíčová slova ve všech místnostech"
+"Všechny zprávy v přímých konverzacích a zmínky a klíčová slova ve všech "
+"místnostech"
 
 #: src/account_settings/notifications_page.blp:40
 msgid "Only mentions and keywords in all rooms"
@@ -743,11 +756,11 @@ msgstr "Klíčová slova"
 
 #: src/account_settings/notifications_page.blp:49
 msgid ""
-"Messages that contain one of these keywords trigger notifications. Matching on "
-"these keywords is case-insensitive."
+"Messages that contain one of these keywords trigger notifications. Matching "
+"on these keywords is case-insensitive."
 msgstr ""
-"Zprávy, které obsahují jedno z těchto klíčových slov, spouštějí oznámení. Při "
-"shodě těchto klíčových slov se nerozlišují malá a velká písmena."
+"Zprávy, které obsahují jedno z těchto klíčových slov, spouštějí oznámení. "
+"Při shodě těchto klíčových slov se nerozlišují malá a velká písmena."
 
 #: src/account_settings/notifications_page.blp:61
 #: src/account_settings/notifications_page.blp:62
@@ -808,7 +821,8 @@ msgstr "Žádní ignorovaní uživatelé"
 
 #: src/account_settings/safety_page/ignored_users_subpage/mod.blp:65
 msgid "You can add users to this list from their room member profile"
-msgstr "Do tohoto seznamu můžete přidat uživatele z jejich profilu člena místnosti"
+msgstr ""
+"Do tohoto seznamu můžete přidat uživatele z jejich profilu člena místnosti"
 
 #: src/account_settings/safety_page/mod.blp:6
 msgid "Safety"
@@ -816,11 +830,12 @@ msgstr "Bezpečnost"
 
 #: src/account_settings/safety_page/mod.blp:13
 msgid ""
-"All messages or invitations sent by these users will be ignored. You will still "
-"see some of their activity, like when they join or leave a room."
+"All messages or invitations sent by these users will be ignored. You will "
+"still see some of their activity, like when they join or leave a room."
 msgstr ""
-"Všechny zprávy nebo pozvání odeslané těmito uživateli budou ignorovány. Stále "
-"uvidíte část jejich aktivity, například když se připojí nebo opustí místnost."
+"Všechny zprávy nebo pozvání odeslané těmito uživateli budou ignorovány. "
+"Stále uvidíte část jejich aktivity, například když se připojí nebo opustí "
+"místnost."
 
 #: src/account_settings/safety_page/mod.blp:21
 msgid "Privacy"
@@ -832,11 +847,11 @@ msgstr "Odesílat potvrzení o přečtení"
 
 #: src/account_settings/safety_page/mod.blp:26
 msgid ""
-"Allow other members of the rooms you participate in to track which messages you "
-"have seen"
+"Allow other members of the rooms you participate in to track which messages "
+"you have seen"
 msgstr ""
-"Umožnit ostatním členům místností, kterých jste členem, aby mohli sledovat, které "
-"zprávy jste viděli"
+"Umožnit ostatním členům místností, kterých jste členem, aby mohli sledovat, "
+"které zprávy jste viděli"
 
 #: src/account_settings/safety_page/mod.blp:31
 msgid "Send Typing Notifications"
@@ -844,11 +859,11 @@ msgstr "Odesílat upozornění o psaní"
 
 #: src/account_settings/safety_page/mod.blp:32
 msgid ""
-"Allow other members of the rooms you participate in to see when you are typing a "
-"message"
+"Allow other members of the rooms you participate in to see when you are "
+"typing a message"
 msgstr ""
-"Umožnit ostatním členům místností, kterých jste členem, aby viděli, když píšete "
-"zprávu"
+"Umožnit ostatním členům místností, kterých jste členem, aby viděli, když "
+"píšete zprávu"
 
 #: src/account_settings/safety_page/mod.blp:37
 msgid "Media Previews"
@@ -856,11 +871,11 @@ msgstr "Náhledy médií"
 
 #: src/account_settings/safety_page/mod.blp:39
 msgid ""
-"Which rooms automatically show previews for images and videos. Hidden previews can "
-"always be shown by clicking on the media."
+"Which rooms automatically show previews for images and videos. Hidden "
+"previews can always be shown by clicking on the media."
 msgstr ""
-"Ve kterých místnostech se automaticky zobrazují náhledy obrázků a videí. Skryté "
-"náhledy lze vždy zobrazit kliknutím na médium."
+"Ve kterých místnostech se automaticky zobrazují náhledy obrázků a videí. "
+"Skryté náhledy lze vždy zobrazit kliknutím na médium."
 
 #: src/account_settings/safety_page/mod.blp:43
 msgid "Show in all rooms"
@@ -972,10 +987,6 @@ msgstr "Přepnout účty"
 msgid "_Add Account"
 msgstr "Přid_at účet"
 
-#: src/application.rs:244
-msgid "The Fractal Team"
-msgstr "Tým Fractal"
-
 #: src/application.rs:250
 msgid "© The Fractal Team"
 msgstr "© Tým Fractal"
@@ -985,7 +996,8 @@ msgid "translator-credits"
 msgstr ""
 "Marek Černocký <marek@manet.cz>\n"
 "Vojtěch Perník <translations@pervoj.cz>\n"
-"Daniel Rusek <mail@asciiwolf.com>"
+"Daniel Rusek <mail@asciiwolf.com>\n"
+"Patrik Sivek <patriksivek@gnome.org>"
 
 #. This can't be added via the builder
 #: src/application.rs:268
@@ -1000,7 +1012,8 @@ msgstr "Sezení nebylo nalezeno"
 msgid "Confirm Change"
 msgstr "Potvrdit změnu"
 
-#: src/components/action_button.blp:62 src/components/camera/qrcode_scanner.blp:14
+#: src/components/action_button.blp:62
+#: src/components/camera/qrcode_scanner.blp:14
 #: src/login/session_setup_view.blp:16 src/session_view/explore/mod.blp:63
 #: src/session_view/room_details/history_viewer/audio.blp:17
 #: src/session_view/room_details/history_viewer/file.blp:16
@@ -1019,7 +1032,7 @@ msgstr "Varování"
 
 #: src/components/action_button.blp:119 src/error_page.blp:9
 #: src/session_view/create_direct_chat_dialog/mod.blp:93
-#: src/session_view/explore/mod.blp:113 src/session_view/explore/mod.blp:117
+#: src/session_view/explore/mod.blp:108 src/session_view/explore/mod.blp:112
 #: src/session_view/room_details/invite_subpage/mod.blp:109
 #: src/session_view/room_details/invite_subpage/mod.blp:113
 #: src/session_view/room_details/members_page/members_list_view/mod.blp:68
@@ -1080,11 +1093,11 @@ msgstr "Ověřit vaše nové sezení"
 
 #: src/components/crypto/identity_setup_view.blp:45
 msgid ""
-"Verifying your session allows you and the people you chat with to be sure that no "
-"one is trying to impersonate you or intercept your conversations."
+"Verifying your session allows you and the people you chat with to be sure "
+"that no one is trying to impersonate you or intercept your conversations."
 msgstr ""
-"Ověření vašeho sezení umožňuje vám i lidem, se kterými konverzujete, mít jistotu, "
-"že se za vás nikdo nepokouší vydávat nebo zachytit vaše konverzace."
+"Ověření vašeho sezení umožňuje vám i lidem, se kterými konverzujete, mít "
+"jistotu, že se za vás nikdo nepokouší vydávat nebo zachytit vaše konverzace."
 
 #: src/components/crypto/identity_setup_view.blp:58
 msgid "Verify With Another Session"
@@ -1121,8 +1134,8 @@ msgstr "Nastavit šifrovací identitu"
 #: src/components/crypto/identity_setup_view.blp:155
 #: src/components/crypto/identity_setup_view.blp:232
 msgid ""
-"Your crypto identity allows you to verify other Matrix accounts and automatically "
-"trust their verified sessions."
+"Your crypto identity allows you to verify other Matrix accounts and "
+"automatically trust their verified sessions."
 msgstr ""
 "Vaše šifrovací identita vám umožňuje ověřit další účty Matrix a automaticky "
 "důvěřovat jejich ověřeným sezením."
@@ -1138,15 +1151,16 @@ msgstr "Nastavit"
 
 #: src/components/crypto/identity_setup_view.blp:245
 msgid ""
-"You should reset your crypto identity if a device that does not belong to you "
-"managed to be verified."
+"You should reset your crypto identity if a device that does not belong to "
+"you managed to be verified."
 msgstr ""
-"Pokud se podařilo ověřit zařízení, které vám nepatří, měli byste resetovat svou "
-"šifrovací identitu."
+"Pokud se podařilo ověřit zařízení, které vám nepatří, měli byste resetovat "
+"svou šifrovací identitu."
 
 #: src/components/crypto/identity_setup_view.blp:257
 msgid "To proceed, you will also need to reset your account recovery key."
-msgstr "Abyste mohli pokračovat, budete také muset resetovat klíč pro obnovení účtu."
+msgstr ""
+"Abyste mohli pokračovat, budete také muset resetovat klíč pro obnovení účtu."
 
 #: src/components/crypto/identity_setup_view.rs:415
 #: src/identity_verification_view/cancelled_page.rs:196
@@ -1163,11 +1177,11 @@ msgstr "Obnovte plný přístup ke svému účtu."
 
 #: src/components/crypto/recovery_setup_view.blp:52
 msgid ""
-"To access the recovery data, we need the recovery passphrase or the recovery key "
-"that is usually set up when you create your account."
+"To access the recovery data, we need the recovery passphrase or the recovery "
+"key that is usually set up when you create your account."
 msgstr ""
-"Pro přístup k datům pro obnovení potřebujeme přístupovou frázi pro obnovení nebo "
-"klíč pro obnovení, který se obvykle nastavuje při vytváření účtu."
+"Pro přístup k datům pro obnovení potřebujeme přístupovou frázi pro obnovení "
+"nebo klíč pro obnovení, který se obvykle nastavuje při vytváření účtu."
 
 #: src/components/crypto/recovery_setup_view.blp:69
 msgid "Recovery Passphrase or Key"
@@ -1201,7 +1215,8 @@ msgstr "Resetovat zálohu šifrovacích klíčů místnosti"
 
 #: src/components/crypto/recovery_setup_view.blp:176
 msgid ""
-"If you do not provide a new recovery passphrase, a recovery key will be created."
+"If you do not provide a new recovery passphrase, a recovery key will be "
+"created."
 msgstr ""
 "Pokud nezadáte novou přístupovou frázi pro obnovení, bude vytvořen klíč pro "
 "obnovení."
@@ -1210,12 +1225,13 @@ msgstr ""
 #: src/components/crypto/recovery_setup_view.blp:288
 msgid ""
 "You should not reuse the password of your Matrix account as a passphrase. "
-"Otherwise, if someone manages to get your account password, they will also be able "
-"to access all your encrypted conversations and to impersonate you."
+"Otherwise, if someone manages to get your account password, they will also "
+"be able to access all your encrypted conversations and to impersonate you."
 msgstr ""
-"Heslo svého účtu Matrix byste neměli znovu používat jako přístupovou frázi. V "
-"opačném případě, pokud se někomu podaří získat heslo k vašemu účtu, bude mít také "
-"přístup ke všem vašim šifrovaným konverzacím a může se za vás vydávat."
+"Heslo svého účtu Matrix byste neměli znovu používat jako přístupovou frázi. "
+"V opačném případě, pokud se někomu podaří získat heslo k vašemu účtu, bude "
+"mít také přístup ke všem vašim šifrovaným konverzacím a může se za vás "
+"vydávat."
 
 #: src/components/crypto/recovery_setup_view.blp:205
 #: src/components/crypto/recovery_setup_view.blp:305
@@ -1232,13 +1248,15 @@ msgid ""
 "Account recovery allows you to recover your crypto identity and to read your "
 "encrypted messages even if you lose access to all your sessions."
 msgstr ""
-"Obnovení účtu vám umožňuje obnovit vaši šifrovací identitu a číst zašifrované "
-"zprávy, i když ztratíte přístup ke všem svým sezením."
+"Obnovení účtu vám umožňuje obnovit vaši šifrovací identitu a číst "
+"zašifrované zprávy, i když ztratíte přístup ke všem svým sezením."
 
 #: src/components/crypto/recovery_setup_view.blp:276
-msgid "If you do not provide a recovery passphrase, a recovery key will be created."
+msgid ""
+"If you do not provide a recovery passphrase, a recovery key will be created."
 msgstr ""
-"Pokud nezadáte přístupovou frázi pro obnovení, bude vytvořen klíč pro obnovení."
+"Pokud nezadáte přístupovou frázi pro obnovení, bude vytvořen klíč pro "
+"obnovení."
 
 #: src/components/crypto/recovery_setup_view.blp:328
 #: src/components/crypto/recovery_setup_view.blp:354
@@ -1263,16 +1281,16 @@ msgstr "Obnova byla úspěšná, ale data pro obnovu nebyla úplná."
 
 #: src/components/crypto/recovery_setup_view.blp:469
 msgid ""
-"To fix this, you should reset the recovery from a session that has all the data, "
-"and attempt to recover this session again."
+"To fix this, you should reset the recovery from a session that has all the "
+"data, and attempt to recover this session again."
 msgstr ""
-"Chcete-li to vyřešit, měli byste resetovat obnovení ze sezení, které obsahuje "
-"všechna data, a pokusit se toto sezení obnovit znovu."
+"Chcete-li to vyřešit, měli byste resetovat obnovení ze sezení, které "
+"obsahuje všechna data, a pokusit se toto sezení obnovit znovu."
 
 #: src/components/crypto/recovery_setup_view.blp:478
 msgid ""
-"Note that account recovery can have a different name in other Matrix clients, like "
-"“key backup” or “secure backup”."
+"Note that account recovery can have a different name in other Matrix "
+"clients, like “key backup” or “secure backup”."
 msgstr ""
 "Všimněte si, že obnovení účtu může mít v jiných klientech Matrix jiný název, "
 "například „záloha klíče“ nebo „zabezpečená záloha“."
@@ -1290,8 +1308,8 @@ msgid ""
 "Required because the crypto identity in the recovery data is incomplete. "
 "Invalidates the verifications of all users and sessions."
 msgstr ""
-"Vyžadováno, protože šifrovací identita v datech pro obnovení není úplná. Zruší "
-"platnost ověření všech uživatelů a sezení."
+"Vyžadováno, protože šifrovací identita v datech pro obnovení není úplná. "
+"Zruší platnost ověření všech uživatelů a sezení."
 
 #: src/components/crypto/recovery_setup_view.rs:238
 msgid "You might not be able to read your past encrypted messages anymore"
@@ -1299,27 +1317,27 @@ msgstr "Možná již nebudete moci číst své dřívější zašifrované zprá
 
 #: src/components/crypto/recovery_setup_view.rs:244
 msgid ""
-"Required because the backup is not set up properly. You might not be able to read "
-"your past encrypted messages anymore."
+"Required because the backup is not set up properly. You might not be able to "
+"read your past encrypted messages anymore."
 msgstr ""
-"Vyžadováno, protože záloha není správně nastavena. Možná již nebudete moci číst "
-"své dřívější zašifrované zprávy."
+"Vyžadováno, protože záloha není správně nastavena. Možná již nebudete moci "
+"číst své dřívější zašifrované zprávy."
 
 #: src/components/crypto/recovery_setup_view.rs:265
 msgid ""
-"Make sure to store this recovery key in a safe place. You will need it to recover "
-"your account if you lose access to all your sessions."
+"Make sure to store this recovery key in a safe place. You will need it to "
+"recover your account if you lose access to all your sessions."
 msgstr ""
 "Tento klíč pro obnovení uložte na bezpečném místě. Budete jej potřebovat pro "
 "obnovení účtu, pokud ztratíte přístup ke všem svým sezením."
 
 #: src/components/crypto/recovery_setup_view.rs:269
 msgid ""
-"Make sure to remember your passphrase or to store it in a safe place. You will "
-"need it to recover your account if you lose access to all your sessions."
+"Make sure to remember your passphrase or to store it in a safe place. You "
+"will need it to recover your account if you lose access to all your sessions."
 msgstr ""
-"Přístupovou frázi si zapamatujte nebo ji uložte na bezpečném místě. Budete ji "
-"potřebovat pro obnovení účtu, pokud ztratíte přístup ke všem svým sezením."
+"Přístupovou frázi si zapamatujte nebo ji uložte na bezpečném místě. Budete "
+"ji potřebovat pro obnovení účtu, pokud ztratíte přístup ke všem svým sezením."
 
 #: src/components/crypto/recovery_setup_view.rs:330
 msgid "The recovery passphrase or key is invalid"
@@ -1349,8 +1367,8 @@ msgstr "Obnovení účtu se nezdařilo aktivovat"
 
 #: src/components/dialogs/auth/in_browser_page.blp:36
 #: src/components/dialogs/auth/mod.blp:4
-#: src/components/dialogs/auth/password_page.blp:36 src/login/in_browser_page.blp:6
-#: src/login/in_browser_page.blp:39
+#: src/components/dialogs/auth/password_page.blp:36
+#: src/login/in_browser_page.blp:6 src/login/in_browser_page.blp:39
 msgid "Authentication"
 msgstr "Ověření"
 
@@ -1359,7 +1377,8 @@ msgid ""
 "Please authenticate the operation via the browser and, once completed, press "
 "confirm"
 msgstr ""
-"Ověřte prosím operaci prostřednictvím prohlížeče a po dokončení stiskněte Potvrdit"
+"Ověřte prosím operaci prostřednictvím prohlížeče a po dokončení stiskněte "
+"Potvrdit"
 
 #: src/components/dialogs/auth/in_browser_page.blp:74
 #: src/login/in_browser_page.blp:77
@@ -1378,11 +1397,11 @@ msgstr "_Zrušit"
 msgid "C_onfirm"
 msgstr "P_otvrdit"
 
-#: src/components/dialogs/auth/mod.rs:313
+#: src/components/dialogs/auth/mod.rs:314
 msgid "The password is invalid."
 msgstr "Heslo je neplatné."
 
-#: src/components/dialogs/auth/mod.rs:315 src/login/in_browser_page.rs:130
+#: src/components/dialogs/auth/mod.rs:316 src/login/mod.rs:625
 msgid "An unexpected error occurred."
 msgstr "Došlo k neočekávané chybě."
 
@@ -1397,19 +1416,19 @@ msgstr "Odmítnout pozvání?"
 
 #: src/components/dialogs/message_dialogs.rs:27
 msgid ""
-"Do you really want to decline this invite? You can join this room on your own "
-"later."
+"Do you really want to decline this invite? You can join this room on your "
+"own later."
 msgstr ""
 "Opravdu chcete toto pozvání odmítnout? Později se do této místnosti můžete "
 "připojit sami."
 
 #: src/components/dialogs/message_dialogs.rs:31
 msgid ""
-"Do you really want to decline this invite? You will not be able to join this room "
-"without it."
+"Do you really want to decline this invite? You will not be able to join this "
+"room without it."
 msgstr ""
-"Opravdu chcete toto pozvání odmítnout? Bez něj se do této místnosti nebudete moci "
-"připojit."
+"Opravdu chcete toto pozvání odmítnout? Bez něj se do této místnosti nebudete "
+"moci připojit."
 
 #: src/components/dialogs/message_dialogs.rs:34
 #: src/identity_verification_view/accept_request_page.blp:55
@@ -1428,9 +1447,10 @@ msgstr "Opravdu chcete opustit tuto místnost? Můžete se vrátit později."
 
 #: src/components/dialogs/message_dialogs.rs:44
 msgid ""
-"Do you really want to leave this room? You will not be able to come back without "
-"an invitation."
-msgstr "Opravdu chcete opustit tuto místnost? Bez pozvání se nebudete moci vrátit."
+"Do you really want to leave this room? You will not be able to come back "
+"without an invitation."
+msgstr ""
+"Opravdu chcete opustit tuto místnost? Bez pozvání se nebudete moci vrátit."
 
 #: src/components/dialogs/message_dialogs.rs:47
 msgid "Leave"
@@ -1457,15 +1477,16 @@ msgstr "Zablokovat uživatele {user}?"
 #: src/components/dialogs/message_dialogs.rs:136
 #, rust-format
 msgid ""
-"Are you sure you want to ban {user_id}? They will not be able to join the room "
-"again until someone unbans them."
+"Are you sure you want to ban {user_id}? They will not be able to join the "
+"room again until someone unbans them."
 msgstr ""
-"Opravdu chcete zablokovat uživatele {user_id}? Nebude se moci znovu připojit k "
-"místnosti, dokud zákaz někdo nezruší."
+"Opravdu chcete zablokovat uživatele {user_id}? Nebude se moci znovu připojit "
+"k místnosti, dokud zákaz někdo nezruší."
 
 #. Translators: As in, 'Ban room member'.
-#: src/components/dialogs/message_dialogs.rs:139 src/components/user_page.blp:142
-#: src/session_view/room_details/permissions/permissions_subpage.blp:234
+#: src/components/dialogs/message_dialogs.rs:139
+#: src/components/user_page.blp:142
+#: src/session_view/room_details/permissions/permissions_subpage.blp:240
 msgid "Ban"
 msgstr "Zablokovat"
 
@@ -1481,24 +1502,25 @@ msgstr "Zrušit pozvání pro uživatele {user}?"
 #: src/components/dialogs/message_dialogs.rs:157
 #, rust-format
 msgid ""
-"Are you sure you want to revoke the invite for {user_id}? They will still be able "
-"to join the room on their own."
+"Are you sure you want to revoke the invite for {user_id}? They will still be "
+"able to join the room on their own."
 msgstr ""
-"Opravdu chcete zrušit pozvání pro uživatele {user_id}? Stále se bude moci připojit "
-"do místnosti sám."
+"Opravdu chcete zrušit pozvání pro uživatele {user_id}? Stále se bude moci "
+"připojit do místnosti sám."
 
 #. Translators: Do NOT translate the content between '{' and '}',
 #. this is a variable name.
 #: src/components/dialogs/message_dialogs.rs:164
 #, rust-format
 msgid ""
-"Are you sure you want to revoke the invite for {user_id}? They will not be able to "
-"join the room again until someone reinvites them."
+"Are you sure you want to revoke the invite for {user_id}? They will not be "
+"able to join the room again until someone reinvites them."
 msgstr ""
-"Opravdu chcete zrušit pozvání pro uživatele {user_id}? Do místnosti se nebude moci "
-"znovu připojit, dokud jej někdo znovu nepozve."
+"Opravdu chcete zrušit pozvání pro uživatele {user_id}? Do místnosti se "
+"nebude moci znovu připojit, dokud jej někdo znovu nepozve."
 
-#: src/components/dialogs/message_dialogs.rs:168 src/components/user_page.rs:390
+#: src/components/dialogs/message_dialogs.rs:168
+#: src/components/user_page.rs:390
 msgid "Revoke Invite"
 msgstr "Zrušit pozvání"
 
@@ -1530,8 +1552,8 @@ msgstr "Vykopnout {user}?"
 #: src/components/dialogs/message_dialogs.rs:196
 #, rust-format
 msgid ""
-"Are you sure you want to kick {user_id}? They will still be able to join the room "
-"again on their own."
+"Are you sure you want to kick {user_id}? They will still be able to join the "
+"room again on their own."
 msgstr ""
 "Opravdu chcete vykopnout uživatele {user_id}? Stále se bude moci sám znovu "
 "připojit k místnosti."
@@ -1541,15 +1563,16 @@ msgstr ""
 #: src/components/dialogs/message_dialogs.rs:203
 #, rust-format
 msgid ""
-"Are you sure you want to kick {user_id}? They will not be able to join the room "
-"again until someone invites them."
+"Are you sure you want to kick {user_id}? They will not be able to join the "
+"room again until someone invites them."
 msgstr ""
-"Opravdu chcete vykopnout uživatele {user_id}? Do místnosti se nebude moci znovu "
-"připojit, dokud jej někdo nepozve."
+"Opravdu chcete vykopnout uživatele {user_id}? Do místnosti se nebude moci "
+"znovu připojit, dokud jej někdo nepozve."
 
 #. Translators: As in, 'Kick room member'.
-#: src/components/dialogs/message_dialogs.rs:207 src/components/user_page.rs:393
-#: src/session_view/room_details/permissions/permissions_subpage.blp:222
+#: src/components/dialogs/message_dialogs.rs:207
+#: src/components/user_page.rs:393
+#: src/session_view/room_details/permissions/permissions_subpage.blp:228
 msgid "Kick"
 msgstr "Vykopnout"
 
@@ -1565,20 +1588,20 @@ msgstr "Smazat zprávy odeslané uživatelem {user}?"
 #: src/components/dialogs/message_dialogs.rs:224
 #, rust-format
 msgid ""
-"This removes all the messages received from the homeserver. Are you sure you want "
-"to remove 1 message sent by {user_id}? This cannot be undone."
+"This removes all the messages received from the homeserver. Are you sure you "
+"want to remove 1 message sent by {user_id}? This cannot be undone."
 msgid_plural ""
-"This removes all the messages received from the homeserver. Are you sure you want "
-"to remove {n} messages sent by {user_id}? This cannot be undone."
+"This removes all the messages received from the homeserver. Are you sure you "
+"want to remove {n} messages sent by {user_id}? This cannot be undone."
 msgstr[0] ""
-"Toto smaže všechny zprávy přijaté z domovského serveru. Opravdu chcete smazat 1 "
-"zprávu odeslanou uživatelem {user_id}? Toto nelze vrátit zpět."
+"Toto smaže všechny zprávy přijaté z domovského serveru. Opravdu chcete "
+"smazat 1 zprávu odeslanou uživatelem {user_id}? Toto nelze vrátit zpět."
 msgstr[1] ""
-"Toto smaže všechny zprávy přijaté z domovského serveru. Opravdu chcete smazat {n} "
-"zprávy odeslané uživatelem {user_id}? Toto nelze vrátit zpět."
+"Toto smaže všechny zprávy přijaté z domovského serveru. Opravdu chcete "
+"smazat {n} zprávy odeslané uživatelem {user_id}? Toto nelze vrátit zpět."
 msgstr[2] ""
-"Toto smaže všechny zprávy přijaté z domovského serveru. Opravdu chcete smazat {n} "
-"zpráv odeslaných uživatelem {user_id}? Toto nelze vrátit zpět."
+"Toto smaže všechny zprávy přijaté z domovského serveru. Opravdu chcete "
+"smazat {n} zpráv odeslaných uživatelem {user_id}? Toto nelze vrátit zpět."
 
 #. Translators: Do NOT translate the content between '{' and '}',
 #. this is a variable name.
@@ -1592,11 +1615,12 @@ msgstr "Žádné zprávy odeslané uživatelem {user}"
 #: src/components/dialogs/message_dialogs.rs:244
 #, rust-format
 msgid ""
-"There are no messages received from the homeserver sent by {user_id}. You can try "
-"to load more by going further back in the room history."
+"There are no messages received from the homeserver sent by {user_id}. You "
+"can try to load more by going further back in the room history."
 msgstr ""
-"Nebyly nalezeny žádné zprávy přijaté z domovského serveru odeslané uživatelem "
-"{user_id}. Můžete zkusit načíst další procházením starší historie místnosti."
+"Nebyly nalezeny žádné zprávy přijaté z domovského serveru odeslané "
+"uživatelem {user_id}. Můžete zkusit načíst další procházením starší historie "
+"místnosti."
 
 #: src/components/dialogs/message_dialogs.rs:272
 #: src/session_view/room_history/event_actions/group.rs:630
@@ -1632,16 +1656,16 @@ msgid ""
 "Are you sure you want to mute {user_id}? They will not be able to send new "
 "messages to this room."
 msgstr ""
-"Opravdu chcete ztišit uživatele {user_id}? Nebude moci do této místnosti posílat "
-"nové zprávy."
+"Opravdu chcete ztišit uživatele {user_id}? Nebude moci do této místnosti "
+"posílat nové zprávy."
 
 #: src/components/dialogs/message_dialogs.rs:398
 msgid ""
-"Are you sure you want to mute these members? They will not be able to send new "
-"messages to this room."
+"Are you sure you want to mute these members? They will not be able to send "
+"new messages to this room."
 msgstr ""
-"Opravdu chcete ztišit tyto uživatele? Nebudou moci do této místnosti posílat nové "
-"zprávy."
+"Opravdu chcete ztišit tyto uživatele? Nebudou moci do této místnosti posílat "
+"nové zprávy."
 
 #. Translators: In this string, 'Mute' is a verb, as in 'Mute room member'.
 #: src/components/dialogs/message_dialogs.rs:411
@@ -1667,13 +1691,13 @@ msgid ""
 "If you promote {user_id} to the same level as yours, you will not be able to "
 "demote them in the future."
 msgstr ""
-"Pokud povýšíte uživatele {user_id} na stejnou úroveň, jako je vaše, nebudete moci "
-"úroveň tohoto uživatele v budoucnu snížit."
+"Pokud povýšíte uživatele {user_id} na stejnou úroveň, jako je vaše, nebudete "
+"moci úroveň tohoto uživatele v budoucnu snížit."
 
 #: src/components/dialogs/message_dialogs.rs:458
 msgid ""
-"If you promote these members to the same level as yours, you will not be able to "
-"demote them in the future."
+"If you promote these members to the same level as yours, you will not be "
+"able to demote them in the future."
 msgstr ""
 "Pokud povýšíte tyto uživatele na stejnou úroveň, jako je vaše, nebudete moci "
 "úroveň těchto uživatelů v budoucnu snížit."
@@ -1689,11 +1713,11 @@ msgstr "Snížit vlastní úroveň?"
 
 #: src/components/dialogs/message_dialogs.rs:481
 msgid ""
-"Are you sure you want to lower your power level? You will need to ask another "
-"member with a higher power level to undo this."
+"Are you sure you want to lower your power level? You will need to ask "
+"another member with a higher power level to undo this."
 msgstr ""
-"Jste si jistí, že chcete snížit svou úroveň oprávnění? Budete muset požádat jiného "
-"člena s vyšší úrovní oprávnění, aby tuto akci zrušil."
+"Jste si jistí, že chcete snížit svou úroveň oprávnění? Budete muset požádat "
+"jiného člena s vyšší úrovní oprávnění, aby tuto akci zrušil."
 
 #: src/components/dialogs/message_dialogs.rs:492
 msgid "Demote"
@@ -1704,9 +1728,11 @@ msgid "Save Changes?"
 msgstr "Uložit změny?"
 
 #: src/components/dialogs/message_dialogs.rs:505
-msgid "This page contains unsaved changes. Changes which are not saved will be lost."
+msgid ""
+"This page contains unsaved changes. Changes which are not saved will be lost."
 msgstr ""
-"Tato stránka obsahuje neuložené změny. Změny, které se neuloží, budou ztraceny."
+"Tato stránka obsahuje neuložené změny. Změny, které se neuloží, budou "
+"ztraceny."
 
 #: src/components/dialogs/message_dialogs.rs:514
 msgid "Discard"
@@ -1724,7 +1750,7 @@ msgstr "Uložit"
 msgid "Join a Room"
 msgstr "Vstoupit do místnosti"
 
-#: src/components/dialogs/room_preview.blp:19 src/login/greeter.blp:17
+#: src/components/dialogs/room_preview.blp:19 src/login/greeter.blp:16
 #: src/login/greeter.blp:20 src/session_view/media_viewer.blp:76
 #: src/session_view/media_viewer.blp:79
 #: src/session_view/room_details/edit_details_subpage.blp:15
@@ -1740,13 +1766,13 @@ msgstr "Chcete-li vyhledat místnost, zadejte adresu nebo odkaz"
 
 #. Translators: This is a verb, as in 'Look up Room'.
 #: src/components/dialogs/room_preview.blp:90
-#: src/components/dialogs/room_preview.rs:242
+#: src/components/dialogs/room_preview.rs:257
 msgid "Look Up"
 msgstr "Vyhledat"
 
 #. Translators: This is a verb, as in 'View Room'.
-#: src/components/dialogs/room_preview.rs:239
-#: src/components/dialogs/room_preview.rs:347
+#: src/components/dialogs/room_preview.rs:254
+#: src/components/dialogs/room_preview.rs:362
 #: src/session_view/explore/public_room_row.rs:182
 #: src/session_view/room_history/message_toolbar/mod.rs:382
 #: src/session_view/room_history/mod.blp:82
@@ -1754,18 +1780,19 @@ msgstr "Vyhledat"
 msgid "View"
 msgstr "Zobrazit"
 
-#: src/components/dialogs/room_preview.rs:302
+#: src/components/dialogs/room_preview.rs:317
 msgid ""
-"The room details cannot be previewed. It can be because the room is not known by "
-"the homeserver or because its details are private. You can still try to join it."
+"The room details cannot be previewed. It can be because the room is not "
+"known by the homeserver or because its details are private. You can still "
+"try to join it."
 msgstr ""
-"Podrobnosti o místnosti nelze zobrazit. Může to být proto, že domovský server "
-"místnost nezná nebo protože její podrobnosti jsou soukromé. Stále se můžete zkusit "
-"připojit."
+"Podrobnosti o místnosti nelze zobrazit. Může to být proto, že domovský "
+"server místnost nezná nebo protože její podrobnosti jsou soukromé. Stále se "
+"můžete zkusit připojit."
 
 #. Translators: Do NOT translate the content between '{' and '}',
 #. this is a variable name.
-#: src/components/dialogs/room_preview.rs:325
+#: src/components/dialogs/room_preview.rs:340
 #: src/session_view/explore/public_room_row.rs:161
 #, rust-format
 msgid "1 member"
@@ -1774,12 +1801,12 @@ msgstr[0] "1 člen"
 msgstr[1] "{n} členové"
 msgstr[2] "{n} členů"
 
-#: src/components/dialogs/room_preview.rs:349
+#: src/components/dialogs/room_preview.rs:364
 #: src/session_view/explore/public_room_row.rs:187
 msgid "Request an Invite"
 msgstr "Požádat o pozvání"
 
-#: src/components/dialogs/room_preview.rs:351
+#: src/components/dialogs/room_preview.rs:366
 #: src/session_view/explore/public_room_row.rs:195
 #: src/session_view/room_history/message_toolbar/mod.rs:384
 msgid "Join"
@@ -1858,17 +1885,17 @@ msgstr "Více informací"
 
 #: src/components/power_level_selection/row.blp:118
 msgid ""
-"Creator is an immutable role that can be attributed to several users when creating "
-"a room. Creators always have a higher power level than any other room members, "
-"except other creators, and have the permission to do anything in the room. The "
-"only way to demote a creator is to replace the current room with another one with "
-"a different creator, by upgrading the room for example."
+"Creator is an immutable role that can be attributed to several users when "
+"creating a room. Creators always have a higher power level than any other "
+"room members, except other creators, and have the permission to do anything "
+"in the room. The only way to demote a creator is to replace the current room "
+"with another one with a different creator, by upgrading the room for example."
 msgstr ""
 "Tvůrce je neměnná role, kterou lze při vytváření místnosti přiřadit několika "
-"uživatelům. Tvůrci mají vždy vyšší úroveň oprávnění než všichni ostatní členové "
-"místnosti, s výjimkou ostatních tvůrců, a mají oprávnění v místnosti dělat cokoli. "
-"Jediný způsob, jak snížit úroveň tvůrce, je nahradit aktuální místnost jinou s "
-"jiným tvůrcem, například vylepšením místnosti."
+"uživatelům. Tvůrci mají vždy vyšší úroveň oprávnění než všichni ostatní "
+"členové místnosti, s výjimkou ostatních tvůrců, a mají oprávnění v místnosti "
+"dělat cokoli. Jediný způsob, jak snížit úroveň tvůrce, je nahradit aktuální "
+"místnost jinou s jiným tvůrcem, například vylepšením místnosti."
 
 #: src/components/user_page.blp:107
 msgid "Role"
@@ -1884,7 +1911,7 @@ msgstr "Úroveň oprávnění"
 #: src/components/user_page.blp:128 src/session_view/invite.blp:14
 #: src/session_view/invite.blp:39
 #: src/session_view/room_details/members_page/members_list_view/mod.blp:145
-#: src/session_view/room_details/permissions/permissions_subpage.blp:210
+#: src/session_view/room_details/permissions/permissions_subpage.blp:216
 msgid "Invite"
 msgstr "Pozvat"
 
@@ -2021,8 +2048,8 @@ msgstr "Neignorován"
 msgid "Ignore"
 msgstr "Ignorovat"
 
-#: src/components/user_page.rs:770 src/session_view/invite.rs:290
-#: src/session_view/sidebar/row.rs:770
+#: src/components/user_page.rs:770 src/session_view/invite.rs:307
+#: src/session_view/sidebar/row.rs:767
 msgid "Could not ignore user"
 msgstr "Ignorování uživatele se nezdařilo"
 
@@ -2043,31 +2070,35 @@ msgstr "Chyba portálu utajení"
 
 #: src/error_page.blp:59
 msgid ""
-"Fractal relies on a Secret Portal to manage your sensitive session information and "
-"an error occurred while we were trying to restore your sessions."
+"Fractal relies on a Secret Portal to manage your sensitive session "
+"information and an error occurred while we were trying to restore your "
+"sessions."
 msgstr ""
-"Fractal při správě vašich citlivých informací o sezení spoléhá na portál utajení a "
-"při pokusu o obnovení vašeho sezení došlo k chybě."
+"Fractal při správě vašich citlivých informací o sezení spoléhá na portál "
+"utajení a při pokusu o obnovení vašeho sezení došlo k chybě."
 
 #: src/error_page.blp:75
-msgid "Here are a few things that might help you fix issues with the Secret Portal:"
+msgid ""
+"Here are a few things that might help you fix issues with the Secret Portal:"
 msgstr ""
-"Zde je několik věcí, které vám mohou pomoci vyřešit problémy s portálem utajení:"
+"Zde je několik věcí, které vám mohou pomoci vyřešit problémy s portálem "
+"utajení:"
 
 #: src/error_page.blp:94
 msgid ""
-"Make sure you have a Secret Portal Backend Provider installed, like gnome-keyring."
+"Make sure you have a Secret Portal Backend Provider installed, like gnome-"
+"keyring."
 msgstr ""
-"Ujistěte se, že máte nainstalovaného poskytovatele backendu portálu utajení, jako "
-"je gnome-keyring."
+"Ujistěte se, že máte nainstalovaného poskytovatele backendu portálu utajení, "
+"jako je gnome-keyring."
 
 #: src/error_page.blp:119
 msgid ""
-"If you prefer to use a Secret Service Provider instead, you need to allow Fractal "
-"to interact with it, like this:"
+"If you prefer to use a Secret Service Provider instead, you need to allow "
+"Fractal to interact with it, like this:"
 msgstr ""
-"Pokud místo toho dáváte přednost použití poskytovatele služeb utajení, musíte "
-"aplikaci Fractal umožnit interakci s ním, například takto:"
+"Pokud místo toho dáváte přednost použití poskytovatele služeb utajení, "
+"musíte aplikaci Fractal umožnit interakci s ním, například takto:"
 
 #: src/error_page.blp:152
 msgid "Copy Command"
@@ -2079,9 +2110,11 @@ msgstr "Zkontrolujte, zda máte výchozí klíčenku a zda je odemčená."
 
 #: src/error_page.blp:191
 msgid ""
-"Check the application logs and your distribution’s documentation for more details."
+"Check the application logs and your distribution’s documentation for more "
+"details."
 msgstr ""
-"Další podrobnosti naleznete v záznamech aplikace a dokumentaci vaší distribuce."
+"Další podrobnosti naleznete v záznamech aplikace a dokumentaci vaší "
+"distribuce."
 
 #: src/error_page.blp:206
 msgid "Could Not Initialize Session"
@@ -2116,7 +2149,8 @@ msgid ""
 "{user} asked to be verified. Verifying a user increases the security of the "
 "conversation."
 msgstr ""
-"Uživatel {user} požádal o ověření. Ověření uživatele zvyšuje bezpečnost konverzace."
+"Uživatel {user} požádal o ověření. Ověření uživatele zvyšuje bezpečnost "
+"konverzace."
 
 #: src/identity_verification_view/accept_request_page.rs:162
 msgid "Could not decline verification request"
@@ -2208,7 +2242,8 @@ msgstr "Naskenujte tento QR kód z jiného sezení."
 #: src/identity_verification_view/choose_method_page.rs:190
 #, rust-format
 msgid "Ask {user} to scan this QR code from their session."
-msgstr "Požádejte uživatele {user}, aby naskenoval tento QR kód ze svého sezení."
+msgstr ""
+"Požádejte uživatele {user}, aby naskenoval tento QR kód ze svého sezení."
 
 #: src/identity_verification_view/choose_method_page.rs:199
 msgid "Select a verification method to proceed."
@@ -2252,10 +2287,11 @@ msgstr "Ověření dokončeno"
 #: src/identity_verification_view/completed_page.rs:131
 #, rust-format
 msgid ""
-"{user} is verified and you can now be sure that your communication will be private."
+"{user} is verified and you can now be sure that your communication will be "
+"private."
 msgstr ""
-"Uživatel {user} je ověřen a nyní si můžete být jisti, že vaše komunikace bude "
-"soukromá."
+"Uživatel {user} je ověřen a nyní si můžete být jisti, že vaše komunikace "
+"bude soukromá."
 
 #: src/identity_verification_view/confirm_qr_code_page.blp:19
 msgid "Confirm Scan"
@@ -2320,20 +2356,21 @@ msgstr "Naskenovat QR kód"
 
 #: src/identity_verification_view/no_supported_methods_page.blp:48
 msgid ""
-"You can accept this verification from another session or decline it for all your "
-"sessions"
+"You can accept this verification from another session or decline it for all "
+"your sessions"
 msgstr ""
-"Toto ověření můžete přijmout z jiného sezení nebo jej odmítnout pro všechny vaše "
-"sezení"
+"Toto ověření můžete přijmout z jiného sezení nebo jej odmítnout pro všechny "
+"vaše sezení"
 
 #: src/identity_verification_view/no_supported_methods_page.rs:139
-msgid "None of the methods offered by the other client are supported by Fractal."
+msgid ""
+"None of the methods offered by the other client are supported by Fractal."
 msgstr "Fractal nepodporuje žádný ze způsobů nabízených druhým klientem."
 
 #: src/identity_verification_view/no_supported_methods_page.rs:142
 msgid ""
-"A login request was received, but none of the methods offered by the other client "
-"are supported by Fractal."
+"A login request was received, but none of the methods offered by the other "
+"client are supported by Fractal."
 msgstr ""
 "Byl přijat požadavek na přihlášení, ale Fractal nepodporuje žádný ze způsobů "
 "nabízených druhým klientem."
@@ -2342,19 +2379,21 @@ msgstr ""
 #. variable name.
 #: src/identity_verification_view/no_supported_methods_page.rs:151
 #, rust-format
-msgid "None of the methods offered by {user}’s client are supported by Fractal."
-msgstr "Fractal nepodporuje žádný ze způsobů nabízených klientem uživatele {user}."
+msgid ""
+"None of the methods offered by {user}’s client are supported by Fractal."
+msgstr ""
+"Fractal nepodporuje žádný ze způsobů nabízených klientem uživatele {user}."
 
 #. Translators: Do NOT translate the content between '{' and '}', this is a
 #. variable name.
 #: src/identity_verification_view/no_supported_methods_page.rs:158
 #, rust-format
 msgid ""
-"{user} sent a verification request, but none of the methods offered by the other "
-"client are supported by Fractal."
+"{user} sent a verification request, but none of the methods offered by the "
+"other client are supported by Fractal."
 msgstr ""
-"Uživatel {user} poslal žádost o ověření, ale žádný ze způsobů nabízených druhým "
-"klientem není podporován Fractalem."
+"Uživatel {user} poslal žádost o ověření, ale žádný ze způsobů nabízených "
+"druhým klientem není podporován Fractalem."
 
 #: src/identity_verification_view/no_supported_methods_page.rs:170
 msgid "Decline Verification"
@@ -2366,20 +2405,22 @@ msgstr "Nezdařilo se odmítnout ověření"
 
 #: src/identity_verification_view/qr_code_scanned_page.rs:119
 msgid ""
-"You scanned the QR code successfully. You may need to confirm the verification "
-"from the other session."
+"You scanned the QR code successfully. You may need to confirm the "
+"verification from the other session."
 msgstr ""
-"Úspěšně jste naskenovali QR kód. Možná budete muset potvrdit ověření z jiného "
-"sezení."
+"Úspěšně jste naskenovali QR kód. Možná budete muset potvrdit ověření z "
+"jiného sezení."
 
 #. Translators: Do NOT translate the content between '{' and '}', this is a
 #. variable name.
 #: src/identity_verification_view/qr_code_scanned_page.rs:124
 #, rust-format
 msgid ""
-"You scanned the QR code successfully. {user} may need to confirm the verification."
+"You scanned the QR code successfully. {user} may need to confirm the "
+"verification."
 msgstr ""
-"Úspěšně jste naskenovali QR kód. Uživatel {user} možná bude muset ověření potvrdit."
+"Úspěšně jste naskenovali QR kód. Uživatel {user} možná bude muset ověření "
+"potvrdit."
 
 #: src/identity_verification_view/room_left_page.blp:38
 msgid "You are no longer in the room where the verification was taking place"
@@ -2400,12 +2441,14 @@ msgstr "Shoduje se"
 #: src/identity_verification_view/sas_page.rs:151
 msgid "Check if the same emoji appear in the same order on the other client."
 msgstr ""
-"Zkontrolujte, zda se na druhém klientu zobrazují stejné Emodži ve stejném pořadí."
+"Zkontrolujte, zda se na druhém klientu zobrazují stejné Emodži ve stejném "
+"pořadí."
 
 #: src/identity_verification_view/sas_page.rs:155
 msgid "Check if the same numbers appear in the same order on the other client."
 msgstr ""
-"Zkontrolujte, zda se na druhém klientu zobrazují stejná čísla ve stejném pořadí."
+"Zkontrolujte, zda se na druhém klientu zobrazují stejná čísla ve stejném "
+"pořadí."
 
 #. Translators: Do NOT translate the content between '{' and '}', this is a
 #. variable name.
@@ -2415,19 +2458,19 @@ msgid ""
 "Ask {user} if they see the following emoji appear in the same order on their "
 "screen."
 msgstr ""
-"Zeptejte se uživatele {user}, zda se mu na obrazovce zobrazují následující Emodži "
-"ve stejném pořadí."
+"Zeptejte se uživatele {user}, zda se mu na obrazovce zobrazují následující "
+"Emodži ve stejném pořadí."
 
 #. Translators: Do NOT translate the content between '{' and '}', this is a
 #. variable name.
 #: src/identity_verification_view/sas_page.rs:172
 #, rust-format
 msgid ""
-"Ask {user} if they see the following numbers appear in the same order on their "
-"screen."
+"Ask {user} if they see the following numbers appear in the same order on "
+"their screen."
 msgstr ""
-"Zeptejte se uživatele {user}, zda se mu na obrazovce zobrazují následující čísla "
-"ve stejném pořadí."
+"Zeptejte se uživatele {user}, zda se mu na obrazovce zobrazují následující "
+"čísla ve stejném pořadí."
 
 #: src/identity_verification_view/sas_page.rs:253
 msgid "Could not send that the data does not match"
@@ -2458,11 +2501,11 @@ msgstr "Nezdařilo se ověřit naskenovaný QR kód"
 
 #: src/identity_verification_view/wait_for_other_page.blp:45
 msgid ""
-"To be secure, the verification should happen in person or use a trusted way of "
-"communication."
+"To be secure, the verification should happen in person or use a trusted way "
+"of communication."
 msgstr ""
-"Aby byla zajištěna bezpečnost, mělo by ověření probíhat osobně nebo být použit "
-"důvěryhodný způsob komunikace."
+"Aby byla zajištěna bezpečnost, mělo by ověření probíhat osobně nebo být "
+"použit důvěryhodný způsob komunikace."
 
 #: src/identity_verification_view/wait_for_other_page.blp:61
 msgid "The request is not showing up on the other device?"
@@ -2500,15 +2543,15 @@ msgstr "Objevení domovského serveru"
 
 #: src/login/advanced_dialog.blp:12
 msgid ""
-"Auto-discovery, also known as “well-known lookup”, allows to discover the URL of a "
-"Matrix homeserver from a domain name. This should only be disabled if your "
-"homeserver doesn’t support auto-discovery or if you want to provide the URL "
-"yourself."
+"Auto-discovery, also known as “well-known lookup”, allows to discover the "
+"URL of a Matrix homeserver from a domain name. This should only be disabled "
+"if your homeserver doesn’t support auto-discovery or if you want to provide "
+"the URL yourself."
 msgstr ""
-"Automatické zjištění, známé také jako „dobře známé vyhledávání“, umožňuje z názvu "
-"domény zjistit adresu URL domovského serveru Matrixu. Toto by mělo být zakázáno "
-"pouze v případě, že váš domovský server nepodporuje automatické zjištění nebo "
-"pokud chcete adresu URL zadat sami."
+"Automatické zjištění, známé také jako „dobře známé vyhledávání“, umožňuje z "
+"názvu domény zjistit adresu URL domovského serveru Matrixu. Toto by mělo být "
+"zakázáno pouze v případě, že váš domovský server nepodporuje automatické "
+"zjištění nebo pokud chcete adresu URL zadat sami."
 
 #: src/login/advanced_dialog.blp:16
 msgid "_Auto-Discovery"
@@ -2527,54 +2570,46 @@ msgstr "Přih_lásit se"
 msgid "_Create Account"
 msgstr "Vy_tvořit účet"
 
-#: src/login/homeserver_page.blp:103 src/login/method_page.blp:129
+#: src/login/homeserver_page.blp:105 src/login/method_page.blp:132
 msgid "Next"
 msgstr "Další"
 
 #. Translators: As in 'Advanced Settings'.
-#: src/login/homeserver_page.blp:118
+#: src/login/homeserver_page.blp:121
 msgid "Advanced…"
 msgstr "Pokročilé…"
 
-#: src/login/homeserver_page.rs:102
+#: src/login/homeserver_page.rs:123
 msgid "Domain Name"
 msgstr "Název domény"
 
-#: src/login/homeserver_page.rs:104
+#: src/login/homeserver_page.rs:125
 msgid "The domain of your Matrix homeserver, for example gnome.org"
 msgstr "Doména vašeho domovského serveru Matrix, například gnome.org"
 
-#: src/login/homeserver_page.rs:107 src/login/method_page.blp:69
+#: src/login/homeserver_page.rs:128 src/login/method_page.blp:69
 msgid "Homeserver URL"
 msgstr "URL domovského serveru"
 
 #. Translators: Do NOT translate the content between '{' and '}', this is a
 #. variable name.
-#: src/login/homeserver_page.rs:111
+#: src/login/homeserver_page.rs:132
 #, rust-format
 msgid "The URL of your Matrix homeserver, for example {address}"
 msgstr "Adresa URL vašeho domovského serveru Matrix, například {address}"
-
-#: src/login/homeserver_page.rs:254 src/login/mod.rs:324 src/login/mod.rs:348
-#: src/login/mod.rs:397
-msgid "Could not set up login"
-msgstr "Nezdařilo se nastavit přihlášení"
 
 #: src/login/in_browser_page.blp:55
 msgid "Click on the button below and follow the steps in the browser"
 msgstr "Klikněte na tlačítko níže a postupujte podle pokynů v prohlížeči"
 
-#: src/login/in_browser_page.rs:103
-msgid "Could not open URL"
-msgstr "Nezdařilo se otevřít adresu URL"
-
-#: src/login/local_server.rs:35
+#: src/login/local_server.rs:33
 msgid "Authorization Completed"
 msgstr "Ověření dokončeno"
 
-#: src/login/local_server.rs:40
+#: src/login/local_server.rs:38
 msgid ""
-"The authorization step is complete. You can close this page and go back to Fractal."
+"The authorization step is complete. You can close this page and go back to "
+"Fractal."
 msgstr ""
 "Krok ověření je dokončen. Tuto stránku můžete zavřít a vrátit se do aplikace "
 "Fractal."
@@ -2583,42 +2618,51 @@ msgstr ""
 msgid "Log In"
 msgstr "Přihlásit se"
 
-#: src/login/method_page.blp:94
+#: src/login/method_page.blp:95
 msgid "Matrix Username"
 msgstr "Uživatelské jméno Matrixu"
 
-#: src/login/method_page.blp:109
+#: src/login/method_page.blp:111
 msgid "Password"
 msgstr "Heslo"
 
-#: src/login/method_page.blp:122
+#: src/login/method_page.blp:125
 msgid "Login via SSO"
 msgstr "Přihlášení přes SSO"
 
 #. Translators: Do NOT translate the content between '{' and '}', this is a
 #. variable name.
-#: src/login/method_page.rs:90
+#: src/login/method_page.rs:96
 #, rust-format
 msgid "Log in to {domain_name}"
 msgstr "Přihlásit do {domain_name}"
 
-#: src/login/method_page.rs:97
+#: src/login/method_page.rs:103
 msgid "Log in"
 msgstr "Přihlášení"
 
-#: src/login/mod.blp:22 src/login/mod.blp:54
+#: src/login/mod.blp:16 src/login/mod.blp:48
 msgid "Login Complete"
 msgstr "Přihlášení dokončeno"
 
-#: src/login/mod.blp:75
+#: src/login/mod.blp:69
 msgid "This session is ready to send and receive secure messages"
 msgstr "Toto sezení je připraveno odesílat a přijímat zabezpečené zprávy"
 
-#: src/login/mod.blp:84
+#: src/login/mod.blp:78
 msgid "Start Chatting"
 msgstr "Začít konverzaci"
 
-#: src/login/mod.rs:467
+#: src/login/mod.rs:384 src/login/mod.rs:541 src/login/mod.rs:552
+#: src/login/mod.rs:640 src/login/mod.rs:665
+msgid "Could not set up login"
+msgstr "Nezdařilo se nastavit přihlášení"
+
+#: src/login/mod.rs:593 src/login/mod.rs:602
+msgid "Could not open URL"
+msgstr "Nezdařilo se otevřít adresu URL"
+
+#: src/login/mod.rs:734
 msgid "Could not store session"
 msgstr "Nezdařilo se získat tajný klíč v uloženém sezení"
 
@@ -2632,36 +2676,36 @@ msgstr "Načítání dat účtu…"
 
 #. Translators: Do NOT translate the content between '{' and '}', this is a
 #. variable name.
-#: src/secret/linux.rs:175
+#: src/secret/linux.rs:249
 #, rust-format
 msgid "Fractal: Matrix credentials for {user_id}"
 msgstr "Fractal: Přihlašovací údaje Matrixu pro uživatele {user_id}"
 
-#: src/secret/linux.rs:529
+#: src/secret/linux.rs:515
 msgid "The secret storage file is corrupted."
 msgstr "Soubor úložiště tajemství je poškozen."
 
-#: src/secret/linux.rs:532
+#: src/secret/linux.rs:518
 msgid "Could not access the secret storage file location."
 msgstr "Nezdařilo se získat přístup k úložišti tajemství."
 
-#: src/secret/linux.rs:535
+#: src/secret/linux.rs:521
 msgid "An unexpected error occurred when accessing the secret storage file."
 msgstr "Při přístupu k souboru úložiště tajemství došlo k neočekávané chybě."
 
-#: src/secret/linux.rs:538
+#: src/secret/linux.rs:524
 msgid "The secret storage file has been changed by another process."
 msgstr "Soubor úložiště tajemství byl změněn jiným procesem."
 
-#: src/secret/linux.rs:541
+#: src/secret/linux.rs:527
 msgid ""
-"The request to the Flatpak Secret Portal was cancelled. Make sure to accept any "
-"prompt asking to access it."
+"The request to the Flatpak Secret Portal was cancelled. Make sure to accept "
+"any prompt asking to access it."
 msgstr ""
-"Požadavek na Flatpak portál utajení byl zrušen. Ujistěte se, že přijmete každou "
-"výzvu s žádostí o přístup."
+"Požadavek na Flatpak portál utajení byl zrušen. Ujistěte se, že přijmete "
+"každou výzvu s žádostí o přístup."
 
-#: src/secret/linux.rs:544
+#: src/secret/linux.rs:530
 msgid ""
 "The Flatpak Secret Portal is not available. Make sure xdg-desktop-portal is "
 "installed, and it is at least at version 1.5.0."
@@ -2669,53 +2713,57 @@ msgstr ""
 "Flatpak portál utajení není k dispozici. Ujistěte se, že je nainstalován xdg-"
 "desktop-portal a je alespoň ve verzi 1.5.0."
 
-#: src/secret/linux.rs:547
+#: src/secret/linux.rs:533
 msgid ""
-"An unexpected error occurred when interacting with the D-Bus Secret Portal backend."
-msgstr "Při interakci s backendem D-Bus portálu utajení došlo k neočekávané chybě."
+"An unexpected error occurred when interacting with the D-Bus Secret Portal "
+"backend."
+msgstr ""
+"Při interakci s backendem D-Bus portálu utajení došlo k neočekávané chybě."
 
-#: src/secret/linux.rs:550
+#: src/secret/linux.rs:536
 msgid "The Flatpak Secret Portal provided a key that is too weak to be secure."
 msgstr ""
-"Flatpak portál utajení poskytl klíč, který je příliš slabý na to, aby byl bezpečný."
+"Flatpak portál utajení poskytl klíč, který je příliš slabý na to, aby byl "
+"bezpečný."
 
-#: src/secret/linux.rs:552 src/secret/linux.rs:569
+#: src/secret/linux.rs:538 src/secret/linux.rs:555
 msgid "The collection or item is locked."
 msgstr "Sbírka nebo položka je uzamčena."
 
-#: src/secret/linux.rs:564
+#: src/secret/linux.rs:550
 msgid "The item was deleted."
 msgstr "Položka byla smazána."
 
-#: src/secret/linux.rs:567 src/secret/linux.rs:582
-msgid "An unexpected error occurred when interacting with the D-Bus Secret Service."
+#: src/secret/linux.rs:553 src/secret/linux.rs:568
+msgid ""
+"An unexpected error occurred when interacting with the D-Bus Secret Service."
 msgstr "Při interakci s D-Bus Secret Service došlo k neočekávané chybě."
 
-#: src/secret/linux.rs:571
+#: src/secret/linux.rs:557
 msgid "The D-Bus Secret Service session does not exist."
 msgstr "Sezení služby utajení D-Bus neexistuje."
 
-#: src/secret/linux.rs:573
+#: src/secret/linux.rs:559
 msgid "The collection or item does not exist."
 msgstr "Sbírka nebo položka neexistuje."
 
-#: src/secret/linux.rs:576
+#: src/secret/linux.rs:562
 msgid ""
-"The request to the D-Bus Secret Service was cancelled. Make sure to accept any "
-"prompt asking to access it."
+"The request to the D-Bus Secret Service was cancelled. Make sure to accept "
+"any prompt asking to access it."
 msgstr ""
-"Žádost D-Bus Secret Service byla zrušena. Ujistěte se, že přijmete každou výzvu s "
-"žádostí o přístup."
+"Žádost D-Bus Secret Service byla zrušena. Ujistěte se, že přijmete každou "
+"výzvu s žádostí o přístup."
 
-#: src/secret/linux.rs:579
+#: src/secret/linux.rs:565
 msgid ""
-"Could not access the default collection. Make sure a keyring was created and set "
-"as default."
+"Could not access the default collection. Make sure a keyring was created and "
+"set as default."
 msgstr ""
-"Nezdařilo se získat přístup k výchozí kolekci. Ujistěte se, že byla vytvořena "
-"klíčenka a nastavena jako výchozí."
+"Nezdařilo se získat přístup k výchozí kolekci. Ujistěte se, že byla "
+"vytvořena klíčenka a nastavena jako výchozí."
 
-#: src/session/mod.rs:837
+#: src/session/mod.rs:831
 msgid "Could not log the session out"
 msgstr "Odhlášení sezení se nezdařilo"
 
@@ -2781,7 +2829,8 @@ msgstr "Příchozí videohovor. Pro přijetí hovoru použijte jiného klienta."
 
 #. Translators: Do NOT translate the content between '{' and '}', this
 #. is a variable name.
-#: src/session/notifications/mod.rs:613 src/session_view/room_history/call_row.rs:127
+#: src/session/notifications/mod.rs:613
+#: src/session_view/room_history/call_row.rs:127
 #, rust-format
 msgid "Incoming video call from {user}. Use another client to answer."
 msgstr ""
@@ -2794,11 +2843,13 @@ msgstr "Příchozí hovor. Pro přijetí hovoru použijte jiného klienta."
 
 #. Translators: Do NOT translate the content between '{' and '}', this
 #. is a variable name.
-#: src/session/notifications/mod.rs:621 src/session_view/room_history/call_row.rs:141
+#: src/session/notifications/mod.rs:621
+#: src/session_view/room_history/call_row.rs:141
 #, rust-format
 msgid "Incoming call from {user}. Use another client to answer."
 msgstr ""
-"Příchozí hovor od uživatele {user}. Pro přijetí hovoru použijte jiného klienta."
+"Příchozí hovor od uživatele {user}. Pro přijetí hovoru použijte jiného "
+"klienta."
 
 #: src/session/room/join_rule.rs:259
 msgid "Only invited users, and users can request an invite"
@@ -2827,7 +2878,7 @@ msgid "Any registered user"
 msgstr "Jakýkoli registrovaný uživatel"
 
 #: src/session/room/join_rule.rs:288
-#: src/session_view/room_details/general_page.rs:946
+#: src/session_view/room_details/general_page.rs:966
 msgid "Unsupported rule"
 msgstr "Nepodporované pravidlo"
 
@@ -3085,7 +3136,7 @@ msgid "No users matching the search pattern were found"
 msgstr "Nebyli nalezeni žádní uživatelé odpovídající vzoru vyhledávání"
 
 #: src/session_view/create_direct_chat_dialog/mod.blp:94
-#: src/session_view/explore/mod.blp:118
+#: src/session_view/explore/mod.blp:113
 #: src/session_view/room_details/invite_subpage/mod.blp:114
 msgid "An error occurred while searching for matches"
 msgstr "Při hledání shod došlo k chybě"
@@ -3132,7 +3183,7 @@ msgstr "Nemůže být později zakázáno"
 
 #: src/session_view/create_room_dialog.blp:128
 #: src/session_view/room_details/addresses_subpage/mod.rs:431
-#: src/session_view/room_details/general_page.rs:689
+#: src/session_view/room_details/general_page.rs:709
 msgid "Main Address"
 msgstr "Hlavní adresa"
 
@@ -3180,15 +3231,16 @@ msgstr "Vyhledejte místnost ve veřejném adresáři vybraného serveru"
 msgid "Switch servers"
 msgstr "Přepnout servery"
 
-#: src/session_view/explore/mod.blp:70 src/session_view/sidebar/mod.blp:188
+#: src/session_view/explore/mod.blp:70 src/session_view/explore/mod.blp:74
+#: src/session_view/sidebar/mod.blp:188
 msgid "No Rooms"
 msgstr "Žádné místnosti"
 
-#: src/session_view/explore/mod.blp:76 src/session_view/sidebar/mod.blp:189
+#: src/session_view/explore/mod.blp:75 src/session_view/sidebar/mod.blp:189
 msgid "No rooms matching the search were found"
 msgstr "Nebyly nalezeny žádné místnosti odpovídající hledání"
 
-#: src/session_view/explore/mod.blp:86
+#: src/session_view/explore/mod.blp:81
 msgid "List of Public Rooms"
 msgstr "Seznam veřejných místností"
 
@@ -3220,31 +3272,36 @@ msgstr "Seznam serverů"
 msgid "Add Server"
 msgstr "Přidat server"
 
-#: src/session_view/invite.blp:102
+#: src/session_view/invite.blp:103
+#: src/session_view/room_history/event_actions/properties_dialog.blp:85
+msgid "Show Profile"
+msgstr "Zobrazit profil"
+
+#: src/session_view/invite.blp:114
 msgid "_Decline"
 msgstr "O_dmítnout"
 
-#: src/session_view/invite.blp:112 src/session_view/sidebar/mod.blp:38
+#: src/session_view/invite.blp:124 src/session_view/sidebar/mod.blp:38
 msgid "_Accept"
 msgstr "_Přijmout"
 
 #. Translators: Do NOT translate the content between '{' and '}', these
 #. are variable names.
-#: src/session_view/invite.rs:189
+#: src/session_view/invite.rs:191
 #, rust-format
 msgid "{user_name} ({user_id}) invited you"
 msgstr "Uživatel {user_name} ({user_id}) vás pozval"
 
 #. Translators: Do NOT translate the content between '{' and '}', this
 #. is a variable name.
-#: src/session_view/invite.rs:239 src/session_view/sidebar/row.rs:724
+#: src/session_view/invite.rs:256 src/session_view/sidebar/row.rs:721
 #, rust-format
 msgid "Could not accept invitation for {room}"
 msgstr "Nezdařilo se přijmout pozvání do místnosti {room}"
 
 #. Translators: Do NOT translate the content between '{' and '}', this
 #. is a variable name.
-#: src/session_view/invite.rs:278 src/session_view/sidebar/row.rs:714
+#: src/session_view/invite.rs:295 src/session_view/sidebar/row.rs:711
 #, rust-format
 msgid "Could not decline invitation for {room}"
 msgstr "Nezdařilo se odmítnout pozvání do místnosti {room}"
@@ -3316,21 +3373,22 @@ msgstr "Veřejné adresy"
 
 #: src/session_view/room_details/addresses_subpage/mod.blp:15
 msgid ""
-"Public addresses are advertised for all users in the room and the main address is "
-"used to identify a room publicly. Before adding an address to this list, it must "
-"be registered as a local address."
+"Public addresses are advertised for all users in the room and the main "
+"address is used to identify a room publicly. Before adding an address to "
+"this list, it must be registered as a local address."
 msgstr ""
-"Veřejné adresy jsou inzerovány pro všechny uživatele v místnosti a hlavní adresa "
-"se používá k veřejné identifikaci místnosti. Před přidáním adresy do tohoto "
-"seznamu musí být registrována jako místní adresa."
+"Veřejné adresy jsou inzerovány pro všechny uživatele v místnosti a hlavní "
+"adresa se používá k veřejné identifikaci místnosti. Před přidáním adresy do "
+"tohoto seznamu musí být registrována jako místní adresa."
 
 #: src/session_view/room_details/addresses_subpage/mod.blp:45
 msgid ""
-"Local addresses can only be registered with your own homeserver. If they are not "
-"made public, only people on your homeserver can discover them."
+"Local addresses can only be registered with your own homeserver. If they are "
+"not made public, only people on your homeserver can discover them."
 msgstr ""
-"Místní adresy lze registrovat pouze na vašem vlastním domovském serveru. Pokud "
-"nejsou zveřejněny, mohou je objevit pouze lidé na vašem domovském serveru."
+"Místní adresy lze registrovat pouze na vašem vlastním domovském serveru. "
+"Pokud nejsou zveřejněny, mohou je objevit pouze lidé na vašem domovském "
+"serveru."
 
 #: src/session_view/room_details/addresses_subpage/mod.blp:77
 #: src/session_view/room_details/addresses_subpage/mod.blp:78
@@ -3560,7 +3618,7 @@ msgid "Matrix room ID copied to clipboard"
 msgstr "ID místnosti Matrixu bylo zkopírováno do schránky"
 
 #: src/session_view/room_details/general_page.blp:240
-#: src/session_view/room_details/permissions/permissions_subpage.blp:159
+#: src/session_view/room_details/permissions/permissions_subpage.blp:165
 msgid "Enable Encryption"
 msgstr "Povolit šifrování"
 
@@ -3583,110 +3641,110 @@ msgstr "Vylepšit…"
 msgid "Federation"
 msgstr "Federace"
 
-#: src/session_view/room_details/general_page.rs:466
-#: src/session_view/room_details/general_page.rs:517
+#: src/session_view/room_details/general_page.rs:486
+#: src/session_view/room_details/general_page.rs:537
 #: src/session_view/room_details/invite_subpage/list.rs:260
 msgid "Member"
 msgstr "Člen"
 
-#: src/session_view/room_details/general_page.rs:468
-#: src/session_view/room_details/general_page.rs:519
+#: src/session_view/room_details/general_page.rs:488
+#: src/session_view/room_details/general_page.rs:539
 msgid "Members"
 msgstr "Členové"
 
-#: src/session_view/room_details/general_page.rs:644
+#: src/session_view/room_details/general_page.rs:664
 msgid "Could not change notifications setting"
 msgstr "Nezdařilo se změnit nastavení oznámení"
 
-#: src/session_view/room_details/general_page.rs:684
-#: src/session_view/room_details/general_page.rs:723
+#: src/session_view/room_details/general_page.rs:704
+#: src/session_view/room_details/general_page.rs:743
 msgid "Copy address"
 msgstr "Kopírovat adresu"
 
-#: src/session_view/room_details/general_page.rs:685
-#: src/session_view/room_details/general_page.rs:724
+#: src/session_view/room_details/general_page.rs:705
+#: src/session_view/room_details/general_page.rs:744
 msgid "Address copied to clipboard"
 msgstr "Adresa byla zkopírována do schránky"
 
-#: src/session_view/room_details/general_page.rs:766
+#: src/session_view/room_details/general_page.rs:786
 msgid "Room link copied to clipboard"
 msgstr "Odkaz na místnost byl zkopírován do schránky"
 
-#: src/session_view/room_details/general_page.rs:825
+#: src/session_view/room_details/general_page.rs:845
 msgid "Could not change guest access"
 msgstr "Nezdařilo se změnit přístup hosta"
 
 #. Translators: Do NOT translate the content between '{' and '}',
 #. this is a variable name.
-#: src/session_view/room_details/general_page.rs:842
+#: src/session_view/room_details/general_page.rs:862
 #, rust-format
 msgid "Publish in the {homeserver} directory"
 msgstr "Zveřejnit v adresáři místností serveru {homeserver}"
 
-#: src/session_view/room_details/general_page.rs:917
+#: src/session_view/room_details/general_page.rs:937
 msgid "Could not publish room in directory"
 msgstr "Nezdařilo se zveřejnit místnost v adresáři"
 
-#: src/session_view/room_details/general_page.rs:919
+#: src/session_view/room_details/general_page.rs:939
 msgid "Could not unpublish room from directory"
 msgstr "Nezdařilo se zrušit zveřejnění místnosti v adresáři"
 
-#: src/session_view/room_details/general_page.rs:937
+#: src/session_view/room_details/general_page.rs:957
 #: src/session_view/room_details/history_visibility_subpage.blp:53
 msgid "Anyone, even if they are not in the room"
 msgstr "Kdokoli, i když není v této místnosti"
 
-#: src/session_view/room_details/general_page.rs:940
+#: src/session_view/room_details/general_page.rs:960
 #: src/session_view/room_details/history_visibility_subpage.blp:59
 msgid "Members only, since this option was selected"
 msgstr "Pouze pro členy, protože tato možnost byla vybrána"
 
-#: src/session_view/room_details/general_page.rs:942
+#: src/session_view/room_details/general_page.rs:962
 #: src/session_view/room_details/history_visibility_subpage.blp:65
 msgid "Members only, since they were invited"
 msgstr "Pouze pro členy, protože byli pozváni"
 
-#: src/session_view/room_details/general_page.rs:944
+#: src/session_view/room_details/general_page.rs:964
 #: src/session_view/room_details/history_visibility_subpage.blp:71
 msgid "Members only, since they joined the room"
 msgstr "Pouze pro členy, protože se připojili k místnosti"
 
-#: src/session_view/room_details/general_page.rs:996
+#: src/session_view/room_details/general_page.rs:1016
 msgid "Enable Encryption?"
 msgstr "Povolit šifrování?"
 
-#: src/session_view/room_details/general_page.rs:997
+#: src/session_view/room_details/general_page.rs:1017
 msgid ""
 "Enabling encryption will prevent new members to read the history before they "
 "arrived. This cannot be disabled later."
 msgstr ""
-"Povolení šifrování zabrání novým členům číst historii před příchodem. Toto nelze "
-"později zakázat."
+"Povolení šifrování zabrání novým členům číst historii před příchodem. Toto "
+"nelze později zakázat."
 
-#: src/session_view/room_details/general_page.rs:1002
+#: src/session_view/room_details/general_page.rs:1022
 #: src/session_view/sidebar/mod.rs:353 src/session_view/sidebar/mod.rs:359
 msgid "Enable"
 msgstr "Povolit"
 
-#: src/session_view/room_details/general_page.rs:1013
+#: src/session_view/room_details/general_page.rs:1033
 msgid "Could not enable encryption"
 msgstr "Šifrování se nezdařilo aktivovat"
 
 #. Translators: As in, 'Room federated'.
-#: src/session_view/room_details/general_page.rs:1073
+#: src/session_view/room_details/general_page.rs:1093
 msgid "Federated"
 msgstr "Federované"
 
 #. Translators: As in, 'Room not federated'.
-#: src/session_view/room_details/general_page.rs:1076
+#: src/session_view/room_details/general_page.rs:1096
 msgid "Not federated"
 msgstr "Není federované"
 
-#: src/session_view/room_details/general_page.rs:1110
+#: src/session_view/room_details/general_page.rs:1130
 msgid "Room upgraded successfully"
 msgstr "Místnost byla úspěšně vylepšena"
 
-#: src/session_view/room_details/general_page.rs:1114
+#: src/session_view/room_details/general_page.rs:1134
 msgid "Could not upgrade room"
 msgstr "Nezdařilo se vylepšit místnost"
 
@@ -3849,11 +3907,11 @@ msgstr "Povolit požadavky na pozvání"
 
 #: src/session_view/room_details/join_rule_subpage.rs:112
 msgid ""
-"The version of this room does not support all possibilities. Upgrade this room to "
-"the latest version to see more options."
+"The version of this room does not support all possibilities. Upgrade this "
+"room to the latest version to see more options."
 msgstr ""
-"Verze této místnosti nepodporuje všechny možnosti. Aktualizujte tuto místnost na "
-"nejnovější verzi, abyste viděli více možností."
+"Verze této místnosti nepodporuje všechny možnosti. Aktualizujte tuto "
+"místnost na nejnovější verzi, abyste viděli více možností."
 
 #: src/session_view/room_details/join_rule_subpage.rs:230
 msgid "Could not change who can join"
@@ -3979,7 +4037,7 @@ msgstr "Nebyli nalezeni žádní členové místnosti odpovídající hledání"
 
 #. Translators: value used to assign room member roles.
 #: src/session_view/room_details/permissions/members_subpage.blp:6
-#: src/session_view/room_details/permissions/permissions_subpage.blp:282
+#: src/session_view/room_details/permissions/permissions_subpage.blp:288
 msgid "Members With Assigned Power Levels"
 msgstr "Členové s přiřazenými úrovněmi oprávnění"
 
@@ -3992,19 +4050,20 @@ msgid "There are no room members with assigned power levels in this room"
 msgstr "V této místnosti nejsou žádní členové s přiřazenými úrovněmi oprávnění"
 
 #: src/session_view/room_details/permissions/members_subpage.rs:197
-msgid "There are no room members with assigned power levels matching the search"
+msgid ""
+"There are no room members with assigned power levels matching the search"
 msgstr ""
 "Nebyli nalezeni žádní členové místnosti s přiřazenými úrovněmi oprávnění "
 "odpovídající hledání"
 
 #: src/session_view/room_details/permissions/permissions_subpage.blp:44
-msgid "Room Actions"
-msgstr "Akce místnosti"
+msgid "Message Actions"
+msgstr "Akce zpráv"
 
 #. Translators: value used to assign room member roles.
 #: src/session_view/room_details/permissions/permissions_subpage.blp:46
-msgid "Power level required to perform different actions in the room"
-msgstr "Úroveň oprávnění potřebná k provádění různých akcí v místnosti"
+msgid "Power level required to perform message-related actions"
+msgstr "Úroveň oprávnění potřebná k provádění akcí zpráv v místnosti"
 
 #: src/session_view/room_details/permissions/permissions_subpage.blp:49
 msgid "Send Messages"
@@ -4022,64 +4081,73 @@ msgstr "Smazat zprávy ostatních členů"
 msgid "Notify Entire Room"
 msgstr "Informovat celou místnost"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:93
-msgid "Change Room Settings"
-msgstr "Změnit nastavení místnosti"
+#: src/session_view/room_details/permissions/permissions_subpage.blp:94
+msgid "Room Settings Actions"
+msgstr "Akce nastaveních místnosti"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:104
-msgid "Change Room Name"
-msgstr "Změnit název místnosti"
+#. Translators: value used to assign room member roles.
+#: src/session_view/room_details/permissions/permissions_subpage.blp:96
+msgid "Power level required to change room settings"
+msgstr "Úroveň oprávnění potřebná ke změně nastaveních místnosti"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:115
-msgid "Change Room Description"
-msgstr "Změnit popis místnosti"
+#: src/session_view/room_details/permissions/permissions_subpage.blp:99
+msgid "Change Settings"
+msgstr "Změnit nastavení"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:126
-msgid "Change Room Avatar"
-msgstr "Změnit avatar místnosti"
+#: src/session_view/room_details/permissions/permissions_subpage.blp:110
+msgid "Change Name"
+msgstr "Změnit název"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:137
+#: src/session_view/room_details/permissions/permissions_subpage.blp:121
+msgid "Change Description"
+msgstr "Změnit popis"
+
+#: src/session_view/room_details/permissions/permissions_subpage.blp:132
+msgid "Change Avatar"
+msgstr "Změnit avatar"
+
+#: src/session_view/room_details/permissions/permissions_subpage.blp:143
 msgid "Change Addresses"
 msgstr "Změnit adresy"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:148
+#: src/session_view/room_details/permissions/permissions_subpage.blp:154
 msgid "Change Who Can Read History"
 msgstr "Změnit, kdo může číst historii"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:170
+#: src/session_view/room_details/permissions/permissions_subpage.blp:176
 msgid "Change Permissions"
 msgstr "Změnit oprávnění"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:181
+#: src/session_view/room_details/permissions/permissions_subpage.blp:187
 msgid "Change Server Access Control List"
 msgstr "Změnit seznam řízení přístupu k serveru"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:192
+#: src/session_view/room_details/permissions/permissions_subpage.blp:198
 msgid "Upgrade Room"
 msgstr "Vylepšit místnost"
 
-#: src/session_view/room_details/permissions/permissions_subpage.blp:204
+#: src/session_view/room_details/permissions/permissions_subpage.blp:210
 msgid "Member Actions"
 msgstr "Akce členů"
 
 #. Translators: value used to assign room member roles.
-#: src/session_view/room_details/permissions/permissions_subpage.blp:206
+#: src/session_view/room_details/permissions/permissions_subpage.blp:212
 msgid "Power level required to perform different actions on room members"
 msgstr "Úroveň oprávnění potřebná k provádění různých akcí s členy místnosti"
 
 #. Translators: value used to assign room member roles.
-#: src/session_view/room_details/permissions/permissions_subpage.blp:247
+#: src/session_view/room_details/permissions/permissions_subpage.blp:253
 msgid "Members Power Levels"
 msgstr "Úrovně oprávnění členů"
 
 #. Translators: value used to assign room member roles.
-#: src/session_view/room_details/permissions/permissions_subpage.blp:249
+#: src/session_view/room_details/permissions/permissions_subpage.blp:255
 msgid "Power levels defined for all members of the room"
 msgstr "Úrovně oprávnění definované pro všechny členy místnosti"
 
 #. Translators: value used to assign room member roles.
-#: src/session_view/room_details/permissions/permissions_subpage.blp:253
-#: src/session_view/room_details/permissions/permissions_subpage.blp:267
+#: src/session_view/room_details/permissions/permissions_subpage.blp:259
+#: src/session_view/room_details/permissions/permissions_subpage.blp:273
 msgid "Default Power Level"
 msgstr "Výchozí úroveň oprávnění"
 
@@ -4095,15 +4163,17 @@ msgstr "Vylepšit místnost"
 
 #: src/session_view/room_details/upgrade_dialog/mod.blp:65
 msgid ""
-"Upgrading a room to a more recent version allows to benefit from new features from "
-"the Matrix specification. It can also be used to reset the room state, which "
-"should make the room faster to join. However it should be used sparingly because "
-"it can be disruptive, as room members need to join the new room manually."
+"Upgrading a room to a more recent version allows to benefit from new "
+"features from the Matrix specification. It can also be used to reset the "
+"room state, which should make the room faster to join. However it should be "
+"used sparingly because it can be disruptive, as room members need to join "
+"the new room manually."
 msgstr ""
-"Vylepšení místnosti na novější verzi umožňuje využívat nové funkce specifikace "
-"Matrixu. Může být také použito k resetování stavu místnosti, což by mělo urychlit "
-"připojení k místnosti. Mělo by se však používat střídmě, protože může působit "
-"rušivě, jelikož členové místnosti se musí do nové místnosti připojit ručně."
+"Vylepšení místnosti na novější verzi umožňuje využívat nové funkce "
+"specifikace Matrixu. Může být také použito k resetování stavu místnosti, což "
+"by mělo urychlit připojení k místnosti. Mělo by se však používat střídmě, "
+"protože může působit rušivě, jelikož členové místnosti se musí do nové "
+"místnosti připojit ručně."
 
 #: src/session_view/room_details/upgrade_dialog/mod.blp:85
 msgid "Version"
@@ -4111,13 +4181,13 @@ msgstr "Verze"
 
 #: src/session_view/room_details/upgrade_dialog/mod.blp:97
 msgid ""
-"After the upgrade, you will be the only member of the room and other members will "
-"need to be re-invited manually. This could be avoided by using third-party upgrade "
-"tooling that handles this for you."
+"After the upgrade, you will be the only member of the room and other members "
+"will need to be re-invited manually. This could be avoided by using third-"
+"party upgrade tooling that handles this for you."
 msgstr ""
-"Po vylepšení budete jediným členem místnosti a ostatní členy bude nutné znovu "
-"pozvat ručně. Tomu se lze vyhnout použitím nástrojů pro vylepšení od třetích "
-"stran, které to zvládnou za vás."
+"Po vylepšení budete jediným členem místnosti a ostatní členy bude nutné "
+"znovu pozvat ručně. Tomu se lze vyhnout použitím nástrojů pro vylepšení od "
+"třetích stran, které to zvládnou za vás."
 
 #. Translators: In this string, 'Upgrade' is a verb, as in 'Upgrade Room'.
 #: src/session_view/room_details/upgrade_dialog/mod.blp:141
@@ -4136,35 +4206,35 @@ msgstr "experimentální"
 
 #: src/session_view/room_details/upgrade_dialog/mod.rs:204
 msgid ""
-"After the upgrade, you will be the only creator in the room. The other creator "
-"will be demoted to the default power level."
+"After the upgrade, you will be the only creator in the room. The other "
+"creator will be demoted to the default power level."
 msgstr ""
-"Po vylepšení budete jediným tvůrcem v místnosti. Druhý tvůrce bude degradován na "
-"výchozí úroveň oprávnění."
+"Po vylepšení budete jediným tvůrcem v místnosti. Druhý tvůrce bude "
+"degradován na výchozí úroveň oprávnění."
 
 #: src/session_view/room_details/upgrade_dialog/mod.rs:208
 msgid ""
-"After the upgrade, you will be the only creator in the room. The other creators "
-"will be demoted to the default power level."
+"After the upgrade, you will be the only creator in the room. The other "
+"creators will be demoted to the default power level."
 msgstr ""
-"Po vylepšení budete jediným tvůrcem v místnosti. Ostatní tvůrci budou degradováni "
-"na výchozí úroveň oprávnění."
+"Po vylepšení budete jediným tvůrcem v místnosti. Ostatní tvůrci budou "
+"degradováni na výchozí úroveň oprávnění."
 
 #: src/session_view/room_details/upgrade_dialog/mod.rs:213
 msgid ""
-"After the upgrade, you will be the only creator in the room. The current creator "
-"will be demoted to the default power level."
+"After the upgrade, you will be the only creator in the room. The current "
+"creator will be demoted to the default power level."
 msgstr ""
-"Po vylepšení budete jediným tvůrcem v místnosti. Aktuální tvůrce bude degradován "
-"na výchozí úroveň oprávnění."
+"Po vylepšení budete jediným tvůrcem v místnosti. Aktuální tvůrce bude "
+"degradován na výchozí úroveň oprávnění."
 
 #: src/session_view/room_details/upgrade_dialog/mod.rs:217
 msgid ""
-"After the upgrade, you will be the only creator in the room. The current creators "
-"will be demoted to the default power level."
+"After the upgrade, you will be the only creator in the room. The current "
+"creators will be demoted to the default power level."
 msgstr ""
-"Po vylepšení budete jediným tvůrcem v místnosti. Aktuální tvůrci budou degradováni "
-"na výchozí úroveň oprávnění."
+"Po vylepšení budete jediným tvůrcem v místnosti. Aktuální tvůrci budou "
+"degradováni na výchozí úroveň oprávnění."
 
 #: src/session_view/room_history/call_row.rs:122
 msgid "Outgoing video call."
@@ -4281,11 +4351,12 @@ msgstr "Nahlásit událost?"
 #: src/session_view/room_history/event_actions/group.rs:643
 msgid ""
 "Reporting an event will send its unique ID to the administrator of your "
-"homeserver. The administrator will not be able to see the content of the event if "
-"it is encrypted or redacted."
+"homeserver. The administrator will not be able to see the content of the "
+"event if it is encrypted or redacted."
 msgstr ""
-"Nahlášení události odešle její jedinečné ID správci vašeho domovského serveru. "
-"Správce neuvidí obsah události, pokud je zašifrovaná nebo redigovaná."
+"Nahlášení události odešle její jedinečné ID správci vašeho domovského "
+"serveru. Správce neuvidí obsah události, pokud je zašifrovaná nebo "
+"redigovaná."
 
 #. Translators: This is a verb, as in 'Report Event'.
 #: src/session_view/room_history/event_actions/group.rs:650
@@ -4343,10 +4414,6 @@ msgstr "ID místnosti bylo zkopírováno do schránky"
 #: src/session_view/room_history/event_actions/properties_dialog.blp:75
 msgid "Sender ID"
 msgstr "ID odesílatele"
-
-#: src/session_view/room_history/event_actions/properties_dialog.blp:85
-msgid "Show Profile"
-msgstr "Zobrazit profil"
 
 #: src/session_view/room_history/event_actions/properties_dialog.blp:96
 #: src/session_view/room_history/event_actions/properties_dialog.blp:142
@@ -4431,8 +4498,8 @@ msgid ""
 "Could not decrypt this message, decryption will be retried once the keys are "
 "available."
 msgstr ""
-"Tuto zprávu nelze dešifrovat, dešifrování bude zopakováno, jakmile budou klíče k "
-"dispozici."
+"Tuto zprávu nelze dešifrovat, dešifrování bude zopakováno, jakmile budou "
+"klíče k dispozici."
 
 #: src/session_view/room_history/message_row/content.rs:322
 msgid "This message was removed."
@@ -4453,7 +4520,7 @@ msgstr "Soubor: {filename}"
 msgid "User Location"
 msgstr "Poloha uživatele"
 
-#: src/session_view/room_history/message_row/location.rs:91
+#: src/session_view/room_history/message_row/location.rs:125
 msgid "Location is invalid and cannot be displayed"
 msgstr "Poloha je neplatná a nelze ji zobrazit"
 
@@ -4707,15 +4774,18 @@ msgstr "Ú_daje o místnosti"
 msgid "_Invite New Members…"
 msgstr "_Pozvat nové členy…"
 
-#: src/session_view/room_history/mod.blp:21 src/session_view/sidebar/mod.blp:104
+#: src/session_view/room_history/mod.blp:21
+#: src/session_view/sidebar/mod.blp:104
 msgid "_Leave Room"
 msgstr "_Opustit místnost"
 
-#: src/session_view/room_history/mod.blp:27 src/session_view/sidebar/mod.blp:110
+#: src/session_view/room_history/mod.blp:27
+#: src/session_view/sidebar/mod.blp:110
 msgid "Re_join Room"
 msgstr "Znovu _vstoupit do místnosti"
 
-#: src/session_view/room_history/mod.blp:33 src/session_view/sidebar/mod.blp:116
+#: src/session_view/room_history/mod.blp:33
+#: src/session_view/sidebar/mod.blp:116
 msgid "_Forget Room"
 msgstr "_Zapomenout místnost"
 
@@ -4726,10 +4796,11 @@ msgstr "Nabídka místnosti"
 #: src/session_view/room_history/mod.blp:72
 msgid "Call room - other clients may not show messages you send in this room."
 msgstr ""
-"Volací místnost - jiné klienty nemusí zobrazovat zprávy, které v této místnosti "
-"odesíláte."
+"Volací místnost - jiné klienty nemusí zobrazovat zprávy, které v této "
+"místnosti odesíláte."
 
-#: src/session_view/room_history/mod.blp:99 src/session_view/room_history/mod.blp:106
+#: src/session_view/room_history/mod.blp:99
+#: src/session_view/room_history/mod.blp:106
 msgid "Could Not Load Room"
 msgstr "Nezdařilo se načíst místnost"
 
@@ -4746,20 +4817,23 @@ msgid "Error getting file from drop"
 msgstr "Chyba při získávání přetaženého souboru"
 
 #. Translators: Do NOT translate the content between '{' and '}', this is a variable name.
-#: src/session_view/room_history/mod.rs:1027 src/session_view/sidebar/row.rs:747
+#: src/session_view/room_history/mod.rs:1027
+#: src/session_view/sidebar/row.rs:744
 #, rust-format
 msgid "Could not leave {room}"
 msgstr "Nezdařilo se opustit místnost {room}"
 
 #. Translators: Do NOT translate the content between '{' and '}', this is a
 #. variable name.
-#: src/session_view/room_history/mod.rs:1050 src/session_view/sidebar/row.rs:736
+#: src/session_view/room_history/mod.rs:1050
+#: src/session_view/sidebar/row.rs:733
 #, rust-format
 msgid "Could not join {room}"
 msgstr "Nezdařilo se připojit k místnosti {room}"
 
 #. Translators: Do NOT translate the content between '{' and '}', this is a variable name.
-#: src/session_view/room_history/mod.rs:1067 src/session_view/sidebar/row.rs:780
+#: src/session_view/room_history/mod.rs:1067
+#: src/session_view/sidebar/row.rs:777
 #, rust-format
 msgid "Could not forget {room}"
 msgstr "Nezdařilo se zapomenout místnost {room}"
@@ -4885,7 +4959,8 @@ msgstr "Uživatel {user} odvolal svůj požadavek na pozvání do této místnos
 #, rust-format
 msgid "{sender} denied {user}’s request to be invited to this room."
 msgstr ""
-"Odesílatel {sender} odmítl požadavek uživatele {user} na pozvání do této místnosti."
+"Odesílatel {sender} odmítl požadavek uživatele {user} na pozvání do této "
+"místnosti."
 
 #: src/session_view/room_history/state/content.rs:263
 msgid "An unsupported room member event was received."
@@ -4897,7 +4972,8 @@ msgstr "Byla přijata nepodporovaná událost člena místnosti."
 #, rust-format
 msgid "{previous_user_name} changed their display name to {new_user_name}."
 msgstr ""
-"Uživatel {previous_user_name} změnil své zobrazované jméno na {new_user_name}."
+"Uživatel {previous_user_name} změnil své zobrazované jméno na "
+"{new_user_name}."
 
 #. Translators: Do NOT translate the content between
 #. '{' and '}', this is a variable name.
@@ -5128,21 +5204,22 @@ msgstr[1] "{count} oznámení"
 msgstr[2] "{count} oznámení"
 
 #. Translators: Do NOT translate the content between '{' and '}', this is a variable name.
-#: src/session_view/sidebar/row.rs:756
+#: src/session_view/sidebar/row.rs:753
 #, rust-format
 msgid "Could not move {room} from {previous_category} to {new_category}"
-msgstr "Přesun místnosti {room} z {previous_category} do {new_category} se nezdařil"
+msgstr ""
+"Přesun místnosti {room} z {previous_category} do {new_category} se nezdařil"
 
 #. Translators: Do NOT translate the content between '{' and '}', this is a
 #. variable name.
-#: src/session_view/sidebar/row.rs:798
+#: src/session_view/sidebar/row.rs:795
 #, rust-format
 msgid "Could not mark {room} as direct chat"
 msgstr "Nezdařilo se označit místnost {room} jako přímý chat"
 
 #. Translators: Do NOT translate the content between '{' and '}', this is a
 #. variable name.
-#: src/session_view/sidebar/row.rs:803
+#: src/session_view/sidebar/row.rs:800
 #, rust-format
 msgid "Could not unmark {room} as direct chat"
 msgstr "Nezdařilo se zrušit označení místnosti {room} jako přímého chatu"
@@ -5570,25 +5647,28 @@ msgstr "Sezení"
 #~ msgstr "Zadané uživatelské jméno nebo heslo je neplatné."
 
 #~ msgid "You exceeded the homeserver’s rate limit, retry in 1 second."
-#~ msgid_plural "You exceeded the homeserver’s rate limit, retry in {n} seconds."
+#~ msgid_plural ""
+#~ "You exceeded the homeserver’s rate limit, retry in {n} seconds."
 #~ msgstr[0] ""
-#~ "Překročili jste omezení rychlosti domovského serveru, zkuste to znovu za 1 "
-#~ "sekundu."
+#~ "Překročili jste omezení rychlosti domovského serveru, zkuste to znovu za "
+#~ "1 sekundu."
 #~ msgstr[1] ""
-#~ "Překročili jste omezení rychlosti domovského serveru, zkuste to znovu za {n} "
-#~ "sekundy."
+#~ "Překročili jste omezení rychlosti domovského serveru, zkuste to znovu za "
+#~ "{n} sekundy."
 #~ msgstr[2] ""
-#~ "Překročili jste omezení rychlosti domovského serveru, zkuste to znovu za {n} "
-#~ "sekund."
+#~ "Překročili jste omezení rychlosti domovského serveru, zkuste to znovu za "
+#~ "{n} sekund."
 
 #~ msgid "You exceeded the homeserver’s rate limit, try again later."
 #~ msgstr ""
-#~ "Překročili jste omezení rychlosti domovského serveru, zkuste to znovu později."
+#~ "Překročili jste omezení rychlosti domovského serveru, zkuste to znovu "
+#~ "později."
 
-#~ msgid "Homeserver auto-discovery failed. Try entering the full URL manually."
+#~ msgid ""
+#~ "Homeserver auto-discovery failed. Try entering the full URL manually."
 #~ msgstr ""
-#~ "Automatické zjištění domovského serveru se nezdařilo. Zkuste ručně zadat celou "
-#~ "adresu URL."
+#~ "Automatické zjištění domovského serveru se nezdařilo. Zkuste ručně zadat "
+#~ "celou adresu URL."
 
 #~ msgid "Copy Sender ID"
 #~ msgstr "Kopírovat ID odesílatele"
@@ -5676,20 +5756,20 @@ msgstr "Sezení"
 #~ msgstr "Běžný uživatel"
 
 #~ msgid ""
-#~ "Fractal’s support for encryption is unstable so you might lose access to your "
-#~ "encrypted message history. It is recommended to backup your encryption keys "
-#~ "before proceeding."
+#~ "Fractal’s support for encryption is unstable so you might lose access to "
+#~ "your encrypted message history. It is recommended to backup your "
+#~ "encryption keys before proceeding."
 #~ msgstr ""
-#~ "Podpora šifrování ve Fractalu je nestabilní, takže můžete ztratit přístup k "
-#~ "historii šifrovaných zpráv. Před pokračováním se doporučuje zálohovat šifrovací "
-#~ "klíče."
+#~ "Podpora šifrování ve Fractalu je nestabilní, takže můžete ztratit přístup "
+#~ "k historii šifrovaných zpráv. Před pokračováním se doporučuje zálohovat "
+#~ "šifrovací klíče."
 
 #~ msgid ""
-#~ "Fractal doesn’t support online backup of room encryption keys so you might lose "
-#~ "access to your encrypted message history."
+#~ "Fractal doesn’t support online backup of room encryption keys so you "
+#~ "might lose access to your encrypted message history."
 #~ msgstr ""
-#~ "Fractal nepodporuje online zálohování šifrovacích klíčů místnosti, takže můžete "
-#~ "ztratit přístup k historii šifrovaných zpráv."
+#~ "Fractal nepodporuje online zálohování šifrovacích klíčů místnosti, takže "
+#~ "můžete ztratit přístup k historii šifrovaných zpráv."
 
 #~ msgid "It is recommended to backup your encryption keys before proceeding."
 #~ msgstr "Před pokračováním se doporučuje zálohovat šifrovací klíče."
@@ -5782,36 +5862,37 @@ msgstr "Sezení"
 #~ msgstr "Téma (volitelné)"
 
 #~ msgid ""
-#~ "Fractal does not support online backup for encryption keys yet, so you will "
-#~ "need to back them up manually or your message history will be lost if you lose "
-#~ "access to all your sessions."
+#~ "Fractal does not support online backup for encryption keys yet, so you "
+#~ "will need to back them up manually or your message history will be lost "
+#~ "if you lose access to all your sessions."
 #~ msgstr ""
-#~ "Fractal zatím nepodporuje online zálohování šifrovacích klíčů, takže je budete "
-#~ "muset zálohovat ručně, jinak bude vaše historie zpráv ztracena, pokud ztratíte "
-#~ "přístup ke všem svým sezením."
+#~ "Fractal zatím nepodporuje online zálohování šifrovacích klíčů, takže je "
+#~ "budete muset zálohovat ručně, jinak bude vaše historie zpráv ztracena, "
+#~ "pokud ztratíte přístup ke všem svým sezením."
 
 #~ msgid "Failed to access camera"
 #~ msgstr "Přístup ke kameře se nezdařil"
 
 #~ msgid ""
-#~ "No other sessions are available to verify this session. You can either restore "
-#~ "cross-signing from another session and restart this process, or reset the "
-#~ "encryption identity."
+#~ "No other sessions are available to verify this session. You can either "
+#~ "restore cross-signing from another session and restart this process, or "
+#~ "reset the encryption identity."
 #~ msgstr ""
-#~ "Pro ověření tohoto sezení nejsou k dispozici žádná další sezení. Můžete buď "
-#~ "obnovit křížové podepisování z jiného sezení a restartovat tento proces, nebo "
-#~ "resetovat identitu šifrování."
+#~ "Pro ověření tohoto sezení nejsou k dispozici žádná další sezení. Můžete "
+#~ "buď obnovit křížové podepisování z jiného sezení a restartovat tento "
+#~ "proces, nebo resetovat identitu šifrování."
 
 #~ msgid ""
 #~ "If you lost access to all other sessions, you can create a new encryption "
-#~ "identity. Be careful because this will cancel the verifications of all users "
-#~ "and sessions."
+#~ "identity. Be careful because this will cancel the verifications of all "
+#~ "users and sessions."
 #~ msgstr ""
-#~ "Pokud jste ztratili přístup ke všem ostatním sezením, můžete vytvořit novou "
-#~ "šifrovací identitu. Buďte opatrní, protože tím zrušíte ověření všech uživatelů "
-#~ "a sezení."
+#~ "Pokud jste ztratili přístup ke všem ostatním sezením, můžete vytvořit "
+#~ "novou šifrovací identitu. Buďte opatrní, protože tím zrušíte ověření "
+#~ "všech uživatelů a sezení."
 
-#~ msgid "You cancelled the authentication needed to create the encryption identity."
+#~ msgid ""
+#~ "You cancelled the authentication needed to create the encryption identity."
 #~ msgstr "Zrušili jste ověření potřebné k vytvoření šifrovací identity."
 
 #~ msgid "An error occurred during the creation of the encryption identity."
@@ -5821,37 +5902,41 @@ msgstr "Sezení"
 #~ msgstr "Ověření sezení"
 
 #~ msgid ""
-#~ "Without another device you need a recovery passphrase or key to access your "
-#~ "messages"
+#~ "Without another device you need a recovery passphrase or key to access "
+#~ "your messages"
 #~ msgstr ""
-#~ "Bez dalšího zařízení potřebujete pro přístup ke zprávám přístupovou frázi pro "
-#~ "obnovení nebo klíč"
+#~ "Bez dalšího zařízení potřebujete pro přístup ke zprávám přístupovou frázi "
+#~ "pro obnovení nebo klíč"
 
 #~ msgid ""
-#~ "If you don’t have any of these you can reset your identity, but be aware this "
-#~ "makes your old messages inaccessible forever."
+#~ "If you don’t have any of these you can reset your identity, but be aware "
+#~ "this makes your old messages inaccessible forever."
 #~ msgstr ""
-#~ "Pokud nic z toho nemáte, můžete resetovat svou identitu, ale uvědomte si, že "
-#~ "tím budou vaše staré zprávy navždy nepřístupné."
+#~ "Pokud nic z toho nemáte, můžete resetovat svou identitu, ale uvědomte si, "
+#~ "že tím budou vaše staré zprávy navždy nepřístupné."
 
-#~ msgid "Your Recovery Passphrase was set up when you first created this account."
+#~ msgid ""
+#~ "Your Recovery Passphrase was set up when you first created this account."
 #~ msgstr ""
-#~ "Vaše přístupová fráze pro obnovení byla nastavena při prvním vytvoření tohoto "
-#~ "účtu."
+#~ "Vaše přístupová fráze pro obnovení byla nastavena při prvním vytvoření "
+#~ "tohoto účtu."
 
-#~ msgid "If you opted for a Recovery Key instead go back and choose that option."
+#~ msgid ""
+#~ "If you opted for a Recovery Key instead go back and choose that option."
 #~ msgstr ""
-#~ "Pokud jste se místo toho rozhodli pro klíč pro obnovení, vraťte se a vyberte "
-#~ "tuto možnost."
+#~ "Pokud jste se místo toho rozhodli pro klíč pro obnovení, vraťte se a "
+#~ "vyberte tuto možnost."
 
 #~ msgid "Your Recovery Key was set up when you first created this account."
-#~ msgstr "Váš klíč pro obnovení byl nastaven při prvním vytvoření tohoto účtu."
+#~ msgstr ""
+#~ "Váš klíč pro obnovení byl nastaven při prvním vytvoření tohoto účtu."
 
 #~ msgid ""
-#~ "If you opted for a Recovery Passphrase instead go back and choose that option."
+#~ "If you opted for a Recovery Passphrase instead go back and choose that "
+#~ "option."
 #~ msgstr ""
-#~ "Pokud jste se místo toho rozhodli pro přístupovou frázi pro obnovení, vraťte se "
-#~ "a vyberte tuto možnost."
+#~ "Pokud jste se místo toho rozhodli pro přístupovou frázi pro obnovení, "
+#~ "vraťte se a vyberte tuto možnost."
 
 #~ msgid "Matrix group messaging app"
 #~ msgstr "Aplikace pro komunikaci ve skupinách Matrix"
@@ -5896,19 +5981,19 @@ msgstr "Sezení"
 #~ "It seems like one of the Fractal sessions stored in the Secret Service is "
 #~ "corrupted. If you know how to fix it you should do so."
 #~ msgstr ""
-#~ "Zdá se, že jedna ze sezení Fractalu uložených v Secret Service je poškozená. "
-#~ "Pokud víte, jak to opravit, měli byste to udělat."
+#~ "Zdá se, že jedna ze sezení Fractalu uložených v Secret Service je "
+#~ "poškozená. Pokud víte, jak to opravit, měli byste to udělat."
 
 #~ msgid ""
-#~ "Alternatively, we could disconnect this session for you. This means you will "
-#~ "have to login again and you will lose access to your encrypted messages, unless "
-#~ "you have a session open in another client or you have already backed up your "
-#~ "encryption keys."
+#~ "Alternatively, we could disconnect this session for you. This means you "
+#~ "will have to login again and you will lose access to your encrypted "
+#~ "messages, unless you have a session open in another client or you have "
+#~ "already backed up your encryption keys."
 #~ msgstr ""
-#~ "Případně můžeme za vás toto sezení odpojit. To znamená, že se budete muset "
-#~ "znovu přihlásit a ztratíte přístup ke svým šifrovaným zprávám, pokud nemáte "
-#~ "otevřené sezení v jiném klientovi nebo jste si již nezazálohovali své šifrovací "
-#~ "klíče."
+#~ "Případně můžeme za vás toto sezení odpojit. To znamená, že se budete "
+#~ "muset znovu přihlásit a ztratíte přístup ke svým šifrovaným zprávám, "
+#~ "pokud nemáte otevřené sezení v jiném klientovi nebo jste si již "
+#~ "nezazálohovali své šifrovací klíče."
 
 #~ msgid "Clicking this button might disconnect more than one session!"
 #~ msgstr "Kliknutí na toto tlačítko může odpojit více než jedno sezení!"
@@ -6062,7 +6147,8 @@ msgstr "Sezení"
 #~ msgstr "Zavřít"
 
 #~ msgid ""
-#~ "Once you leave, you won’t be able to interact with people in the room anymore."
+#~ "Once you leave, you won’t be able to interact with people in the room "
+#~ "anymore."
 #~ msgstr ""
 #~ "Jakmile ji opustíte, nebudete moci nadále komunikovat s lidmi v místnosti."
 
@@ -6157,8 +6243,8 @@ msgstr "Sezení"
 #~ msgstr "Zadejte kód přijatý přes SMS"
 
 #~ msgid ""
-#~ "In order to add this email address, go to your inbox and follow the link you "
-#~ "received. Once you’ve done that, click Continue."
+#~ "In order to add this email address, go to your inbox and follow the link "
+#~ "you received. Once you’ve done that, click Continue."
 #~ msgstr ""
 #~ "Abyste přidali tuto e-mailovou adresu, běžte do jejích přijatých zpráv a "
 #~ "otevřete přijatý odkaz. Až to uděláte, klikněte na Pokračovat."
@@ -6234,7 +6320,8 @@ msgstr "Sezení"
 #~ msgstr "Dozvědět se o Fraktálu více"
 
 #~ msgid ""
-#~ "You’ve been invited to join <b>{room_name}</b> room by <b>{sender_name}</b>"
+#~ "You’ve been invited to join <b>{room_name}</b> room by <b>{sender_name}</"
+#~ "b>"
 #~ msgstr ""
 #~ "Byli jste uživatelem <b>{sender_name}</b> pozváni ke vstupu do místnosti "
 #~ "<b>{room_name}</b> "

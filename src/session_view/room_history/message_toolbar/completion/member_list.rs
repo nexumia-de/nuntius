@@ -184,7 +184,8 @@ mod imp {
 
         /// Update whether `@room` should be present in the suggestions.
         fn update_at_room_model(&self) {
-            // Only present `@room` if it's not a DM and user can notify the room.
+            // Only present `@room` if it's not a DM and user can notify the
+            // room.
             let room = self
                 .room
                 .obj()

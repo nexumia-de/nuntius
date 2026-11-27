@@ -153,7 +153,8 @@ mod imp {
                 }
             }
 
-            // We do not have everything locally, request the rest from the server.
+            // We do not have everything locally, request the rest from the
+            // server.
             let matrix_room = matrix_room.clone();
             let handle = spawn_tokio!(async move {
                 let mut memberships = RoomMemberships::all();
@@ -162,7 +163,8 @@ mod imp {
                 matrix_room.members(memberships).await
             });
 
-            // FIXME: We should retry to load the room members if the request failed
+            // FIXME: We should retry to load the room members if the request
+            // failed
             match handle.await.expect("task was not aborted") {
                 Ok(members) => {
                     // Add all members needed to display room events.
@@ -195,8 +197,8 @@ mod imp {
             let num_members_added = members.len().saturating_sub(prev_len);
 
             // We cannot have the mut borrow active when members are updated or
-            // items_changed is emitted because that will probably cause reads of
-            // the members field.
+            // items_changed is emitted because that will probably cause reads
+            // of the members field.
             std::mem::drop(members);
 
             {
@@ -207,7 +209,8 @@ mod imp {
                     }
                 }
 
-                // Restore the members activity according to the known live timeline events.
+                // Restore the members activity according to the known live
+                // timeline events.
                 for item in room.live_timeline().items().iter::<glib::Object>().rev() {
                     let Ok(item) = item else {
                         // The iterator is broken, stop.
@@ -228,7 +231,8 @@ mod imp {
             }
 
             if num_members_added > 0 {
-                // IndexMap preserves insertion order, so all the new items will be at the end.
+                // IndexMap preserves insertion order, so all the new items will
+                // be at the end.
                 self.obj()
                     .items_changed(prev_len as u32, 0, num_members_added as u32);
             }
@@ -285,11 +289,12 @@ impl MemberList {
             })
             .clone();
 
-        // We can't have the borrow active when items_changed is emitted because that
-        // will probably cause reads of the members field.
+        // We can't have the borrow active when items_changed is emitted because
+        // that will probably cause reads of the members field.
         std::mem::drop(members);
         if was_member_added {
-            // IndexMap preserves insertion order so the new member will be at the end.
+            // IndexMap preserves insertion order so the new member will be at
+            // the end.
             self.items_changed(prev_len as u32, 0, 1);
         }
 

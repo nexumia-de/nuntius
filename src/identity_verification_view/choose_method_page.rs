@@ -185,8 +185,8 @@ impl ChooseMethodPage {
 
             if qr_code_visible {
                 imp.instructions.set_markup(&gettext_f(
-                    // Translators: Do NOT translate the content between '{' and '}', this is a
-                    // variable name.
+                    // Translators: Do NOT translate the content between '{' and
+                    // '}', this is a variable name.
                     "Ask {user} to scan this QR code from their session.",
                     &[("user", &format!("<b>{name}</b>"))],
                 ));

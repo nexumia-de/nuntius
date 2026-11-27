@@ -103,7 +103,8 @@ mod imp {
             let model = self.model.get_or_init(|| model).clone();
             let obj = self.obj();
 
-            // Special-case room lists so that they are sorted and in the right section.
+            // Special-case room lists so that they are sorted and in the right
+            // section.
             let inner_model = if model.is::<RoomList>() {
                 // Filter the list to only show rooms for the proper category.
                 self.filter
@@ -128,7 +129,8 @@ mod imp {
                 let sort_model =
                     gtk::SortListModel::new(Some(latest_activity_expr_model), Some(sorter));
 
-                // Watch for notification count and highlight changes in the filtered room list.
+                // Watch for notification count and highlight changes in the
+                // filtered room list.
                 let room_notification_count = Room::this_expression("notification-count");
                 let room_highlight = Room::this_expression("highlight");
                 let notification_and_highlight_expr_model = ExpressionListModel::new();

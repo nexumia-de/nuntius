@@ -36,7 +36,7 @@ futures-util = "0.3"
 geo-uri = "0.2"
 gettext-rs = { version = "0.8", features = ["gettext-system"] }
 indexmap = "2"
-linkify = "0.11"
+linkify = "0.12"
 mime = "0.3"
 mime_guess = "2"
 pulldown-cmark = "0.13"
@@ -74,9 +74,9 @@ shumate = { version = "0.8", features = ["v1_1"], package = "libshumate" }
 sourceview = { version = "0.11", package = "sourceview5" }
 
 [dependencies.matrix-sdk]
-# version = "0.19"
-git = "https://github.com/matrix-org/matrix-rust-sdk.git"
-rev = "2d6248ed00e5ddbac3d016200021ec9c733412e1"
+version = "0.20"
+# git = "https://github.com/matrix-org/matrix-rust-sdk.git"
+# rev = "2d6248ed00e5ddbac3d016200021ec9c733412e1"
 default-features = false
 features = [
     "automatic-room-key-forwarding",
@@ -90,20 +90,20 @@ features = [
 ]
 
 [dependencies.matrix-sdk-store-encryption]
-# version = "0.19"
-git = "https://github.com/matrix-org/matrix-rust-sdk.git"
-rev = "2d6248ed00e5ddbac3d016200021ec9c733412e1"
+version = "0.20"
+# git = "https://github.com/matrix-org/matrix-rust-sdk.git"
+# rev = "2d6248ed00e5ddbac3d016200021ec9c733412e1"
 
 [dependencies.matrix-sdk-ui]
-# version = "0.19"
-git = "https://github.com/matrix-org/matrix-rust-sdk.git"
-rev = "2d6248ed00e5ddbac3d016200021ec9c733412e1"
+version = "0.20"
+# git = "https://github.com/matrix-org/matrix-rust-sdk.git"
+# rev = "2d6248ed00e5ddbac3d016200021ec9c733412e1"
 default-features = false
 
 [dependencies.ruma]
-# version = "0.17"
-git = "https://github.com/ruma/ruma.git"
-rev = "f99fc5c53a7ee3057a9203f76a0ad12839d67be6"
+version = "0.18"
+# git = "https://github.com/ruma/ruma.git"
+# rev = "f99fc5c53a7ee3057a9203f76a0ad12839d67be6"
 features = [
     "client-api-c",
     "compat-arbitrary-length-ids",

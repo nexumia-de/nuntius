@@ -202,7 +202,8 @@ mod imp {
 
         /// Set the display name of this pill.
         fn set_display_name(&self, label: &str) {
-            // We ellipsize the string manually because GtkTextView uses the minimum width.
+            // We ellipsize the string manually because GtkTextView uses the
+            // minimum width.
             let mut maybe_ellipsized = label.chars().take(MAX_CHARS).collect::<String>();
 
             let is_ellipsized = maybe_ellipsized.len() < label.len();

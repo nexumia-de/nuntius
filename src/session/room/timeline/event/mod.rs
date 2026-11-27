@@ -670,8 +670,8 @@ impl Event {
                 true
             }
             TimelineItemContent::OtherState(other_state) => {
-                // `m.room.create` should only occur once per room and it has special rendering
-                // so we do not group it.
+                // `m.room.create` should only occur once per room and it has
+                // special rendering so we do not group it.
                 !matches!(
                     other_state.content(),
                     AnyOtherStateEventContentChange::RoomCreate(_)
@@ -777,7 +777,8 @@ impl Event {
             return false;
         }
 
-        // Finally, check that the current permissions allow us to send messages.
+        // Finally, check that the current permissions allow us to send
+        // messages.
         self.room().permissions().can_send_message()
     }
 
@@ -793,7 +794,8 @@ impl Event {
             return false;
         }
 
-        // Finally, check that the current permissions allow us to send messages.
+        // Finally, check that the current permissions allow us to send
+        // messages.
         self.room().permissions().can_send_reaction()
     }
 
@@ -803,8 +805,8 @@ impl Event {
     /// deserialize.
     pub(crate) fn can_be_redacted(&self) -> bool {
         let Some(raw) = self.raw() else {
-            // Events without raw JSON are already redacted events, and events that are not
-            // sent yet, we can ignore them.
+            // Events without raw JSON are already redacted events, and events
+            // that are not sent yet, we can ignore them.
             return false;
         };
 

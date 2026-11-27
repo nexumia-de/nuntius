@@ -97,8 +97,8 @@ mod tests {
 
     #[gtk::test]
     fn construct() {
-        // Check that the GObject is constructed successfully, i.e. the template file is
-        // found and correct.
+        // Check that the GObject is constructed successfully, i.e. the template
+        // file is found and correct.
         load_gresources();
         LoginAdvancedDialog::new();
     }

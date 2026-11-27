@@ -135,7 +135,8 @@ mod imp {
             };
 
             if progress > 0.0 {
-                // We are in the middle of the transition, so do the cross fade transition.
+                // We are in the middle of the transition, so do the cross fade
+                // transition.
                 snapshot.push_cross_fade(progress);
 
                 source_widget_texture.snapshot(snapshot, obj.width().into(), obj.height().into());
@@ -144,7 +145,8 @@ mod imp {
                 obj.snapshot_child(&child, snapshot);
                 snapshot.pop();
             } else if progress <= 0.0 {
-                // We are at the beginning of the transition, show the source widget.
+                // We are at the beginning of the transition, show the source
+                // widget.
                 source_widget_texture.snapshot(snapshot, obj.width().into(), obj.height().into());
             }
         }
@@ -175,13 +177,14 @@ mod imp {
                 obj.set_visible(true);
 
                 if let Some(source_widget) = self.source_widget.upgrade() {
-                    // Render the current state of the source widget to a texture.
-                    // This will be needed for the transition.
+                    // Render the current state of the source widget to a
+                    // texture. This will be needed for the transition.
                     let texture = render_widget_to_texture(&source_widget);
                     self.source_widget_texture.replace(texture);
 
                     // Hide the source widget.
-                    // We use opacity here so that the widget will stay allocated.
+                    // We use opacity here so that the widget will stay
+                    // allocated.
                     source_widget.set_opacity(0.0);
                 } else {
                     self.source_widget_texture.replace(None);

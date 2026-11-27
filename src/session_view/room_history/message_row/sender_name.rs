@@ -62,7 +62,8 @@ mod imp {
 
     impl WidgetImpl for MessageSenderName {
         fn focus(&self, _direction_type: gtk::DirectionType) -> bool {
-            // Regardless of the direction, we can only focus this widget and no children.
+            // Regardless of the direction, we can only focus this widget and no
+            // children.
             let obj = self.obj();
             if obj.is_focus() {
                 false

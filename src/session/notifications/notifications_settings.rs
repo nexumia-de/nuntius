@@ -202,8 +202,8 @@ mod imp {
                 return;
             };
 
-            // If the session is not ready, there is no client so let's wait to initialize
-            // the API.
+            // If the session is not ready, there is no client so let's wait to
+            // initialize the API.
             if session.state() != SessionState::Ready {
                 self.api.take();
 
@@ -273,7 +273,8 @@ mod imp {
             });
 
             let account_enabled = match handle.await.expect("task was not aborted") {
-                // The rule disables notifications, so we need to invert the boolean.
+                // The rule disables notifications, so we need to invert the
+                // boolean.
                 Ok(enabled) => !enabled,
                 Err(error) => {
                     error!("Could not get account notifications setting: {error}");
@@ -337,7 +338,8 @@ mod imp {
             let new_len = keywords.len() as u32;
             let old_len = list.n_items();
 
-            // Check if there is any keyword that changed, was moved or was added.
+            // Check if there is any keyword that changed, was moved or was
+            // added.
             for (pos, keyword) in keywords.iter().enumerate() {
                 if Some(*keyword)
                     != list
@@ -403,8 +405,8 @@ mod imp {
             self.per_room_settings.replace(per_room_settings.clone());
 
             // Update the setting in the rooms.
-            // Since we don't know when a room was added or removed, we have to update every
-            // room.
+            // Since we don't know when a room was added or removed, we have to
+            // update every room.
             let Some(session) = self.session.upgrade() else {
                 return;
             };
@@ -453,7 +455,8 @@ impl NotificationsSettings {
             api.set_push_rule_enabled(
                 RuleKind::Override,
                 PredefinedOverrideRuleId::Master,
-                // The rule disables notifications, so we need to invert the boolean.
+                // The rule disables notifications, so we need to invert the
+                // boolean.
                 !enabled,
             )
             .await

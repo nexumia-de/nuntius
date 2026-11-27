@@ -150,8 +150,9 @@ mod imp {
                         let category = room.category();
 
                         if category == RoomCategory::Left {
-                            // We declined the invite or the invite was retracted, we should close
-                            // the room if it is opened.
+                            // We declined the invite or the invite was
+                            // retracted, we should close the room if it is
+                            // opened.
                             let Some(session) = room.session() else {
                                 return;
                             };
@@ -186,8 +187,8 @@ mod imp {
                     );
 
                     let label = gettext_f(
-                        // Translators: Do NOT translate the content between '{' and '}', these
-                        // are variable names.
+                        // Translators: Do NOT translate the content between '{'
+                        // and '}', these are variable names.
                         "{user_name} ({user_id}) invited you",
                         &[
                             ("user_name", LabelWithWidgets::PLACEHOLDER),
@@ -283,7 +284,8 @@ mod imp {
             let ignored_inviter = response.ignore_inviter.then(|| room.inviter()).flatten();
 
             let closed = if room.change_category(TargetRoomCategory::Left).await.is_ok() {
-                // A room where we were invited is usually empty so just close it.
+                // A room where we were invited is usually empty so just close
+                // it.
                 let _ = obj.activate_action("session.close-room", None);
                 true
             } else {
@@ -306,7 +308,8 @@ mod imp {
                 if inviter.upcast::<User>().ignore().await.is_err() {
                     toast!(obj, gettext("Could not ignore user"));
                 } else if !closed {
-                    // Ignoring the user should remove the room from the sidebar so close it.
+                    // Ignoring the user should remove the room from the sidebar
+                    // so close it.
                     let _ = obj.activate_action("session.close-room", None);
                 }
             }

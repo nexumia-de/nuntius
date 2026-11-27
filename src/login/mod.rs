@@ -257,7 +257,8 @@ mod imp {
             }
 
             if visible_page <= LoginPage::Method {
-                // Drop the in-browser data because we need to recompute it for retries.
+                // Drop the in-browser data because we need to recompute it for
+                // retries.
                 self.local_server_handle.take();
                 self.in_browser_data.take();
             }
@@ -296,8 +297,8 @@ mod imp {
                 let client = builder.build().await?;
 
                 if check_homeserver_manually {
-                    // Call the `GET /versions` endpoint to make sure that the URL belongs to a
-                    // Matrix homeserver.
+                    // Call the `GET /versions` endpoint to make sure that the
+                    // URL belongs to a Matrix homeserver.
                     client.server_versions().await?;
                 }
 
@@ -334,7 +335,8 @@ mod imp {
         /// Drop the Matrix client.
         fn drop_client(&self) {
             if let Some(client) = self.client.take() {
-                // The `Client` needs to access a tokio runtime when it is dropped.
+                // The `Client` needs to access a tokio runtime when it is
+                // dropped.
                 let _guard = RUNTIME.enter();
                 drop(client);
             }
@@ -604,7 +606,8 @@ mod imp {
             }
 
             let Some(local_server_handle) = self.local_server_handle.take() else {
-                // If we don't have the server handle, we are already waiting for the redirect.
+                // If we don't have the server handle, we are already waiting
+                // for the redirect.
                 return Ok(());
             };
 
@@ -615,7 +618,8 @@ mod imp {
                 return Ok(());
             };
 
-            // This should show a notification for the user to go back to this app.
+            // This should show a notification for the user to go back to this
+            // app.
             if let Some(window) = self.obj().root().and_downcast::<gtk::Window>() {
                 window.present();
             }
@@ -828,8 +832,8 @@ impl LoginInBrowserData {
 
 /// Client registration data for the OAuth 2.0 API.
 fn client_registration_data() -> ClientRegistrationData {
-    // Register the IPv4 and IPv6 localhost APIs as we use a local server for the
-    // redirection.
+    // Register the IPv4 and IPv6 localhost APIs as we use a local server for
+    // the redirection.
     let ipv4_localhost_uri = Url::parse(&format!("http://{}/", Ipv4Addr::LOCALHOST))
         .expect("IPv4 localhost address should be a valid URL");
     let ipv6_localhost_uri = Url::parse(&format!("http://[{}]/", Ipv6Addr::LOCALHOST))
@@ -859,8 +863,8 @@ mod tests {
 
     #[gtk::test]
     fn construct() {
-        // Check that the GObject is constructed successfully, i.e. the template file is
-        // valid.
+        // Check that the GObject is constructed successfully, i.e. the template
+        // file is valid.
         load_gresources();
         Login::new();
     }

@@ -69,8 +69,8 @@ mod imp {
                     self.title_label.set_label(&filename);
                     self.button
                         .update_property(&[gtk::accessible::Property::Label(&gettext_f(
-                            // Translators: Do NOT translate the content between '{' and '}',
-                            // this is a variable name.
+                            // Translators: Do NOT translate the content between
+                            // '{' and '}', this is a variable name.
                             "Save {filename}",
                             &[("filename", &filename)],
                         ))]);

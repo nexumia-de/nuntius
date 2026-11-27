@@ -118,9 +118,10 @@ impl MediaMessage {
                         .and_then(|local_timestamp| local_timestamp.format("%Y-%m-%d %H-%M-%S"))
                         // Fallback to the timestamp in seconds.
                         .map_or_else(|_| timestamp.second().to_string(), String::from);
-                    // Translators: this is the name of the file that the voice message is saved as.
-                    // Do NOT translate the content between '{' and '}', this is a variable name
-                    // corresponding to a date and time, e.g. "2017-05-21 12-24-03".
+                    // Translators: this is the name of the file that the voice
+                    // message is saved as. Do NOT translate the content between
+                    // '{' and '}', this is a variable name corresponding to a
+                    // date and time, e.g. "2017-05-21 12-24-03".
                     let name =
                         gettext_f("Voice Message From {datetime}", &[("datetime", &datetime)]);
 

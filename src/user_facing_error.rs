@@ -38,8 +38,8 @@ impl UserFacingError for HttpError {
                         };
                         let secs = duration.as_secs() as u32;
                         ngettext_f(
-                            // Translators: Do NOT translate the content between '{' and '}',
-                            // this is a variable name.
+                            // Translators: Do NOT translate the content between
+                            // '{' and '}', this is a variable name.
                             "Rate limit exceeded, retry in 1 second.",
                             "Rate limit exceeded, retry in {n} seconds.",
                             secs,
@@ -50,8 +50,8 @@ impl UserFacingError for HttpError {
                     }
                 }
                 _ => {
-                    // TODO: The server may not give us pretty enough error message. We should
-                    // add our own error message.
+                    // TODO: The server may not give us pretty enough error
+                    // message. We should add our own error message.
                     message.clone()
                 }
             }

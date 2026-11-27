@@ -195,8 +195,8 @@ mod imp {
 
             let text = (n_items > 0).then(|| {
                 ngettext_f(
-                    // Translators: Do NOT translate the content between '{' and '}', this is a
-                    // variable name.
+                    // Translators: Do NOT translate the content between '{' and
+                    // '}', this is a variable name.
                     "1 member reacted with {reaction_key}",
                     "{n} members reacted with {reaction_key}",
                     n_items,
@@ -214,8 +214,8 @@ mod imp {
                 return;
             };
 
-            // Translators: Do NOT translate the content between '{' and '}', this is a
-            // variable name.
+            // Translators: Do NOT translate the content between '{' and '}',
+            // this is a variable name.
             let text = gettext_f(
                 "{user} reacted with {reaction_key}",
                 &[

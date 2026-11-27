@@ -112,16 +112,16 @@ mod imp {
         }
 
         fn set_property(&self, id: usize, value: &glib::Value, pspec: &glib::ParamSpec) {
-            // In case this is a property that's automatically added for Editable
-            // implementations.
+            // In case this is a property that's automatically added for
+            // Editable implementations.
             if !self.delegate_set_property(id, value, pspec) {
                 self.derived_set_property(id, value, pspec);
             }
         }
 
         fn property(&self, id: usize, pspec: &glib::ParamSpec) -> glib::Value {
-            // In case this is a property that's automatically added for Editable
-            // implementations.
+            // In case this is a property that's automatically added for
+            // Editable implementations.
             if let Some(value) = self.delegate_get_property(id, pspec) {
                 value
             } else {

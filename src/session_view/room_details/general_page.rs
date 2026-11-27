@@ -443,8 +443,8 @@ mod imp {
                 return;
             };
 
-            // Hide edit button when the user cannot edit any detail or when the room is
-            // direct.
+            // Hide edit button when the user cannot edit any detail or when the
+            // room is direct.
             let permissions = room.permissions();
             let can_change_avatar = permissions.property_expression("can-change-avatar");
             let can_change_name = permissions.property_expression("can-change-name");
@@ -476,12 +476,14 @@ mod imp {
             let joined_members = members.membership_list(MembershipListKind::Join);
             let joined_members_count = joined_members.n_items();
 
-            // When the room is direct there should only be 2 members in most cases, but use
-            // the members count to make sure we do not show a list that is too long.
+            // When the room is direct there should only be 2 members in most
+            // cases, but use the members count to make sure we do not show a
+            // list that is too long.
             let is_direct_with_few_members = room.is_direct() && joined_members_count < 5;
             if is_direct_with_few_members {
-                // We don't use the count in the strings so we use separate gettext calls for
-                // singular and plural rather than using ngettext.
+                // We don't use the count in the strings so we use separate
+                // gettext calls for singular and plural rather than using
+                // ngettext.
                 let title = if joined_members_count == 1 {
                     gettext("Member")
                 } else {
@@ -489,8 +491,8 @@ mod imp {
                 };
                 self.direct_members_group.set_title(&title);
 
-                // Set model of direct members list dynamically to avoid creating unnecessary
-                // widgets in the background.
+                // Set model of direct members list dynamically to avoid
+                // creating unnecessary widgets in the background.
                 if !self.direct_members_list_has_bound_model.get() {
                     self.direct_members_list
                         .bind_model(Some(&joined_members), |item| {
@@ -518,21 +520,23 @@ mod imp {
                 let mut server_joined_members_count = room.joined_members_count();
 
                 if room.category() == RoomCategory::Left {
-                    // The number of joined members count from the homeserver is only updated when
-                    // we are joined, so we must at least remove ourself from the count after we
-                    // left.
+                    // The number of joined members count from the homeserver is
+                    // only updated when we are joined, so we must at least
+                    // remove ourself from the count after we left.
                     server_joined_members_count = server_joined_members_count.saturating_sub(1);
                 }
 
-                // Use the maximum between the count of joined members in the local list, and
-                // the one provided by the homeserver. The homeserver is usually right, except
-                // when we just joined a room, where it will be 0 for a while.
+                // Use the maximum between the count of joined members in the
+                // local list, and the one provided by the homeserver. The
+                // homeserver is usually right, except when we just joined a
+                // room, where it will be 0 for a while.
                 let joined_members_count =
                     server_joined_members_count.max(joined_members_count.into());
                 self.members_row.set_count(joined_members_count.to_string());
 
-                // We don't use the count in the strings so we use separate gettext calls for
-                // singular and plural rather than using ngettext.
+                // We don't use the count in the strings so we use separate
+                // gettext calls for singular and plural rather than using
+                // ngettext.
                 let title = if joined_members_count == 1 {
                     gettext("Member")
                 } else {
@@ -696,8 +700,8 @@ mod imp {
             if let Some(canonical_alias_string) = canonical_alias_string {
                 let mut row_borrow = self.canonical_alias_row.borrow_mut();
                 let row = row_borrow.get_or_insert_with(|| {
-                    // We want the main alias always at the top but cannot add a row at the top so
-                    // we have to remove the other rows first.
+                    // We want the main alias always at the top but cannot add a
+                    // row at the top so we have to remove the other rows first.
                     self.remove_alt_aliases_rows();
 
                     let row = CopyableRow::new();
@@ -857,8 +861,8 @@ mod imp {
             let server_name = own_member.user_id().server_name();
 
             let title = gettext_f(
-                // Translators: Do NOT translate the content between '{' and '}',
-                // this is a variable name.
+                // Translators: Do NOT translate the content between '{' and
+                // '}', this is a variable name.
                 "Publish in the {homeserver} directory",
                 &[("homeserver", server_name.as_str())],
             );
@@ -873,9 +877,9 @@ mod imp {
 
             let row = &self.publish;
 
-            // There is no clear definition of who is allowed to publish a room to the
-            // directory in the Matrix spec. Let's assume it doesn't make sense unless the
-            // user can change the public addresses.
+            // There is no clear definition of who is allowed to publish a room
+            // to the directory in the Matrix spec. Let's assume it doesn't make
+            // sense unless the user can change the public addresses.
             let can_change = room
                 .permissions()
                 .is_allowed_to(PowerLevelAction::SendState(

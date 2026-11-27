@@ -202,7 +202,8 @@ mod imp {
                 Ok(next_frame) => {
                     self.next_frame.replace(Some(next_frame));
 
-                    // In case loading the frame took longer than the delay between frames.
+                    // In case loading the frame took longer than the delay
+                    // between frames.
                     if self.timeout_source_id.borrow().is_none() {
                         self.show_next_frame();
                     }

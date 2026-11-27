@@ -108,7 +108,8 @@ mod imp {
                 // The height is fixed.
                 (WAVEFORM_HEIGHT_I32, WAVEFORM_HEIGHT_I32, -1, -1)
             } else {
-                // We accept any width, the optimal width is the default width of the paintable.
+                // We accept any width, the optimal width is the default width
+                // of the paintable.
                 (0, self.paintable.intrinsic_width(), -1, -1)
             }
         }
@@ -141,12 +142,13 @@ mod imp {
             let width = width as f32;
             let is_rtl = obj.direction() == gtk::TextDirection::Rtl;
 
-            // Use the waveform as a mask that we will apply to the colored rectangles
-            // below.
+            // Use the waveform as a mask that we will apply to the colored
+            // rectangles below.
             snapshot.push_mask(gsk::MaskMode::Alpha);
             snapshot.save();
 
-            // Invert the paintable horizontally if we are in right-to-left direction.
+            // Invert the paintable horizontally if we are in right-to-left
+            // direction.
             if is_rtl {
                 snapshot.translate(&graphene::Point::new(width, 0.0));
                 snapshot.scale(-1.0, 1.0);
@@ -167,8 +169,9 @@ mod imp {
             // `hover_position` and the "hover" part stops at the last of the
             // `position` or the `hover_position`.
             //
-            // The order is inverted in right-to-left direction, and any rectangle that is
-            // not visible (i.e. has a width of 0) is not drawn.
+            // The order is inverted in right-to-left direction, and any
+            // rectangle that is not visible (i.e. has a width of 0) is not
+            // drawn.
             let (start, end) = if is_rtl { (width, 0.0) } else { (0.0, width) };
             let mut position = self.position.get() * width;
             if is_rtl {
@@ -258,8 +261,8 @@ mod imp {
 
         // Get the waveform shape as a monochrome paintable.
         //
-        // If we are not in a transition phase, we cache it because the shape only
-        // changes if the widget is resized.
+        // If we are not in a transition phase, we cache it because the shape
+        // only changes if the widget is resized.
         fn paintable(&self) -> Option<gdk::Paintable> {
             let transition_is_ongoing = self
                 .animation
@@ -300,8 +303,8 @@ mod imp {
             let obj = self.obj();
             let width = f64::from(obj.width());
 
-            // Clamp the value, because it is possible for the user to go outside of the
-            // widget with drag gestures.
+            // Clamp the value, because it is possible for the user to go
+            // outside of the widget with drag gestures.
             x = x.clamp(0.0, width);
 
             let mut position = (x / width) as f32;
@@ -347,8 +350,8 @@ mod imp {
             ));
             obj.add_controller(motion);
 
-            // Handle dragging to seek. This also handles clicks because a click triggers a
-            // drag begin.
+            // Handle dragging to seek. This also handles clicks because a click
+            // triggers a drag begin.
             let drag = gtk::GestureDrag::builder().name("waveform-drag").build();
             drag.connect_drag_begin(clone!(
                 #[weak]

@@ -131,8 +131,8 @@ mod imp {
         fn avatar_changed(&self, uri: Option<&OwnedMxcUri>) {
             if let Some(action) = self.changing_avatar.borrow().as_ref() {
                 if uri != action.as_value() {
-                    // This is not the change we expected, maybe another device did a change too.
-                    // Let's wait for another change.
+                    // This is not the change we expected, maybe another device
+                    // did a change too. Let's wait for another change.
                     return;
                 }
             } else {
@@ -225,11 +225,11 @@ mod imp {
                     async move { matrix_room.set_avatar_url(&uri, Some(image_info)).await }
                 );
 
-            // We don't need to handle the success of the request, we should receive the
-            // change via sync.
+            // We don't need to handle the success of the request, we should
+            // receive the change via sync.
             if let Err(error) = handle.await.unwrap() {
-                // Because this action can finish in avatar_changed, we must only act if this is
-                // still the current action.
+                // Because this action can finish in avatar_changed, we must
+                // only act if this is still the current action.
                 if weak_action.is_ongoing() {
                     self.changing_avatar.take();
                     error!("Could not change room avatar: {error}");
@@ -282,11 +282,11 @@ mod imp {
             let matrix_room = matrix_room.clone();
             let handle = spawn_tokio!(async move { matrix_room.remove_avatar().await });
 
-            // We don't need to handle the success of the request, we should receive the
-            // change via sync.
+            // We don't need to handle the success of the request, we should
+            // receive the change via sync.
             if let Err(error) = handle.await.unwrap() {
-                // Because this action can finish in avatar_changed, we must only act if this is
-                // still the current action.
+                // Because this action can finish in avatar_changed, we must
+                // only act if this is still the current action.
                 if weak_action.is_ongoing() {
                     self.changing_avatar.take();
                     error!("Could not remove room avatar: {error}");
@@ -314,8 +314,8 @@ mod imp {
         fn name_changed(&self, name: Option<&str>) {
             if let Some(action) = self.changing_name.borrow().as_ref() {
                 if name != action.as_value().map(String::as_str) {
-                    // This is not the change we expected, maybe another device did a change too.
-                    // Let's wait for another change.
+                    // This is not the change we expected, maybe another device
+                    // did a change too. Let's wait for another change.
                     return;
                 }
             } else {
@@ -337,7 +337,8 @@ mod imp {
             };
 
             let text = Some(self.name_entry_row.text()).filter(|t| !t.is_empty());
-            // Do not send text if it has just more whitespaces at the beginning or end.
+            // Do not send text if it has just more whitespaces at the beginning
+            // or end.
             let trimmed_text = text.as_deref().map(str::trim).filter(|t| !t.is_empty());
 
             let name = room.name();
@@ -386,11 +387,11 @@ mod imp {
             let handle =
                 spawn_tokio!(async move { matrix_room.set_name(name.unwrap_or_default()).await });
 
-            // We don't need to handle the success of the request, we should receive the
-            // change via sync.
+            // We don't need to handle the success of the request, we should
+            // receive the change via sync.
             if let Err(error) = handle.await.unwrap() {
-                // Because this action can finish in name_changed, we must only act if this is
-                // still the current action.
+                // Because this action can finish in name_changed, we must only
+                // act if this is still the current action.
                 if weak_action.is_ongoing() {
                     self.changing_name.take();
                     error!("Could not change room name: {error}");
@@ -417,14 +418,14 @@ mod imp {
 
         /// Handle when we receive a topic change from the homeserver.
         fn topic_changed(&self, topic: Option<&str>) {
-            // It is not possible to remove a topic so we process the empty string as
-            // `None`. We need to cancel that here.
+            // It is not possible to remove a topic so we process the empty
+            // string as `None`. We need to cancel that here.
             let topic = topic.unwrap_or_default();
 
             if let Some(action) = self.changing_topic.borrow().as_ref() {
                 if Some(topic) != action.as_value().map(String::as_str) {
-                    // This is not the change we expected, maybe another device did a change too.
-                    // Let's wait for another change.
+                    // This is not the change we expected, maybe another device
+                    // did a change too. Let's wait for another change.
                     return;
                 }
             } else {
@@ -448,7 +449,8 @@ mod imp {
             let (start_iter, end_iter) = self.topic_buffer.bounds();
             let text = Some(self.topic_buffer.text(&start_iter, &end_iter, false))
                 .filter(|t| !t.is_empty());
-            // Do not send text if it has just more whitespaces at the beginning or end.
+            // Do not send text if it has just more whitespaces at the beginning
+            // or end.
             let trimmed_text = text.as_deref().map(str::trim).filter(|t| !t.is_empty());
 
             let topic = room.topic();
@@ -500,11 +502,11 @@ mod imp {
                 matrix_room.set_room_topic(&topic.unwrap_or_default()).await
             });
 
-            // We don't need to handle the success of the request, we should receive the
-            // change via sync.
+            // We don't need to handle the success of the request, we should
+            // receive the change via sync.
             if let Err(error) = handle.await.unwrap() {
-                // Because this action can finish in topic_changed, we must only act if this is
-                // still the current action.
+                // Because this action can finish in topic_changed, we must only
+                // act if this is still the current action.
                 if weak_action.is_ongoing() {
                     self.changing_topic.take();
                     error!("Could not change room description: {error}");

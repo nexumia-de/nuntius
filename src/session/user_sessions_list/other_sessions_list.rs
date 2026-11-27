@@ -76,24 +76,25 @@ mod imp {
                     session.set_data(data);
                 }
 
-                // If there are old device IDs left, it means that some sessions were
-                // disconnected.
+                // If there are old device IDs left, it means that some sessions
+                // were disconnected.
                 let mut removed = Vec::with_capacity(old_device_ids.len());
                 for device_id in old_device_ids {
                     let Some((pos, _, session)) = map_ref.shift_remove_full(&device_id) else {
                         continue;
                     };
 
-                    // We need to drop the reference to the map before notifying about the removal,
-                    // to avoid issues with possible side effects. So we keep a list of the removals
-                    // for now.
+                    // We need to drop the reference to the map before notifying
+                    // about the removal, to avoid issues with possible side
+                    // effects. So we keep a list of the removals for now.
                     removed.push((pos, session));
                 }
 
                 (added, removed)
             };
 
-            // Now that the reference to the map is dropped, notify about the changes.
+            // Now that the reference to the map is dropped, notify about the
+            // changes.
             let obj = self.obj();
 
             if added > 0 {

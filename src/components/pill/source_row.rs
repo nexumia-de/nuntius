@@ -58,7 +58,8 @@ mod imp {
                 .cloned()
                 .or_else(|| source.and_downcast_ref::<AtRoom>().map(AtRoom::room))
             {
-                // We must always watch the invite avatars setting for local rooms.
+                // We must always watch the invite avatars setting for local
+                // rooms.
                 (AvatarImageSafetySetting::InviteAvatars, Some(room))
             } else {
                 (AvatarImageSafetySetting::None, None)

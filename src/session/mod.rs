@@ -235,8 +235,8 @@ mod imp {
             let old_state = self.state.get();
 
             if old_state == SessionState::LoggedOut || old_state == state {
-                // The session should be dismissed when it has been logged out, so
-                // we do not accept anymore state changes.
+                // The session should be dismissed when it has been logged out,
+                // so we do not accept anymore state changes.
                 return;
             }
 
@@ -260,7 +260,8 @@ mod imp {
 
         /// Check whether the homeserver is reachable.
         pub(super) async fn update_homeserver_reachable(&self) {
-            // If there is a timeout, remove it, we will add a new one later if needed.
+            // If there is a timeout, remove it, we will add a new one later if
+            // needed.
             if let Some(source) = self.homeserver_reachable_source.take() {
                 source.remove();
             }
@@ -381,7 +382,8 @@ mod imp {
                     #[weak(rename_to = imp)]
                     self,
                     async move {
-                        // First, load the profile from the cache, it will be quicker.
+                        // First, load the profile from the cache, it will be
+                        // quicker.
                         imp.init_user_profile().await;
                         // Then, check if the profile changed.
                         imp.update_user_profile().await;
@@ -554,12 +556,14 @@ mod imp {
                 Err(error) => {
                     let missed_sync_count = self.missed_sync_count.get();
 
-                    // If there are too many failed attempts, mark the session as offline.
+                    // If there are too many failed attempts, mark the session
+                    // as offline.
                     if missed_sync_count == MISSED_SYNC_OFFLINE_COUNT {
                         self.set_offline(true);
                     }
 
-                    // Increase the count of missed syncs, if we have not reached the maximum value.
+                    // Increase the count of missed syncs, if we have not
+                    // reached the maximum value.
                     if missed_sync_count < 4 {
                         self.missed_sync_count.set(missed_sync_count + 1);
                     }

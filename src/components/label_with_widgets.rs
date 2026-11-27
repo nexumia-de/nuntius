@@ -297,8 +297,9 @@ mod imp {
 
             if old_ellipsize != new_ellipsize || old_label != new_label {
                 if new_ellipsize {
-                    // Workaround: if both wrap and ellipsize are set, and there are
-                    // widgets inserted, GtkLabel reports an erroneous minimum width.
+                    // Workaround: if both wrap and ellipsize are set, and there
+                    // are widgets inserted, GtkLabel reports an erroneous
+                    // minimum width.
                     self.child.set_wrap(false);
                     self.child.set_ellipsize(pango::EllipsizeMode::End);
                 } else {

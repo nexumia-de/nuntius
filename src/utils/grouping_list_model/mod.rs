@@ -122,8 +122,9 @@ mod imp {
                     return Some(index);
                 }
 
-                // Because items are sorted, we can return early when the position is in a gap
-                // between items. This should only happen during `items_changed`.
+                // Because items are sorted, we can return early when the
+                // position is in a gap between items. This should only happen
+                // during `items_changed`.
                 if item.end() > position {
                     return None;
                 }
@@ -140,8 +141,8 @@ mod imp {
                 return;
             }
 
-            // Index of the list item that contains the item right before the changes in the
-            // model.
+            // Index of the list item that contains the item right before the
+            // changes in the model.
             let index_before_changes = position
                 .checked_sub(1)
                 .and_then(|position| self.model_position_to_index(position));
@@ -161,8 +162,8 @@ mod imp {
             let position_after_changes = position + added;
             let mut index_after_changes = self.model_position_to_index(position_after_changes);
 
-            // Check if the list item after the changes can be merged with the previous list
-            // item.
+            // Check if the list item after the changes can be merged with the
+            // previous list item.
             if let Some(index_after_changes) =
                 index_after_changes.as_mut().filter(|index| **index > 0)
             {
@@ -234,8 +235,8 @@ mod imp {
                     .map(|index| index + 1)
                     .unwrap_or_default();
 
-                // Drop the batches of the new groups, we do not want to send signals about
-                // changed items later for them.
+                // Drop the batches of the new groups, we do not want to send
+                // signals about changed items later for them.
                 self.items
                     .borrow()
                     .range(index_at_changes..index_at_changes + list_items_added)
@@ -268,8 +269,8 @@ mod imp {
                 obj.items_changed(index as u32, 1, 1);
             }
 
-            // Generate a list of groups before processing the batches, to avoid holding a
-            // ref while we send signals about changed items.
+            // Generate a list of groups before processing the batches, to avoid
+            // holding a ref while we send signals about changed items.
             let groups = {
                 let items = self.items.borrow();
 
@@ -311,16 +312,17 @@ mod imp {
                 return 0;
             }
 
-            // Index of the list item that contains the item right after the changes in the
-            // model.
+            // Index of the list item that contains the item right after the
+            // changes in the model.
             let index_after_changes = position
                 .checked_add(removed)
                 .and_then(|position| self.model_position_to_index(position));
 
             let mut items = self.items.borrow_mut();
 
-            // Update the range of the list item before changes, if it's not the same as the
-            // list item after the changes and if it contains removed items.
+            // Update the range of the list item before changes, if it's not the
+            // same as the list item after the changes and if it contains
+            // removed items.
             if let Some(index_before_changes) = index_before_changes.filter(|index| {
                 index_after_changes.is_none_or(|index_after_changes| index_after_changes > *index)
             }) {
@@ -341,22 +343,24 @@ mod imp {
             let max_index = items.len() - 1;
 
             let removal_start = if let Some(index_before_changes) = index_before_changes {
-                // The list items removal starts at the list item after the one before the
-                // changes.
+                // The list items removal starts at the list item after the one
+                // before the changes.
                 index_before_changes
                     .checked_add(1)
                     .filter(|index| *index <= max_index)
             } else {
-                // There is no list item before, we are at the start of the list items.
+                // There is no list item before, we are at the start of the list
+                // items.
                 Some(0)
             };
 
             let removal_end = if let Some(index_after_changes) = index_after_changes {
-                // The list items removal starts at the list item before the one after the
-                // changes.
+                // The list items removal starts at the list item before the one
+                // after the changes.
                 index_after_changes.checked_sub(1)
             } else {
-                // There is no list item after, we are at the end of the list items.
+                // There is no list item after, we are at the end of the list
+                // items.
                 Some(max_index)
             };
 
@@ -371,7 +375,8 @@ mod imp {
             let is_at_items_start = removal_start == 0;
             let is_at_items_end = removal_end == items.len().saturating_sub(1);
 
-            // Try to optimize the removal by using the most appropriate `VecDeque` method.
+            // Try to optimize the removal by using the most appropriate
+            // `VecDeque` method.
             if is_at_items_start && is_at_items_end {
                 // Remove all items.
                 items.clear();
@@ -407,8 +412,8 @@ mod imp {
             let mut list_items_added = 0;
 
             let position_before = position.checked_sub(1);
-            // The previous item in the underlying model and the index of the list item that
-            // contains it.
+            // The previous item in the underlying model and the index of the
+            // list item that contains it.
             let mut previous_item_and_index =
                 position_before.and_then(|position| model.item(position).zip(index_before_changes));
 
@@ -434,13 +439,14 @@ mod imp {
                             *previous_list_item = replacement;
 
                             if current_position == position {
-                                // We will need to send a signal because we replaced a list item
-                                // that already existed.
+                                // We will need to send a signal because we
+                                // replaced a list item that already existed.
                                 replaced_list_items.insert(*previous_index);
                             }
                         }
 
-                        // The previous item changed but the list item that contains it is the same.
+                        // The previous item changed but the list item that
+                        // contains it is the same.
                         *previous_item = item;
 
                         continue;
@@ -494,7 +500,8 @@ impl GroupingListModel {
         GroupFn: Fn(&glib::Object, &glib::Object) -> bool + 'static,
     {
         let obj = glib::Object::new::<Self>();
-        // Ignore the error because we cannot `.expect()` when the value is a function.
+        // Ignore the error because we cannot `.expect()` when the value is a
+        // function.
         let _ = obj.imp().group_fn.set(Box::new(group_fn));
         obj
     }

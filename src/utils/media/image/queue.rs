@@ -253,8 +253,9 @@ impl ImageRequestQueueInner {
             Some(request) => {
                 request.retries_count += 1;
 
-                // For fairness, only re-spawn the request right away if there is no other
-                // request waiting with a priority higher or equal to this one.
+                // For fairness, only re-spawn the request right away if there
+                // is no other request waiting with a priority higher or equal
+                // to this one.
                 let can_spawn_request = if request.priority == ImageRequestPriority::High {
                     true
                 } else {
@@ -311,7 +312,8 @@ impl ImageRequestQueueInner {
                 return;
             };
             let Some(request) = self.requests.get(&request_id) else {
-                // The queues and requests are out of sync, this should not happen.
+                // The queues and requests are out of sync, this should not
+                // happen.
                 warn!("Missing image request {request_id}");
                 continue;
             };
@@ -320,7 +322,8 @@ impl ImageRequestQueueInner {
             request.spawn();
         }
 
-        // If there are no ongoing requests, restore the limit to its default value.
+        // If there are no ongoing requests, restore the limit to its default
+        // value.
         if self.ongoing.is_empty() {
             self.limit = DEFAULT_QUEUE_LIMIT;
         }
@@ -367,7 +370,8 @@ impl ImageRequest {
     /// the given error.
     fn can_retry(retries_count: u8, error: ImageError) -> bool {
         // Retry if we have not the max retry count && if it's a glycin error.
-        // We assume that the download requests have already been retried by the client.
+        // We assume that the download requests have already been retried by the
+        // client.
         retries_count < MAX_REQUEST_RETRY_COUNT && error == ImageError::Unknown
     }
 

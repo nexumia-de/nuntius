@@ -123,12 +123,13 @@ mod imp {
                             return false;
                         };
 
-                        // Since this is a view to add custom power levels, filter out members with
-                        // a custom power level already.
+                        // Since this is a view to add custom power levels,
+                        // filter out members with a custom power level already.
                         if let UserPowerLevel::Int(power_level) = member.power_level() {
                             i64::from(power_level) == permissions.default_power_level()
                         } else {
-                            // There should not be members with infinite power level.
+                            // There should not be members with infinite power
+                            // level.
                             false
                         }
                     }

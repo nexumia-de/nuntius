@@ -134,13 +134,14 @@ impl TimelineItemContentExt for TimelineItemContent {
                     return false;
                 }
 
-                // We need to bump the room for every meaningful change towards joining a room.
+                // We need to bump the room for every meaningful change towards
+                // joining a room.
                 //
                 // The change cannot be computed in two cases:
-                // - This is the first membership event for our user in the room: we need to
-                //   count it.
-                // - The event was redacted: we do not know if we should count it or not, so we
-                //   count it too for simplicity.
+                // - This is the first membership event for our user in the
+                //   room: we need to count it.
+                // - The event was redacted: we do not know if we should count
+                //   it or not, so we count it too for simplicity.
                 membership.change().is_none_or(|change| {
                     matches!(
                         change,

@@ -57,7 +57,8 @@ mod imp {
             }
 
             if let Some(item) = &item {
-                // We can't use `gtk::Expression` because we need a bidirectional binding
+                // We can't use `gtk::Expression` because we need a
+                // bidirectional binding
                 let binding = item
                     .bind_property("is-invitee", &*self.check_button, "active")
                     .sync_create()

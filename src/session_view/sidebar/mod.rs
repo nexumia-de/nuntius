@@ -322,7 +322,8 @@ mod imp {
 
             if session.is_offline() {
                 // Only show one banner at a time.
-                // The user will not be able to solve security issues while offline anyway.
+                // The user will not be able to solve security issues while
+                // offline anyway.
                 self.security_banner.set_revealed(false);
                 return;
             }
@@ -336,7 +337,8 @@ mod imp {
                 || verification_state == SessionVerificationState::Unknown
                 || recovery_state == RecoveryState::Unknown
             {
-                // Do not show the banner prematurely, unknown states should solve themselves.
+                // Do not show the banner prematurely, unknown states should
+                // solve themselves.
                 self.security_banner.set_revealed(false);
                 return;
             }

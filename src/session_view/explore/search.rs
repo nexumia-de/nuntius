@@ -103,8 +103,8 @@ mod imp {
         /// If `clear` is `true`, we start a new search and replace the list of
         /// rooms, otherwise we use the `next_batch` and add more rooms.
         pub(super) async fn load(&self, clear: bool) {
-            // Only make a request if we can load more items or we want to replace the
-            // current list.
+            // Only make a request if we can load more items or we want to
+            // replace the current list.
             if !clear && !self.can_load_more() {
                 return;
             }

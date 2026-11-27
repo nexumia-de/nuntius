@@ -276,8 +276,8 @@ mod imp {
 
             self.scroll_btn_revealer
                 .connect_child_revealed_notify(|revealer| {
-                    // Hide the revealer when we don't want to show the child and the animation is
-                    // finished.
+                    // Hide the revealer when we don't want to show the child
+                    // and the animation is finished.
                     if !revealer.reveals_child() && !revealer.is_child_revealed() {
                         revealer.set_visible(false);
                     }
@@ -298,7 +298,8 @@ mod imp {
                             return;
                         }
 
-                        // When the window becomes active, trigger a read receipt update.
+                        // When the window becomes active, trigger a read
+                        // receipt update.
                         imp.trigger_read_receipts_update();
                     }
                 ));
@@ -329,7 +330,8 @@ mod imp {
         fn map(&self) {
             self.parent_map();
 
-            // When the room history becomes mapped, trigger a read receipt update.
+            // When the room history becomes mapped, trigger a read receipt
+            // update.
             self.trigger_read_receipts_update();
         }
     }
@@ -479,8 +481,8 @@ mod imp {
             if let Some(timeline) = timeline {
                 let room = timeline.room();
 
-                // Keep a strong reference to the members list before changing the model, so all
-                // events use the same list.
+                // Keep a strong reference to the members list before changing
+                // the model, so all events use the same list.
                 let room_members = room.get_or_create_members();
 
                 let knock_items_changed_handler = room_members
@@ -556,9 +558,10 @@ mod imp {
                     move |timeline| {
                         imp.update_view();
 
-                        // Always test if we need to load more when the timeline is ready.
-                        // This is mostly to make sure that we load events if the timeline was not
-                        // initialized when the room was opened.
+                        // Always test if we need to load more when the timeline
+                        // is ready. This is mostly to make sure that we load
+                        // events if the timeline was not initialized when the
+                        // room was opened.
                         if timeline.state() == LoadingState::Ready {
                             imp.load_more_events_if_needed();
                         }
@@ -697,8 +700,8 @@ mod imp {
             let n_items = self.grouping_model().n_items();
 
             if n_items > 0 {
-                // Wait until the next tick, to make sure that the GtkListView has created the
-                // item before focusing it.
+                // Wait until the next tick, to make sure that the GtkListView
+                // has created the item before focusing it.
                 glib::idle_add_local_once(clone!(
                     #[weak(rename_to = imp)]
                     self,
@@ -778,9 +781,9 @@ mod imp {
                 return true;
             }
 
-            // Load more messages when the user gets close to the top of the known room
-            // history. Use the page size twice to detect if the user gets close to
-            // the top.
+            // Load more messages when the user gets close to the top of the
+            // known room history. Use the page size twice to detect if the user
+            // gets close to the top.
             let adj = self
                 .listview
                 .vadjustment()
@@ -984,7 +987,8 @@ mod imp {
 
                 let top_in_view = top_pos > 0.0 && top_pos <= max;
                 let bottom_in_view = bottom_pos > 0.0 && bottom_pos <= max;
-                // If a message is too big and takes more space than the current view.
+                // If a message is too big and takes more space than the current
+                // view.
                 let content_in_view = top_pos <= max && bottom_pos > 0.0;
                 if (top_in_view || bottom_in_view || content_in_view)
                     && let Some(event_id) = item
@@ -1076,7 +1080,8 @@ mod imp {
                 return;
             };
 
-            // Enable the invite action when we can invite but it is not a direct room.
+            // Enable the invite action when we can invite but it is not a
+            // direct room.
             let can_invite = !room.is_direct() && room.permissions().can_invite();
 
             self.obj()
@@ -1106,8 +1111,8 @@ mod imp {
 
             if reveal {
                 self.pending_knocks_banner.set_title(&ngettext_f(
-                    // Translators: Do NOT translate the content between '{' and '}',
-                    // this is a variable name.
+                    // Translators: Do NOT translate the content between '{' and
+                    // '}', this is a variable name.
                     "There is a pending invite request",
                     "There are {n} pending invite requests",
                     n,

@@ -133,7 +133,8 @@ mod imp {
                 .as_ref()
                 .is_some_and(|r| matches!(r, RelationInfo::Edit(_)))
             {
-                // The user aborted the edit or the edit is done, clean up the entry.
+                // The user aborted the edit or the edit is done, clean up the
+                // entry.
                 self.buffer.set_text("");
             }
 
@@ -202,7 +203,8 @@ mod imp {
                 return;
             };
             let Some(_lock) = self.draft_lock.try_lock() else {
-                // The previous saving operation is still ongoing, try saving again later.
+                // The previous saving operation is still ongoing, try saving
+                // again later.
                 self.trigger_draft_saving();
                 return;
             };
@@ -240,8 +242,8 @@ mod imp {
                 return;
             };
 
-            // Reuse the child anchor at the iter if it does not have a child widget,
-            // otherwise create a new one.
+            // Reuse the child anchor at the iter if it does not have a child
+            // widget, otherwise create a new one.
             let anchor = iter
                 .child_anchor()
                 .filter(|anchor| self.widget_at_anchor(anchor).is_none())
@@ -311,8 +313,8 @@ mod imp {
 
                 match DraftMention::new(&room, &text[content_start..content_end]) {
                     DraftMention::Source(source) => {
-                        // We do not need to watch safety settings for mentions, rooms will be
-                        // watched automatically.
+                        // We do not need to watch safety settings for mentions,
+                        // rooms will be watched automatically.
                         let pill = Pill::new(&source, AvatarImageSafetySetting::None, None);
                         self.add_widget(pill.upcast(), &mut end_iter);
                     }
@@ -364,12 +366,12 @@ mod imp {
             {
                 let mentions = find_html_mentions(&html, &room);
                 let mut pos = 0;
-                // This is looking for the mention link's inner text in the Markdown
-                // so it is not super reliable: if there is other text that matches
-                // a user's display name in the string it might be replaced instead
-                // of the actual mention.
-                // Short of an HTML to Markdown converter, it won't be a simple task
-                // to locate mentions in Markdown.
+                // This is looking for the mention link's inner text in the
+                // Markdown so it is not super reliable: if there is other text
+                // that matches a user's display name in the string it might be
+                // replaced instead of the actual mention.
+                // Short of an HTML to Markdown converter, it won't be a simple
+                // task to locate mentions in Markdown.
                 mentions
                     .into_iter()
                     .filter_map(|(pill, s)| {
@@ -391,8 +393,8 @@ mod imp {
                 && can_contain_at_room
                 && let Some(start) = find_at_room(&text)
             {
-                // We do not need to watch safety settings for at-room mentions, our own member
-                // is in the room.
+                // We do not need to watch safety settings for at-room mentions,
+                // our own member is in the room.
                 let pill = Pill::new(&room.at_room(), AvatarImageSafetySetting::None, None);
                 let end = start + AT_ROOM.len();
                 mentions.push(DetectedMention { pill, start, end });
@@ -404,8 +406,8 @@ mod imp {
             if mentions.is_empty() {
                 self.buffer.set_text(&text);
             } else {
-                // Place the pills instead of the text at the appropriate places in
-                // the GtkSourceView.
+                // Place the pills instead of the text at the appropriate places
+                // in the GtkSourceView.
                 self.buffer.set_text("");
 
                 let mut pos = 0;
@@ -534,7 +536,8 @@ impl RelationInfo {
         match draft_type {
             ComposerDraftType::NewMessage => None,
             ComposerDraftType::Reply { event_id } => {
-                // We need to fetch the event and extract its content, so we can display it.
+                // We need to fetch the event and extract its content, so we can
+                // display it.
                 let matrix_room = room.matrix_room().clone();
                 let event_id_clone = event_id.clone();
 

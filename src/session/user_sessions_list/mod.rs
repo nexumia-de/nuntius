@@ -115,12 +115,13 @@ mod imp {
                 let obj_weak = obj_weak.clone();
 
                 async move {
-                    // If a device update is received for an account different than the one
-                    // for which the settings are currently opened, we don't want to reload the user
-                    // sessions, to save bandwidth.
-                    // However, when a device is disconnected, an empty device update is received.
-                    // In this case, we do not know which account had a device disconnection, so we
-                    // want to reload the sessions just in case.
+                    // If a device update is received for an account different
+                    // than the one for which the settings are currently opened,
+                    // we don't want to reload the user sessions, to save
+                    // bandwidth. However, when a device is disconnected, an
+                    // empty device update is received. In this case, we do not
+                    // know which account had a device disconnection, so we want
+                    // to reload the sessions just in case.
                     if !updates.new.contains_key(&user_id)
                         && !updates.changed.contains_key(&user_id)
                         && (!updates.new.is_empty() || !updates.changed.is_empty())
@@ -159,7 +160,8 @@ mod imp {
             let user_id = self.user_id().clone();
             let client = session.client();
             let handle = spawn_tokio!(async move {
-                // Load the crypto sessions, to know whether the device is encrypted or not.
+                // Load the crypto sessions, to know whether the device is
+                // encrypted or not.
                 let crypto_sessions = match client.encryption().get_user_devices(&user_id).await {
                     Ok(crypto_sessions) => Some(crypto_sessions),
                     Err(error) => {
@@ -172,7 +174,8 @@ mod imp {
 
                 let mut api_sessions = None;
                 if is_own_user {
-                    // Load the session information, to get the display name and last seen info.
+                    // Load the session information, to get the display name and
+                    // last seen info.
                     match client.devices().await {
                         Ok(response) => {
                             api_sessions = Some(response.devices);
@@ -204,8 +207,9 @@ mod imp {
             let own_device_id = session.device_id();
             let mut current_session_data = None;
 
-            // If we have the API sessions, use their length to reserve the capacity because
-            // it is cheaper. Otherwise we need to count the list of crypto sessions.
+            // If we have the API sessions, use their length to reserve the
+            // capacity because it is cheaper. Otherwise we need to count the
+            // list of crypto sessions.
             let api_sessions_len = api_sessions.len();
             let capacity = if api_sessions_len > 0 {
                 api_sessions_len
@@ -214,8 +218,8 @@ mod imp {
             };
             let mut other_sessions_data = Vec::with_capacity(capacity);
 
-            // First, handle the list of devices with a cryptographic identity, i.e. devices
-            // that support encryption.
+            // First, handle the list of devices with a cryptographic identity,
+            // i.e. devices that support encryption.
             for crypto in crypto_sessions.iter().flat_map(UserDevices::devices) {
                 let data = if let Some(api) = api_sessions.remove(crypto.device_id()) {
                     UserSessionData::Both { api, crypto }
@@ -230,8 +234,8 @@ mod imp {
                 }
             }
 
-            // If there are remaining devices through the device information API, they do
-            // not support encryption.
+            // If there are remaining devices through the device information
+            // API, they do not support encryption.
             for api in api_sessions.into_values() {
                 let data = UserSessionData::DevicesApi(api);
 

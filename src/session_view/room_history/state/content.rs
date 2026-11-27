@@ -110,8 +110,8 @@ mod imp {
                         StateEventContentChange::Redacted(_) => other_state.state_key(),
                     };
                     WidgetType::Text(gettext_f(
-                        // Translators: Do NOT translate the content between '{' and '}', this is a
-                        // variable name.
+                        // Translators: Do NOT translate the content between '{'
+                        // and '}', this is a variable name.
                         "{sender} invited {user}.",
                         &[
                             ("sender", &sender.disambiguated_name()),
@@ -158,16 +158,16 @@ mod imp {
 
             let message = match supported_membership_change {
                 MembershipChange::Joined => {
-                    // Translators: Do NOT translate the content between '{' and '}', this
-                    // is a variable name.
+                    // Translators: Do NOT translate the content between '{' and
+                    // '}', this is a variable name.
                     gettext_f(
                         "{user} joined this room.",
                         &[("user", &target_display_name)],
                     )
                 }
                 MembershipChange::Left => {
-                    // Translators: Do NOT translate the content between '{' and '}',
-                    // this is a variable name.
+                    // Translators: Do NOT translate the content between '{' and
+                    // '}', this is a variable name.
                     gettext_f("{user} left the room.", &[("user", &target_display_name)])
                 }
                 MembershipChange::Banned | MembershipChange::KickedAndBanned => gettext_f(
@@ -198,8 +198,8 @@ mod imp {
                     ],
                 ),
                 MembershipChange::Invited | MembershipChange::KnockAccepted => gettext_f(
-                    // Translators: Do NOT translate the content between '{' and '}', these are
-                    // variable names.
+                    // Translators: Do NOT translate the content between '{' and
+                    // '}', these are variable names.
                     "{sender} invited {user}.",
                     &[
                         ("sender", &sender_display_name),
@@ -234,8 +234,8 @@ mod imp {
                 // TODO: Add button to invite the user.
                 {
                     gettext_f(
-                        // Translators: Do NOT translate the content between '{' and '}', this
-                        // is a variable name.
+                        // Translators: Do NOT translate the content between '{'
+                        // and '}', this is a variable name.
                         "{user} requested to be invited to this room.",
                         &[("user", &target_display_name)],
                     )
@@ -383,8 +383,8 @@ mod imp {
                 }
             } else {
                 // We don't know what changed so fall back to the membership.
-                // Translators: Do NOT translate the content between '{' and '}', this
-                // is a variable name.
+                // Translators: Do NOT translate the content between '{' and
+                // '}', this is a variable name.
                 gettext_f(
                     "{user} joined this room.",
                     &[("user", &sender.disambiguated_name())],

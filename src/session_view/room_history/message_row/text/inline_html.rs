@@ -82,8 +82,8 @@ impl<'a> InlineHtmlBuilder<'a> {
     pub(super) fn build(self) -> (String, Option<Vec<Pill>>) {
         let mut inner = self.inner;
 
-        // Do not add an ellipsis on an empty inline element, we just want to get rid of
-        // it.
+        // Do not add an ellipsis on an empty inline element, we just want to
+        // get rid of it.
         let ellipsis = (self.ellipsis && !inner.is_empty()) | self.truncated;
 
         if ellipsis {
@@ -177,8 +177,8 @@ impl<'a> InlineHtmlBuilder<'a> {
                 // Always render the children.
                 self.ignore_truncated = true;
 
-                // Don't try to linkify text if we render the element, it does not make
-                // sense to nest links.
+                // Don't try to linkify text if we render the element, it does
+                // not make sense to nest links.
                 let should_linkify = !has_opening_tag && should_linkify;
 
                 self.append_nodes(node.children(), should_linkify);
@@ -205,8 +205,8 @@ impl<'a> InlineHtmlBuilder<'a> {
                 self.append_tags_and_children("u", node.children(), should_linkify);
             }
             MatrixElement::Code(_) => {
-                // Don't try to linkify text, it does not make sense to detect links inside
-                // code.
+                // Don't try to linkify text, it does not make sense to detect
+                // links inside code.
                 self.append_tags_and_children("tt", node.children(), false);
             }
             MatrixElement::Br => {
@@ -233,8 +233,8 @@ impl<'a> InlineHtmlBuilder<'a> {
 
     /// Append the given text node content.
     fn append_text_node(&mut self, text: &str, context: NodeContext) {
-        // Collapse whitespaces and remove them at the beginning and end of an HTML
-        // element, and after a newline.
+        // Collapse whitespaces and remove them at the beginning and end of an
+        // HTML element, and after a newline.
         let text = if self.preserve_whitespace {
             text.to_owned()
         } else {

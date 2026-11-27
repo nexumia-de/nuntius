@@ -133,7 +133,8 @@ impl CheckDependency {
             version.ignore_output()
         };
 
-        // Do not forward errors here as it might just be the program that is missing.
+        // Do not forward errors here as it might just be the program that is
+        // missing.
         if version.run().is_ok_and(|output| output.status.success()) {
             // The dependency is available.
             return Ok(());

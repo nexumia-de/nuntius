@@ -42,7 +42,8 @@ mod imp {
         fn constructed(&self) {
             self.parent_constructed();
 
-            // When a verification is replaced, select the replacement automatically.
+            // When a verification is replaced, select the replacement
+            // automatically.
             self.selection_model.connect_selected_item_notify(clone!(
                 #[weak(rename_to = imp)]
                 self,
@@ -103,7 +104,8 @@ mod imp {
             self.string_filter
                 .set_expression(Some(expression::normalize_string(room_name_expression)));
             self.string_filter.set_ignore_case(true);
-            // Default to an empty string to be able to bind to GtkEditable::text.
+            // Default to an empty string to be able to bind to
+            // GtkEditable::text.
             self.string_filter.set_search(Some(""));
 
             let multi_filter = gtk::EveryFilter::new();

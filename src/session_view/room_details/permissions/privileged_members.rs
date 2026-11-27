@@ -110,7 +110,8 @@ mod imp {
                     .get(&user_id)
                     .and_upcast::<User>()
                     .unwrap_or_else(|| {
-                        // Fallback to the remote cache if the user is not in the room anymore.
+                        // Fallback to the remote cache if the user is not in
+                        // the room anymore.
                         session.remote_cache().user(user_id.clone()).upcast()
                     });
                 let member = MemberPowerLevel::new(&user, &permissions);

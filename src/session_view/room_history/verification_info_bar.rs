@@ -161,8 +161,8 @@ mod imp {
 
             if matches!(verification.state(), VerificationState::Requested) {
                 self.label.set_markup(&gettext_f(
-                    // Translators: Do NOT translate the content between '{' and '}', this is a
-                    // variable name.
+                    // Translators: Do NOT translate the content between '{' and
+                    // '}', this is a variable name.
                     "{user_name} wants to be verified",
                     &[(
                         "user_name",

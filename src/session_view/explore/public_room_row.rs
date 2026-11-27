@@ -156,8 +156,8 @@ mod imp {
             let members_count = room.joined_members_count();
             self.members_count.set_text(&members_count.to_string());
             let members_count_tooltip = ngettext_f(
-                // Translators: Do NOT translate the content between '{' and '}',
-                // this is a variable name.
+                // Translators: Do NOT translate the content between '{' and
+                // '}', this is a variable name.
                 "1 member",
                 "{n} members",
                 members_count,

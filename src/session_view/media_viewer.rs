@@ -277,7 +277,8 @@ mod imp {
                     #[weak(rename_to = imp)]
                     self,
                     move |_| {
-                        // Clear the media viewer when it is closed and the transition is done.
+                        // Clear the media viewer when it is closed and the
+                        // transition is done.
                         if !imp.revealer.reveal_child() {
                             imp.media.clear();
                         }
@@ -302,7 +303,8 @@ mod imp {
                     // Hide the header bar.
                     imp.header_bar.set_opacity(0.0);
 
-                    // Update the swipe progress to follow the position on the y axis.
+                    // Update the swipe progress to follow the position on the y
+                    // axis.
                     imp.swipe_progress.set(progress);
 
                     // Reposition and redraw the widget.
@@ -322,8 +324,8 @@ mod imp {
                         return;
                     }
 
-                    // The swipe is cancelled, reset the position of the viewer and animate the
-                    // transition.
+                    // The swipe is cancelled, reset the position of the viewer
+                    // and animate the transition.
                     let target = adw::CallbackAnimationTarget::new(clone!(
                         #[weak]
                         imp,
@@ -450,7 +452,8 @@ mod imp {
         #[template_callback]
         fn handle_motion(&self, _x: f64, y: f64) {
             if y <= 50.0 {
-                // Reveal the header bar if the pointer is at the top of the view.
+                // Reveal the header bar if the pointer is at the top of the
+                // view.
                 self.reveal_headerbar(true);
             }
         }
@@ -459,7 +462,8 @@ mod imp {
         #[template_callback]
         fn handle_click(&self, n_pressed: i32) {
             if self.fullscreened.get() && n_pressed == 1 {
-                // When the view if fullscreened, clicking reveals and hides the header bar.
+                // When the view if fullscreened, clicking reveals and hides the
+                // header bar.
                 self.toggle_headerbar();
             } else if n_pressed == 2 {
                 // A double-click toggles fullscreen.

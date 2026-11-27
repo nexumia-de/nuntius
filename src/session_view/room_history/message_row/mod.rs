@@ -150,8 +150,9 @@ mod imp {
                 }
             ));
 
-            // Listening to changes in the source might not be enough, there are changes
-            // that we display that do not affect the source, like related events.
+            // Listening to changes in the source might not be enough, there are
+            // changes that we display that do not affect the source, like
+            // related events.
             let item_changed_handler = event.connect_item_changed(clone!(
                 #[weak(rename_to = imp)]
                 self,

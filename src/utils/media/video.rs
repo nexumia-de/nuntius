@@ -87,7 +87,8 @@ async fn generate_video_thumbnail_and_blurhash(
                 match message.view() {
                     gst::MessageView::AsyncDone(_) => {
                         if !started {
-                            // AsyncDone means that the pipeline has started now.
+                            // AsyncDone means that the pipeline has started
+                            // now.
                             if pipeline.set_state(gst::State::Playing).is_err() {
                                 warn!("Could not start pipeline for video thumbnail");
                                 notifier.notify();

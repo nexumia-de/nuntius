@@ -117,8 +117,9 @@ mod imp {
         fn map(&self) {
             self.parent_map();
 
-            // Override the default focus (the first selectable widget, in this case the
-            // room topic), and instead focus on the View/Join button instead.
+            // Override the default focus (the first selectable widget, in this
+            // case the room topic), and instead focus on the View/Join button
+            // instead.
             if self
                 .stack
                 .visible_child_name()
@@ -335,8 +336,8 @@ mod imp {
                 .set_label(&members_count.to_string());
 
             let members_tooltip = ngettext_f(
-                // Translators: Do NOT translate the content between '{' and '}',
-                // this is a variable name.
+                // Translators: Do NOT translate the content between '{' and
+                // '}', this is a variable name.
                 "1 member",
                 "{n} members",
                 members_count,

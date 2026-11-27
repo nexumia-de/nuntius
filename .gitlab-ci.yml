@@ -18,7 +18,7 @@ variables:
   # Should be a date formatted as `YYYY-MM-DD`.
   #
   # Keep in sync with `RUSTUP_NIGHTLY_OVERRIDE` constant in `hooks/checks/src/main.rs`.
-  RUST_NIGHTLY_VERSION: "2026-08-24"
+  RUST_NIGHTLY_VERSION: "2026-11-22"
 
 
 workflow:

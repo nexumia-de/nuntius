@@ -289,11 +289,12 @@ mod imp {
                         imp.is_room_info_initialized.set(true);
                         imp.obj().notify_is_room_info_initialized();
 
-                        // Only initialize the following after we have loaded the category of the
-                        // room since we only load them for some categories.
+                        // Only initialize the following after we have loaded
+                        // the category of the room since we only load them for
+                        // some categories.
 
-                        // Preload the timeline of rooms that the user is likely to visit and for
-                        // which we offer to show the timeline.
+                        // Preload the timeline of rooms that the user is likely
+                        // to visit and for which we offer to show the timeline.
                         let preload = matches!(
                             imp.category.get(),
                             RoomCategory::Favorite
@@ -386,12 +387,13 @@ mod imp {
                     | RoomDisplayName::Calculated(s)
                     | RoomDisplayName::Aliased(s) => s,
                     RoomDisplayName::EmptyWas(s) => {
-                        // Translators: This is the name of a room that is empty but had another
-                        // user before. Do NOT translate the content between
-                        // '{' and '}', this is a variable name.
+                        // Translators: This is the name of a room that is empty
+                        // but had another user before. Do NOT translate the
+                        // content between '{' and '}', this is a variable name.
                         gettext_f("Empty Room (was {user})", &[("user", &s)])
                     }
-                    // Translators: This is the name of a room without other users.
+                    // Translators: This is the name of a room without other
+                    // users.
                     RoomDisplayName::Empty => gettext("Empty Room"),
                 }
             } else {
@@ -401,7 +403,8 @@ mod imp {
             display_name.clean_string();
 
             if display_name.is_empty() {
-                // Translators: This is displayed when the room name is unknown yet.
+                // Translators: This is displayed when the room name is unknown
+                // yet.
                 display_name = gettext("Unknown");
             }
 
@@ -539,8 +542,8 @@ mod imp {
                 match room_state {
                     RoomState::Joined => {
                         if let Some(members) = self.members.upgrade() {
-                            // If we where invited or left before, the list was likely not completed
-                            // or might have changed.
+                            // If we where invited or left before, the list was
+                            // likely not completed or might have changed.
                             members.reload();
                         }
 
@@ -596,8 +599,8 @@ mod imp {
                             .await
                             .is_ok()
                         {
-                            // Wait for the next change to move automatically from knocked to
-                            // joined.
+                            // Wait for the next change to move automatically
+                            // from knocked to joined.
                             return;
                         }
                     }
@@ -698,9 +701,10 @@ mod imp {
                 .get()
                 .and_then(|successor_id| room_list.get(successor_id))
             {
-                // The Matrix spec says that we should use the "predecessor" field of the
-                // m.room.create event of the successor, not the "successor" field of the
-                // m.room.tombstone event, so check it just to be sure.
+                // The Matrix spec says that we should use the "predecessor"
+                // field of the m.room.create event of the successor, not the
+                // "successor" field of the m.room.tombstone event, so check it
+                // just to be sure.
                 if successor
                     .predecessor_id()
                     .is_some_and(|predecessor_id| predecessor_id == self.room_id())
@@ -710,8 +714,8 @@ mod imp {
                 }
             }
 
-            // The tombstone event can be redacted and we lose the successor, so search in
-            // the room predecessors of other rooms.
+            // The tombstone event can be redacted and we lose the successor, so
+            // search in the room predecessors of other rooms.
             for room in room_list.iter::<super::Room>() {
                 let Ok(room) = room else {
                     break;
@@ -801,7 +805,8 @@ mod imp {
                 member.update();
             }
 
-            // It might change the direct member if the number of members changed.
+            // It might change the direct member if the number of members
+            // changed.
             spawn!(clone!(
                 #[weak(rename_to = imp)]
                 self,
@@ -872,9 +877,10 @@ mod imp {
         async fn was_membership(&self, membership: &MembershipState) -> bool {
             let matrix_room = self.matrix_room();
 
-            // To know if this was an invite we need to check in the member event of our own
-            // user if the current membership is `invite`, or if the current membership is
-            // `leave` or `ban`, and the previous membership was `invite`.
+            // To know if this was an invite we need to check in the member
+            // event of our own user if the current membership is `invite`, or
+            // if the current membership is `leave` or `ban`, and the previous
+            // membership was `invite`.
             let matrix_room_clone = matrix_room.clone();
             let handle = spawn_tokio!(async move {
                 matrix_room_clone
@@ -910,14 +916,14 @@ mod imp {
                 }
             };
 
-            // Check the current membership event, in case we did not get a state update
-            // with the latest change.
+            // Check the current membership event, in case we did not get a
+            // state update with the latest change.
             if member_event.content.membership == *membership {
                 return true;
             }
 
-            // Check the previous membership, in case we did get a state update with the
-            // latest change.
+            // Check the previous membership, in case we did get a state update
+            // with the latest change.
             if let Some(prev_content) = member_event
                 .unsigned
                 .as_ref()
@@ -926,8 +932,8 @@ mod imp {
                 return prev_content.membership == *membership;
             }
 
-            // If we do not have the `prev_content`, we need to fetch the previous state
-            // event.
+            // If we do not have the `prev_content`, we need to fetch the
+            // previous state event.
             let Some(replaces_state) = member_event
                 .unsigned
                 .and_then(|unsigned| unsigned.replaces_state)
@@ -1014,7 +1020,8 @@ mod imp {
                     self,
                     move |_| {
                         spawn!(async move {
-                            // When the user is ignored, this invite should be ignored too.
+                            // When the user is ignored, this invite should be
+                            // ignored too.
                             imp.update_category().await;
                         });
                     }
@@ -1062,13 +1069,13 @@ mod imp {
             let members_count = matrix_room.active_members_count();
 
             if members_count > 2 {
-                // We only want a 1-to-1 room. The count might be 1 if the other user left, but
-                // we can reinvite them.
+                // We only want a 1-to-1 room. The count might be 1 if the other
+                // user left, but we can reinvite them.
                 return None;
             }
 
-            // Check that the members count is correct. It might not be correct if the room
-            // was just joined, or if it is in an invited state.
+            // Check that the members count is correct. It might not be correct
+            // if the room was just joined, or if it is in an invited state.
             let matrix_room_clone = matrix_room.clone();
             let handle =
                 spawn_tokio!(
@@ -1287,8 +1294,9 @@ mod imp {
                     }
                 }
                 Err(error) => {
-                    // It can be expected to not be allowed to access the encryption state if the
-                    // user was never in the room, so do not add noise in the logs.
+                    // It can be expected to not be allowed to access the
+                    // encryption state if the user was never in the room, so do
+                    // not add noise in the logs.
                     if matches!(matrix_room.state(), RoomState::Invited | RoomState::Knocked)
                         && error
                             .as_client_api_error()
@@ -1404,8 +1412,8 @@ mod imp {
             };
 
             let Some(members) = self.members.upgrade() else {
-                // If we don't have a members list, the room is not shown so we don't need to
-                // update the typing list.
+                // If we don't have a members list, the room is not shown so we
+                // don't need to update the typing list.
                 self.typing_list.update(vec![]);
                 return;
             };
@@ -1434,8 +1442,8 @@ mod imp {
         /// Set an ongoing verification in this room.
         fn set_verification(&self, verification: Option<IdentityVerification>) {
             if self.verification.obj().is_some() && verification.is_some() {
-                // Just keep the same verification until it is dropped. Then we will look if
-                // there is an ongoing verification in the room.
+                // Just keep the same verification until it is dropped. Then we
+                // will look if there is an ongoing verification in the room.
                 return;
             }
 
@@ -1577,8 +1585,8 @@ mod imp {
                                     };
 
                                     if session.is_offline() {
-                                        // The queue will be restarted when the session is back
-                                        // online.
+                                        // The queue will be restarted when the
+                                        // session is back online.
                                         return;
                                     }
 
@@ -1602,7 +1610,8 @@ mod imp {
 
                                     glib::timeout_add_seconds_local_once(retry_after, move || {
                                         let matrix_room = obj.matrix_room().clone();
-                                        // Getting a room's send queue requires a tokio executor.
+                                        // Getting a room's send queue requires
+                                        // a tokio executor.
                                         spawn_tokio!(async move {
                                             matrix_room.send_queue().set_enabled(true);
                                         });
@@ -1648,7 +1657,8 @@ mod imp {
                 match category {
                     TargetRoomCategory::Favorite => {
                         if !matrix_room.is_favourite() {
-                            // This method handles removing the low priority tag.
+                            // This method handles removing the low priority
+                            // tag.
                             matrix_room.set_is_favourite(true, None).await?;
                         } else if matrix_room.is_low_priority() {
                             matrix_room.set_is_low_priority(false, None).await?;

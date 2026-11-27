@@ -179,7 +179,8 @@ mod imp {
 
         /// Load whether this user is verified.
         async fn init_is_verified(&self) {
-            // If a user is verified, we should have their crypto identity locally.
+            // If a user is verified, we should have their crypto identity
+            // locally.
             let is_verified = self
                 .local_crypto_identity()
                 .await
@@ -245,14 +246,16 @@ impl User {
         let encryption = session.client().encryption();
         let user_id = self.user_id();
 
-        // First, see if we should have an updated crypto identity for the user locally.
-        // When we get the remote crypto identity of a user manually, it is cached
-        // locally but it is not kept up-to-date unless the user is tracked. That's why
-        // it's important to only use the local crypto identity if the user is tracked.
+        // First, see if we should have an updated crypto identity for the user
+        // locally. When we get the remote crypto identity of a user manually,
+        // it is cached locally but it is not kept up-to-date unless the user is
+        // tracked. That's why it's important to only use the local crypto
+        // identity if the user is tracked.
         let should_have_local = if user_id == session.user_id() {
             true
         } else {
-            // We should have the updated user identity locally for tracked users.
+            // We should have the updated user identity locally for tracked
+            // users.
             let encryption_clone = encryption.clone();
             let handle = spawn_tokio!(async move { encryption_clone.tracked_users().await });
 
@@ -260,7 +263,8 @@ impl User {
                 Ok(tracked_users) => tracked_users.contains(user_id),
                 Err(error) => {
                     error!("Could not get tracked users: {error}");
-                    // We are not sure, but let us try to get the local user identity first.
+                    // We are not sure, but let us try to get the local user
+                    // identity first.
                     true
                 }
             }

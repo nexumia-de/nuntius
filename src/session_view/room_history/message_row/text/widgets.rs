@@ -92,7 +92,8 @@ pub(super) fn widget_for_html_nodes(
                     continue;
                 };
 
-                // Include sender name before, if the child widget did not handle it.
+                // Include sender name before, if the child widget did not
+                // handle it.
                 if let Some(sender_name) = sender_name.take() {
                     let label = new_message_label();
                     let (text, _) = InlineHtmlBuilder::new(false, false, config.is_preformatted)
@@ -384,7 +385,8 @@ fn widget_for_preformatted_text(
         });
 
     let Some((child, code)) = unique_code_child else {
-        // This is just preformatted text, we need to construct the children hierarchy.
+        // This is just preformatted text, we need to construct the children
+        // hierarchy.
         let config = HtmlWidgetConfig {
             is_preformatted: true,
             ..config

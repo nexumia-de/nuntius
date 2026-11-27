@@ -48,9 +48,9 @@ static MEDIA_FILE_NOTIFIER: LazyLock<OneshotNotifier> =
     LazyLock::new(|| OneshotNotifier::new("MEDIA_FILE_NOTIFIER"));
 
 fn main() {
-    // Initialize logger, debug is carried out via debug!, info!, warn! and error!.
-    // Default to the INFO level for this crate and WARN for everything else.
-    // It can be overridden with the RUST_LOG environment variable.
+    // Initialize logger, debug is carried out via debug!, info!, warn! and
+    // error!. Default to the INFO level for this crate and WARN for everything
+    // else. It can be overridden with the RUST_LOG environment variable.
     let env_filter =
         EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new("fractal=info,warn"));
 
@@ -59,7 +59,8 @@ fn main() {
         .init();
 
     // Prepare i18n
-    // Safety: `setlocale` is safe to call because the program is single-threaded.
+    // Safety: `setlocale` is safe to call because the program is
+    // single-threaded.
     unsafe { setlocale(LocaleCategory::LcAll, "") };
     bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR).expect("Invalid argument passed to bindtextdomain");
     textdomain(GETTEXT_PACKAGE).expect("Invalid string passed to textdomain");

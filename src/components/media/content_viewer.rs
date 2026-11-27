@@ -221,9 +221,9 @@ mod imp {
                         video
                     };
 
-                    // Make sure that no other media file is playing. We do not need to listen for
-                    // this one because it should not be possible to play another media when this is
-                    // opened.
+                    // Make sure that no other media file is playing. We do not
+                    // need to listen for this one because it should not be
+                    // possible to play another media when this is opened.
                     MEDIA_FILE_NOTIFIER.notify();
 
                     video.set_file(Some(&file.as_gfile()));

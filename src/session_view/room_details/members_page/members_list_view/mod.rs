@@ -151,7 +151,8 @@ mod imp {
         fn set_room(&self, room: &Room) {
             self.room.set(Some(room));
 
-            // Show the invite button when we can invite but it is not a direct room.
+            // Show the invite button when we can invite but it is not a direct
+            // room.
             let can_invite_expr = room.permissions().property_expression("can-invite");
             let is_direct_expr = room.property_expression("is-direct");
             expression::and(can_invite_expr, expression::not(is_direct_expr)).bind(
@@ -226,8 +227,8 @@ mod imp {
             let display_name_expr = Member::this_expression("display-name");
             sorter.append(gtk::StringSorter::new(Some(&display_name_expr)));
 
-            // We need to notify when a watched property changes so the sorter can update
-            // the list.
+            // We need to notify when a watched property changes so the sorter
+            // can update the list.
             let expr_members = ExpressionListModel::new();
             expr_members
                 .set_expressions(vec![power_level_expr.upcast(), display_name_expr.upcast()]);
@@ -282,7 +283,8 @@ mod imp {
 
                     Self::update_loading_row(&loading_row, members.state());
 
-                    // If the loading row visibility changed, so does the filtering.
+                    // If the loading row visibility changed, so does the
+                    // filtering.
                     if loading_row.is_visible() != was_row_visible {
                         filter.changed(gtk::FilterChange::Different);
                     }
@@ -354,8 +356,8 @@ mod imp {
             let count = membership_list.n_items();
             let is_empty = count == 0;
 
-            // We don't use the count in the strings so we use separate gettext calls for
-            // singular and plural rather than using ngettext.
+            // We don't use the count in the strings so we use separate gettext
+            // calls for singular and plural rather than using ngettext.
             let title = match kind {
                 MembershipListKind::Join => {
                     if count == 1 {
@@ -407,8 +409,8 @@ mod imp {
                 row.upcast()
             });
 
-            // Hide the search button and bar if the list is empty, since there is no search
-            // possible.
+            // Hide the search button and bar if the list is empty, since there
+            // is no search possible.
             self.search_button.set_visible(!is_empty);
             self.search_bar.set_visible(!is_empty);
 

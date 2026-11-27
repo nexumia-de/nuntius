@@ -119,8 +119,8 @@ mod imp {
                         let category = room.category();
 
                         if category == RoomCategory::Left {
-                            // We retracted the request or the request was denied, we should close
-                            // the room if it is opened.
+                            // We retracted the request or the request was
+                            // denied, we should close the room if it is opened.
                             let Some(session) = room.session() else {
                                 return;
                             };

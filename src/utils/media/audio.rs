@@ -88,8 +88,8 @@ async fn generate_waveform(file: &gio::File, duration: Option<Duration>) -> Opti
                         match samples_clone.lock() {
                             Ok(mut samples) => {
                                 let value_db = if rms.is_nan() { 0.0 } else { rms };
-                                // Convert the decibels to a relative amplitude, to get a value
-                                // between 0 and 1.
+                                // Convert the decibels to a relative amplitude,
+                                // to get a value between 0 and 1.
                                 let value = 10.0_f64.powf(value_db / 20.0);
 
                                 samples.push(value);

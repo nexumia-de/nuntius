@@ -98,8 +98,9 @@ mod imp {
             if let Some(session) = session {
                 let user_list = DirectChatUserList::new(session);
 
-                // We don't need to disconnect this signal since the `DirectChatUserList` will
-                // be disposed once unbound from the `gtk::ListBox`
+                // We don't need to disconnect this signal since the
+                // `DirectChatUserList` will be disposed once unbound from the
+                // `gtk::ListBox`
                 user_list.connect_loading_state_notify(clone!(
                     #[weak(rename_to = imp)]
                     self,

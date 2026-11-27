@@ -181,15 +181,18 @@ mod imp {
                     Signal::builder("replaced")
                         .param_types([super::IdentityVerification::static_type()])
                         .build(),
-                    // The verification is done, but has not changed its state yes.
+                    // The verification is done, but has not changed its state
+                    // yes.
                     //
-                    // Return `glib::Propagation::Stop` in a signal handler to prevent the state
-                    // from changing to `VerificationState::Done`. Can be used to replace the last
-                    // screen of `IdentityVerificationView`.
+                    // Return `glib::Propagation::Stop` in a signal handler to
+                    // prevent the state from changing to
+                    // `VerificationState::Done`. Can be used to replace the
+                    // last screen of `IdentityVerificationView`.
                     Signal::builder("done").return_type::<bool>().build(),
                     // The verification can be dismissed.
                     Signal::builder("dismiss").build(),
-                    // The verification should be removed from the verification list.
+                    // The verification should be removed from the verification
+                    // list.
                     Signal::builder("remove-from-list").build(),
                 ]
             });
@@ -233,7 +236,8 @@ mod imp {
                 return;
             };
 
-            // Set up the timeout if we received the request and it is not accepted yet.
+            // Set up the timeout if we received the request and it is not
+            // accepted yet.
             if matches!(request.state(), VerificationRequestState::Requested { .. }) {
                 let source_id = glib::timeout_add_local_once(
                     REQUEST_RECEIVED_TIMEOUT,
@@ -286,8 +290,9 @@ mod imp {
         fn set_user(&self, user: User) {
             let mut handlers = Vec::new();
 
-            // If the user is a room member, it means it's an in-room verification, we need
-            // to keep track of their name since it's used as the display name.
+            // If the user is a room member, it means it's an in-room
+            // verification, we need to keep track of their name since it's used
+            // as the display name.
             if user.is::<Member>() {
                 let obj = self.obj();
                 let display_name_handler = user.connect_display_name_notify(clone!(
@@ -315,8 +320,8 @@ mod imp {
                 self,
                 move |own_member| {
                     if matches!(own_member.membership(), Membership::Leave | Membership::Ban) {
-                        // If the user is not in the room anymore, nothing can be done with this
-                        // verification.
+                        // If the user is not in the room anymore, nothing can
+                        // be done with this verification.
                         imp.set_state(VerificationState::RoomLeft);
 
                         if let Some(handler) = imp.membership_handler.take() {
@@ -466,8 +471,8 @@ mod imp {
                         supported_methods.remove(idx);
                     }
 
-                    // Check that we can get the QR Code, to avoid exposing the method if it doesn't
-                    // work.
+                    // Check that we can get the QR Code, to avoid exposing the
+                    // method if it doesn't work.
                     let show_qr_idx = supported_methods.iter().enumerate().find_map(|(idx, m)| {
                         (*m == VerificationMethod::QrCodeShowV1).then_some(idx)
                     });
@@ -492,10 +497,10 @@ mod imp {
                             && !request.we_started()
                             && supported_methods[0] == VerificationMethod::SasV1
                         {
-                            // We only go forward for SAS, because QrCodeShow is the
-                            // same screen as the one to choose a method and we need
-                            // to tell the user we are going to need to access the
-                            // camera for QrCodeScan.
+                            // We only go forward for SAS, because QrCodeShow is
+                            // the same screen as the one to choose a method and
+                            // we need to tell the user we are going to need to
+                            // access the camera for QrCodeScan.
                             if self.obj().start_sas().await.is_ok() {
                                 return;
                             }

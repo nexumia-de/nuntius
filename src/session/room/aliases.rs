@@ -292,7 +292,8 @@ impl RoomAliases {
 
         // Set as canonical alias.
         if let Some(old_canonical) = event_content.alias.replace(alias) {
-            // Move the old canonical alias to the alt aliases, if it is not there already.
+            // Move the old canonical alias to the alt aliases, if it is not
+            // there already.
             let has_old_canonical = event_content.alt_aliases.contains(&old_canonical);
 
             if !has_old_canonical {

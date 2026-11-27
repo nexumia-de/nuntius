@@ -219,8 +219,9 @@ mod imp {
                         );
                     }
 
-                    // We don't use the count in the strings so we use separate gettext calls for
-                    // singular and plural rather than using ngettext.
+                    // We don't use the count in the strings so we use separate
+                    // gettext calls for singular and plural rather than using
+                    // ngettext.
                     if n == 0 {
                         self.close();
                     } else if n == 1 {

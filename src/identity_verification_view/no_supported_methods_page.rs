@@ -146,15 +146,15 @@ impl NoSupportedMethodsPage {
             let name = verification.user().display_name();
             if was_accepted {
                 gettext_f(
-                    // Translators: Do NOT translate the content between '{' and '}', this is a
-                    // variable name.
+                    // Translators: Do NOT translate the content between '{' and
+                    // '}', this is a variable name.
                     "None of the methods offered by {user}’s client are supported by Fractal.",
                     &[("user", &format!("<b>{name}</b>"))],
                 )
             } else {
                 gettext_f(
-                    // Translators: Do NOT translate the content between '{' and '}', this is a
-                    // variable name.
+                    // Translators: Do NOT translate the content between '{' and
+                    // '}', this is a variable name.
                     "{user} sent a verification request, but none of the methods offered by the other client are supported by Fractal.",
                     &[("user", &format!("<b>{name}</b>"))],
                 )

@@ -207,8 +207,8 @@ mod imp {
                     handlers.extend([membership_handler, power_level_handler]);
                 }
 
-                // We do not need to listen to changes of the property, it never changes after
-                // construction.
+                // We do not need to listen to changes of the property, it never
+                // changes after construction.
                 let is_own_user = user.is_own_user();
                 self.ignored_row.set_visible(!is_own_user);
 
@@ -351,11 +351,13 @@ mod imp {
                     Some(pgettext("member", "Banned"))
                 }
                 Membership::Knock => {
-                    // Translators: As in, 'The room member requested an invite'.
+                    // Translators: As in, 'The room member requested an
+                    // invite'.
                     Some(pgettext("member", "Requested an Invite"))
                 }
                 Membership::Unsupported => {
-                    // Translators: As in, 'The room member has an unknown role'.
+                    // Translators: As in, 'The room member has an unknown
+                    // role'.
                     Some(pgettext("member", "Unknown"))
                 }
             };
@@ -676,8 +678,8 @@ mod imp {
                 toast!(
                     self.obj(),
                     ngettext(
-                        // Translators: Do NOT translate the content between '{' and '}',
-                        // this is a variable name.
+                        // Translators: Do NOT translate the content between '{'
+                        // and '}', this is a variable name.
                         "Could not remove 1 message sent by the user",
                         "Could not remove {n} messages sent by the user",
                         n,

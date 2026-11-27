@@ -261,7 +261,8 @@ mod imp {
                 return;
             }
 
-            // If there is no other session available, we can only use recovery or reset.
+            // If there is no other session available, we can only use recovery
+            // or reset.
             if crypto_identity_state == CryptoIdentityState::LastManStanding {
                 let recovery_view = if recovery_state == RecoveryState::Disabled {
                     // If recovery is disabled, we can only reset.

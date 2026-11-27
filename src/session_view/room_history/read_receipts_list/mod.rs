@@ -252,8 +252,8 @@ mod imp {
 
             let text = (n_items > 0).then(|| {
                 ngettext_f(
-                    // Translators: Do NOT translate the content between '{' and '}', this is a
-                    // variable name.
+                    // Translators: Do NOT translate the content between '{' and
+                    // '}', this is a variable name.
                     "Seen by 1 member",
                     "Seen by {n} members",
                     n_items,
@@ -266,8 +266,8 @@ mod imp {
 
         /// Update the tooltip of this list for a single member.
         fn update_member_tooltip(&self, member: &Member) {
-            // Translators: Do NOT translate the content between '{' and '}', this is a
-            // variable name.
+            // Translators: Do NOT translate the content between '{' and '}',
+            // this is a variable name.
             let text = gettext_f("Seen by {name}", &[("name", &member.disambiguated_name())]);
 
             self.obj().set_tooltip_text(Some(&text));

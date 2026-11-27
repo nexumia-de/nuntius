@@ -140,8 +140,8 @@ mod imp {
                 // Focus the default widget when the transition has ended.
                 self.grab_focus();
 
-                // Drop the page to scan QR codes if it is not the current page, to free the
-                // camera.
+                // Drop the page to scan QR codes if it is not the current page,
+                // to free the camera.
                 if let Some(scan_qrcode_page) = self.main_stack.child_by_name("scan-qrcode")
                     && self.main_stack.visible_child_name().as_deref() != Some("scan-qrcode")
                 {

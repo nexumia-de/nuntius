@@ -92,8 +92,8 @@ mod tests {
 
     #[gtk::test]
     fn construct() {
-        // Check that the GObject is constructed successfully, i.e. the template file is
-        // valid.
+        // Check that the GObject is constructed successfully, i.e. the template
+        // file is valid.
         load_gresources();
         LoginInBrowserPage::new();
     }

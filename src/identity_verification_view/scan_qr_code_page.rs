@@ -158,8 +158,8 @@ impl ScanQrCodePage {
             let name = verification.user().display_name();
             imp.title.set_markup(&gettext("Verification Request"));
             imp.instructions.set_markup(&gettext_f(
-                // Translators: Do NOT translate the content between '{' and '}', this is a
-                // variable name.
+                // Translators: Do NOT translate the content between '{' and
+                // '}', this is a variable name.
                 "Scan the QR code shown on the device of {user}.",
                 &[("user", &format!("<b>{name}</b>"))],
             ));

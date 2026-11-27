@@ -291,8 +291,8 @@ mod imp {
         fn user_avatar_changed(&self, uri: Option<&OwnedMxcUri>) {
             if let Some(action) = self.changing_avatar.borrow().as_ref() {
                 if uri != action.as_value() {
-                    // This is not the change we expected, maybe another device did a change too.
-                    // Let's wait for another change.
+                    // This is not the change we expected, maybe another device
+                    // did a change too. Let's wait for another change.
                     return;
                 }
             } else {
@@ -372,17 +372,18 @@ mod imp {
 
             match handle.await.expect("task was not aborted") {
                 Ok(()) => {
-                    // If the user is in no rooms, we won't receive the update via sync, so change
-                    // the avatar manually if this request succeeds before the avatar is updated.
-                    // Because this action can finish in user_avatar_changed, we must only act if
-                    // this is still the current action.
+                    // If the user is in no rooms, we won't receive the update
+                    // via sync, so change the avatar manually if this request
+                    // succeeds before the avatar is updated. Because this
+                    // action can finish in user_avatar_changed, we must only
+                    // act if this is still the current action.
                     if weak_action.is_ongoing() {
                         session.user().set_avatar_url(Some(uri));
                     }
                 }
                 Err(error) => {
-                    // Because this action can finish in user_avatar_changed, we must only act if
-                    // this is still the current action.
+                    // Because this action can finish in user_avatar_changed, we
+                    // must only act if this is still the current action.
                     if weak_action.is_ongoing() {
                         self.changing_avatar.take();
                         error!("Could not change user avatar: {error}");
@@ -428,17 +429,18 @@ mod imp {
 
             match handle.await.expect("task was not aborted") {
                 Ok(()) => {
-                    // If the user is in no rooms, we won't receive the update via sync, so change
-                    // the avatar manually if this request succeeds before the avatar is updated.
-                    // Because this action can finish in avatar_changed, we must only act if this is
-                    // still the current action.
+                    // If the user is in no rooms, we won't receive the update
+                    // via sync, so change the avatar manually if this request
+                    // succeeds before the avatar is updated. Because this
+                    // action can finish in avatar_changed, we must only act if
+                    // this is still the current action.
                     if weak_action.is_ongoing() {
                         session.user().set_avatar_url(None);
                     }
                 }
                 Err(error) => {
-                    // Because this action can finish in avatar_changed, we must only act if this is
-                    // still the current action.
+                    // Because this action can finish in avatar_changed, we must
+                    // only act if this is still the current action.
                     if weak_action.is_ongoing() {
                         self.changing_avatar.take();
                         error!("Could not remove user avatar: {error}");
@@ -472,8 +474,8 @@ mod imp {
         fn user_display_name_changed(&self, name: &str) {
             if let Some(action) = self.changing_display_name.borrow().as_ref() {
                 if action.as_value().map(String::as_str) == Some(name) {
-                    // This is not the change we expected, maybe another device did a change too.
-                    // Let's wait for another change.
+                    // This is not the change we expected, maybe another device
+                    // did a change too. Let's wait for another change.
                     return;
                 }
             } else {
@@ -527,17 +529,19 @@ mod imp {
 
             match handle.await.expect("task was not aborted") {
                 Ok(()) => {
-                    // If the user is in no rooms, we won't receive the update via sync, so change
-                    // the avatar manually if this request succeeds before the avatar is updated.
-                    // Because this action can finish in user_display_name_changed, we must only act
-                    // if this is still the current action.
+                    // If the user is in no rooms, we won't receive the update
+                    // via sync, so change the avatar manually if this request
+                    // succeeds before the avatar is updated. Because this
+                    // action can finish in user_display_name_changed, we must
+                    // only act if this is still the current action.
                     if weak_action.is_ongoing() {
                         session.user().set_name(Some(display_name));
                     }
                 }
                 Err(error) => {
-                    // Because this action can finish in user_display_name_changed, we must only act
-                    // if this is still the current action.
+                    // Because this action can finish in
+                    // user_display_name_changed, we must only act if this is
+                    // still the current action.
                     if weak_action.is_ongoing() {
                         self.changing_display_name.take();
                         error!("Could not change user display name: {error}");

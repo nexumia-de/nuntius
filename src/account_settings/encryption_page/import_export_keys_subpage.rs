@@ -146,7 +146,8 @@ mod imp {
             let obj = self.obj();
 
             if self.is_export() {
-                // Translators: 'Room encryption keys' are encryption keys for all rooms.
+                // Translators: 'Room encryption keys' are encryption keys for
+                // all rooms.
                 obj.set_title(&gettext("Export Room Encryption Keys"));
                 self.description.set_label(&gettext(
                         // Translators: 'Room encryption keys' are encryption keys for all rooms.
@@ -158,7 +159,8 @@ mod imp {
                 self.confirm_passphrase_box.set_visible(true);
                 self.proceed_button.set_title(&gettext("Export Keys"));
             } else {
-                // Translators: 'Room encryption keys' are encryption keys for all rooms.
+                // Translators: 'Room encryption keys' are encryption keys for
+                // all rooms.
                 obj.set_title(&gettext("Import Room Encryption Keys"));
                 self.description.set_label(&gettext(
                         // Translators: 'Room encryption keys' are encryption keys for all rooms.
@@ -187,8 +189,8 @@ mod imp {
             if let Some(file) = self.file_path.borrow().as_ref() {
                 dialog.set_initial_file(Some(file));
             } else if is_export {
-                // Translators: Do no translate "fractal" as it is the application
-                // name.
+                // Translators: Do no translate "fractal" as it is the
+                // application name.
                 dialog
                     .set_initial_name(Some(&format!("{}.txt", gettext("fractal-encryption-keys"))));
             }

@@ -44,8 +44,8 @@ impl RemoteCache {
             return room.clone();
         }
 
-        // Check if the alias or ID matches a room in the cache, in case the URI uses
-        // another ID than the one we used as a key for the cache.
+        // Check if the alias or ID matches a room in the cache, in case the URI
+        // uses another ID than the one we used as a key for the cache.
         let mut found_id = None;
         let id_or_alias = <&RoomId>::try_from(&*uri.id);
 

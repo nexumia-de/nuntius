@@ -520,7 +520,8 @@ mod imp {
 
             let own_pl = permissions.own_power_level();
             let own_max = if let UserPowerLevel::Int(pl) = own_pl {
-                // We cannot change any power level to something higher than ours.
+                // We cannot change any power level to something higher than
+                // ours.
                 i64::from(pl)
             } else {
                 // We can change the power level to any valid value.
@@ -613,8 +614,8 @@ mod imp {
             let mut redact_own = self.redact_own_row.selected_power_level();
             let redact_others = self.redact_others_row.selected_power_level();
 
-            // redact_own cannot be higher than redact_others because redact_others depends
-            // also on redact_own.
+            // redact_own cannot be higher than redact_others because
+            // redact_others depends also on redact_own.
             redact_own = redact_own.min(redact_others);
             set_event_power_level(
                 &mut power_levels,
@@ -743,8 +744,8 @@ mod imp {
             let redact_own = self.redact_own_row.selected_power_level();
             let redact_others = self.redact_others_row.selected_power_level();
 
-            // redact_own cannot be higher than redact_others because redact_others depends
-            // also on redact_own.
+            // redact_own cannot be higher than redact_others because
+            // redact_others depends also on redact_own.
             if redact_others < redact_own {
                 self.update_in_progress.set(true);
 
@@ -767,8 +768,8 @@ mod imp {
             let redact_own = self.redact_own_row.selected_power_level();
             let redact_others = self.redact_others_row.selected_power_level();
 
-            // redact_own cannot be higher than redact_others because redact_others depends
-            // also on redact_own.
+            // redact_own cannot be higher than redact_others because
+            // redact_others depends also on redact_own.
             if redact_others < redact_own {
                 self.update_in_progress.set(true);
 

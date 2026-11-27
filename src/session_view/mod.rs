@@ -210,9 +210,9 @@ mod imp {
                     let show_content = content.item().is_some();
                     imp.split_view.set_show_content(show_content);
 
-                    // Only grab focus for the sidebar here. We handle the other case in
-                    // `Content::set_item()` directly, because we need to grab focus only
-                    // after the visible content changed.
+                    // Only grab focus for the sidebar here. We handle the other
+                    // case in `Content::set_item()` directly, because we need
+                    // to grab focus only after the visible content changed.
                     if !show_content {
                         imp.sidebar.grab_focus();
                     }
@@ -237,16 +237,16 @@ mod imp {
                             return;
                         }
 
-                        // When the window becomes active, withdraw the notifications
-                        // of the selected item.
+                        // When the window becomes active, withdraw the
+                        // notifications of the selected item.
                         imp.withdraw_selected_item_notifications();
                     }
                 ));
                 imp.window_active_handler_id.replace(Some(handler_id));
             });
 
-            // Make sure all header bars on the same screen have the same height.
-            // Necessary when the text scaling changes.
+            // Make sure all header bars on the same screen have the same
+            // height. Necessary when the text scaling changes.
             let size_group = gtk::SizeGroup::new(gtk::SizeGroupMode::Vertical);
             size_group.add_widget(self.sidebar.header_bar());
 
@@ -323,8 +323,9 @@ mod imp {
 
             self.select_item(Some(room.upcast()));
 
-            // Now scroll to the room to make sure that it is in the viewport, and that it
-            // is focused in the list for users using keyboard navigation.
+            // Now scroll to the room to make sure that it is in the viewport,
+            // and that it is focused in the list for users using keyboard
+            // navigation.
             self.sidebar.scroll_to_selection();
         }
 
@@ -425,7 +426,8 @@ mod imp {
 
             for index in search_order {
                 let Some(item) = selection_list.item(index) else {
-                    // The list of rooms was mutated: let's give up responding to the key binding.
+                    // The list of rooms was mutated: let's give up responding
+                    // to the key binding.
                     return;
                 };
 

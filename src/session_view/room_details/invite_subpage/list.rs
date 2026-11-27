@@ -166,7 +166,8 @@ mod imp {
             };
 
             let Some(search_term) = self.search_term.borrow().clone() else {
-                // Do nothing for no search term, but reset state when currently loading.
+                // Do nothing for no search term, but reset state when currently
+                // loading.
                 if self.state.get() == InviteListState::Loading {
                     self.set_state(InviteListState::Initial);
                 }
@@ -187,8 +188,8 @@ mod imp {
 
             let abort_handle = handle.abort_handle();
 
-            // Keep the abort handle so we can abort the request if the user changes the
-            // search term.
+            // Keep the abort handle so we can abort the request if the user
+            // changes the search term.
             if let Some(prev_abort_handle) = self.abort_handle.replace(Some(abort_handle)) {
                 // Abort the previous request.
                 prev_abort_handle.abort();
@@ -229,12 +230,12 @@ mod imp {
                 return;
             };
 
-            // We should have a strong reference to the list in the main page so we can use
-            // `get_or_create_members()`.
+            // We should have a strong reference to the list in the main page so
+            // we can use `get_or_create_members()`.
             let member_list = self.room().get_or_create_members();
 
-            // If the search term looks like a user ID and it is not already in the
-            // response, we will insert it in the list.
+            // If the search term looks like a user ID and it is not already in
+            // the response, we will insert it in the list.
             let search_term_user_id = UserId::parse(search_term)
                 .ok()
                 .filter(|user_id| !results.iter().any(|item| item.user_id == *user_id));
@@ -268,8 +269,8 @@ mod imp {
                 if let Some(item) = invitee {
                     let user = item.user();
 
-                    // The profile data may have changed in the meantime, but don't overwrite a
-                    // joined member's data.
+                    // The profile data may have changed in the meantime, but
+                    // don't overwrite a joined member's data.
                     if !user
                         .downcast_ref::<Member>()
                         .is_some_and(|m| m.membership() == Membership::Join)
@@ -293,8 +294,8 @@ mod imp {
                     continue;
                 }
 
-                // If it's the dummy result for the search term user ID, use the remote cache to
-                // fetch its profile.
+                // If it's the dummy result for the search term user ID, use the
+                // remote cache to fetch its profile.
                 if search_term_user_id
                     .as_ref()
                     .is_some_and(|user_id| *user_id == result.user_id)

@@ -73,7 +73,8 @@ mod imp {
 
     impl WidgetImpl for PermissionsMemberRow {
         fn focus(&self, _direction_type: gtk::DirectionType) -> bool {
-            // Regardless of the direction, we can only focus this widget and no children.
+            // Regardless of the direction, we can only focus this widget and no
+            // children.
             let obj = self.obj();
             if obj.is_focus() {
                 false
@@ -215,7 +216,8 @@ mod imp {
             let room_power_level = permissions.user_power_level(user.user_id());
 
             if room_power_level == power_level {
-                // The power level was reset to the one in the room, nothing to check.
+                // The power level was reset to the one in the room, nothing to
+                // check.
                 member.set_power_level(power_level.into());
                 return;
             }

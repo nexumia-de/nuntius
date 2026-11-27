@@ -196,7 +196,8 @@ mod imp {
             let metadata = match handle.await.expect("task was not aborted") {
                 Ok(metadata) => Some(metadata),
                 Err(error) => {
-                    // Ignore the error that says that OAuth 2.0 is not supported, it can happen.
+                    // Ignore the error that says that OAuth 2.0 is not
+                    // supported, it can happen.
                     if !matches!(error, OAuthDiscoveryError::NotSupported) {
                         warn!("Could not fetch OAuth 2.0 authorization server metadata: {error}");
                     }

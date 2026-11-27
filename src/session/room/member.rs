@@ -183,8 +183,8 @@ mod imp {
             if let UserPowerLevel::Int(power_level) = self.power_level.get() {
                 power_level.into()
             } else {
-                // Represent the infinite power level with a value out of range for a power
-                // level.
+                // Represent the infinite power level with a value out of range
+                // for a power level.
                 i64::MAX
             }
         }

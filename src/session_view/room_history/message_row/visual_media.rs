@@ -163,13 +163,13 @@ mod imp {
                 for_size.min(max_for_size)
             };
 
-            // Use the size measured by the media child when we can, it is the natural size
-            // of the media.
+            // Use the size measured by the media child when we can, it is the
+            // natural size of the media.
             if self.stack.visible_child_name().as_deref() == Some(MEDIA_PAGE)
                 && let Some(child) = self.media_child::<gtk::Widget>()
             {
-                // Get the intrinsic size of the media to avoid upscaling it. It is the size
-                // returned by GtkPicture when for_size is -1.
+                // Get the intrinsic size of the media to avoid upscaling it. It
+                // is the size returned by GtkPicture when for_size is -1.
                 let other_orientation = if orientation == gtk::Orientation::Vertical {
                     gtk::Orientation::Horizontal
                 } else {
@@ -529,7 +529,8 @@ mod imp {
                     let placeholder_texture = blurhash.into_texture(dimensions).await;
 
                     if imp.cache_key.borrow().should_reload(&cache_key) {
-                        // The media has changed while this was loading, drop the placeholder.
+                        // The media has changed while this was loading, drop
+                        // the placeholder.
                         return;
                     }
 
@@ -666,7 +667,8 @@ mod imp {
             };
 
             if self.state.get() != LoadingState::Loading {
-                // Something occurred after the task was spawned, cancel the task.
+                // Something occurred after the task was spawned, cancel the
+                // task.
                 return;
             }
 
@@ -691,7 +693,8 @@ mod imp {
             };
 
             if self.state.get() != LoadingState::Loading {
-                // Something occurred while the image was loading, cancel the task.
+                // Something occurred while the image was loading, cancel the
+                // task.
                 return;
             }
 
@@ -729,7 +732,8 @@ mod imp {
             };
 
             if self.state.get() != LoadingState::Loading {
-                // Something occurred after the task was spawned, cancel the task.
+                // Something occurred after the task was spawned, cancel the
+                // task.
                 return;
             }
 
@@ -743,7 +747,8 @@ mod imp {
             };
 
             if self.state.get() != LoadingState::Loading {
-                // Something occurred while the video was loading, cancel the task.
+                // Something occurred while the video was loading, cancel the
+                // task.
                 return;
             }
 

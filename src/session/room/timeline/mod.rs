@@ -137,7 +137,8 @@ mod imp {
                 #[upgrade_or]
                 true,
                 move |obj| {
-                    // Hide the timeline start item if we have the `m.room.create` event too.
+                    // Hide the timeline start item if we have the
+                    // `m.room.create` event too.
                     obj.downcast_ref::<VirtualItem>().is_none_or(|item| {
                         !(imp.has_room_create.get()
                             && item.kind() == VirtualItemKind::TimelineStart)
@@ -561,8 +562,8 @@ mod imp {
 
             self.sdk_items().splice(pos, n_removals, additions);
 
-            // Update the header visibility of all the new additions, and the first item
-            // after this batch.
+            // Update the header visibility of all the new additions, and the
+            // first item after this batch.
             self.update_items_headers(pos, additions.len() as u32);
 
             // Try to update the latest unread message.
@@ -589,7 +590,8 @@ mod imp {
             }
             .unzip();
 
-            // Update the headers of changed events plus the first event after them.
+            // Update the headers of changed events plus the first event after
+            // them.
             for i in pos..=pos + nb {
                 let Some(current) = self.item_at(i) else {
                     break;
@@ -645,10 +647,11 @@ mod imp {
                     .chain(event.event_id().map(TimelineEventItemId::EventId));
 
                 for id in identifiers {
-                    // We check if we are removing the right event, in case we receive a diff that
-                    // adds an existing event to another place, making us create a new event, before
-                    // another diff that removes it from its old place, making us remove the old
-                    // event.
+                    // We check if we are removing the right event, in case we
+                    // receive a diff that adds an existing event to another
+                    // place, making us create a new event, before another diff
+                    // that removes it from its old place, making us remove the
+                    // old event.
                     let found = event_map.get(&id).is_some_and(|e| e == event);
 
                     if found {
@@ -666,9 +669,9 @@ mod imp {
         /// Whether we can load more events at the start of the timeline with
         /// the current state.
         pub(super) fn can_paginate_backwards(&self) -> bool {
-            // We do not want to load twice at the same time, and it's useless to try to
-            // load more history before the timeline is ready or if we have
-            // reached the start of the timeline.
+            // We do not want to load twice at the same time, and it's useless
+            // to try to load more history before the timeline is ready or if we
+            // have reached the start of the timeline.
             self.state.get() != LoadingState::Initial
                 && !self.is_loading_start.get()
                 && !self.has_reached_start.get()
@@ -815,8 +818,8 @@ mod imp {
             item.update_with(data);
 
             if let Some(event) = item.downcast_ref::<Event>() {
-                // Update the identifier in the event map, in case we switched from a
-                // transaction ID to an event ID.
+                // Update the identifier in the event map, in case we switched
+                // from a transaction ID to an event ID.
                 self.event_map
                     .borrow_mut()
                     .insert(event.identifier(), event.clone());
@@ -1049,8 +1052,8 @@ impl Timeline {
         }
 
         // This should only happen if we do not have a read receipt item in the
-        // timeline, and there are not enough events in the timeline to know if there
-        // are unread messages.
+        // timeline, and there are not enough events in the timeline to know if
+        // there are unread messages.
         None
     }
 

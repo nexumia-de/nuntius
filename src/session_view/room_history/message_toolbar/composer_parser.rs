@@ -184,8 +184,8 @@ impl<'a> ComposerParser<'a> {
             RoomMessageEventContentWithoutRelation::text_plain(plain_body)
         };
 
-        // To avoid triggering legacy pushrules, we must always include the mentions,
-        // even if they are empty.
+        // To avoid triggering legacy pushrules, we must always include the
+        // mentions, even if they are empty.
         content = content.add_mentions(mentions);
 
         Some(content)

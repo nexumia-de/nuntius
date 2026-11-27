@@ -66,7 +66,8 @@ mod imp {
             let obj = self.obj();
 
             if let Some(popover) = popover {
-                // We need to remove the popover from the previous button, if any.
+                // We need to remove the popover from the previous button, if
+                // any.
                 if let Some(parent) = popover
                     .parent()
                     .and_downcast::<super::AccountSwitcherButton>()

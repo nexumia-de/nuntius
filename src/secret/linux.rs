@@ -205,8 +205,8 @@ impl StoredSession {
         );
 
         if from_version < 7 {
-            // Version 7 moves the access token to a separate file. Only the passphrase is
-            // stored as the secret now.
+            // Version 7 moves the access token to a separate file. Only the
+            // passphrase is stored as the secret now.
             info!("Migrating to version 7…");
 
             let (attributes, passphrase) = self.clone().into_parts();
@@ -244,8 +244,8 @@ impl StoredSession {
         keyring
             .create_item(
                 &gettext_f(
-                    // Translators: Do NOT translate the content between '{' and '}', this is a
-                    // variable name.
+                    // Translators: Do NOT translate the content between '{' and
+                    // '}', this is a variable name.
                     "Fractal: Matrix credentials for {user_id}",
                     &[("user_id", attributes.user_id.as_str())],
                 ),
@@ -448,8 +448,8 @@ impl SecretData {
     ///
     /// Returns `None` if the secret data is invalid.
     fn try_from_secret(version: u8, secret: &Secret) -> Option<Self> {
-        // Even if we store the secret as plain text, the file backend always returns a
-        // blob so let's always treat it as bytes.
+        // Even if we store the secret as plain text, the file backend always
+        // returns a blob so let's always treat it as bytes.
         let bytes = secret.as_bytes();
 
         if version <= 6 {

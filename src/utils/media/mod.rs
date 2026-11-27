@@ -197,11 +197,14 @@ impl FrameDimensions {
         let h_ratio = f64::from(self.height) / f64::from(requested.height);
 
         let resize_from_width = match content_fit {
-            // The largest ratio wins so the frame fits into the requested dimensions.
+            // The largest ratio wins so the frame fits into the requested
+            // dimensions.
             gtk::ContentFit::Contain | gtk::ContentFit::ScaleDown => w_ratio > h_ratio,
-            // The smallest ratio wins so the frame fills the requested dimensions.
+            // The smallest ratio wins so the frame fills the requested
+            // dimensions.
             gtk::ContentFit::Cover => w_ratio < h_ratio,
-            // We just return the requested dimensions since we do not care about the ratio.
+            // We just return the requested dimensions since we do not care
+            // about the ratio.
             _ => return requested,
         };
         let downscale_only = content_fit == gtk::ContentFit::ScaleDown;

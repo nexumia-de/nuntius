@@ -317,8 +317,8 @@ mod imp {
         /// Set the media file to play.
         async fn set_file(&self, file: File) {
             let notifier = MEDIA_FILE_NOTIFIER.clone();
-            // Send a notification to make sure that other media files are dropped before
-            // playing this one.
+            // Send a notification to make sure that other media files are
+            // dropped before playing this one.
             notifier.notify();
 
             let media_file = gtk::MediaFile::new();
@@ -338,7 +338,8 @@ mod imp {
                     let mut duration = media_file.duration();
                     let timestamp = media_file.timestamp();
 
-                    // The duration should always be bigger than the timestamp, but let's be safe.
+                    // The duration should always be bigger than the timestamp,
+                    // but let's be safe.
                     if duration != 0 && timestamp > duration {
                         duration = timestamp;
                     }
@@ -364,12 +365,12 @@ mod imp {
                 self,
                 move |media_file| {
                     if media_file.is_prepared() {
-                        // The media file should only become prepared after the user clicked play,
-                        // so start playing it.
+                        // The media file should only become prepared after the
+                        // user clicked play, so start playing it.
                         media_file.set_playing(true);
 
-                        // If the user selected a position while we didn't have a media file, seek
-                        // to it.
+                        // If the user selected a position while we didn't have
+                        // a media file, seek to it.
                         let position = imp.waveform.position();
                         if position > 0.0 {
                             media_file
@@ -394,10 +395,10 @@ mod imp {
             self.media_file.replace(Some(media_file));
             self.file.replace(Some(file));
 
-            // We use a shared notifier to make sure that only a single media file can be
-            // loaded at a time.
-            // We cannot keep a strong reference while `.await`ing, or it will prevent from
-            // destroying the player.
+            // We use a shared notifier to make sure that only a single media
+            // file can be loaded at a time.
+            // We cannot keep a strong reference while `.await`ing, or it will
+            // prevent from destroying the player.
             let weak_imp = self.downgrade();
             spawn!(async move {
                 let receiver = if let Some(imp) = weak_imp.upgrade() {
@@ -411,16 +412,17 @@ mod imp {
                 receiver.await;
 
                 if let Some(imp) = weak_imp.upgrade() {
-                    // If we still have a copy of the notifier now, it means that this was called
-                    // from outside this instance, so we need to clear it.
+                    // If we still have a copy of the notifier now, it means
+                    // that this was called from outside this instance, so we
+                    // need to clear it.
                     if imp.media_notifier.take().is_some() {
                         imp.clear();
                     }
                 }
             });
 
-            // Reload the waveform if we got it from a message, because we cannot trust the
-            // sender.
+            // Reload the waveform if we got it from a message, because we
+            // cannot trust the sender.
             if self
                 .source
                 .borrow()

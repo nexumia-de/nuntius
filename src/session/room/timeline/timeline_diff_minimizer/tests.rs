@@ -57,8 +57,8 @@ impl TimelineDiffItemStore for TestTimelineDiffItemStore {
 
                     items.splice(pos..pos + n_removals, splice_diff.additions);
 
-                    // Set all the new additions and the first one after the current batch as
-                    // processed.
+                    // Set all the new additions and the first one after the
+                    // current batch as processed.
                     for item in items.iter().skip(pos).take(n_additions + 1) {
                         item.set_processed(true);
                     }
@@ -73,7 +73,8 @@ impl TimelineDiffItemStore for TestTimelineDiffItemStore {
                         "len = {len}; pos = {pos}; n_items = {n_items}"
                     );
 
-                    // Mark them all and the first one after the current batch as processed.
+                    // Mark them all and the first one after the current batch
+                    // as processed.
                     for item in items.iter().skip(pos).take(n_items + 1) {
                         item.set_processed(true);
                     }

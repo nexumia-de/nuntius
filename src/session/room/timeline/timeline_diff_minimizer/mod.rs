@@ -208,8 +208,8 @@ where
             return Vec::new();
         }
 
-        // First, ignore unchanged items at the beginning and end of the list, it will
-        // make the diff algorithm faster.
+        // First, ignore unchanged items at the beginning and end of the list,
+        // it will make the diff algorithm faster.
         let start = old_item_ids
             .iter()
             .zip(new_item_ids)
